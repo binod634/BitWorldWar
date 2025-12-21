@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx3x0dcvttiwc"]
+
+[ext_resource type="PackedScene" uid="uid://ddew41squ7of3" path="res://scenes/objects/land.tscn" id="1_8dokk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8dokk"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_i3a2a"]
+sky_material = SubResource("ProceduralSkyMaterial_8dokk")
+
+[sub_resource type="Environment" id="Environment_ms0ej"]
+background_mode = 2
+sky = SubResource("Sky_i3a2a")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8dokk"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8dokk"]
+size = Vector2(20, 20)
+
+[node name="MainGame" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 5.8353515, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ms0ej")
+
+[node name="Node3D" parent="." instance=ExtResource("1_8dokk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2493999)
+
+[node name="Node3D2" parent="." instance=ExtResource("1_8dokk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.8628619)
+
+[node name="Node3D3" parent="." instance=ExtResource("1_8dokk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -0.2493999)
+
+[node name="Node3D4" parent="." instance=ExtResource("1_8dokk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3.8628619)
+
+[node name="GroundCollisionLayer" type="StaticBody3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="GroundCollisionLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98763907, 0)
+shape = SubResource("WorldBoundaryShape3D_8dokk")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.646763, -0.6457224, 0.15561438)
+mesh = SubResource("PlaneMesh_8dokk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3815875, 5.7781706)

@@ -1,0 +1,39 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="trygame"
+run/main_scene="uid://6k5vuafsfg2t"
+config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/image="uid://btpau6rnqju24"
+config/icon="uid://ufsotmk36mn8"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+
+[input_devices]
+
+pointing/android/enable_long_press_as_right_click=true
+pointing/android/enable_pan_and_scale_gestures=true
+
+[physics]
+
+3d/run_on_separate_thread=true
+common/physics_ticks_per_second=30
+3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
