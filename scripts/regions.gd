@@ -1,11 +1,11 @@
 extends Node2D
 
 @onready var navAgent := $"../NavigationAgent2D"
+var to_position:Vector2  = Vector2.ZERO
 var timer:Timer = Timer.new()
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	navAgent.target_position = Vector2(1200,700)
+	navAgent.target_position = Vector2(100,100)
 	
 	await get_tree().process_frame
 	_use_agent()
@@ -21,6 +21,14 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
+		if event.is_pressed():
+			var mouse_pos_world = get_viewport().get_camera_2d().get_global_mouse_position()
+			navAgent.target_position = mouse_pos_world
+			to_position = mouse_pos_world
+
 
 func _use_agent():
-	print(navAgent.get_current_navigation_path())
+	print("path: %s length: %s"%[ navAgent.get_next_path_position(),navAgent.get_path_length() ])
+	pass

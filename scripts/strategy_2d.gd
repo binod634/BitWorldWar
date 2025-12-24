@@ -4,7 +4,7 @@ extends Node2D
 var terriroty:PackedScene =  preload("res://scenes/screens/territory.tscn")
 const file_path:String  = "res://assets/files/simple_countries.json"
 @onready var  rebuild_scene_identifier:Node2D = $"Regions/5882b568d8a010ef48a6896f53b6eddb"
-
+var timer:Timer = Timer.new()
 
 func _ready() -> void:
 	# nothing to run on runtime.game
@@ -12,8 +12,30 @@ func _ready() -> void:
 		return
 		
 	# render map if there isn't any
-	if not rebuild_scene_identifier: _load_real_regions()
+	if not rebuild_scene_identifier: 
+		_load_real_regions()
+		timer.wait_time = 5
+		timer.autostart = true
+		timer.one_shot = true
+		timer.timeout.connect(func ():
+			print("starting baking")
+			$WorldNavigation.bake_navigation_polygon()
+			print("baking ending")
+		)
+		add_child(timer)
+	
+	
 	return
+
+func _make_avoidance_regions(vectors:PackedVector2Array):
+	var avoid:NavigationObstacle2D = NavigationObstacle2D.new()
+	avoid.vertices = vectors
+	avoid.affect_navigation_mesh = true
+	avoid.carve_navigation_mesh = true
+	$WorldNavigation.add_child(avoid)
+	avoid.owner = get_tree().edited_scene_root
+
+	
 
 func _load_real_regions():
 	var countries_list:Array = _load_real_map_data()
@@ -22,6 +44,7 @@ func _load_real_regions():
 		var tmpRegion:Area2D = terriroty.instantiate()
 		var color:Color = string_to_color(country['shapeName'])
 		tmpRegion.name = country['shapeName'].md5_text()
+		tmpRegion.add_avoidance.connect(_make_avoidance_regions)
 		$Regions.add_child(tmpRegion)
 		tmpRegion.owner = get_tree().edited_scene_root
 		tmpRegion.color_value = color

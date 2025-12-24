@@ -1,5 +1,9 @@
 @tool
 extends Area2D
+
+signal add_avoidance(vertices)
+
+
 var country_label:PackedScene = preload("res://scenes/components/country_label.tscn")
 var country_lands:Dictionary = {}
 var lands_count:int = 0
@@ -88,19 +92,23 @@ func _add_full_sided_polygons(tmpvectors:PackedVector2Array):
 		Vector2(Game.resolution.x,0),
 		Vector2(-Game.resolution.x,0),
 	]
+	_add_collision_polygon(tmpvectors)
 	for offsets in offsets_to_have:
 		_add_polygon_with_offset(tmpvectors, offsets)
-		_add_collision_polygon_with_offset(tmpvectors,offsets)
 	
-func _add_collision_polygon_with_offset(tmpvectors:PackedVector2Array,offset:Vector2):
+func _add_collision_polygon(tmpvectors:PackedVector2Array):
 	var polygon2d:CollisionPolygon2D = CollisionPolygon2D.new()
 	#var clean_vertices:PackedVector2Array = _clean_vectors(tmpvectors)
 	check_duplicates(tmpvectors.slice(0,len(tmpvectors ) -1))
 	var clean_vertices:PackedVector2Array = tmpvectors.slice(0,len(tmpvectors)-1)
 	polygon2d.polygon = clean_vertices
-	polygon2d.position = offset
 	add_child(polygon2d)
+	
+	add_avoidance.emit(clean_vertices)
+	
 
+		
+	
 func _clean_vectors(tmpvectors:PackedVector2Array) -> PackedVector2Array:
 	diagnose_collision_polygon(tmpvectors)
 	var cleaned_vertex:PackedVector2Array = []

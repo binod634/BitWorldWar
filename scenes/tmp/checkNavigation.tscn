@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwfeumwbs60nb"]
+
+[ext_resource type="Texture2D" uid="uid://crstiq4ei3xwb" path="res://assets/images/dollar.png" id="1_6uu27"]
+[ext_resource type="Script" uid="uid://bpr2q0uv11bk7" path="res://scenes/tmp/scripts/character.gd" id="1_f3cra"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f3cra"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f3cra"]
+vertices = PackedVector2Array(1544.8828, 1045.6094, -408.35156, 964.3906, -453.64063, -239.61719, 1671, -371.29688)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-464, -249, 1682, -382, 1554, 1056, -418, 974)])
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(1330, 0, 1318, 772, 265, 748, -20, 736, -18, -32, 1281, -51)
+
+[node name="markers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="markers"]
+position = Vector2(155, 119)
+
+[node name="Marker2D4" type="Marker2D" parent="markers"]
+position = Vector2(892, 516)
+
+[node name="Marker2D2" type="Marker2D" parent="markers"]
+position = Vector2(586, 73)
+
+[node name="Marker2D3" type="Marker2D" parent="markers"]
+position = Vector2(114, 356)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(84, 95)
+script = ExtResource("1_f3cra")
+
+[node name="Dollar" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_6uu27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_f3cra")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="CharacterBody2D"]
+path_max_distance = 718.0
+avoidance_enabled = true
+radius = 50.0
+debug_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_f3cra")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(456, 217)
+radius = 175.12
+vertices = PackedVector2Array(-42, -169, -266, 166, 64, 414, 236, -25)
+
+[connection signal="velocity_computed" from="CharacterBody2D/NavigationAgent2D" to="CharacterBody2D" method="_on_velocity_computed"]
