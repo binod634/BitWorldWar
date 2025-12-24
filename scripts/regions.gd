@@ -31,4 +31,3 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _use_agent():
 	print("path: %s length: %s"%[ navAgent.get_next_path_position(),navAgent.get_path_length() ])
-	pass

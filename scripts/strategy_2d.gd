@@ -26,13 +26,41 @@ func _ready() -> void:
 	
 	
 	return
+	
+func _make_land_sea_regions(vectors:PackedVector2Array):
+	#_make_avoidance_regions_for_sea(vectors)
+	_make_land_layer(vectors)
 
-func _make_avoidance_regions(vectors:PackedVector2Array):
+
+func _make_land_layer(vectors: PackedVector2Array):
+	var nav_region = NavigationRegion2D.new()
+	
+	# Create the navigation polygon and add outline
+	var nav_polygon = NavigationPolygon.new()
+	nav_polygon.add_outline(vectors)
+	nav_polygon.agent_radius = 0.1
+	nav_region.enter_cost = 100
+	nav_region.travel_cost = 2.0
+	# Bake the polygon properly (no deprecated warnings)
+	var source_data = NavigationMeshSourceGeometryData2D.new()
+	NavigationServer2D.parse_source_geometry_data(nav_polygon, source_data, self)
+	NavigationServer2D.bake_from_source_geometry_data(nav_polygon,source_data)
+	
+	# Assign polygon and layers
+	nav_region.navigation_polygon = nav_polygon
+	nav_region.navigation_layers = 1 << 1  # Layer 2
+	
+	# Add to scene
+	$WorldNavigation/LandNavigation.add_child(nav_region)
+	nav_region.owner = get_tree().edited_scene_root
+
+
+func _make_avoidance_regions_for_sea(vectors:PackedVector2Array):
 	var avoid:NavigationObstacle2D = NavigationObstacle2D.new()
 	avoid.vertices = vectors
 	avoid.affect_navigation_mesh = true
 	avoid.carve_navigation_mesh = true
-	$WorldNavigation.add_child(avoid)
+	$WorldNavigation/SeaNavigation.add_child(avoid)
 	avoid.owner = get_tree().edited_scene_root
 
 	
@@ -44,7 +72,7 @@ func _load_real_regions():
 		var tmpRegion:Area2D = terriroty.instantiate()
 		var color:Color = string_to_color(country['shapeName'])
 		tmpRegion.name = country['shapeName'].md5_text()
-		tmpRegion.add_avoidance.connect(_make_avoidance_regions)
+		tmpRegion.add_avoidance.connect(_make_land_sea_regions)
 		$Regions.add_child(tmpRegion)
 		tmpRegion.owner = get_tree().edited_scene_root
 		tmpRegion.color_value = color

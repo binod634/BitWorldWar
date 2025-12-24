@@ -105,7 +105,6 @@ func _add_collision_polygon(tmpvectors:PackedVector2Array):
 	add_child(polygon2d)
 	
 	add_avoidance.emit(clean_vertices)
-	
 
 		
 	
