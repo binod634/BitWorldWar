@@ -16,11 +16,18 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/image="uid://btpau6rnqju24"
 config/icon="uid://ufsotmk36mn8"
 
+[autoload]
+
+Game="*res://scripts/Game.gd"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=4
+mouse_cursor/custom_image="uid://coqdmrci7i7h2"
 
 [input_devices]
 
@@ -29,10 +36,11 @@ pointing/android/enable_pan_and_scale_gestures=true
 
 [physics]
 
+2d/run_on_separate_thread=true
 3d/run_on_separate_thread=true
 common/physics_ticks_per_second=30
+common/physics_jitter_fix=0.0
 3d/physics_engine="Jolt Physics"
-common/physics_interpolation=true
 
 [rendering]
 

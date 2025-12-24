@@ -1,12 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpr465mf0ckgx"]
+[gd_scene load_steps=3 format=3 uid="uid://dpr465mf0ckgx"]
 
+[ext_resource type="LabelSettings" uid="uid://c67al8jjndkqi" path="res://scenes/objects/label.tres" id="1_i3f6n"]
 [ext_resource type="Script" uid="uid://f611wt2y3mr2" path="res://scenes/components/scripts/fps_label.gd" id="1_k1b1b"]
-
-[sub_resource type="SystemFont" id="SystemFont_kwotq"]
-font_weight = 999
-
-[sub_resource type="LabelSettings" id="LabelSettings_k1b1b"]
-font = SubResource("SystemFont_kwotq")
 
 [node name="Fps" type="Control"]
 layout_mode = 3
@@ -20,8 +15,8 @@ layout_direction = 3
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -29,5 +24,5 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "FPS: 11"
-label_settings = SubResource("LabelSettings_k1b1b")
+label_settings = ExtResource("1_i3f6n")
 script = ExtResource("1_k1b1b")
