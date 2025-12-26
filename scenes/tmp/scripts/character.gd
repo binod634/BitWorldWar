@@ -10,7 +10,7 @@ func _ready() -> void:
 func _physics_process(_delta) -> void:
 	if agent.is_navigation_finished():
 		return
-	
+
 	var desired_velocity = global_position.direction_to(agent.get_next_path_position()) * speed
 	agent.set_velocity(desired_velocity)
 

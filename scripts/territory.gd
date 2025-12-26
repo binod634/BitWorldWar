@@ -1,7 +1,6 @@
 @tool
-extends Area2D
-
-signal add_avoidance(vertices)
+extends Node2D
+signal add_avoidance(vertices:PackedVector2Array)
 
 
 var country_label:PackedScene = preload("res://scenes/components/country_label.tscn")
@@ -17,6 +16,12 @@ var raw_vector_offset_value:Vector2 = Vector2(640.0,360.0)
 var capital_name:String = ""
 var center_of_country:Vector2 = Vector2.ZERO
 var capital_position:Vector2 = Vector2.ZERO
+@onready var area2d:Area2D = $Area2D
+@onready var specific_nav_region:NavigationRegion2D = $"../../WorldNavigation/SpecificNav"
+@onready var navAgent:NavigationAgent2D =  $"../../NavigationAgent2D"
+var is_baking:bool = false
+var is_baking_completed:bool = false
+var navMeshArray:Array = []
 
 
 func _ready() -> void:
@@ -29,13 +34,13 @@ func _ready() -> void:
 	_put_marking_on_capital()
 	#_calculate_overall_center()
 	#_show_country_label()
-	
+
 func do_everything_on_editor_rebuild():
 	_decode_all_vertices()
 	_add_map_visible_layer_with_collision()
 	#_make_capital()
 	_put_marking_on_capital()
-	
+
 
 func _calculate_overall_center():
 	var centers_of_each_islands:PackedVector2Array = PackedVector2Array()
@@ -45,13 +50,13 @@ func _calculate_overall_center():
 		for b in country_lands[a]:
 			sumVector +=b
 		centers_of_each_islands.append(sumVector/len(country_lands[a]))
-	
-	
+
+
 	# calculate now center of all islands
 	var sumsVector:Vector2 = Vector2.ZERO
 	for a in centers_of_each_islands:
 		sumsVector += a
-	
+
 	# final task. update value
 	center_of_country = sumsVector/len(centers_of_each_islands)
 
@@ -61,9 +66,10 @@ func _show_country_label():
 	var tmp:Node2D = country_label.instantiate()
 	tmp.country_name = country_name
 	tmp.position = center_of_country
-	add_child(tmp)
+	area2d.add_child(tmp)
+	#tmp.owner = get_tree().edited_scene_root
 
-	
+
 func _decode_all_vertices():
 	if vertices_data.is_empty():
 		printerr("No data in vertices")
@@ -95,19 +101,19 @@ func _add_full_sided_polygons(tmpvectors:PackedVector2Array):
 	_add_collision_polygon(tmpvectors)
 	for offsets in offsets_to_have:
 		_add_polygon_with_offset(tmpvectors, offsets)
-	
+
 func _add_collision_polygon(tmpvectors:PackedVector2Array):
 	var polygon2d:CollisionPolygon2D = CollisionPolygon2D.new()
 	#var clean_vertices:PackedVector2Array = _clean_vectors(tmpvectors)
 	check_duplicates(tmpvectors.slice(0,len(tmpvectors ) -1))
 	var clean_vertices:PackedVector2Array = tmpvectors.slice(0,len(tmpvectors)-1)
 	polygon2d.polygon = clean_vertices
-	add_child(polygon2d)
-	
+	area2d.add_child(polygon2d)
+	polygon2d.owner = get_tree().edited_scene_root
 	add_avoidance.emit(clean_vertices)
 
-		
-	
+
+
 func _clean_vectors(tmpvectors:PackedVector2Array) -> PackedVector2Array:
 	diagnose_collision_polygon(tmpvectors)
 	var cleaned_vertex:PackedVector2Array = []
@@ -115,8 +121,8 @@ func _clean_vectors(tmpvectors:PackedVector2Array) -> PackedVector2Array:
 		if a == 0: continue
 		if (tmpvectors[a].distance_to(tmpvectors[a-1]) > collision_polygon_minimum_distance_allowded):
 			cleaned_vertex.append(tmpvectors[a])
-	
-	# returned cleaned_vertex. tries 
+
+	# returned cleaned_vertex. tries
 	if len(cleaned_vertex) < 3:
 		return PackedVector2Array()
 	if get_polygon_area(cleaned_vertex) < 5.0:
@@ -149,7 +155,10 @@ func _add_polygon_with_offset(tmpvectors:PackedVector2Array,offset:Vector2):
 	polygon2d.color = Color.BLACK*0.8 + Color(color_value) * 0.2
 	polygon2d.polygon = tmpvectors
 	polygon2d.position = offset
-	add_child(polygon2d)
+	if offset == Vector2.ZERO:
+		polygon2d.add_to_group("navigation_avoid",true)
+	area2d.add_child(polygon2d)
+	polygon2d.owner = get_tree().edited_scene_root
 
 
 func _decode_vertices_from_dict(tmp:Array) -> PackedVector2Array:
@@ -160,9 +169,9 @@ func _decode_vertices_from_dict(tmp:Array) -> PackedVector2Array:
 
 func _decode_vertices(x:float,y:float) -> Vector2:
 	return Vector2(x*raw_vector_scale_value.x+raw_vector_offset_value.x,y*raw_vector_scale_value.y+raw_vector_offset_value.y)
-	
-	
-	
+
+
+
 func _make_capital():
 	# return if not playable
 	if not is_playable:return
@@ -178,7 +187,7 @@ func _put_marking_on_capital():
 	var capital_location_dict:Array = vertices_data['capital_location']
 	capital_name = vertices_data['capital_name']
 	capital_position =  _decode_vertices(capital_location_dict[0],capital_location_dict[1])
-	add_child(create_circle_polygon(1.0,capital_position,16))
+	area2d.add_child(create_circle_polygon(1.0,capital_position,16))
 
 
 func create_circle_polygon(radius: float,offset_position:Vector2,segments: int = 64,color: Color = Color.RED) -> Polygon2D:
@@ -191,9 +200,10 @@ func create_circle_polygon(radius: float,offset_position:Vector2,segments: int =
 	poly.polygon = points
 	poly.position = offset_position
 	poly.color = color
+	#poly.owner = get_tree().edited_scene_root
 	return poly
-	
-	
+
+
 
 func diagnose_collision_polygon(poly: PackedVector2Array, eps := 0.001) -> Dictionary:
 	var report := {
@@ -302,132 +312,80 @@ func _is_polygon_simple(poly: PackedVector2Array,) -> bool:
 
 
 
-#func _make_vertices(coords:Array) -> void:
-	#var vertices:PackedVector2Array = _decode_vertices_from_dict(coords)
-	#if not is_polygon_valid(vertices):
-		#return PackedVector2Array()
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if (event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT):
+		if not is_baking:
+			for lands in country_lands:
+				generate_navigation_at_runtime_with_vertices_new(country_lands[lands])
+			is_baking = true
+		elif (is_baking_completed):
+			find_navigatoin()
+
+
+func find_navigatoin():
+	var mouse_pos_world = get_viewport().get_camera_2d().get_global_mouse_position()
+	navAgent.target_position = mouse_pos_world
+	navAgent.is_target_reachable()
+	print(NavigationServer2D.map_get_path(get_world_2d().get_navigation_map(),Vector2(10,10),mouse_pos_world,true))
+	print("to reach: %s"%[mouse_pos_world])
+
+
+func _make_land_layer(vectors: PackedVector2Array):
+	var nav_region = NavigationRegion2D.new()
+	# Create the navigation polygon and add outline
+	var nav_polygon = NavigationPolygon.new()
+	nav_polygon.add_outline(vectors)
+	nav_polygon.agent_radius = 0.1
+	nav_region.enter_cost = 5000
+	nav_region.travel_cost = 5.0
+	nav_polygon.cell_size = 10
+	nav_polygon.agent_radius = 2
+	# Bake the polygon properly (no deprecated warnings)
+	var source_data = NavigationMeshSourceGeometryData2D.new()
+	NavigationServer2D.parse_source_geometry_data(nav_polygon, source_data, self)
+	NavigationServer2D.bake_from_source_geometry_data(nav_polygon,source_data)
+	# Assign polygon and layers
+	nav_region.navigation_polygon = nav_polygon
+	nav_region.navigation_layers = 1 << 1  # Layer 2
+	# Add to scene
+	specific_nav_region.add_child(nav_region)
+
 #
-	#var clean_vertices:PackedVector2Array = _clean_vertices(vertices)
+#func generate_navigation_at_runtime_with_vertices(vertices:PackedVector2Array):
+	#var new_navigation_mesh:NavigationPolygon = NavigationPolygon.new()
+	#new_navigation_mesh.agent_radius = 1
+	##new_navigation_mesh.enter = 5000
+	##new_navigation_mesh.travel_cost = 5.0
+	#new_navigation_mesh.cell_size = 10
+	#var bounding_outline = PackedVector2Array(vertices)
+	#new_navigation_mesh.add_outline(bounding_outline)
+	#NavigationServer2D.bake_from_source_geometry_data(new_navigation_mesh, NavigationMeshSourceGeometryData2D.new(),func ():
+		#print("baking completed...")
+		#is_baking_completed = true
+		#);
+	#specific_nav_region.navigation_polygon = new_navigation_mesh
 	#
-	## Create Polygon2D
-	#var polygon:Polygon2D = Polygon2D.new()
-	#polygon.polygon = vertices
-	#polygon.color = Color(color_value, RandomNumberGenerator.new().randf_range(1 - deviation, 1.0))
-	#add_child(polygon)
-	#
-	## Create CollisionPolygon2D
-	#var collision_polygon:CollisionPolygon2D = CollisionPolygon2D.new()
-	#collision_polygon.polygon = clean_vertices
-	#collision_polygon.build_mode = CollisionPolygon2D.BUILD_SOLIDS
-	#collision_polygon.set_deferred("input_pickable", true)
-	#add_child(collision_polygon)
-#
-	## Make copies with offset
-	#var offset:Vector2 = Vector2(1280, 0)
-	#_make_copy_with_extra_position(polygon.duplicate(), offset)
-	#_make_copy_with_extra_position(polygon.duplicate(), -offset)
-	#_make_copy_with_extra_position(collision_polygon.duplicate(), offset)
-	#_make_copy_with_extra_position(collision_polygon.duplicate(), -offset)
-	#
-	#
-	#
-#
-#
-#
-#
-#func _add_polygon_from_coords(coords:Array) -> void:
-	#var vertices:PackedVector2Array = _decode_vertices_from_dict(coords)
-	#if not is_polygon_valid(vertices):
-		#return
-#
-	#var clean_vertices:PackedVector2Array = _clean_vertices(vertices)
-	#
-	## Create Polygon2D
-	#var polygon:Polygon2D = Polygon2D.new()
-	#polygon.polygon = vertices
-	#polygon.color = Color(color_value, RandomNumberGenerator.new().randf_range(1 - deviation, 1.0))
-	#add_child(polygon)
-	#
-	## Create CollisionPolygon2D
-	#var collision_polygon:CollisionPolygon2D = CollisionPolygon2D.new()
-	#collision_polygon.polygon = clean_vertices
-	#collision_polygon.build_mode = CollisionPolygon2D.BUILD_SOLIDS
-	#collision_polygon.set_deferred("input_pickable", true)
-	#add_child(collision_polygon)
-#
-	## Make copies with offset
-	#var offset:Vector2 = Vector2(1280, 0)
-	#_make_copy_with_extra_position(polygon.duplicate(), offset)
-	#_make_copy_with_extra_position(polygon.duplicate(), -offset)
-	#_make_copy_with_extra_position(collision_polygon.duplicate(), offset)
-	#_make_copy_with_extra_position(collision_polygon.duplicate(), -offset)
-#
-#
-#func _make_copy_with_extra_position(node:Node2D,vector:Vector2):
-	#node.position += vector
-	#add_child(node)
-#
-#func is_polygon_valid(points: PackedVector2Array) -> bool:
-	#if points.size() < 3:
-		#return false
-#
-	#var tris := Geometry2D.triangulate_polygon(points)
-	#if tris.is_empty():
-		#return false
-	#return true
-#
-#
-#
-#
-#func _clean_vertices(vectors:PackedVector2Array) -> PackedVector2Array:
-#
-	#var old:Vector2 = vectors[0]
-	#var cleaned:PackedVector2Array = [old]
-	#for i in vectors:
-		#if i == old: continue
-		#if old.distance_to(i) > collision_polygon_minimum_distance_allowded:
-			#cleaned.append(i)
-	#return cleaned if len(cleaned) > 2 else PackedVector2Array()
-	##print("len old: %s and len new: %s"%[len(vectors),len(cleaned)])
-#
-#
-#
-#func get_aabb(vertices:PackedVector2Array) -> Rect2:
-	#var min_x:float = vertices[0].x
-	#var max_x:float = vertices[0].x
-	#var min_y:float = vertices[0].y
-	#var max_y:float = vertices[0].y
-	#for v in vertices:
-		#min_x = min(min_x, v.x)
-		#max_x = max(max_x, v.x)
-		#min_y = min(min_y, v.y)
-		#max_y = max(max_y, v.y)
-	#return Rect2(Vector2(min_x, min_y), Vector2(max_x - min_x, max_y - min_y))
-#
-#
-#
-#func get_aabb_vertices(vertices:PackedVector2Array) -> PackedVector2Array:
-	#var rect:Rect2 = get_aabb(vertices)
-	#return PackedVector2Array([
-		#rect.position,
-		#rect.position + Vector2(rect.size.x, 0),
-		#rect.position + rect.size,
-		#rect.position + Vector2(0, rect.size.y)
-	#])
-#
-#
-#func _avg_vertices(vertices:PackedVector2Array) -> Vector2:
-	#if (len(vertices) < 3):
-		#if len(vertices) == 0: return Vector2.ZERO
-		#if len(vertices) ==  1: return vertices[0]
-	#var sumVector:Vector2 = Vector2.ZERO
-	#for i in vertices:
-		#sumVector +=i
-	#return sumVector/len(vertices)
-#
-#
-#func  _find_center_position(vectors:PackedVector2Array) -> Vector2:
-	#var sums:Vector2 = Vector2.ZERO
-	#for a in vectors:
-		#sums +=a
-	#return sums/len(vectors)
+
+func generate_navigation_at_runtime_with_vertices_new(vertices:PackedVector2Array):
+	var nav_region = NavigationRegion2D.new()
+	nav_region.add_to_group(country_name.md5_text())
+	nav_region.name = country_name + str(RandomNumberGenerator.new().randi() % 100000)
+	nav_region.enter_cost = 5000
+	nav_region.travel_cost = 5
+	nav_region.navigation_layers = 2
+	specific_nav_region.add_child(nav_region)
+	var new_navigation_mesh:NavigationPolygon = NavigationPolygon.new()
+	new_navigation_mesh.agent_radius = 1
+	#new_navigation_mesh.enter = 5000
+	#new_navigation_mesh.travel_cost = 5.0
+	new_navigation_mesh.cell_size = 10
+	var bounding_outline = PackedVector2Array(vertices)
+	new_navigation_mesh.add_outline(bounding_outline)
+	var tmp:= NavigationMeshSourceGeometryData2D.new()
+	NavigationServer2D.map_changed.connect(func (_di): print("not map changed"))
+	NavigationServer2D.bake_from_source_geometry_data(new_navigation_mesh, tmp,func ():
+		print("baking completed... ")
+		);
+	nav_region.navigation_polygon = new_navigation_mesh
+	is_baking_completed = true

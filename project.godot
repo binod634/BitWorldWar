@@ -8,13 +8,20 @@
 
 config_version=5
 
+[accessibility]
+
+general/accessibility_support=2
+
 [application]
 
-config/name="trygame"
+config/name="ArmyConflict"
+config/version="0.0.1"
 run/main_scene="uid://6k5vuafsfg2t"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/show_image=false
+boot_splash/fullsize=false
 boot_splash/image="uid://btpau6rnqju24"
-config/icon="uid://ufsotmk36mn8"
+config/icon="uid://jmvg33r5axtg"
 
 [autoload]
 
@@ -29,10 +36,22 @@ window/stretch/aspect="expand"
 window/handheld/orientation=4
 mouse_cursor/custom_image="uid://coqdmrci7i7h2"
 
+[editor]
+
+movie_writer/video_quality=1.0
+movie_writer/movie_file="/home/annomy/Videos/godot.ogv"
+
 [input_devices]
 
 pointing/android/enable_long_press_as_right_click=true
 pointing/android/enable_pan_and_scale_gestures=true
+
+[navigation]
+
+2d/default_cell_size=5.0
+2d/merge_rasterizer_cell_scale=0.1
+2d/default_edge_connection_margin=3.0
+2d/default_link_connection_radius=10.0
 
 [physics]
 

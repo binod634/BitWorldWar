@@ -6,7 +6,7 @@ var timer:Timer = Timer.new()
 
 func _ready() -> void:
 	navAgent.target_position = Vector2(100,100)
-	
+
 	await get_tree().process_frame
 	_use_agent()
 	print(navAgent.is_target_reachable())
@@ -20,14 +20,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
-
-func _unhandled_input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
-		if event.is_pressed():
-			var mouse_pos_world = get_viewport().get_camera_2d().get_global_mouse_position()
-			navAgent.target_position = mouse_pos_world
-			to_position = mouse_pos_world
+#
+#func _unhandled_input(event: InputEvent) -> void:
+	#if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
+		#if event.is_pressed():
+			#var mouse_pos_world = get_viewport().get_camera_2d().get_global_mouse_position()
+			#navAgent.target_position = mouse_pos_world
+			#to_position = mouse_pos_world
+			#print("pressed %s"%[navAgent.is_target_reachable()])
 
 
 func _use_agent():
-	print("path: %s length: %s"%[ navAgent.get_next_path_position(),navAgent.get_path_length() ])
+	#print("path: %s length: %s"%[ navAgent.get_next_path_position(),navAgent.get_path_length() ])
+	pass

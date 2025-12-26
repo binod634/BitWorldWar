@@ -6,13 +6,14 @@ const file_path:String  = "res://assets/files/simple_countries.json"
 @onready var  rebuild_scene_identifier:Node2D = $"Regions/5882b568d8a010ef48a6896f53b6eddb"
 var timer:Timer = Timer.new()
 
+
 func _ready() -> void:
 	# nothing to run on runtime.game
 	if not Engine.is_editor_hint():
 		return
-		
+
 	# render map if there isn't any
-	if not rebuild_scene_identifier: 
+	if not rebuild_scene_identifier:
 		_load_real_regions()
 		timer.wait_time = 5
 		timer.autostart = true
@@ -23,36 +24,15 @@ func _ready() -> void:
 			print("baking ending")
 		)
 		add_child(timer)
-	
-	
+
+
 	return
-	
+
 func _make_land_sea_regions(vectors:PackedVector2Array):
 	#_make_avoidance_regions_for_sea(vectors)
-	_make_land_layer(vectors)
+	#_make_land_layer(vectors)
+	pass
 
-
-func _make_land_layer(vectors: PackedVector2Array):
-	var nav_region = NavigationRegion2D.new()
-	
-	# Create the navigation polygon and add outline
-	var nav_polygon = NavigationPolygon.new()
-	nav_polygon.add_outline(vectors)
-	nav_polygon.agent_radius = 0.1
-	nav_region.enter_cost = 100
-	nav_region.travel_cost = 2.0
-	# Bake the polygon properly (no deprecated warnings)
-	var source_data = NavigationMeshSourceGeometryData2D.new()
-	NavigationServer2D.parse_source_geometry_data(nav_polygon, source_data, self)
-	NavigationServer2D.bake_from_source_geometry_data(nav_polygon,source_data)
-	
-	# Assign polygon and layers
-	nav_region.navigation_polygon = nav_polygon
-	nav_region.navigation_layers = 1 << 1  # Layer 2
-	
-	# Add to scene
-	$WorldNavigation/LandNavigation.add_child(nav_region)
-	nav_region.owner = get_tree().edited_scene_root
 
 
 func _make_avoidance_regions_for_sea(vectors:PackedVector2Array):
@@ -61,15 +41,14 @@ func _make_avoidance_regions_for_sea(vectors:PackedVector2Array):
 	avoid.affect_navigation_mesh = true
 	avoid.carve_navigation_mesh = true
 	$WorldNavigation/SeaNavigation.add_child(avoid)
-	avoid.owner = get_tree().edited_scene_root
 
-	
+
 
 func _load_real_regions():
 	var countries_list:Array = _load_real_map_data()
 	#print(countries_list)
 	for country in countries_list:
-		var tmpRegion:Area2D = terriroty.instantiate()
+		var tmpRegion:Node2D = terriroty.instantiate()
 		var color:Color = string_to_color(country['shapeName'])
 		tmpRegion.name = country['shapeName'].md5_text()
 		tmpRegion.add_avoidance.connect(_make_land_sea_regions)
@@ -137,3 +116,6 @@ func _load_real_map_data():
 		file = FileAccess.open(file_path,FileAccess.READ)
 		print(error_string(FileAccess.get_open_error()))
 	return JSON.parse_string(file.get_as_text())
+
+func _check_it_signal(some:String):
+	print("got in strategy main... %s"%[some])
