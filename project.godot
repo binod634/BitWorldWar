@@ -26,6 +26,7 @@ config/icon="uid://jmvg33r5axtg"
 [autoload]
 
 Game="*res://scripts/Game.gd"
+VerticesHelper="*res://scripts/VerticesHelper.gd"
 
 [display]
 
@@ -41,6 +42,11 @@ mouse_cursor/custom_image="uid://coqdmrci7i7h2"
 movie_writer/video_quality=1.0
 movie_writer/movie_file="/home/annomy/Videos/godot.ogv"
 
+[global_group]
+
+NavigatableLandRegion="To make countries navigatable. War or Friendly"
+agents=""
+
 [input_devices]
 
 pointing/android/enable_long_press_as_right_click=true
@@ -48,7 +54,7 @@ pointing/android/enable_pan_and_scale_gestures=true
 
 [navigation]
 
-2d/default_cell_size=5.0
+2d/default_cell_size=10.0
 2d/merge_rasterizer_cell_scale=0.1
 2d/default_edge_connection_margin=3.0
 2d/default_link_connection_radius=10.0

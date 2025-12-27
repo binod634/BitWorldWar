@@ -45,11 +45,13 @@ debug_path_custom_line_width = 1.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.047058824, 0, 0.3647059, 0.67058825)
-polygon = PackedVector2Array(-1280, 0, 2560, 0, 2560, 720, -1280, 720)
+polygon = PackedVector2Array(-600, 0, 1900, 0, 1900, 720, -600, 720)
+
+[node name="Agents" type="Node2D" parent="." groups=["agents"]]
 
 [node name="WorldNavigation" type="Node2D" parent="."]
 
-[node name="SpecificNav" type="NavigationRegion2D" parent="WorldNavigation"]
+[node name="SpecificNav" type="NavigationRegion2D" parent="WorldNavigation" groups=["NavigatableLandRegion"]]
 
 [node name="LandNavigation" type="Node2D" parent="WorldNavigation"]
 
@@ -79,7 +81,7 @@ travel_cost = 0.0
 [node name="Regions" type="Node2D" parent="."]
 script = ExtResource("4_y1hhk")
 
-[node name="5882b568d8a010ef48a6896f53b6eddb" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="501e876787ff59b0db720cddd9d7afaa" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-84.0833, 9.9333],
@@ -95,7 +97,7 @@ vertices_data = {
 color_value = Color(0.34574446, 0.8461924, 0.28379115, 1)
 country_name = "Costa Rica"
 
-[node name="3bfe17f6c2d1b8941df303de7aec2eb0" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="c1064dae5be9904c58c2b4283805b2eb" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-86.2419, 12.1149],
@@ -111,7 +113,7 @@ vertices_data = {
 color_value = Color(0.23434591, 0.7610126, 0.11698937, 1)
 country_name = "Nicaragua"
 
-[node name="b88959cb7d907d91065ac7ec19eb0b44" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="1d15539bb44758bf0900b72da2933835" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-72.2852, 18.5944],
@@ -127,7 +129,7 @@ vertices_data = {
 color_value = Color(0.7208458, 0.490486, 0.024822708, 1)
 country_name = "Haiti"
 
-[node name="73aab49c7766deec3c3fc29d67546e02" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="c8192d1d711da923028754c41945f5f4" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[-71.70830481635805, 18.044997056546094], [-71.68773759630588, 18.31666006110447], [-71.94511206733556, 18.61690013272026], [-71.7013026597825, 18.785416978424053], [-71.62487321642283, 19.169837958243303], [-71.71236141629296, 19.714455878167357], [-71.58730445014663, 19.8849105900821], [-70.80670610216174, 19.880285549391985], [-70.21436499701613, 19.62288524014616], [-69.95081519232758, 19.64799998624001], [-69.76925004747008, 19.29326711677244], [-69.22212582057988, 19.313214219637103], [-69.25434607611385, 19.01519623460987], [-68.80941199408083, 18.979074408437853], [-68.31794328476897, 18.612197577381693], [-68.68931596543452, 18.205142320218613], [-69.16494584824892, 18.42264842373511], [-69.62398759629764, 18.38071299893025], [-69.95293392605154, 18.42830699307106], [-70.1332329983179, 18.245915025296895], [-70.51713721381422, 18.184290879788833], [-70.66929846869763, 18.426885891183034], [-70.99995012071719, 18.283328762276213], [-71.4002099270339, 17.5985643579766], [-71.65766191271202, 17.7575727401387], [-71.70830481635805, 18.044997056546094]]],
@@ -140,7 +142,7 @@ vertices_data = {
 color_value = Color(0.4518235, 0.46641344, 0.2353479, 1)
 country_name = "Dominican Rep."
 
-[node name="e96d24bdfc024e04f49f1f0cc011ca20" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="64954aeb1f5a5d164e7ddda32891c5d5" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-89.2182, 13.6929],
@@ -156,7 +158,7 @@ vertices_data = {
 color_value = Color(0.91182166, 0.98441017, 0.955553, 1)
 country_name = "El Salvador"
 
-[node name="948b13d5a3e11e21baadc349e199020e" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="2764310ab2162023a8475d4dc0982b0b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-90.5069, 14.6349],
@@ -172,7 +174,7 @@ vertices_data = {
 color_value = Color(0.58024716, 0.64015377, 0.7292139, 1)
 country_name = "Guatemala"
 
-[node name="33cac763789c407f405b2cf0dce7df89" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="be4bf946a1dc76337ef872e9e82c7b5d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-82.3666, 23.1136],
@@ -188,7 +190,7 @@ vertices_data = {
 color_value = Color(0.20231292, 0.47113422, 0.25139123, 1)
 country_name = "Cuba"
 
-[node name="f4270ce39e7e926052e097a0e4e63bde" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f42d6205dec0253e6d2e92899e79ef0b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-87.1715, 14.0723],
@@ -204,7 +206,7 @@ vertices_data = {
 color_value = Color(0.95372087, 0.6191188, 0.3237395, 1)
 country_name = "Honduras"
 
-[node name="1f122dd19db580fd03635dd699fb49de" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="5601b49e6f9cc534fb03f99476844f82" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-77.0369, 38.9072],
@@ -220,7 +222,7 @@ vertices_data = {
 color_value = Color(0.12137114, 0.6160508, 0.013234964, 1)
 country_name = "United States of America"
 
-[node name="445d337b5cd5de476f99333df6b0c2a7" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="db48c586da5e7a1cf5e99c6a4f2e1ee5" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-75.6972, 45.4215],
@@ -236,7 +238,7 @@ vertices_data = {
 color_value = Color(0.26704714, 0.36263838, 0.43593138, 1)
 country_name = "Canada"
 
-[node name="8dbb07a18d46f63d8b3c8994d5ccc351" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="370bb5c56841b31016882dc8b8eb80c3" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-99.1332, 19.4326],
@@ -252,7 +254,7 @@ vertices_data = {
 color_value = Color(0.5536351, 0.551864, 0.5438925, 1)
 country_name = "Mexico"
 
-[node name="20bca6785240fa722edb5c85d055a93d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="1439d7c5bfa496737431944625c9d7a0" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[-89.14308041050333, 17.808318996649405], [-89.15090938999553, 17.95546763760042], [-89.02985734735182, 18.001511338772488], [-88.84834387892661, 17.883198147040233], [-88.49012285027935, 18.486830552641607], [-88.3000310940937, 18.4999822046599], [-88.29633622918482, 18.35327281338327], [-88.10681291375438, 18.348673610909287], [-88.1234785631685, 18.07667470954101], [-88.2853549873228, 17.644142971258034], [-88.19786678745265, 17.489475409408456], [-88.30264075392444, 17.131693630435663], [-88.23951799187991, 17.036066392479555], [-88.35542822951057, 16.530774237529627], [-88.55182451043585, 16.265467434143147], [-88.73243364129594, 16.233634751851355], [-88.93061275913527, 15.887273464415076], [-89.22912167026928, 15.886937567605171], [-89.15080603713095, 17.015576687075836], [-89.14308041050333, 17.808318996649405]]],
@@ -265,7 +267,7 @@ vertices_data = {
 color_value = Color(0.12787858, 0.321304, 0.18303469, 1)
 country_name = "Belize"
 
-[node name="6bec347f256837d3539ad619bd489de7" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="80b55f0c64617c2600f052347bedfae9" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-79.5199, 8.9824],
@@ -281,7 +283,7 @@ vertices_data = {
 color_value = Color(0.42157295, 0.14612149, 0.32658136, 1)
 country_name = "Panama"
 
-[node name="583eda79d32f7c1cb0840862787a73ca" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="8094029fc88bdd19326e04f643f52786" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-51.7216, 64.1814],
@@ -297,7 +299,7 @@ vertices_data = {
 color_value = Color(0.34470907, 0.8249433, 0.68951464, 1)
 country_name = "Greenland"
 
-[node name="6dbefdc38954fc54ea0c697d0c6ec0a7" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="18751938027fe4cd3d30272037d647a9" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[[-78.98, 26.79], [-78.51, 26.87], [-77.85, 26.84], [-77.82, 26.58], [-78.91, 26.42], [-78.98, 26.79]]], [[[-77.79, 27.04], [-77.0, 26.59], [-77.17255, 25.87918], [-77.35641, 26.00735], [-77.34, 26.53], [-77.78802, 26.92516], [-77.79, 27.04]]], [[[-78.19087, 25.2103], [-77.89, 25.17], [-77.54, 24.34], [-77.53466, 23.75975], [-77.78, 23.71], [-78.03405, 24.28615], [-78.40848, 24.57564], [-78.19087, 25.2103]]]],
@@ -310,7 +312,7 @@ vertices_data = {
 color_value = Color(0.42869556, 0.536453, 0.91425186, 1)
 country_name = "Bahamas"
 
-[node name="63965a52775c39cd64c3ef0248d585b1" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="39bd7e24e1d9e9a3952827982a0c7cb2" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[-61.68, 10.76], [-61.105, 10.89], [-60.895, 10.855], [-60.935, 10.11], [-61.77, 10.0], [-61.95, 10.09], [-61.66, 10.365], [-61.68, 10.76]]],
@@ -323,7 +325,7 @@ vertices_data = {
 color_value = Color(0.38901296, 0.46625102, 0.3936147, 1)
 country_name = "Trinidad and Tobago"
 
-[node name="f76257271129c703d6c0442c8ac00dae" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="9c075ec807ac518da7dba124bdf78e51" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[-66.28243445500821, 18.514761664295364], [-65.7713028632093, 18.42667918545388], [-65.59100379094295, 18.228034979723915], [-65.84716386581377, 17.97590566657186], [-66.59993445500949, 17.981822618069273], [-67.18416236028527, 17.946553453030077], [-67.24242753769435, 18.374460150622937], [-67.10067908391774, 18.52060110114435], [-66.28243445500821, 18.514761664295364]]],
@@ -336,7 +338,7 @@ vertices_data = {
 color_value = Color(0.9663443, 0.06704372, 0.83887124, 1)
 country_name = "Puerto Rico"
 
-[node name="1add2eb41fcae9b2a15b4a7d68571409" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f51c23a7e790a03bfc65710f8f5f6351" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-76.7936, 17.983],
@@ -352,7 +354,7 @@ vertices_data = {
 color_value = Color(0.10493748, 0.12418996, 0.6302992, 1)
 country_name = "Jamaica"
 
-[node name="4647d00cf81f8fb0ab80f753320d0fc9" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="c5403d8e2dc77fe783853be58999e3da" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [106.8456, -6.2088],
@@ -368,7 +370,7 @@ vertices_data = {
 color_value = Color(0.27453327, 0.9692316, 0.6699366, 1)
 country_name = "Indonesia"
 
-[node name="3f0e49c46cbde0c7adf5ea04a97ab261" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="35a6f2b3aeacfb326df5f7b51673e437" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [101.6869, 3.139],
@@ -384,7 +386,7 @@ vertices_data = {
 color_value = Color(0.24631177, 0.42477232, 0.6795336, 1)
 country_name = "Malaysia"
 
-[node name="ea2ba3f8011e19e3101ce65fdcefbcc4" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="2c8a265e3e7a35ca51166ac837fb680b" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[32.73178022637745, 35.14002594658844], [32.919572381326134, 35.08783274997364], [33.19097700372305, 35.17312470147138], [33.3838334490363, 35.16271190036457], [33.45592207208347, 35.10142365166641], [33.47581749851585, 35.000344550103506], [33.5256852556775, 35.03868846286407], [33.675391880027064, 35.01786286065045], [33.86643965021011, 35.09359467217419], [33.97361657078346, 35.058506374648005], [34.00488081232004, 34.97809784600186], [32.97982710137845, 34.57186941175544], [32.49029625827754, 34.701654771456475], [32.25666710788596, 35.10323232679663], [32.73178022637745, 35.14002594658844]]],
@@ -397,7 +399,7 @@ vertices_data = {
 color_value = Color(0.9147284, 0.004365557, 0.06294098, 1)
 country_name = "Cyprus"
 
-[node name="7d31e0da1ab99fe8b08a22118e2f402b" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="73beb636621e43fb047bb7fed04f5a9c" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [77.209, 28.6139],
@@ -413,7 +415,7 @@ vertices_data = {
 color_value = Color(0.48904234, 0.104394905, 0.68960774, 1)
 country_name = "India"
 
-[node name="ae54a5c026f31ada088992587d92cb3a" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="9e6a4ea3f6d9e198968a46d7958f2caa" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [116.4074, 39.9042],
@@ -429,7 +431,7 @@ vertices_data = {
 color_value = Color(0.68097913, 0.15214698, 0.03334918, 1)
 country_name = "China"
 
-[node name="5a548c2f5875f10bf5614b7c258876cf" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="9ff336205294a123c5632358b2ed772e" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "capital_location": [35.2137, 31.7683],
 "capital_name": "Jerusalem",
@@ -444,7 +446,7 @@ vertices_data = {
 color_value = Color(0.35285258, 0.34554964, 0.9585158, 1)
 country_name = "Israel"
 
-[node name="008ced81ddf77a45e35513f4459d7bbf" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="e3dc28e1f777195aae8df53ec1434c50" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[35.397560662586045, 31.489086005167582], [34.92740848159457, 31.353435370401417], [34.970506626125996, 31.61677846936081], [35.22589155451243, 31.75434113212177], [34.97464074070933, 31.86658234305972], [35.183930291491436, 32.53251068778894], [35.54566531753454, 32.393992011030576], [35.5452519060762, 31.78250478772084], [35.397560662586045, 31.489086005167582]]],
@@ -457,7 +459,7 @@ vertices_data = {
 color_value = Color(0.0021503868, 0.86705744, 0.88801694, 1)
 country_name = "Palestine"
 
-[node name="b45ff92cc522bb89bfc3b8ef3fc21b7d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="15ad2e563716f18eaaa48d1d3ef1b0a0" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [35.5018, 33.8938],
@@ -473,7 +475,7 @@ vertices_data = {
 color_value = Color(0.7045894, 0.77006125, 0.74908024, 1)
 country_name = "Lebanon"
 
-[node name="465718d0a1bc8363ad01390923fad5d1" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="7031c004dcf6e95d27e5696238fd71f5" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [36.2765, 33.5138],
@@ -489,7 +491,7 @@ vertices_data = {
 color_value = Color(0.2747665, 0.6317827, 0.6757999, 1)
 country_name = "Syria"
 
-[node name="4d4803b0bb7dab1b0627e4f8277edc5b" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="3dc804791416a6cec8dfb0bda6e80924" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[126.17475874237624, 37.74968577732804], [126.23733890188176, 37.84037791600028], [126.68371992401892, 37.80477285415118], [127.07330854706736, 38.2561148137884], [127.780035435091, 38.30453563084589], [128.20574588431143, 38.37039724380189], [128.3497164246766, 38.61224294692785], [129.21291954968007, 37.43239248305595], [129.46044966035817, 36.78418915460283], [129.4683044780665, 35.63214061130395], [129.0913765809296, 35.082484239231434], [128.1858504578791, 34.89037710218639], [127.3865194031884, 34.47567373304412], [126.48574751190876, 34.39004588473648], [126.37391971242914, 34.934560451795946], [126.5592313986278, 35.6845405136479], [126.11739790253228, 36.72548472751926], [126.8601432638634, 36.893924058574626], [126.17475874237624, 37.74968577732804]]],
@@ -502,7 +504,7 @@ vertices_data = {
 color_value = Color(0.3018801, 0.7323863, 0.02404624, 1)
 country_name = "South Korea"
 
-[node name="855b3780658ec33023cefc8b4e397a1d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f7142ebb51120f7ae8d88a7e6e6bc8b3" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[[130.63999970690955, 42.39502427522179], [130.77999231657833, 42.22000960427719], [130.40003055228902, 42.28000356705971], [129.96594852103726, 41.94136790625106], [129.66736209525482, 41.60110443782523], [129.70518924369247, 40.88282786718433], [129.18811486218, 40.66180776627199], [129.0103996115282, 40.485436102859815], [128.63336836152672, 40.18984691015031], [127.96741417858136, 40.02541250259756], [127.53343550019416, 39.7568500839767], [127.5021195822253, 39.32393077245153], [127.38543419811027, 39.213472398427655], [127.78334272675772, 39.05089834243742], [128.3497164246766, 38.61224294692785], [128.20574588431143, 38.37039724380189], [127.780035435091, 38.30453563084589], [127.07330854706736, 38.2561148137884], [126.68371992401892, 37.80477285415118], [126.23733890188176, 37.84037791600028], [126.17475874237624, 37.74968577732804], [125.6891036316972, 37.94001007745902], [125.5684391622957, 37.75208873142962], [125.2753304383362, 37.66907054295272], [125.24008711151316, 37.85722443292744], [124.98103315643397, 37.94882090916478], [124.71216067921938, 38.10834605564979], [124.98599409393398, 38.54847422947968], [125.2219486837787, 38.66585724543067], [125.13285851450752, 38.84855927179859], [125.3865897970606, 39.387957872061165], [125.32111575734682, 39.55138458918421], [124.7374821310424, 39.66034434667162], [124.26562462778531, 39.92849335383416], [125.07994184784064, 40.56982371679245], [126.18204511932944, 41.10733612727637], [126.86908328664988, 41.81656932226619], [127.34378299368302, 41.50315176041597], [128.20843305879066, 41.46677155208249], [128.0522152039723, 41.99428457291795], [129.59666873587952, 42.42498179785456], [129.99426720593323, 42.985386867843786], [130.63999970690955, 42.39502427522179]]]],
@@ -515,7 +517,7 @@ vertices_data = {
 color_value = Color(0.52092314, 0.39670962, 0.13987711, 1)
 country_name = "North Korea"
 
-[node name="e65a0ed0e39dd14a9e5af441efb09b37" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="c6a086286ddd7ba31b8a1e5a1d15af6e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [89.6386, 27.4728],
@@ -531,7 +533,7 @@ vertices_data = {
 color_value = Color(0.8998117, 0.88912684, 0.61857533, 1)
 country_name = "Bhutan"
 
-[node name="1c77b9733832da9d1ffac66620f3c006" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="5a2d6cc9c8d0c0cb586810cbb5cbd877" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [58.4059, 23.5859],
@@ -547,7 +549,7 @@ vertices_data = {
 color_value = Color(0.11120185, 0.21952596, 0.12492027, 1)
 country_name = "Oman"
 
-[node name="a0a3e881895e46eb96218f0988d405b9" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="05ca51d40bb047d84d999e6fc45b0bd4" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [69.2401, 41.2995],
@@ -563,7 +565,7 @@ vertices_data = {
 color_value = Color(0.6275011, 0.5365948, 0.58644956, 1)
 country_name = "Uzbekistan"
 
-[node name="7c1a943bf29d2c753fb935e99428482c" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="dd8d3654a39aa0a53ff81759067914c0" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [71.4704, 51.1605],
@@ -579,7 +581,7 @@ vertices_data = {
 color_value = Color(0.48478055, 0.94771075, 0.24891984, 1)
 country_name = "Kazakhstan"
 
-[node name="b5a9722262bbb7a7449ebc0f4394c901" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="561556d476c0fc78954c20bd77146a8e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [68.7739, 38.5598],
@@ -595,7 +597,7 @@ vertices_data = {
 color_value = Color(0.7096168, 0.38567683, 0.2680471, 1)
 country_name = "Tajikistan"
 
-[node name="bb6a72b6a93150d4181e50496fc15f5a" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="8b482cf5f589596714733aed51816b6e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [106.9057, 47.8864],
@@ -611,7 +613,7 @@ vertices_data = {
 color_value = Color(0.73209304, 0.66090876, 0.09421255, 1)
 country_name = "Mongolia"
 
-[node name="fdef6daa799e80dbce1b561577b21181" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="37e61db3922d3001301d1484c8d9f2a8" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [105.8342, 21.0278],
@@ -627,7 +629,7 @@ vertices_data = {
 color_value = Color(0.99193466, 0.47507483, 0.8051046, 1)
 country_name = "Vietnam"
 
-[node name="06c7a3c3a3344a62864b951aec4df830" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="9c431a39a84c77a7eb121d2f4e558c41" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [104.9282, 11.5564],
@@ -643,7 +645,7 @@ vertices_data = {
 color_value = Color(0.02648376, 0.6375166, 0.5245908, 1)
 country_name = "Cambodia"
 
-[node name="8f6f28f0d2061af28bcf49d1725b2cbd" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="94e9de87046d26aa5f713c346fcb2e16" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [54.3773, 24.4539],
@@ -659,7 +661,7 @@ vertices_data = {
 color_value = Color(0.5602899, 0.82040566, 0.54613173, 1)
 country_name = "United Arab Emirates"
 
-[node name="eada819634d0164c6a7547bdcc405033" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="3df068a59a6fdd901e2b530ad68cadda" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [44.8271, 41.7151],
@@ -675,7 +677,7 @@ vertices_data = {
 color_value = Color(0.91739666, 0.20630015, 0.41585204, 1)
 country_name = "Georgia"
 
-[node name="7176f8c3bccfdf02322c73f7a0bc9688" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="866fc613bab6945df45624057ab0d319" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [49.8671, 40.4093],
@@ -691,7 +693,7 @@ vertices_data = {
 color_value = Color(0.44322163, 0.73754686, 0.1959908, 1)
 country_name = "Azerbaijan"
 
-[node name="221cdfb73049678e244380b45872cbb2" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="864cc49a0c752138e48268f9f310af65" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [32.8597, 39.9334],
@@ -707,7 +709,7 @@ vertices_data = {
 color_value = Color(0.13325308, 0.18862006, 0.14165501, 1)
 country_name = "Turkey"
 
-[node name="601aebf4afb1db3fdb5c88f3cdda23ef" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="b3336b8d614405b3e839216e10a5df3d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [102.618, 17.9757],
@@ -723,7 +725,7 @@ vertices_data = {
 color_value = Color(0.3754108, 0.6863076, 0.8568807, 1)
 country_name = "Laos"
 
-[node name="5e4a24f76c22f03700b283dfbdf6eec1" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="02cf7a6cb5563c2cd868b48058de0a28" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [74.5698, 42.8746],
@@ -739,7 +741,7 @@ vertices_data = {
 color_value = Color(0.36831886, 0.4224081, 0.0027239246, 1)
 country_name = "Kyrgyzstan"
 
-[node name="a00c273f0f497484093fa94865cf5ca5" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="d110d6f85b203dd6e9a8443ffc4c334e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [44.5152, 40.1872],
@@ -755,7 +757,7 @@ vertices_data = {
 color_value = Color(0.62518543, 0.059714586, 0.036127646, 1)
 country_name = "Armenia"
 
-[node name="5ae2ff99743a8487c917e98bbf3db2d3" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="ea4fb6a090a7227393deb77130339891" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [44.3615, 33.3152],
@@ -771,7 +773,7 @@ vertices_data = {
 color_value = Color(0.35502622, 0.4540179, 0.78552115, 1)
 country_name = "Iraq"
 
-[node name="21fc68909a9eb8692e84cf64e495213e" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f3ec75f5b230e3e96ec57a84e223de38" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [51.389, 35.6892],
@@ -787,7 +789,7 @@ vertices_data = {
 color_value = Color(0.1327577, 0.60398436, 0.18171403, 1)
 country_name = "Iran"
 
-[node name="7cc7ef17c45527cf90fcf27516794d21" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f5f3515db52b27eca12647f47a319ed5" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [51.531, 25.2769],
@@ -803,7 +805,7 @@ vertices_data = {
 color_value = Color(0.48742574, 0.7669244, 0.56635964, 1)
 country_name = "Qatar"
 
-[node name="b835b521c29f399c78124c4b59341691" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="da66cf908427199052021f5557899f67" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [46.6753, 24.7136],
@@ -819,7 +821,7 @@ vertices_data = {
 color_value = Color(0.7195695, 0.7602421, 0.46902922, 1)
 country_name = "Saudi Arabia"
 
-[node name="b9698b8546220246fe600a949db326bf" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="7ed6816ed92b8f21957046c259d1c5f8" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [73.0479, 33.6844],
@@ -835,7 +837,7 @@ vertices_data = {
 color_value = Color(0.72426677, 0.27395645, 0.993653, 1)
 country_name = "Pakistan"
 
-[node name="103357e3e40a9c0e4e9d36110f7bbc7a" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="c3afd9ee0d26d57f1a65f3409ec7924c" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [100.5018, 13.7563],
@@ -851,7 +853,7 @@ vertices_data = {
 color_value = Color(0.063283436, 0.8907869, 0.30708635, 1)
 country_name = "Thailand"
 
-[node name="05387f3ca38d7bd84ae35f31f2899ecf" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="03b023bfe537395578a73e569b29744d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [47.9774, 29.3759],
@@ -867,7 +869,7 @@ vertices_data = {
 color_value = Color(0.020393327, 0.63887763, 0.2925319, 1)
 country_name = "Kuwait"
 
-[node name="0a25bbf25b60f1908597d7d60e26696e" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="7ee1d6f35e187500ce59f3a4dd869fce" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "capital_location": [125.7275, -8.5569],
 "capital_name": "Dili",
@@ -882,7 +884,7 @@ vertices_data = {
 color_value = Color(0.039638277, 0.356948, 0.5218482, 1)
 country_name = "Timor-Leste"
 
-[node name="d3f5841f04ba23bb90e1b9f4256cea70" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="b82c754ffe427f1052e43baedfffddfc" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[115.4507104838698, 5.447729803891534], [115.4057003113436, 4.955227565933839], [115.34746097215066, 4.316636053887009], [114.8695573263154, 4.348313706881925], [114.65959598191353, 4.007636826997754], [114.20401655482836, 4.525873928236805], [114.59996137904872, 4.900011298029966], [115.4507104838698, 5.447729803891534]]],
@@ -895,7 +897,7 @@ vertices_data = {
 color_value = Color(0.827965, 0.018465264, 0.5659443, 1)
 country_name = "Brunei"
 
-[node name="217fa54cc9351504fcde32147bff005d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f0f6f888479425998ab58ba1f132e437" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[100.11598758341783, 20.417849636308187], [99.54330936075932, 20.186597601802063], [98.95967573445488, 19.752980658440947], [98.2537239929156, 19.708203029860044], [97.7977828308044, 18.627080389881755], [97.37589643757354, 18.445437730375815], [97.85912275593486, 17.567946071843664], [98.49376102091136, 16.83783559820793], [98.90334842325676, 16.17782420497612], [98.53737592976572, 15.308497422746084], [98.1920740091914, 15.123702500870351], [98.43081912637987, 14.622027696180837], [99.09775516153876, 13.827502549693278], [99.21201175333609, 13.269293728076464], [99.19635379435168, 12.80474843998867], [99.58728600463972, 11.892762762901697], [99.03812055867398, 10.960545762572435], [98.55355065307305, 9.932959906448543], [98.45717410684873, 10.67526601810515], [98.76454552612078, 11.441291612183749], [98.42833865762984, 12.032986761925685], [98.50957400919268, 13.122377631070677], [98.1036039571077, 13.640459703012851], [97.77773237507516, 14.837285874892642], [97.59707156778276, 16.10056793869977], [97.1645398294998, 16.92873444260934], [96.505768670643, 16.42724050543285], [95.3693522481124, 15.7143899601826], [94.80840457558412, 15.80345429123764], [94.18880415240454, 16.037936102762018], [94.53348595579136, 17.277240301985728], [94.32481652219676, 18.2135139022499], [93.54098839719364, 19.366492621330025], [93.6632548359962, 19.726961574781996], [93.0782776224522, 19.855144965081976], [92.36855350135562, 20.670883287025347], [92.30323449093868, 21.47548533780982], [92.652257114638, 21.324047552978485], [92.67272098182556, 22.041238918541257], [93.16612755734836, 22.278459580977103], [93.06029422401464, 22.70311066333557], [93.28632693885928, 23.043658352139005], [93.3251876159428, 24.078556423432204], [94.10674197792508, 23.85074087167348], [94.55265791217164, 24.675238348890336], [94.60324913938538, 25.1624954289704], [95.1551534362626, 26.001307277932085], [95.12476769407496, 26.5735720891323], [96.41936567585095, 27.264589341739224], [97.1339990580153, 27.083773505149964], [97.0519885599681, 27.69905894623315], [97.40256147663614, 27.882536119085444], [97.32711388549004, 28.26158274994634], [97.91198774616944, 28.335945136014345], [98.2462309102333, 27.74722138112918], [98.68269005737046, 27.50881216075062], [98.71209394734451, 26.743535874940267], [98.67183800658916, 25.918702500913525], [97.72460900267914, 25.083637193293], [97.60471967976198, 23.89740469003304], [98.66026248575577, 24.063286037689966], [98.89874922078278, 23.14272207284253], [99.5319922220874, 22.94903880461258], [99.24089887898724, 22.11831431730458], [99.98348921102148, 21.7429367131364], [100.41653771362738, 21.558839423096614], [101.15003299357824, 21.849984442629022], [101.18000532430754, 21.436572984294028], [100.32910119018952, 20.786121731036232], [100.11598758341783, 20.417849636308187]]],
@@ -908,7 +910,7 @@ vertices_data = {
 color_value = Color(0.13085397, 0.7859662, 0.98776543, 1)
 country_name = "Myanmar"
 
-[node name="f78a77f631d275aac6a914a17fe1b885" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="1956580f66a88a970a6a4e82e4bed958" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [90.4125, 23.8103],
@@ -924,7 +926,7 @@ vertices_data = {
 color_value = Color(0.9669566, 0.19461761, 0.7760175, 1)
 country_name = "Bangladesh"
 
-[node name="6e9767f4f15357401b148b9a8ced14ef" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="edcab18b024dc5bdb1795a609b620467" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [69.2075, 34.5553],
@@ -940,7 +942,7 @@ vertices_data = {
 color_value = Color(0.43199778, 0.9426779, 0.10578225, 1)
 country_name = "Afghanistan"
 
-[node name="f5d993d8e89c037d614ec8dc2559e4b7" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f07bf376f99f078709a99b8b0a9e2296" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [58.3261, 37.9601],
@@ -956,7 +958,7 @@ vertices_data = {
 color_value = Color(0.9603512, 0.90863055, 0.38010842, 1)
 country_name = "Turkmenistan"
 
-[node name="6ea1e24d60afddf388b06f8243c45b70" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="6e676bb111ac3d5efa54ed62ead95f53" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [35.9288, 31.9539],
@@ -972,7 +974,7 @@ vertices_data = {
 color_value = Color(0.43215767, 0.37768352, 0.5339422, 1)
 country_name = "Jordan"
 
-[node name="7fef6b003c726890ea5ca3708fe8ff56" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="b7a6afbcbaede390e86e84a21adcdea8" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [85.324, 27.7172],
@@ -988,7 +990,7 @@ vertices_data = {
 color_value = Color(0.49974698, 0.23612073, 0.915476, 1)
 country_name = "Nepal"
 
-[node name="724bf4ca11a567636547a92a37e397b7" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="ad04fb4d8f5deecceebc491f203ca38f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [44.2095, 15.3694],
@@ -1004,7 +1006,7 @@ vertices_data = {
 color_value = Color(0.4464715, 0.06893011, 0.3956247, 1)
 country_name = "Yemen"
 
-[node name="ebe663c3ee525199563dcb27b1585dc2" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="8e82108c268013c19ad80bbb57820824" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[32.73178022637745, 35.14002594658844], [32.80247358575275, 35.14550364841138], [32.946960890440806, 35.3867033961337], [33.667227003724946, 35.37321584730552], [34.576473829900465, 35.67159556735879], [33.900804477684204, 35.245755927057616], [33.97361657078346, 35.058506374648005], [33.86643965021011, 35.09359467217419], [33.675391880027064, 35.01786286065045], [33.5256852556775, 35.03868846286407], [33.47581749851585, 35.000344550103506], [33.45592207208347, 35.10142365166641], [33.3838334490363, 35.16271190036457], [33.19097700372305, 35.17312470147138], [32.919572381326134, 35.08783274997364], [32.73178022637745, 35.14002594658844]]],
@@ -1017,7 +1019,7 @@ vertices_data = {
 color_value = Color(0.92148423, 0.9309436, 0.3368804, 1)
 country_name = "N. Cyprus"
 
-[node name="77dab2f81a6c8c9136efba7ab2c4c0f2" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="53ce11d2b48d1429f3836450400c88a3" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [120.9842, 14.5995],
@@ -1033,7 +1035,7 @@ vertices_data = {
 color_value = Color(0.46818084, 0.10321883, 0.21459547, 1)
 country_name = "Philippines"
 
-[node name="ef547e2d9750443f6d203233dfa38e39" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="b2afcc8089799932b40f48e2c487470a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [79.9457, 6.8871],
@@ -1049,7 +1051,7 @@ vertices_data = {
 color_value = Color(0.934883, 0.5910685, 0.4262725, 1)
 country_name = "Sri Lanka"
 
-[node name="551fe18ef47d4e6e9d943b9a68ada21d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="d494343b4416e6ef4c67e1bd6447a8d1" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [121.5654, 25.033],
@@ -1065,7 +1067,7 @@ vertices_data = {
 color_value = Color(0.3325177, 0.955037, 0.6155431, 1)
 country_name = "Taiwan"
 
-[node name="53a577bb3bc587b0c28ab808390f1c9b" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="de0c45bd9b6e7e1760f21a4a5cc25459" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [139.6917, 35.6895],
@@ -1081,7 +1083,7 @@ vertices_data = {
 color_value = Color(0.32674357, 0.23348282, 0.7599292, 1)
 country_name = "Japan"
 
-[node name="2e6507f70a9cc26fb50f5fd82a83c7ef" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="4de6597fe4c0ef3f5fc6b4faf675d36e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-70.6483, -33.4489],
@@ -1097,7 +1099,7 @@ vertices_data = {
 color_value = Color(0.18122911, 0.04145446, 0.70726585, 1)
 country_name = "Chile"
 
-[node name="28aaafc355915903ce4a7e1d3af3bc4e" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="9f7e2daf976bc461cffd3ab08104907d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-65.2592, -19.0196],
@@ -1113,7 +1115,7 @@ vertices_data = {
 color_value = Color(0.15885447, 0.33424908, 0.80582416, 1)
 country_name = "Bolivia"
 
-[node name="84c8fa2341f7d052a1ee3a36ff043798" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="11e14a90ba9bfc81b765f0f09946d523" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-77.0428, -12.0464],
@@ -1129,7 +1131,7 @@ vertices_data = {
 color_value = Color(0.51869166, 0.2576876, 0.6325413, 1)
 country_name = "Peru"
 
-[node name="3536be57ce0713954e454ae6c53ec023" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="c394fa92e6b3a29e6a014ea41e29c19a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-58.3816, -34.6037],
@@ -1145,7 +1147,7 @@ vertices_data = {
 color_value = Color(0.20786656, 0.8047955, 0.30574483, 1)
 country_name = "Argentina"
 
-[node name="64446ac025106d201779cb4bf5ab6b2e" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f8064d685b3454c475ea35e802281670" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-55.2038, 5.852],
@@ -1161,7 +1163,7 @@ vertices_data = {
 color_value = Color(0.39166898, 0.1447819, 0.09170218, 1)
 country_name = "Suriname"
 
-[node name="cf4c7e1169281886577940e361854a84" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="303fa5366dadc1c8d2c75dfaecd6e593" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-58.1551, 6.8013],
@@ -1177,7 +1179,7 @@ vertices_data = {
 color_value = Color(0.8097609, 0.41076806, 0.34169394, 1)
 country_name = "Guyana"
 
-[node name="42537f0fb56e31e20ab9c2305752087d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="15dd76e594a6c3bf9b8758ef5ae7a07d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-47.8825, -15.7942],
@@ -1193,7 +1195,7 @@ vertices_data = {
 color_value = Color(0.25908655, 0.7087127, 0.04189695, 1)
 country_name = "Brazil"
 
-[node name="75497a22409db78dcc52c291e078bc10" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="af44e88fd87709cf084f6a276abc4abb" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-56.1645, -34.9011],
@@ -1209,7 +1211,7 @@ vertices_data = {
 color_value = Color(0.4581524, 0.25240657, 0.79813784, 1)
 country_name = "Uruguay"
 
-[node name="4d5d85af33ec2aaedb674d2d6a7d53b6" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f22ed674998d6c64697ed337b29fe91f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-78.4678, -0.1807],
@@ -1225,7 +1227,7 @@ vertices_data = {
 color_value = Color(0.30220827, 0.20282237, 0.857045, 1)
 country_name = "Ecuador"
 
-[node name="ef3388cc5659bccb742fb8af762f1bfd" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="43b5f8b1445cf44791eae0ce79d5f334" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-74.0721, 4.711],
@@ -1241,7 +1243,7 @@ vertices_data = {
 color_value = Color(0.9343801, 0.3373068, 0.45385316, 1)
 country_name = "Colombia"
 
-[node name="73101738da81e5cbb87b64cd400a4405" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="427852f90d36954a27811878a05cce6e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-57.5759, -25.2637],
@@ -1257,7 +1259,7 @@ vertices_data = {
 color_value = Color(0.44946426, 0.8535446, 0.72063285, 1)
 country_name = "Paraguay"
 
-[node name="e95294b730f61c8175550ec244bfcb50" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="ab4a040c24f482bc7e2caee17867c334" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-66.9036, 10.4806],
@@ -1273,7 +1275,7 @@ vertices_data = {
 color_value = Color(0.91141635, 0.19125536, 0.45832914, 1)
 country_name = "Venezuela"
 
-[node name="1abb53d7a6d9893a4dd4d06b466a4dae" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="bea89415444f441b62f57558d532aa9a" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[-61.2, -51.85], [-60.0, -51.25], [-59.15, -51.5], [-58.55, -51.1], [-57.75, -51.55], [-58.05, -51.9], [-59.4, -52.2], [-59.85, -51.85], [-60.7, -52.3], [-61.2, -51.85]]],
@@ -1286,7 +1288,7 @@ vertices_data = {
 color_value = Color(0.10442089, 0.6517568, 0.30402854, 1)
 country_name = "Falkland Is."
 
-[node name="e299d7cb0f7866cce7d90da2af14047c" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="bf64b488a9532aa86113e0bfc6f01add" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [38.7469, 8.9806],
@@ -1302,7 +1304,7 @@ vertices_data = {
 color_value = Color(0.88515997, 0.060430933, 0.90565574, 1)
 country_name = "Ethiopia"
 
-[node name="c59f12819e165cdb7c8986613c445c21" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="1a7911b86d1070785a9e2e2145352235" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[30.833852421715427, 3.509171604222463], [29.953500197069474, 4.173699042167684], [29.71599531425602, 4.600804755060153], [29.1590784034465, 4.389267279473231], [28.6966776872988, 4.455077215996937], [28.428993768026913, 4.287154649264494], [27.97997724784281, 4.408413397637375], [27.37422610851749, 5.233944403500061], [27.21340905122517, 5.550953477394557], [26.465909458123235, 5.94671743410187], [26.213418409945117, 6.546603298362072], [25.79664798351118, 6.979315904158071], [25.124130893664727, 7.500085150579437], [25.11493248871679, 7.825104071479174], [24.567369012152085, 8.229187933785468], [23.886979580860668, 8.619729712933065], [24.19406772118765, 8.728696472403897], [24.53741516360202, 8.91753756573172], [24.794925745412684, 9.810240916008697], [25.069603699343983, 10.273759963267992], [25.790633328413943, 10.411098940233728], [25.962307049621018, 10.136420986302426], [26.477328213242515, 9.552730334198088], [26.752006167173818, 9.466893473594496], [27.112520981708883, 9.638567194801624], [27.833550610778783, 9.60423245056029], [27.970889587744352, 9.398223985111656], [28.966597170745786, 9.398223985111656], [29.000931914987177, 9.60423245056029], [29.515953078608614, 9.793073543888056], [29.61895731133285, 10.084918869940225], [29.996639497988554, 10.290927335388687], [30.837840731903384, 9.70723668328452], [31.35286189552488, 9.810240916008697], [31.850715687025513, 10.531270545078826], [32.400071594888345, 11.080626452941488], [32.31423473428475, 11.68148447716652], [32.073891524594785, 11.97332980321852], [32.67474954881965, 12.02483191958072], [32.743419037302544, 12.248007757149992], [33.206938084561784, 12.179338268667095], [33.086766479716744, 11.441141267476496], [33.206938084561784, 10.720111638406593], [33.72195924818311, 10.325262079630193], [33.84213085302815, 9.981914637215992], [33.82496348090751, 9.484060845715362], [33.963392794971185, 9.464285229420623], [33.97498, 8.68456], [33.82550000000015, 8.37916], [33.29480000000012, 8.35458], [32.95418, 7.784970000000101], [33.568290000000104, 7.71334], [34.0751, 7.22595], [34.25032, 6.82607], [34.70702, 6.594220000000121], [35.29800711823298, 5.506], [34.62019626785388, 4.847122742081988], [34.005, 4.249884947362048], [33.3900000000001, 3.79], [32.68642, 3.79232], [31.88145, 3.55827], [31.24556, 3.7819], [30.833852421715427, 3.509171604222463]]],
@@ -1315,7 +1317,7 @@ vertices_data = {
 color_value = Color(0.77195853, 0.61752874, 0.48647347, 1)
 country_name = "S. Sudan"
 
-[node name="921855f753932de762b780405a50bdf7" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="38e796fa1b70f739b7ef3edab10e334e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [45.3182, 2.0469],
@@ -1331,7 +1333,7 @@ vertices_data = {
 color_value = Color(0.57068384, 0.32646453, 0.38561252, 1)
 country_name = "Somalia"
 
-[node name="94984a8c4896946d9bafd24959cb6181" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="df412e8e32c23eed24cbcd039d8b420e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [36.8219, -1.2921],
@@ -1347,7 +1349,7 @@ vertices_data = {
 color_value = Color(0.5804488, 0.28354767, 0.60815156, 1)
 country_name = "Kenya"
 
-[node name="70965feb0441ff7fc1982fc5c509136e" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="bec45752bc9738c49da38a0cefd5dc5a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [33.7741, -13.9626],
@@ -1363,7 +1365,7 @@ vertices_data = {
 color_value = Color(0.43979454, 0.01663205, 0.75622845, 1)
 country_name = "Malawi"
 
-[node name="c03b1123e45fa00da3142e0424ee5eec" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="affe53e265967ad1817f088d80240e82" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [35.7419, -6.1629],
@@ -1379,7 +1381,7 @@ vertices_data = {
 color_value = Color(0.7509013, 0.8920841, 0.63702667, 1)
 country_name = "Tanzania"
 
-[node name="bd9f92992678e083a8a4d2c52de297a7" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="676da2b5ec642faa77010cb262189ed3" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[48.94820475850985, 11.41061728169797], [48.94200524271835, 11.394266058798138], [48.938491245322496, 10.982327378783468], [48.93823286316103, 9.973500067581512], [48.93812951029645, 9.451748968946616], [48.48673587422695, 8.837626247589995], [47.78942, 8.003], [46.94834, 7.99688], [43.67875, 9.18358000000012], [43.29699000000011, 9.540480000000173], [42.92812, 10.021940000000145], [42.55876, 10.57258000000013], [42.77685184100096, 10.92687856693442], [43.14530480324214, 11.462039699748855], [43.470659620951665, 11.277709865763882], [43.66666832863484, 10.86416921634816], [44.11780358254282, 10.445538438351605], [44.614259067570856, 10.442205308468942], [45.55694054543915, 10.698029486529776], [46.64540123880301, 10.816549383991171], [47.525657586462785, 11.12722809492999], [48.02159630716778, 11.193063869669745], [48.37878380716927, 11.375481675660126], [48.94820641459347, 11.41062164961852]]],
@@ -1392,7 +1394,7 @@ vertices_data = {
 color_value = Color(0.74071616, 0.15028194, 0.658765, 1)
 country_name = "Somaliland"
 
-[node name="4d4a1722d8e85909a576da2c42878ff0" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="581aaf5e7c34e34f66225bd3261bf223" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-6.589, 34.0209],
@@ -1408,7 +1410,7 @@ vertices_data = {
 color_value = Color(0.30191177, 0.84729534, 0.6463448, 1)
 country_name = "Morocco"
 
-[node name="a058a60f40668cc3d021dbff10689c8e" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="03d94b901a4c4d7ebe79f52e7d9fc856" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[-8.665589565454809, 27.656425889592356], [-8.665124477564191, 27.589479071558227], [-8.684399786809053, 27.395744126896005], [-8.6872936670174, 25.881056219988903], [-11.96941891117116, 25.933352769468268], [-11.93722449385332, 23.374594224536168], [-12.874221564169575, 23.284832261645175], [-13.118754441774712, 22.771220201096256], [-12.929101935263532, 21.327070624267563], [-16.845193650773993, 21.33332347257488], [-17.06342322434257, 20.999752102130827], [-17.02042843267577, 21.422310288981578], [-17.00296179856109, 21.420734157796577], [-14.750954555713534, 21.500600083903663], [-14.630832688851072, 21.860939846274903], [-14.221167771857251, 22.31016307218816], [-13.891110398809047, 23.691009019459305], [-12.50096269372537, 24.7701162785782], [-12.03075883630163, 26.030866197203068], [-11.718219773800357, 26.104091701760623], [-11.392554897497009, 26.883423977154393], [-10.551262579785272, 26.990807603456886], [-10.189424200877582, 26.860944729107405], [-9.73534339032888, 26.860944729107405], [-9.41303748212448, 27.088476060488578], [-8.794883999049077, 27.120696316022507], [-8.817828334986672, 27.656425889592356], [-8.665589565454809, 27.656425889592356]]],
@@ -1421,7 +1423,7 @@ vertices_data = {
 color_value = Color(0.62635267, 0.2515648, 0.81301665, 1)
 country_name = "W. Sahara"
 
-[node name="e496c53293c4103dc7ef0820eee96954" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="9ffa67e6a2e9fefc5575d248a3b48bdf" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[18.45306521980993, 3.504385891123349], [18.393792351971143, 2.90044342692822], [18.094275750407434, 2.365721543788055], [17.898835483479587, 1.741831976728278], [17.774191928791566, 0.855658677571085], [17.826540154703252, 0.288923244626105], [17.66355268725468, -0.058083998213817], [17.638644646889986, -0.424831638189247], [17.523716261472856, -0.743830254726987], [16.865306837642123, -1.225816338713287], [16.407091912510054, -1.740927015798682], [15.972803175529153, -2.712392266453612], [16.0062895036543, -3.535132744972529], [15.753540073314753, -3.855164890156097], [15.170991652088444, -4.343507175314301], [14.58260379401318, -4.97023894615014], [14.209034864975225, -4.793092136253598], [14.1449560889333, -4.510008640158716], [13.600234816144678, -4.50013844159097], [13.258240187237048, -4.882957452009165], [12.995517205465177, -4.781103203961884], [12.620759718484493, -4.438023369976136], [12.318607618873926, -4.606230157086188], [11.91496300624209, -5.037986748884791], [11.093772820691925, -3.978826592630547], [11.855121697648116, -3.426870619321051], [11.478038771214305, -2.765618991714241], [11.820963575903193, -2.514161472181982], [12.49570275233816, -2.391688327650243], [12.575284458067642, -1.948511244315135], [13.109618767965628, -2.428740329603514], [13.99240726080771, -2.4708049454891], [14.299210239324566, -1.998275648612214], [14.425455763413597, -1.333406670744971], [14.316418491277744, -0.552627455247048], [13.843320753645656, 0.038757635901149], [14.276265903386957, 1.196929836426619], [14.026668735417218, 1.395677395021153], [13.282631463278818, 1.31418366129688], [13.003113641012078, 1.83089630778332], [13.075822381246752, 2.267097072759015], [14.33781253424658, 2.227874660649491], [15.146341993885244, 1.964014797367184], [15.940918816805066, 1.727672634280296], [16.012852410555354, 2.267639675298085], [16.537058139724138, 3.198254706226279], [17.133042433346304, 3.728196519379452], [17.809900343505262, 3.56019643799857], [18.45306521980993, 3.504385891123349]]],
@@ -1434,7 +1436,7 @@ vertices_data = {
 color_value = Color(0.89292556, 0.5772104, 0.7809911, 1)
 country_name = "Congo"
 
-[node name="906834b6c3bbe211d04b7b55d24254bb" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="aee54cfba6b40ae70e3d0146428780d7" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[29.339997592900342, -4.499983412294092], [29.519986606572928, -5.419978936386315], [29.419992710088167, -5.939998874539434], [29.620032179490018, -6.520015150583426], [30.199996779101696, -7.079980970898163], [30.74001549655179, -8.340007419470915], [30.346086053190817, -8.238256524288218], [29.00291222506047, -8.407031752153472], [28.734866570762502, -8.526559340044578], [28.449871046672826, -9.164918308146085], [28.67368167492893, -9.605924981324932], [28.49606977714177, -10.789883721564046], [28.372253045370428, -11.793646742401393], [28.642417433392353, -11.971568698782317], [29.34154788586909, -12.360743910372411], [29.61600141777123, -12.178894545137313], [29.69961388521949, -13.257226657771833], [28.934285922976837, -13.248958428605135], [28.523561639121027, -12.698604424696684], [28.155108676879987, -12.272480564017895], [27.388798862423783, -12.132747491100666], [27.164419793412463, -11.608748467661076], [26.553087599399618, -11.924439792532128], [25.752309604604733, -11.784965101776358], [25.418118116973204, -11.33093596765996], [24.78316979340295, -11.238693536018964], [24.31451622894795, -11.26282642989927], [24.25715538910399, -10.951992689663657], [23.91221520355572, -10.926826267137514], [23.45679080576744, -10.867863457892485], [22.83734541188474, -11.01762175867433], [22.402798292742375, -10.993075453335692], [22.155268182064308, -11.084801120653772], [22.208753289486395, -9.894796237836507], [21.875181919042348, -9.523707777548566], [21.8018013851879, -8.90870655684298], [21.949130893652043, -8.305900974158277], [21.74645592620331, -7.920084730667149], [21.7281107927397, -7.290872491081302], [20.5147481625265, -7.299605808138629], [20.6018229509383, -6.939317722199682], [20.091621534920648, -6.943090101756994], [20.037723016040218, -7.116361179231646], [19.41750247567316, -7.155428562044299], [19.16661339689611, -7.738183688999754], [19.01675174324967, -7.988245944860132], [18.464175652752687, -7.847014255406443], [18.13422163256905, -7.987677504104923], [17.472970004962235, -8.0685511206417], [17.08999596524717, -7.545688978712526], [16.8601908708452, -7.222297865429987], [16.573179965896145, -6.622644545115087], [16.326528354567046, -5.877470391466268], [13.375597364971895, -5.864241224799549], [13.02486941900696, -5.984388929878158], [12.7351713395787, -5.965682061388499], [12.32243167486351, -6.10009246177966], [12.182336866920252, -5.789930515163839], [12.436688266660868, -5.684303887559246], [12.468004184629736, -5.248361504745005], [12.63161176926579, -4.991271254092936], [12.995517205465177, -4.781103203961884], [13.258240187237048, -4.882957452009165], [13.600234816144678, -4.50013844159097], [14.1449560889333, -4.510008640158716], [14.209034864975225, -4.793092136253598], [14.58260379401318, -4.97023894615014], [15.170991652088444, -4.343507175314301], [15.753540073314753, -3.855164890156097], [16.0062895036543, -3.535132744972529], [15.972803175529153, -2.712392266453612], [16.407091912510054, -1.740927015798682], [16.865306837642123, -1.225816338713287], [17.523716261472856, -0.743830254726987], [17.638644646889986, -0.424831638189247], [17.66355268725468, -0.058083998213817], [17.826540154703252, 0.288923244626105], [17.774191928791566, 0.855658677571085], [17.898835483479587, 1.741831976728278], [18.094275750407434, 2.365721543788055], [18.393792351971143, 2.90044342692822], [18.45306521980993, 3.504385891123349], [18.54298221199778, 4.201785183118318], [18.93231245288476, 4.709506130385975], [19.46778364429315, 5.03152781821278], [20.290679152108936, 4.691677761245288], [20.927591180106276, 4.322785549329737], [21.659122755630023, 4.22434194581372], [22.405123732195538, 4.029160061047321], [22.70412356943629, 4.633050848810157], [22.841479526468103, 4.710126247573484], [23.29721398285014, 4.609693101414223], [24.410531040146253, 5.10878408448913], [24.805028924262416, 4.89724660890235], [25.12883344900328, 4.92724477784779], [25.278798455514305, 5.170408229997192], [25.650455356557472, 5.256087754737123], [26.402760857862543, 5.150874538590871], [27.04406538260471, 5.127852688004836], [27.37422610851749, 5.233944403500061], [27.97997724784281, 4.408413397637375], [28.428993768026913, 4.287154649264494], [28.6966776872988, 4.455077215996937], [29.1590784034465, 4.389267279473231], [29.71599531425602, 4.600804755060153], [29.953500197069474, 4.173699042167684], [30.833852421715427, 3.509171604222463], [30.77334679538004, 2.339883327642127], [31.174149204235817, 2.204465236821264], [30.85267011894806, 1.849396470543809], [30.46850752129029, 1.583805446779706], [30.086153598762703, 1.062312730306289], [29.87577884290243, 0.597379868976361], [29.81950320813664, -0.205310153813372], [29.58783776217217, -0.587405694179381], [29.579466180140884, -1.341313164885626], [29.291886834436617, -1.620055840667987], [29.254834832483343, -2.215109958508911], [29.117478875451553, -2.292211195488385], [29.024926385216787, -2.839257907730158], [29.276383904749053, -3.293907159034063], [29.339997592900342, -4.499983412294092]]],
@@ -1447,7 +1449,7 @@ vertices_data = {
 color_value = Color(0.5640901, 0.7645856, 0.81365174, 1)
 country_name = "Dem. Rep. Congo"
 
-[node name="69f4287626aee77f93e2c891b518838b" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="cf19b86424a81f302acf45d2e886d4cb" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [17.0658, -22.5609],
@@ -1463,7 +1465,7 @@ vertices_data = {
 color_value = Color(0.4138818, 0.15110633, 0.5776792, 1)
 country_name = "Namibia"
 
-[node name="c89bc418c38da77213c6c6e03cac2510" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="63419ba0451ffaa89bf88e2b4beb511f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [28.1881, -25.7479],
@@ -1479,7 +1481,7 @@ vertices_data = {
 color_value = Color(0.7836268, 0.7638802, 0.077251844, 1)
 country_name = "South Africa"
 
-[node name="742b8abe5776a6d942a92ce7dc7d84a0" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="1188e2f01c7856e1f00531d3aea83a5b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [13.1913, 32.8872],
@@ -1495,7 +1497,7 @@ vertices_data = {
 color_value = Color(0.45378938, 0.34165424, 0.26039392, 1)
 country_name = "Libya"
 
-[node name="d6dacba23ab4a1d5b72f223bfb010a05" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="9a24c441c7d65e46c12ea1d7bd918e9a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [10.1815, 36.819],
@@ -1511,7 +1513,7 @@ vertices_data = {
 color_value = Color(0.8392761, 0.22931872, 0.71556294, 1)
 country_name = "Tunisia"
 
-[node name="b0aa0804e676a38255af4fd70236af7c" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="78062659da41153816ed319451ffcfb6" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [28.3228, -15.3875],
@@ -1527,7 +1529,7 @@ vertices_data = {
 color_value = Color(0.6900945, 0.9002478, 0.3347063, 1)
 country_name = "Zambia"
 
-[node name="97527dec0ae1a703599581d4f25dfbce" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="0a92828f0896e81cb494b31cef6ce373" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-13.2317, 8.4657],
@@ -1543,7 +1545,7 @@ vertices_data = {
 color_value = Color(0.5911025, 0.04250568, 0.34993756, 1)
 country_name = "Sierra Leone"
 
-[node name="8e4d9eeed250a9d065ac2bb8bdc67b30" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="7ab71c83f8d6ef2e7fa56c7f488823c3" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-13.5784, 9.6412],
@@ -1559,7 +1561,7 @@ vertices_data = {
 color_value = Color(0.5558719, 0.82154334, 0.39715835, 1)
 country_name = "Guinea"
 
-[node name="642cab67fc263bb61ae4ccbd577c8aa4" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="b925dd3598bac9b5d802f203bd97c1c2" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-10.7969, 6.3156],
@@ -1575,7 +1577,7 @@ vertices_data = {
 color_value = Color(0.3913066, 0.9849584, 0.10505371, 1)
 country_name = "Liberia"
 
-[node name="d17df45bc89369e499cc40dc94cbd35f" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="48d37cae3b682b74870f2251e063f877" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[27.37422610851749, 5.233944403500061], [27.04406538260471, 5.127852688004836], [26.402760857862543, 5.150874538590871], [25.650455356557472, 5.256087754737123], [25.278798455514305, 5.170408229997192], [25.12883344900328, 4.92724477784779], [24.805028924262416, 4.89724660890235], [24.410531040146253, 5.10878408448913], [23.29721398285014, 4.609693101414223], [22.841479526468103, 4.710126247573484], [22.70412356943629, 4.633050848810157], [22.405123732195538, 4.029160061047321], [21.659122755630023, 4.22434194581372], [20.927591180106276, 4.322785549329737], [20.290679152108936, 4.691677761245288], [19.46778364429315, 5.03152781821278], [18.93231245288476, 4.709506130385975], [18.54298221199778, 4.201785183118318], [18.45306521980993, 3.504385891123349], [17.809900343505262, 3.56019643799857], [17.133042433346304, 3.728196519379452], [16.537058139724138, 3.198254706226279], [16.012852410555354, 2.267639675298085], [15.907380812247652, 2.557389431158612], [15.862732374747482, 3.013537298998983], [15.405395948964385, 3.33530060466434], [15.036219516671252, 3.851367295747124], [14.95095340338966, 4.210389309094921], [14.47837243008047, 4.732605495620447], [14.558935988023508, 5.03059764243153], [14.459407179429348, 5.4517605656103], [14.536560092841114, 6.22695872642069], [14.776545444404576, 6.408498033062045], [15.279460483469109, 7.421924546737969], [16.106231723706742, 7.497087917506462], [16.290561557691888, 7.754307359239419], [16.456184523187346, 7.734773667832968], [16.705988396886255, 7.508327541529979], [17.964929640380888, 7.890914008002994], [18.38955488452322, 8.281303615751824], [18.911021762780507, 8.630894680206353], [18.812009718509273, 8.982914536978598], [19.09400800952602, 9.07484691002584], [20.05968549976427, 9.012706000194854], [21.000868361096167, 9.475985215691509], [21.723821648859456, 10.567055568885976], [22.23112918466876, 10.97188873946061], [22.864165480244225, 11.142395127807546], [22.97754357269261, 10.71446259199854], [23.554304233502194, 10.089255275915308], [23.55724979014283, 9.681218166538684], [23.394779087017184, 9.265067857292223], [23.459012892355982, 8.954285793488893], [23.805813429466752, 8.666318874542526], [24.567369012152085, 8.229187933785468], [25.11493248871679, 7.825104071479174], [25.124130893664727, 7.500085150579437], [25.79664798351118, 6.979315904158071], [26.213418409945117, 6.546603298362072], [26.465909458123235, 5.94671743410187], [27.21340905122517, 5.550953477394557], [27.37422610851749, 5.233944403500061]]],
@@ -1588,7 +1590,7 @@ vertices_data = {
 color_value = Color(0.81832814, 0.78349936, 0.6007729, 1)
 country_name = "Central African Rep."
 
-[node name="74458a3d3e5f3074226b1f9fa23c9163" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="4c6e461ecbf88e4cea900a048bc92d1b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [32.5599, 15.5007],
@@ -1604,7 +1606,7 @@ vertices_data = {
 color_value = Color(0.45418608, 0.24363998, 0.13444707, 1)
 country_name = "Sudan"
 
-[node name="902f92c09660b797958acb27421fd9ac" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="82d6d537a2ce6b08580ef2a27a4153e0" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [43.1456, 11.588],
@@ -1620,7 +1622,7 @@ vertices_data = {
 color_value = Color(0.5632259, 0.5874133, 0.58414906, 1)
 country_name = "Djibouti"
 
-[node name="c9c9f116f74ac9d7e60dc415523dfeff" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="8e89e7c570aaa6cb29e50b4e3520f50c" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [38.9314, 15.3229],
@@ -1636,7 +1638,7 @@ vertices_data = {
 color_value = Color(0.78823763, 0.96598494, 0.89864755, 1)
 country_name = "Eritrea"
 
-[node name="04b9348054f102f0170ede9e58ef0a88" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="6f1bc64a020e54ee4992987f3156ef78" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[-8.029943610048619, 10.206534939001711], [-7.899589809592372, 10.297382106970828], [-7.622759161804809, 10.147236232946796], [-6.850506557635057, 10.13899384199624], [-6.666460944027548, 10.430810655148449], [-6.493965013037268, 10.411302801958271], [-6.205222947606431, 10.524060777219134], [-6.050452032892267, 10.096360785355444], [-5.816926235365287, 10.222554633012194], [-5.404341599946974, 10.370736802609146], [-4.954653286143099, 10.152713934769736], [-4.779883592131966, 9.821984768101744], [-4.330246954760383, 9.61083486575714], [-3.980449184576685, 9.8623440617217], [-3.511898972986273, 9.90032623945622], [-2.827496303712707, 9.642460842319778], [-2.562189500326241, 8.219627793811483], [-2.983584967450327, 7.379704901555513], [-3.244370083011262, 6.250471503113502], [-2.81070146321784, 5.38905121502411], [-2.856125047202397, 4.994475816259509], [-3.311084357100071, 4.984295559098015], [-4.008819545904942, 5.179813340674315], [-4.649917364917911, 5.168263658057086], [-5.834496222344526, 4.993700669775137], [-6.528769090185847, 4.705087795425015], [-7.518941209330436, 4.338288479017308], [-7.71215938966975, 4.364565944837722], [-7.635368211284031, 5.188159084489456], [-7.539715135111763, 5.313345241716519], [-7.570152553731688, 5.707352199725904], [-7.993692592795881, 6.126189683451543], [-8.311347622094019, 6.193033148621083], [-8.60288021486862, 6.46756419517166], [-8.385451626000574, 6.911800645368743], [-8.48544552248535, 7.39520783124307], [-8.439298468448698, 7.686042792181738], [-8.280703497744938, 7.687179673692157], [-8.221792364932199, 8.123328762235573], [-8.299048631208564, 8.316443589710303], [-8.20349890790088, 8.455453192575447], [-7.832100389019188, 8.575704250518626], [-8.07911373537435, 9.376223863152036], [-8.30961646161225, 9.78953196862244], [-8.229337124046822, 10.1290202905639], [-8.029943610048619, 10.206534939001711]]],
@@ -1649,7 +1651,7 @@ vertices_data = {
 color_value = Color(0.018451005, 0.33180255, 0.09007064, 1)
 country_name = "Côte d'Ivoire"
 
-[node name="e90c93ceb8ccdcdf3b797f47edee866d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="cef35c31b8a8cbd1f2bee4bbc3a47894" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-8.0029, 12.6392],
@@ -1665,7 +1667,7 @@ vertices_data = {
 color_value = Color(0.9103482, 0.72187597, 0.23232265, 1)
 country_name = "Mali"
 
-[node name="9986531359550785caffb2032622437f" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="055668fd6746fcab6cd880409361e808" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-17.366, 14.7404],
@@ -1681,7 +1683,7 @@ vertices_data = {
 color_value = Color(0.5997059, 0.3489537, 0.7929641, 1)
 country_name = "Senegal"
 
-[node name="5d839147c83e283c1d1bb705dc50586f" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="a891632ddbd4f984bf89de0ad049f4ce" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [7.3986, 9.0765],
@@ -1697,7 +1699,7 @@ vertices_data = {
 color_value = Color(0.36528882, 0.7821984, 0.113704145, 1)
 country_name = "Nigeria"
 
-[node name="9e7002d53d4db7bfad4f5cf419b0c126" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="d60f045c3457a1cfe739d2415ca832aa" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [2.6286, 6.4969],
@@ -1713,7 +1715,7 @@ vertices_data = {
 color_value = Color(0.61889666, 0.23946713, 0.67699224, 1)
 country_name = "Benin"
 
-[node name="232bf11cb81bcdb269f76a08fde8b947" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="48cd68634813701b9c71f7705226b351" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [13.2894, -8.8399],
@@ -1729,7 +1731,7 @@ vertices_data = {
 color_value = Color(0.13738924, 0.71917427, 0.4139315, 1)
 country_name = "Angola"
 
-[node name="6cd50fb3091b0a9d3c1ac2cf52441390" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="be5eda916b19d3d977262e22890a4374" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [25.9231, -24.6282],
@@ -1745,7 +1747,7 @@ vertices_data = {
 color_value = Color(0.42512605, 0.03556887, 0.23478334, 1)
 country_name = "Botswana"
 
-[node name="9d5116a2451bc98c2b46b93acbc1b4f0" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="8f7b7f524689107516d005ada9af9b5f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [31.0335, -17.8252],
@@ -1761,7 +1763,7 @@ vertices_data = {
 color_value = Color(0.6145186, 0.26995525, 0.1690479, 1)
 country_name = "Zimbabwe"
 
-[node name="e03653dedd6f4e142f4aca131995964f" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="de55e0cb8bf7d5ff28a92435aaac4213" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [15.0557, 12.1348],
@@ -1777,7 +1779,7 @@ vertices_data = {
 color_value = Color(0.875829, 0.8649796, 0.18473494, 1)
 country_name = "Chad"
 
-[node name="575b9408b6daa2ddcefbcf6d81c9b4c9" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="9916b663260519209b30564366261a50" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [3.0875, 36.7372],
@@ -1793,7 +1795,7 @@ vertices_data = {
 color_value = Color(0.34124112, 0.71427363, 0.8085298, 1)
 country_name = "Algeria"
 
-[node name="a6d3bea3fa66775952e080b90bb0c4f1" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="1d5d39dfee6576551695e8fa4c34c5ab" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [32.5732, -25.9692],
@@ -1809,7 +1811,7 @@ vertices_data = {
 color_value = Color(0.6516685, 0.978126, 0.32373813, 1)
 country_name = "Mozambique"
 
-[node name="babd057cfd11329e17e76831b327eb57" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="6ce564ee586e65f021aa65dfa0213577" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[32.07166548028107, -26.73382008230491], [31.86806033705108, -27.177927341421277], [31.28277306491333, -27.285879408479], [30.68596194837448, -26.743845310169533], [30.67660851412964, -26.398078301704608], [30.949666782359913, -26.02264902110415], [31.04407962415715, -25.731452325139443], [31.333157586397903, -25.66019052500895], [31.83777794772806, -25.84333180105135], [31.98577924981197, -26.291779880480227], [32.07166548028107, -26.73382008230491]]],
@@ -1822,7 +1824,7 @@ vertices_data = {
 color_value = Color(0.7294467, 0.9885437, 0.093374744, 1)
 country_name = "eSwatini"
 
-[node name="28765464efe1b6583610335965b4d75a" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="74c758ceb03f838498e1aac325522aef" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "capital_location": [29.9249, -3.4241],
 "capital_name": "Gitega",
@@ -1837,7 +1839,7 @@ vertices_data = {
 color_value = Color(0.15805557, 0.9370378, 0.2111847, 1)
 country_name = "Burundi"
 
-[node name="9d7ed5d77d647e89c3cc11757d651dc2" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="1aa2e8532b5d8311b3c430819f1d8584" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "capital_location": [30.0606, -1.9441],
 "capital_name": "Kigali",
@@ -1852,7 +1854,7 @@ vertices_data = {
 color_value = Color(0.6152166, 0.48981467, 0.76483256, 1)
 country_name = "Rwanda"
 
-[node name="53b3c88ea00c4f0e137b4e6fe7bd23f1" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="86fcf6a1e2097b05e6e43fc062387307" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [32.5825, 0.3476],
@@ -1868,7 +1870,7 @@ vertices_data = {
 color_value = Color(0.32696202, 0.6251878, 0.07610025, 1)
 country_name = "Uganda"
 
-[node name="e99bb6b91ef51dbe4eec9340dc7c68cf" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f56a0eb65cff9da7537c552a6c905f27" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [27.4782, -29.315],
@@ -1884,7 +1886,7 @@ vertices_data = {
 color_value = Color(0.91253227, 0.12092768, 0.30829737, 1)
 country_name = "Lesotho"
 
-[node name="4be25f9d27da71d4e98775668b5b12af" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="41e34ce758bea34b7640c50734655df9" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [11.5021, 3.8627],
@@ -1900,7 +1902,7 @@ vertices_data = {
 color_value = Color(0.29642293, 0.15567695, 0.91222316, 1)
 country_name = "Cameroon"
 
-[node name="fceb5af40df295d85851f390f4f8d78d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="0ed21e95dd906f5a1f613983a6673020" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [9.4673, 0.4162],
@@ -1916,7 +1918,7 @@ vertices_data = {
 color_value = Color(0.98796624, 0.05448281, 0.34500048, 1)
 country_name = "Gabon"
 
-[node name="bf2ec44b27fc25c6fd8a38792b9ef2a8" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="d5a20f2a0e430073d76c983b31f4c00a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [2.1254, 13.5116],
@@ -1932,7 +1934,7 @@ vertices_data = {
 color_value = Color(0.74680734, 0.15619121, 0.9903903, 1)
 country_name = "Niger"
 
-[node name="28814f84db09b59b95f863b9c143c3a9" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="ab69b379e3e26b18d9ebd10e1d54d751" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-1.5616, 12.3714],
@@ -1948,7 +1950,7 @@ vertices_data = {
 color_value = Color(0.15822312, 0.8556169, 0.5858214, 1)
 country_name = "Burkina Faso"
 
-[node name="1e746c5c85c4c0de3a0858b0dd047476" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f297d91f0f0f19b14bd5925ff97971f7" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [1.2253, 6.1256],
@@ -1964,7 +1966,7 @@ vertices_data = {
 color_value = Color(0.11896398, 0.5225335, 0.22668986, 1)
 country_name = "Togo"
 
-[node name="e7400496f1ce70cb62c2c44ca2ddc469" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="5801e2d1607cb5ae18931a2340c580a8" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-0.187, 5.6037],
@@ -1980,7 +1982,7 @@ vertices_data = {
 color_value = Color(0.9033206, 0.9445563, 0.38578442, 1)
 country_name = "Ghana"
 
-[node name="2d65f5236205dd23c6a8212627568fb8" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="2998b15c0c769abc4983f869d70ec322" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-15.1804, 11.8037],
@@ -1996,7 +1998,7 @@ vertices_data = {
 color_value = Color(0.177337, 0.38290197, 0.77600294, 1)
 country_name = "Guinea-Bissau"
 
-[node name="e31959fe2842dacea4d16d36e9813620" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f47c9549788a513cd21bae3f482bb1c1" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [31.2357, 30.0444],
@@ -2012,7 +2014,7 @@ vertices_data = {
 color_value = Color(0.8871056, 0.15727012, 0.6438206, 1)
 country_name = "Egypt"
 
-[node name="d7fe73b6846dfc672236e636aa2cf6b5" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="36c09ad94e6d1f3573f21f5052ebc480" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-15.9582, 18.079],
@@ -2028,7 +2030,7 @@ vertices_data = {
 color_value = Color(0.8437264, 0.5173032, 0.1336502, 1)
 country_name = "Mauritania"
 
-[node name="98010a06615cf3e90f16312dfe48378c" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="d7301886832b549782fc48de37bbe569" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[9.649158155972628, 2.283866075037736], [11.276449008843713, 2.261050930180872], [11.285078973036462, 1.057661851400013], [9.830284051155644, 1.067893784993799], [9.492888624721983, 1.010119533691494], [9.305613234096256, 1.160911363119183], [9.649158155972628, 2.283866075037736]]],
@@ -2041,7 +2043,7 @@ vertices_data = {
 color_value = Color(0.59376585, 0.3803246, 0.058932375, 1)
 country_name = "Eq. Guinea"
 
-[node name="e2a96e074e1d8a6f6de56abbd4a4d8dc" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="e12d61df0f95b2673ca1ffa8e4ed3bc6" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[-16.71372880702347, 13.594958604379856], [-15.624596320039942, 13.62358734786956], [-15.39877031092446, 13.86036876063092], [-15.08173539881382, 13.876491807505984], [-14.687030808968489, 13.630356960499784], [-14.376713833055788, 13.625680243377374], [-14.046992356817482, 13.79406789800045], [-13.844963344772408, 13.505041612192002], [-14.277701788784556, 13.280585028532244], [-14.712197231494628, 13.298206691943776], [-15.141163295949468, 13.509511623585238], [-15.511812506562933, 13.278569647672867], [-15.691000535534997, 13.270353094938455], [-15.931295945692211, 13.130284125211332], [-16.841524624081273, 13.15139394780256], [-16.71372880702347, 13.594958604379856]]],
@@ -2054,7 +2056,7 @@ vertices_data = {
 color_value = Color(0.8853978, 0.30513826, 0.42928186, 1)
 country_name = "Gambia"
 
-[node name="b5bcce260d9e303ca0e63f055187ed28" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="9ca6bd9d2e99d51a8345b7cd4ab76413" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [47.5079, -18.8792],
@@ -2070,7 +2072,7 @@ vertices_data = {
 color_value = Color(0.7099122, 0.053195015, 0.6285133, 1)
 country_name = "Madagascar"
 
-[node name="0309a6c666a7a803fdb9db95de71cf01" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="68c86f16a78ac106066d1ebc541575b2" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [2.3522, 48.8566],
@@ -2086,7 +2088,7 @@ vertices_data = {
 color_value = Color(0.01186602, 0.40099573, 0.99111724, 1)
 country_name = "France"
 
-[node name="f01fc92b23faa973f3492a23d5a705c5" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="aa4837d13dd3db3b0793ccbf9d67f6ca" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [30.5234, 50.4501],
@@ -2102,7 +2104,7 @@ vertices_data = {
 color_value = Color(0.937985, 0.14054355, 0.95033514, 1)
 country_name = "Ukraine"
 
-[node name="6542f875eaa09a5c550e5f3986400ad9" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="e5966a87ea5ed4deb22538aed09a489a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [27.5615, 53.9045],
@@ -2118,7 +2120,7 @@ vertices_data = {
 color_value = Color(0.39555314, 0.9165131, 0.33225054, 1)
 country_name = "Belarus"
 
-[node name="d9051e0b77f8bb5521389618e70e2ada" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="98752070840dade143b716d6dfe6bcad" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [25.2797, 54.6872],
@@ -2134,7 +2136,7 @@ vertices_data = {
 color_value = Color(0.84773433, 0.4686391, 0.12976968, 1)
 country_name = "Lithuania"
 
-[node name="5feb168ca8fb495dcc89b1208cdeb919" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="d84cb012803b658313fb0196999128f1" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [37.6173, 55.7558],
@@ -2150,7 +2152,7 @@ vertices_data = {
 color_value = Color(0.3746809, 0.6600843, 0.798976, 1)
 country_name = "Russia"
 
-[node name="31e7e8bf65a10ae8798adfbd8c0cd8c8" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="0e41247f7103aa12c1fc20a8894cace4" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [14.4378, 50.0755],
@@ -2166,7 +2168,7 @@ vertices_data = {
 color_value = Color(0.1949449, 0.39698857, 0.47477528, 1)
 country_name = "Czechia"
 
-[node name="d8b00929dec65d422303256336ada04f" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="78ccbe6b75d2713a63e721033b74ea53" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [13.405, 52.52],
@@ -2182,7 +2184,7 @@ vertices_data = {
 color_value = Color(0.8464361, 0.8702143, 0.13676676, 1)
 country_name = "Germany"
 
-[node name="7755415a9fe7022060b98a689236ccd2" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="0173a9bf87e809e6eb63c20851adba35" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [24.7536, 59.437],
@@ -2198,7 +2200,7 @@ vertices_data = {
 color_value = Color(0.46614465, 0.62461865, 0.37783113, 1)
 country_name = "Estonia"
 
-[node name="a09f4b2ae67f0a63ab8912047a1a1b55" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="885c783f6cb91fe389750347f99ac10f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [24.1052, 56.9496],
@@ -2214,7 +2216,7 @@ vertices_data = {
 color_value = Color(0.6274306, 0.90037596, 0.6700603, 1)
 country_name = "Latvia"
 
-[node name="d5b9290a0b67727d4ba1ca6059dc31a6" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="bf41dd957709b7a0800d3e39c8fceec9" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [10.7522, 59.9139],
@@ -2230,7 +2232,7 @@ vertices_data = {
 color_value = Color(0.83485657, 0.04454723, 0.29543748, 1)
 country_name = "Norway"
 
-[node name="c8f4261f9f46e6465709e17ebea7a92b" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="4e95835df4498e727009e1c5c8ec4bd7" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [18.0686, 59.3293],
@@ -2246,7 +2248,7 @@ vertices_data = {
 color_value = Color(0.7849754, 0.6221756, 0.33999452, 1)
 country_name = "Sweden"
 
-[node name="6f781c6559a0c605da918096bdb69edf" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="e56d750615099673ea90b739c000e841" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [24.9384, 60.1699],
@@ -2262,7 +2264,7 @@ vertices_data = {
 color_value = Color(0.4354265, 0.35010946, 0.8537827, 1)
 country_name = "Finland"
 
-[node name="06630c890abadde9228ea818ce52b621" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="8704b2ada2e84cc6aac13883fc6a96ed" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[6.043073357781111, 50.128051662794235], [6.242751092156993, 49.90222565367873], [6.186320428094177, 49.463802802114515], [5.897759230176348, 49.44266714130711], [5.674051954784829, 49.529483547557504], [5.782417433300907, 50.09032786722122], [6.043073357781111, 50.128051662794235]]],
@@ -2275,7 +2277,7 @@ vertices_data = {
 color_value = Color(0.024948867, 0.041913863, 0.13498926, 1)
 country_name = "Luxembourg"
 
-[node name="6c1674d14bf5f95742f572cddb0641a7" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="5194ff73e0bb5055b5acddf31a5ac86b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [4.3517, 50.8503],
@@ -2291,7 +2293,7 @@ vertices_data = {
 color_value = Color(0.42221767, 0.29672202, 0.26155776, 1)
 country_name = "Belgium"
 
-[node name="e0b0caa59748528a7b1a52272e7487cd" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="304771b6deb16c777ea19ae2fbc91ac9" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[22.380525750424592, 42.32025950781509], [22.881373732197343, 41.99929718685035], [22.952377150166452, 41.33799388281115], [22.76177, 41.3048], [22.597308383889015, 41.130487168943205], [22.05537763844427, 41.14986583105269], [21.674160597426976, 40.931274522457954], [21.0200403174764, 40.84272695572588], [20.605181919037364, 41.086226304685226], [20.4631750830992, 41.51508901627534], [20.59024743010491, 41.855404161133606], [20.71731000000011, 41.84711], [20.76216, 42.05186], [21.35270000000014, 42.2068], [21.57663598940212, 42.24522439706186], [21.917080000000112, 42.30364], [22.380525750424592, 42.32025950781509]]],
@@ -2304,7 +2306,7 @@ vertices_data = {
 color_value = Color(0.87769765, 0.59094733, 0.48087037, 1)
 country_name = "North Macedonia"
 
-[node name="c420ddff824a5c0eec70dd23d62496bc" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="820041255e8a1a65864424c845099bc0" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [19.8187, 41.3275],
@@ -2320,7 +2322,7 @@ vertices_data = {
 color_value = Color(0.7661265, 0.50894713, 0.92359716, 1)
 country_name = "Albania"
 
-[node name="40e5f4acf26ffcc0490082c11aad831f" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="2d8014f0bb2d0c35c59cf1350337a983" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [21.1655, 42.6629],
@@ -2336,7 +2338,7 @@ vertices_data = {
 color_value = Color(0.25350884, 0.9470213, 0.28516406, 1)
 country_name = "Kosovo"
 
-[node name="907eba32d950bfab68227fd7ea22999b" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="6fd159193b004d9983214dc30b3a0a7e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-3.7038, 40.4168],
@@ -2352,7 +2354,7 @@ vertices_data = {
 color_value = Color(0.5644337, 0.8488884, 0.40677643, 1)
 country_name = "Spain"
 
-[node name="424214945ba5615eca039bfe5d731c09" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="c09a32b3a16899004de2bc4462436a93" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [12.5683, 55.6761],
@@ -2368,7 +2370,7 @@ vertices_data = {
 color_value = Color(0.2588208, 0.35799226, 0.7891176, 1)
 country_name = "Denmark"
 
-[node name="0c7d5ae44b2a0be9ebd7d6b9f7d60f20" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="e7cb31e54b7e20eb102ceb7798aaf42d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [26.1025, 44.4268],
@@ -2384,7 +2386,7 @@ vertices_data = {
 color_value = Color(0.048787765, 0.29361033, 0.9212622, 1)
 country_name = "Romania"
 
-[node name="fa79c3005daec47ecff84a116a0927a1" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="364ad0e0b71b3a0634f6a4f434f09e43" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [19.0402, 47.4979],
@@ -2400,7 +2402,7 @@ vertices_data = {
 color_value = Color(0.97842044, 0.365948, 0.81238234, 1)
 country_name = "Hungary"
 
-[node name="88a392b5a8d8f73986d83a2deefb0472" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="b7d9924878ff9b204361e6e9e0200dd3" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [17.1077, 48.1486],
@@ -2416,7 +2418,7 @@ vertices_data = {
 color_value = Color(0.53374594, 0.6595606, 0.52673686, 1)
 country_name = "Slovakia"
 
-[node name="94880bda83bda77c5692876700711f15" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="61f1418a5dc340bf9bf2c0765d47828d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [21.0122, 52.2297],
@@ -2432,7 +2434,7 @@ vertices_data = {
 color_value = Color(0.5802009, 0.5146126, 0.33817336, 1)
 country_name = "Poland"
 
-[node name="06e415f918c577f07328a52e24f75d43" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="c6cf7788bcf0fe42e66108a132b42587" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-6.2603, 53.3498],
@@ -2448,7 +2450,7 @@ vertices_data = {
 color_value = Color(0.026917813, 0.096763134, 0.44983894, 1)
 country_name = "Ireland"
 
-[node name="89f9c9f489be2a83cf57e53b9197d288" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="e3c1baaf5876bb7ff6ded7feb31e49cb" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-0.1276, 51.5074],
@@ -2464,7 +2466,7 @@ vertices_data = {
 color_value = Color(0.5389677, 0.538058, 0.8099349, 1)
 country_name = "United Kingdom"
 
-[node name="6b718641741f992e68ec3712718561b8" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="d9885ba3275bdd6df6300fcc3b38bc26" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [23.7275, 37.9838],
@@ -2480,7 +2482,7 @@ vertices_data = {
 color_value = Color(0.419701, 0.45360714, 0.40985435, 1)
 country_name = "Greece"
 
-[node name="9891739094756d2605946c867b32ad28" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="5fad1126037261796db5441f684bd6ce" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [16.3738, 48.2082],
@@ -2496,7 +2498,7 @@ vertices_data = {
 color_value = Color(0.59596944, 0.5799168, 0.02179602, 1)
 country_name = "Austria"
 
-[node name="1007e1b7f894dfbf72a0eaa80f3bc57e" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="e5897ffd90403d4da71401235938889e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [12.4964, 41.9028],
@@ -2512,7 +2514,7 @@ vertices_data = {
 color_value = Color(0.06262027, 0.97102165, 0.44776788, 1)
 country_name = "Italy"
 
-[node name="3ad08396dc5afa78f34f548eea3c1d64" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="4b703ef7f17490720c4d2a694b456826" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [7.4474, 46.948],
@@ -2528,7 +2530,7 @@ vertices_data = {
 color_value = Color(0.22974417, 0.8607632, 0.95042926, 1)
 country_name = "Switzerland"
 
-[node name="a67d4cbdd1b59e0ffccc6bafc83eb033" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="0234baf25921853a8abbf52f808cb527" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [4.9041, 52.3676],
@@ -2544,7 +2546,7 @@ vertices_data = {
 color_value = Color(0.65034944, 0.8191775, 0.98749423, 1)
 country_name = "Netherlands"
 
-[node name="2ff6e535bd2f100979a171ad430e642b" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="29aa82809fe3d07e3e0c5283069bc64c" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [20.4489, 44.7866],
@@ -2560,7 +2562,7 @@ vertices_data = {
 color_value = Color(0.18736108, 0.73899937, 0.47511968, 1)
 country_name = "Serbia"
 
-[node name="560d4c6ff431c86546f3fcec72c748c7" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="1b0a2f02be01481dae470892cbbd2b0a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [15.9819, 45.815],
@@ -2576,7 +2578,7 @@ vertices_data = {
 color_value = Color(0.33614042, 0.9538846, 0.27716047, 1)
 country_name = "Croatia"
 
-[node name="00247297c394dd443dc97067830c35f4" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="76eaecc4d3af78f5a78c142f45f8523a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [14.5058, 46.0569],
@@ -2592,7 +2594,7 @@ vertices_data = {
 color_value = Color(0.0005561465, 0.7639902, 0.24135497, 1)
 country_name = "Slovenia"
 
-[node name="01a151debf2bfee8906f43f4342eb10b" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="36489192f970af807fa48edd16dff625" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [23.3219, 42.6977],
@@ -2608,7 +2610,7 @@ vertices_data = {
 color_value = Color(0.0063677947, 0.7467651, 0.5641978, 1)
 country_name = "Bulgaria"
 
-[node name="4e92f9d2cdf0b8eb493ae3a19709d121" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="ec51c49cb40eb52886291ff0e266f05f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [19.2594, 42.4304],
@@ -2624,7 +2626,7 @@ vertices_data = {
 color_value = Color(0.30693018, 0.8044544, 0.28605482, 1)
 country_name = "Montenegro"
 
-[node name="0cf81cffd0f40dcd1e91e5981835b0ed" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="485f79cf7c508b0208540055e85fab9d" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[18.56, 42.65], [17.674921502358984, 43.02856252702361], [17.297373488034452, 43.44634064388737], [16.91615644701733, 43.66772247982567], [16.456442905348865, 44.04123973243128], [16.23966027188453, 44.35114329688571], [15.75002607591898, 44.818711656262565], [15.959367303133376, 45.23377676043094], [16.318156772535872, 45.00412669532591], [16.534939406000206, 45.21160757097772], [17.002146030351014, 45.23377676043094], [17.861783481526402, 45.067740383477144], [18.553214145591653, 45.08158966733146], [19.005484597557594, 44.86023449354299], [19.36803, 44.863], [19.11761, 44.42307000000011], [19.59976, 44.03847], [19.454, 43.56810000000013], [19.21852, 43.52384], [19.03165, 43.43253], [18.70648, 43.20011], [18.56, 42.65]]],
@@ -2637,7 +2639,7 @@ vertices_data = {
 color_value = Color(0.05066091, 0.816224, 0.11941371, 1)
 country_name = "Bosnia and Herz."
 
-[node name="ea71b362e3ea9969db085abfccdeb10d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="cc21eeb8f3451f9ea5a2f5b30912cef8" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-9.1393, 38.7223],
@@ -2653,7 +2655,7 @@ vertices_data = {
 color_value = Color(0.9157974, 0.8902984, 0.85559624, 1)
 country_name = "Portugal"
 
-[node name="0c12f5495afe76d9242ed25668979de9" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="7d2eefbd3f9dc6313b63fbafa85a7e94" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [28.8638, 47.0105],
@@ -2669,7 +2671,7 @@ vertices_data = {
 color_value = Color(0.04716428, 0.35544533, 0.14133944, 1)
 country_name = "Moldova"
 
-[node name="b78edab0f52e0d6c195fd0d8c5709d26" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="634aa9674ff5f05c8f15cb82edc11539" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [-21.9426, 64.1466],
@@ -2685,7 +2687,7 @@ vertices_data = {
 color_value = Color(0.71702355, 0.9577339, 0.099118285, 1)
 country_name = "Iceland"
 
-[node name="f670d3806d530c3e5cb1f31dca457751" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="4fb2046f2d53769951505f91ca704f5a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [147.1803, -9.4431],
@@ -2701,7 +2703,7 @@ vertices_data = {
 color_value = Color(0.9626591, 0.42704844, 0.3620903, 1)
 country_name = "Papua New Guinea"
 
-[node name="4442e4af0916f53a07fb8ca9a49b98ed" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="17b097522a94f86d3c1ac59c8fd3a5cc" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [149.13, -35.13],
@@ -2717,7 +2719,7 @@ vertices_data = {
 color_value = Color(0.2666457, 0.03550656, 0.03118209, 1)
 country_name = "Australia"
 
-[node name="55b0c4d4efa00b59643b2e6a6e7c18c0" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="dde677d4920326ad772fd84adb2b1b8b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [178.4415, -18.1248],
@@ -2733,7 +2735,7 @@ vertices_data = {
 color_value = Color(0.33472854, 0.9360358, 0.39152804, 1)
 country_name = "Fiji"
 
-[node name="c51ed580ea5e20c910d951f692512b4d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="d8e67c7a76c8a49b07d4a260f26c325b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
 vertices_data = {
 "capital_location": [174.7762, -41.2865],
@@ -2749,7 +2751,7 @@ vertices_data = {
 color_value = Color(0.77000177, 0.9154988, 0.065816045, 1)
 country_name = "New Zealand"
 
-[node name="53a952d732c715fb1b34898400320751" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="d73f7394ed3a17a472a356f39ec30c15" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[165.77998986232635, -21.08000497811563], [166.59999148993384, -21.700018812753527], [167.1200114280869, -22.15999073658349], [166.7400346214448, -22.39997608814695], [166.18973229396866, -22.129708347260458], [165.47437544175222, -21.679606621998232], [164.82981530177568, -21.14981983814195], [164.16799523341365, -20.444746595951628], [164.029605747736, -20.10564584725235], [164.45996707586272, -20.1200118954295], [165.02003624904205, -20.45999114347773], [165.46000939357512, -20.80002206795826], [165.77998986232635, -21.08000497811563]]],
@@ -2762,7 +2764,7 @@ vertices_data = {
 color_value = Color(0.32680243, 0.19835031, 0.1062704, 1)
 country_name = "New Caledonia"
 
-[node name="4bfd0f9b936317e5392c398f43812c4d" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="5446e3b3b8dc2326176fd51f3bf40561" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[[162.1190246930409, -10.48271900802115], [162.3986458681722, -10.826367282762106], [161.70003218001835, -10.820011081590213], [161.31979699121476, -10.204751478723168], [161.91738325423802, -10.446700534713711], [162.1190246930409, -10.48271900802115]]], [[[161.67998172428912, -9.599982191611367], [161.5293966005906, -9.784312025596485], [160.78825320866054, -8.917543226764892], [160.57999718652434, -8.32000864017396], [160.92002811100485, -8.32000864017396], [161.28000613835, -9.120011488484453], [161.67998172428912, -9.599982191611367]]], [[[160.85222863183787, -9.872937106977048], [160.4625883323572, -9.89520964929484], [159.84944746321412, -9.794027194867354], [159.64000288313514, -9.639979750205278], [159.70294477766663, -9.242949720906816], [160.36295617089843, -9.40030445723557], [160.68851769433724, -9.610162448772869], [160.85222863183787, -9.872937106977048]]], [[[159.64000288313514, -8.020026950719632], [159.8750272971986, -8.337320244991737], [159.91740197167792, -8.53828989017483], [159.13367719953936, -8.114181410355428], [158.5861137229747, -7.754823500197737], [158.21114953026483, -7.421872246941199], [158.35997765526542, -7.320017998893917], [158.8200012555277, -7.560003350457379], [159.64000288313514, -8.020026950719632]]], [[[157.14000044171888, -7.021638278840641], [157.5384257346892, -7.347819919466943], [157.33941979393325, -7.404767347852592], [156.90203047101485, -7.176874281445428], [156.4913578635913, -6.765943291860452], [156.542827590154, -6.599338474151452], [157.14000044171888, -7.021638278840641]]]],
@@ -2775,7 +2777,7 @@ vertices_data = {
 color_value = Color(0.29683015, 0.5757308, 0.22333106, 1)
 country_name = "Solomon Is."
 
-[node name="fe07e488fe56260f45240c1c8a8882a8" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="8640f90cde03bbab1137ad75386d99bf" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[[167.2168013857696, -15.89184620530842], [167.84487674384502, -16.46633310309717], [167.51518110582288, -16.59784962327999], [167.1800077659778, -16.159995212470946], [167.2168013857696, -15.89184620530842]]], [[[166.79315799384085, -15.668810723536687], [166.6498592470955, -15.392703545801211], [166.6291369977464, -14.626497084209603], [167.10771243720149, -14.933920179913954], [167.27002811103023, -15.740020847234888], [167.0012073102479, -15.614602146062516], [166.79315799384085, -15.668810723536687]]]],
@@ -2788,7 +2790,7 @@ vertices_data = {
 color_value = Color(0.99230796, 0.993502, 0.27008128, 1)
 country_name = "Vanuatu"
 
-[node name="44b439ba9975f8e802b456777c54a854" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="f501a8da9f1b898e8c0f0ebbc28c3e31" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[[-48.66061601418252, -78.04701873159873], [-48.1513964503784, -78.04706960058677], [-46.66285681821098, -77.83147552506506], [-45.15475765642109, -78.04706960058677], [-43.92082780615574, -78.47810272233328], [-43.48994971370611, -79.0855599913685], [-43.37243750667439, -79.51664478954731], [-43.33326677099714, -80.0261227355129], [-44.880536668464266, -80.33964365022769], [-46.50617387550203, -80.59435678499433], [-48.38642086444183, -80.82948455192233], [-50.48210689960646, -81.02544158317313], [-52.85198808451179, -80.96668547965729], [-54.16425940613162, -80.63352752067158], [-53.98799109558403, -80.22202809033138], [-51.85313432474216, -79.94772958772612], [-50.99132646341059, -79.6146233051727], [-50.364594692574755, -79.1834868305616], [-49.91413123228649, -78.81120900488669], [-49.30695899107312, -78.45856903092695], [-48.66061601418252, -78.04701792415447]]], [[[-66.29003089055513, -80.25577280061798], [-64.03768775089767, -80.29494353629522], [-61.88324561221718, -80.39287037548831], [-61.13897579613348, -79.98137094514813], [-60.61011918805844, -79.6286792947561], [-59.572094692611586, -80.04017872509628], [-59.86584937197473, -80.54965667106185], [-60.15965572777019, -81.00032683707929], [-62.25539343936711, -80.86317758577665], [-64.48812537296979, -80.92193368929253], [-65.74166642928991, -80.5888274067391], [-65.74166642928991, -80.54965667106185], [-66.29003089055513, -80.25577280061798]]], [[[-73.9158186510023, -71.26934457792578], [-73.23033077665059, -71.15177988701751], [-72.07471655952358, -71.19095062269476], [-71.78096188016042, -70.68147267672917], [-71.72217993842841, -70.30919565849851], [-71.74179114448319, -69.50578216565675], [-71.1738154771632, -69.03547495536841], [-70.25325151231577, -68.87874033622717], [-69.72444658067303, -69.25101735445783], [-69.48942216660959, -69.62334604912077], [-69.05851823594381, -70.0740162151382], [-68.72554114447112, -70.5051526897493], [-68.45134599473043, -70.95582285576673], [-68.33383378769872, -71.40649302178416], [-68.51012793646244, -71.79840708428573], [-68.78429724798698, -72.17073577894867], [-69.95947099473648, -72.3078850302513], [-71.07588863797011, -72.50384206150208], [-72.38813412137378, -72.48425669366347], [-71.89849992540829, -72.0923426311619], [-73.07362199572549, -72.22949188246453], [-74.19003963895912, -72.36669281019945], [-74.95389482288145, -72.07275726332328], [-75.01262508818117, -71.6612578329831], [-73.9158186510023, -71.26934457792578]]], [[[-102.3307250638764, -71.89416432076682], [-101.7039674548244, -71.7177918499104], [-100.43091854531409, -71.85499277764532], [-98.98154964882391, -71.9333342489998], [-97.88474321164506, -72.07053517673472], [-96.7879367744662, -71.95297129327072], [-96.20034990109144, -72.52120534275215], [-96.98376461463624, -72.44286387139768], [-98.19808325884682, -72.48203460707492], [-99.43201310911218, -72.44286387139768], [-100.78345516640924, -72.50161997491354], [-101.80186845580135, -72.30566294366275], [-102.3307250638764, -71.89416432076682]]], [[[-122.62173458544191, -73.65777760202387], [-122.40624467022909, -73.32461883559391], [-121.21151139385712, -73.50099049900608], [-119.91885127829204, -73.65772511814733], [-118.72414303269196, -73.48135345473517], [-119.29211870001194, -73.8340967815595], [-120.23221716370998, -74.08880991632614], [-121.62282995668428, -74.01046844497165], [-122.62173458544191, -73.65777760202387]]], [[[-127.28312964568192, -73.46176889434079], [-126.55847184309724, -73.24622568780714], [-125.55956640689534, -73.48135345473517], [-124.03188187726684, -73.87326751723673], [-124.61946875064156, -73.8340967815595], [-125.91218054263894, -73.7361182659341], [-127.28312964568192, -73.46176889434079]]], [[[-163.7128956777287, -78.59566741324154], [-163.1058009511638, -78.22333791113434], [-161.24511349184644, -78.38017588314018], [-160.24620805564453, -78.69364512142268], [-159.48240454815448, -79.04633757925897], [-159.20818356019765, -79.49705942170868], [-161.12760128481472, -79.63420867301133], [-162.43984676821842, -79.28146534618699], [-163.027407803377, -78.92877369579496], [-163.06660437727038, -78.8699659158468], [-163.7128956777287, -78.59566741324154]]], [[[180.0, -84.71338], [180.0, -90.0], [-180.0, -90.0], [-180.0, -84.71338], [-179.94249935617898, -84.72144337355252], [-179.05867733469117, -84.13941171664914], [-177.25677181710577, -84.45293263136392], [-177.14080667326581, -84.41794122714828], [-176.08467281807765, -84.09925912875838], [-175.94723461362773, -84.11044871021659], [-175.82988216866258, -84.11791432081571], [-174.38250281481567, -84.53432301222352], [-173.11655941474544, -84.11791432081571], [-172.88910559801278, -84.06101856886238], [-169.9512229075714, -83.88464690545015], [-168.9999889801587, -84.11791432081571], [-168.5301985341933, -84.23739023227444], [-167.02209937240335, -84.57049651482794], [-164.1821435211551, -84.82520964959463], [-161.9297745432814, -85.13873056430941], [-158.07137956442492, -85.37391000766968], [-155.1922529774993, -85.09955982863215], [-150.942098965438, -85.29551685988292], [-148.53307288307155, -85.60903777459771], [-145.88891822633295, -85.31510222772158], [-143.10771847860048, -85.04075204868394], [-142.89227943237557, -84.57049651482794], [-146.82906836646328, -84.53127410271838], [-150.06073157448392, -84.29614633579035], [-150.9029282297608, -83.90423227328881], [-153.58620113830017, -83.68868987419938], [-153.4099069895364, -83.23801970818204], [-153.03775916238646, -82.82652027784184], [-152.66563717345272, -82.45419158317884], [-152.86151669005503, -82.04269215283858], [-154.52629879455392, -81.76839365023335], [-155.29017981669236, -81.41565032340901], [-156.83744971415953, -81.10212940869428], [-154.4087865875222, -81.16093718864244], [-152.0976615061328, -81.00415089306881], [-150.6482926096426, -81.33730885205455], [-148.86599829811203, -81.0433733051783], [-147.22074988501947, -80.67104461051548], [-146.41774899619182, -80.33793832796204], [-146.77028642473124, -79.92643889762189], [-148.06294654029634, -79.65208871858425], [-149.53190080462508, -79.35820484814042], [-151.58841610411247, -79.29939706819226], [-153.39032162169778, -79.16224781688965], [-155.32937639058574, -79.06426930126423], [-155.97566769104412, -78.69193979915707], [-157.26830196839302, -78.37841888444223], [-158.05176835837008, -78.02567555761794], [-158.365134243788, -76.889207458655], [-157.8754742096064, -76.98723765071264], [-156.974573127246, -77.30075856542754], [-155.32937639058574, -77.20272837336978], [-153.74283240457677, -77.06557912206722], [-152.92024695535474, -77.49666392024602], [-151.33378048399427, -77.39873708105284], [-150.00194963275192, -77.18314300553124], [-148.7484860910803, -76.90884450292594], [-147.61248308000805, -76.57573822037256], [-146.10440894899006, -76.47775970474709], [-146.14352800823497, -76.1054310100842], [-146.4960912749905, -75.7331539918535], [-146.20230994996697, -75.38041066502922], [-144.9096239961858, -75.20403900161699], [-144.32203712281105, -75.53719696060273], [-142.79435259318257, -75.34123992935196], [-141.63876421427165, -75.08647511815298], [-140.2090065238362, -75.06688975031443], [-138.85759030475532, -74.96891123468896], [-137.5061999238905, -74.73378346776099], [-136.42890133990187, -74.51824106867161], [-135.21458269569132, -74.30269866958218], [-134.43119382036258, -74.36145477309799], [-133.7456542695786, -74.43984792088486], [-132.25716792873203, -74.30269866958218], [-130.92531123927358, -74.47901865656195], [-129.55428381413782, -74.45943328872346], [-128.2420383307342, -74.32228403742073], [-126.89062211165322, -74.4202625530462], [-125.40208247948584, -74.51824106867161], [-124.01149552472764, -74.47901865656195], [-122.56215246645364, -74.49860402440066], [-121.07361283428622, -74.51824106867161], [-119.70255957093428, -74.47901865656195], [-118.684145474098, -74.18508310968588], [-117.46980099167126, -74.02834849054466], [-116.21631161178344, -74.24389088963397], [-115.0215524971954, -74.06751922622186], [-113.9443314278551, -73.71482757582987], [-113.29798845096452, -74.02834849054466], [-112.94545182986934, -74.38104014093665], [-112.29908301476264, -74.71419809992238], [-111.26105851931568, -74.4202625530462], [-110.06632524294378, -74.79253957127685], [-108.7149090238628, -74.91010345474086], [-107.55934648316816, -75.18445363377845], [-106.14914832235507, -75.12569753026253], [-104.87607357462872, -74.94932586685042], [-103.36794857462267, -74.98849660252768], [-102.01650651732564, -75.12569753026253], [-100.64553076862228, -75.30201751724246], [-100.1166999987633, -74.87093271906349], [-100.763042975654, -74.53782643651022], [-101.25270300983556, -74.18508310968588], [-102.54533728718457, -74.10674163833141], [-103.11331295450452, -73.73441294366842], [-103.32875200072932, -73.36208424900553], [-103.68128862182442, -72.61753021254418], [-102.9174851143344, -72.75467946384686], [-101.60523963093078, -72.81343556736266], [-100.31252783893342, -72.75467946384686], [-99.13737993040009, -72.91141408298807], [-98.11888912635952, -73.2053496298642], [-97.68803687212608, -73.5580412802563], [-96.33659481482896, -73.6168490602044], [-95.0439605374799, -73.47969980890184], [-93.67290727412814, -73.28374277765096], [-92.43900326207898, -73.16617889418706], [-91.42056413447074, -73.40130666111509], [-90.08873328322846, -73.32291351332816], [-89.22695126011297, -72.55872243259591], [-88.42395117872957, -73.00939259861343], [-87.26833696160259, -73.18576426202566], [-86.01482174349849, -73.08778574640019], [-85.19223629427654, -73.47969980890184], [-83.87999081087281, -73.51887054457893], [-82.66564632844609, -73.63643442804306], [-81.4709130520742, -73.85197682713243], [-80.68744666209705, -73.47969980890184], [-80.29579098175702, -73.12695648207739], [-79.29688554555503, -73.51887054457893], [-77.92585812041932, -73.42089202895363], [-76.90736731637878, -73.63643442804306], [-76.2218794420271, -73.96954071059645], [-74.89004859078483, -73.87161387140338], [-73.85202409533798, -73.65601979588166], [-72.83353329129744, -73.40130666111509], [-71.61921464708689, -73.26415740981241], [-70.20904232448999, -73.1465418499161], [-68.93591590033128, -73.00939259861343], [-67.95662167018412, -72.79385019952406], [-67.36906063502556, -72.48032928480927], [-67.13403622096206, -72.04924448663041], [-67.25154842799373, -71.63774505629027], [-67.56494015162792, -71.24583099378873], [-67.91747677272303, -70.85391693128707], [-68.23084265814094, -70.46205454521782], [-68.48545244004305, -70.10931121839354], [-68.54420854355897, -69.717397155892], [-68.44628170436579, -69.3255347698227], [-67.97623287623895, -68.95320607515976], [-67.58449968125035, -68.5417066448195], [-67.42784257675754, -68.14984425875025], [-67.62367041692767, -67.7187594605715], [-67.74118262395939, -67.3268453980699], [-67.25154842799373, -66.87617523205245], [-66.7031839667286, -66.5822396851762], [-66.05681515162189, -66.20996266694567], [-65.37132727727015, -65.89639007579859], [-64.56827551945446, -65.6025062053547], [-64.17654232446586, -65.1714230220644], [-63.62815202498456, -64.8970728430267], [-63.00139441593262, -64.6423080318279], [-62.041685553624006, -64.58355192831198], [-61.41492794457207, -64.27003101359719], [-60.70985470238173, -64.07407398234642], [-59.887269253159616, -63.9565100988824], [-59.16258480491456, -63.701745287683536], [-58.59455746116231, -63.38822437296864], [-57.811142747617566, -63.27066048950462], [-57.223581712458895, -63.52542530070366], [-57.5957295396089, -63.85853158325705], [-58.61414282900097, -64.15246713013318], [-59.04507259788289, -64.3680095292226], [-59.78934241396661, -64.2112232336491], [-60.61192786318867, -64.3092017492744], [-61.29741573754035, -64.54432951620254], [-62.02210018578546, -64.7990943274014], [-62.51176021996696, -65.09302987427748], [-62.6488577948374, -65.48494232189068], [-62.59012752953771, -65.85721934012133], [-62.12007870141076, -66.19032562267466], [-62.80556657576244, -66.42550506603499], [-63.7456900702324, -66.50384653738956], [-64.29410620792999, -66.83700449637524], [-64.88169308130466, -67.15047373465768], [-65.50842485214054, -67.58161020926889], [-65.66508195663334, -67.95388722749948], [-65.31254533553812, -68.36533498140739], [-64.7837145656793, -68.67890757255452], [-63.961103278241126, -68.9139836630502], [-63.1972997707511, -69.22755625419728], [-62.78595536970778, -69.61941864026653], [-62.570516323482934, -69.99174733492953], [-62.27673580590357, -70.38366139743107], [-61.80666113956062, -70.71676767998451], [-61.51290646019743, -71.0890446982151], [-61.37580888532716, -72.01007375095315], [-61.08197669131556, -72.38235076918386], [-61.003661058177215, -72.7742648316854], [-60.69026933454313, -73.16617889418706], [-60.827366909413456, -73.69524220799121], [-61.37580888532716, -74.10674163833141], [-61.96336992048572, -74.43984792088486], [-63.29520077172799, -74.57699717218742], [-63.7456900702324, -74.92974049901176], [-64.35283647322962, -75.2628467815652], [-65.86098731145182, -75.63512379979574], [-67.19281816269415, -75.79191009536942], [-68.44628170436579, -76.00745249445879], [-69.7977237616629, -76.22299489354822], [-70.6007238430463, -76.63449432388842], [-72.2067756822454, -76.67366505956568], [-73.9695363023697, -76.63449432388842], [-75.55597693551408, -76.71288747167517], [-77.24037024606764, -76.71288747167517], [-76.92697852243361, -77.10480153417677], [-75.39929399280499, -77.28106984472436], [-74.28287634957144, -77.55542002376177], [-73.6561187405195, -77.90811167415393], [-74.7725363837531, -78.22163258886872], [-76.49610042998398, -78.12365407324324], [-77.92585812041932, -78.37841888444223], [-77.98466590036753, -78.78991831478237], [-78.0237849596125, -79.18183318472825], [-76.8486370510791, -79.51493946728169], [-76.63322384307043, -79.88721648551223], [-75.36009741891172, -80.25954518017522], [-73.24485185412459, -80.41633147574879], [-71.44294633653925, -80.69062997835402], [-70.01316280788774, -81.00415089306881], [-68.19164608424757, -81.3176718077836], [-65.70427853052672, -81.47445810335722], [-63.25603003605073, -81.74875660596251], [-61.55202551944234, -82.04269215283858], [-59.69141557477349, -82.37585011182438], [-58.71212134462627, -82.84610564568038], [-58.22248714866089, -83.21843434034338], [-57.00811682801787, -82.86569101351904], [-55.362894253141576, -82.5717554666428], [-53.61977067728827, -82.25823455192807], [-51.54364417174605, -82.00352141716132], [-49.76134986021549, -81.7291712381238], [-47.27393063006224, -81.70958587028525], [-44.82570797380254, -81.84673512158781], [-42.80836340999241, -82.08191456494814], [-42.162020433101816, -81.65082976676933], [-40.771433478343624, -81.3568942198932], [-38.24481767429711, -81.33730885205455], [-36.26666968438025, -81.12171477653294], [-34.38639685722438, -80.90617237744351], [-32.31029618989834, -80.76902312614078], [-30.097097947702025, -80.59265146272867], [-28.549802212018733, -80.33793832796204], [-29.25490129242513, -79.9851950011377], [-29.685805223090995, -79.63250335074571], [-29.685805223090995, -79.260226332515], [-31.62480831554666, -79.29939706819226], [-33.68132361503399, -79.45613168733348], [-35.63991207532831, -79.45613168733348], [-35.91410722506902, -79.08385466910289], [-35.77700965019869, -78.33924814876502], [-35.32654618991046, -78.12365407324324], [-33.89676266125889, -77.88852630631527], [-32.21236935070527, -77.65345021581953], [-30.99805070649461, -77.35951466894335], [-29.783732062284116, -77.06557912206722], [-28.882779303491414, -76.67366505956568], [-27.511751878355653, -76.49734507258574], [-26.16033565927478, -76.36014414485078], [-25.474821946706925, -76.28180267349632], [-23.927552049239807, -76.24258026138676], [-22.458597784910975, -76.1054310100842], [-21.224693772861823, -75.90947397883343], [-20.010375128651106, -75.6743462119054], [-18.913542853256217, -75.43921844497731], [-17.5229817367142, -75.12569753026253], [-16.641588507544043, -74.79253957127685], [-15.70149085129026, -74.49860402440066], [-15.407710333710895, -74.10674163833141], [-16.4653201969964, -73.87161387140338], [-16.11278357590129, -73.46011444106318], [-15.44685523117198, -73.1465418499161], [-14.408804897509016, -72.95058481866533], [-13.311972622114013, -72.7154570517373], [-12.293507656289592, -72.40193613702252], [-11.510067104528616, -72.01007375095315], [-11.020432908563066, -71.53976654066486], [-10.295774298534184, -71.26541636162733], [-9.101015183946116, -71.32422414157548], [-8.611380987980624, -71.65733042412887], [-7.416621873392444, -71.69650115980608], [-7.377451137715298, -71.32422414157548], [-6.868231573911146, -70.93231007907394], [-5.790984666354802, -71.0302885946993], [-5.536374884452698, -71.4026172893623], [-4.341667446296924, -71.4613733928781], [-3.048981492515622, -71.28505340589817], [-1.795492112627812, -71.16743784600186], [-0.65948910155555, -71.22624562595007], [-0.228636847322093, -71.63774505629027], [0.868195428072909, -71.30463877373683], [1.886686232113505, -71.12826711032471], [3.022637566753417, -70.9911178590221], [4.139055209987021, -70.85391693128707], [5.157546014027616, -70.61878916435904], [6.273911980828871, -70.46205454521782], [7.135719842160597, -70.24651214612834], [7.742866245157813, -69.89376881930406], [8.487110223025297, -70.14853363050304], [9.525134718472202, -70.01133270276819], [10.249845004933434, -70.48163991305648], [10.817820672253331, -70.83433156344853], [11.953823683325597, -70.63837453219776], [12.404287143613942, -70.24651214612834], [13.422777947654367, -69.97216196709093], [14.734997592841978, -70.03091807060673], [15.126756626046586, -70.40324676526973], [15.94934207526859, -70.03091807060673], [17.02658898282516, -69.91335418714277], [18.201711053142276, -69.87418345146551], [19.259372592860014, -69.89376881930406], [20.375738559661443, -70.01133270276819], [21.452985467217783, -70.07014048271628], [21.923034295344735, -70.40324676526973], [22.56940311045139, -70.69718231214586], [23.666183709414213, -70.52081064873374], [24.841357456163564, -70.48163991305648], [25.977308790803647, -70.48163991305648], [27.09372643403725, -70.46205454521782], [28.09258019380684, -70.32485361748297], [29.15024173352458, -70.20728973401896], [30.031583286262503, -69.93293955498132], [30.97173261894858, -69.7566195680015], [31.990171746556825, -69.65864105237603], [32.75405276869532, -69.3842908733385], [33.30244306817667, -68.83564219169574], [33.87041873549657, -68.50258758557459], [34.908494907375825, -68.65927052828351], [35.300202264148254, -69.01201385510791], [36.16201012547975, -69.24714162203594], [37.2000346209266, -69.16874847424907], [37.905107863116825, -69.52144012464123], [38.649403517416886, -69.77620493584016], [39.66789432145737, -69.54107716891207], [40.02043094255248, -69.10994069430097], [40.92135786312906, -68.93362070732115], [41.959434035008144, -68.60051442476771], [42.938702426939074, -68.46331349703274], [44.11387617368865, -68.26740814221426], [44.89729088723339, -68.05186574312489], [45.719928012887806, -67.8167379761968], [46.50334272643261, -67.60119557710749], [47.44344038268627, -67.7187594605715], [48.34441897969509, -67.36606781017946], [48.99073611836957, -67.09171763114188], [49.93088545105565, -67.11130299898048], [50.753470900277705, -66.87617523205245], [50.94932457866389, -66.52348358166046], [51.79154707215696, -66.24913340262287], [52.61413252137896, -66.0531763713721], [53.61303795758079, -65.89639007579859], [54.533550245996025, -65.81804860444396], [55.41494347516618, -65.87680470795993], [56.35504113141985, -65.97478322358535], [57.15809288923566, -66.24913340262287], [57.25596805199649, -66.68021820080168], [58.13736128116665, -67.01332448335512], [58.744507684163864, -67.28767466239265], [59.93931847518422, -67.40523854585672], [60.60522098169736, -67.67958872489424], [61.42780643091936, -67.95388722749948], [62.38748945501169, -68.01269500744758], [63.19048953639515, -67.8167379761968], [64.052349074159, -67.40523854585672], [64.9924467304129, -67.62072926851374], [65.97171512234388, -67.73834482840999], [66.91186445502973, -67.85590871187412], [67.89113284696089, -67.93430185966076], [68.89003828316288, -67.93430185966076], [69.71262373238477, -68.97279144299841], [69.67345299670745, -69.22755625419728], [69.55594078967584, -69.67822642021474], [68.59625776558352, -69.93293955498132], [67.81273969917413, -70.30526824964431], [67.94988895047663, -70.69718231214586], [69.06630659371024, -70.67754526787496], [68.92915734240779, -71.06945933037656], [68.41998945503593, -71.4417880250395], [67.94988895047663, -71.85328745537964], [68.71376997261513, -72.16680837009437], [69.86930667509387, -72.26478688571984], [71.02489505400456, -72.08841522230773], [71.57328535348603, -71.69650115980608], [71.90628828317489, -71.32422414157548], [72.45462690622401, -71.01070322686058], [73.08141035349206, -70.71676767998451], [73.33602013539416, -70.36402435316018], [73.86487674346921, -69.87418345146551], [74.49155683787268, -69.77620493584016], [75.62755984894494, -69.73703420016284], [76.62646528514676, -69.61941864026653], [77.64490441275518, -69.46268402112526], [78.13453860872056, -69.07076995862371], [78.42837080273216, -68.69844126396072], [79.1138586770839, -68.32621592216248], [80.09312706901488, -68.07150278739579], [80.93534956250772, -67.87554575614502], [81.48379153842143, -67.54238779715922], [82.05176720574138, -67.36606781017946], [82.77642581577044, -67.20928151460589], [83.77533125197237, -67.30726003023125], [84.6762064961166, -67.20928151460589], [85.65552656447994, -67.09171763114188], [86.75235883987477, -67.15047373465768], [87.47701744990383, -66.87617523205245], [87.98628869014021, -66.20991099051338], [88.35841067907398, -66.4842611695509], [88.82840783076853, -66.95456837983926], [89.6706303242616, -67.15047373465768], [90.63036502478629, -67.22886688244449], [91.59009972531084, -67.11130299898048], [92.60853885291904, -67.18969614676723], [93.54863650917292, -67.20928151460589], [94.17541995644098, -67.11130299898048], [95.01759077350164, -67.17011077892869], [95.7814717956402, -67.385653178018], [96.68239871621677, -67.24850392671544], [97.75964562377312, -67.24850392671544], [98.68020958862051, -67.11130299898048], [99.71818240763504, -67.24850392671544], [100.38418826701276, -66.9153459677297], [100.8933561543846, -66.5822396851762], [101.57889570516852, -66.30788950613868], [102.83241092327262, -65.56328379324515], [103.47867638551476, -65.70048472098], [104.24255740765308, -65.97478322358535], [104.9084599141662, -66.32752655040969], [106.18156050010872, -66.93493133556836], [107.16088056847208, -66.95456837983926], [108.08139285688712, -66.95456837983926], [109.15863976444363, -66.83700449637524], [110.2358349955678, -66.69980356864033], [111.05847212122204, -66.42550506603499], [111.74395999557385, -66.13156951915892], [112.86037763880744, -66.09234710704936], [113.60467329310734, -65.87680470795993], [114.38808800665196, -66.0727617392107], [114.89730757045618, -66.38628265392543], [115.60238081264652, -66.69980356864033], [116.69916141160934, -66.66063283296302], [117.38470096239314, -66.9153459677297], [118.57946007698126, -67.17011077892869], [119.832923618653, -67.26808929455399], [120.8709997905321, -67.18969614676723], [121.65441450407708, -66.87617523205245], [122.32036868702232, -66.56265431733766], [123.2212956075989, -66.4842611695509], [124.1222742046076, -66.62146209728587], [125.16024702362222, -66.71938893647894], [126.10039635630837, -66.56265431733766], [127.00142662974928, -66.56265431733766], [127.8827681824872, -66.66063283296302], [128.80328047090234, -66.75861134858849], [129.70425906791115, -66.5822396851762], [130.78145429903543, -66.42550506603499], [131.79994510307586, -66.38628265392543], [132.9358964377161, -66.38628265392543], [133.85646040256336, -66.28830413830013], [134.75738732313982, -66.20996266694567], [135.0315824728807, -65.72007008881866], [135.0707532085578, -65.30857065847846], [135.6974849793935, -65.58286916108369], [135.87380496637343, -66.03359100353345], [136.2067045431977, -66.4450904338737], [136.61804894424108, -66.77819671642698], [137.46027143773392, -66.95456837983926], [138.59622277237406, -66.8957605998911], [139.90844241756145, -66.87617523205245], [140.80942101457026, -66.81736745210435], [142.1216923361901, -66.81736745210435], [143.06184166887613, -66.79778208426569], [144.37406131406362, -66.83700449637524], [145.490427280865, -66.9153459677297], [146.1955521994878, -67.22886688244449], [145.99969852110144, -67.60119557710749], [146.64606733620815, -67.89513112398367], [147.7232625673323, -68.1302588909117], [148.83962853413368, -68.38502370211057], [150.13231448791487, -68.56129201265821], [151.48370486877957, -68.71812998466402], [152.50224734925246, -68.87481292737294], [153.63819868389248, -68.89450164807613], [154.2845674989992, -68.56129201265821], [155.16585737530477, -68.83564219169574], [155.92979007387544, -69.14921478284282], [156.81113162661336, -69.3842908733385], [158.02552778547238, -69.48226938896397], [159.1810128115187, -69.59983327242799], [159.6706986839165, -69.99174733492953], [160.8066500185564, -70.2268751018575], [161.57047936426272, -70.57961842868184], [162.68689700749633, -70.73635304782317], [163.8424337099749, -70.71676767998451], [164.91968061753118, -70.77552378350032], [166.11443973211942, -70.75593841566177], [167.30909549384296, -70.83433156344853], [168.42561648994115, -70.97148081475109], [169.46358930895587, -71.20666025811136], [170.50166548083496, -71.4026172893623], [171.20679039945753, -71.69650115980608], [171.0892265159937, -72.08841522230773], [170.5604215843507, -72.44115854913207], [170.10995812406236, -72.89182871514942], [169.75736982653507, -73.24452036554152], [169.2873209984083, -73.65601979588166], [167.97510135322068, -73.81280609145517], [167.38748864162972, -74.16549774184722], [166.0948026878484, -74.38104014093665], [165.64439090399242, -74.77295420343819], [164.9588513532085, -75.14528289810119], [164.23419274317962, -75.45880381281597], [163.8227966657039, -75.87030324315617], [163.56823856023425, -76.24258026138676], [163.47026004460895, -76.69330210383652], [163.48989708887973, -77.06557912206722], [164.05787275619969, -77.45744150813647], [164.27336347885694, -77.82977020279935], [164.74346398341606, -78.18251352962375], [166.60412560451732, -78.31961110449402], [166.99578128485734, -78.75074757910522], [165.19387576727195, -78.90748300569072], [163.66621707585955, -79.12302540477998], [161.7663847190811, -79.16224781688965], [160.92416222558825, -79.73048186637101], [160.74789391504066, -80.20073740022713], [160.31696414615865, -80.57306609489001], [159.7882108909483, -80.945394789553], [161.12001590397438, -81.27850107210645], [161.62928714421082, -81.6900005024466], [162.49099165267796, -82.0622775206773], [163.70533613510474, -82.39543547966286], [165.09594892807877, -82.70895639437782], [166.60412560451732, -83.02247730909255], [168.89566531806793, -83.3359982238074], [169.40478152900755, -83.82589080193435], [172.28393395414935, -84.04143320102366], [172.47704878162415, -84.11791432081571], [173.22408328683537, -84.41371021925437], [175.9856718285131, -84.15899708448768], [178.27721154206392, -84.47251799920247], [180.0, -84.71338]]]],
@@ -2801,7 +2803,7 @@ vertices_data = {
 color_value = Color(0.268375, 0.59945637, 0.010564236, 1)
 country_name = "Antarctica"
 
-[node name="9aafc1e062460b00b247b030d4dfeb6a" parent="Regions" instance=ExtResource("5_y1hhk")]
+[node name="fc7681833f97e8a3881907f9f192337f" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
 "geometry": {
 "coordinates": [[[68.935, -48.625], [69.58, -48.94], [70.525, -49.065], [70.56, -49.255], [70.28, -49.71], [68.745, -49.775], [68.72, -49.2425], [68.8675, -48.83], [68.935, -48.625]]],
