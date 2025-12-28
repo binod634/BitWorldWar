@@ -214,6 +214,13 @@ func create_circle_polygon(radius: float,offset_position:Vector2,segments: int =
 	poly.color = color
 	return poly
 
+func generate_circle_points(radius:float, segments:int) -> PackedVector2Array:
+	var points:PackedVector2Array = PackedVector2Array()
+	for i in segments:
+		var angle = TAU * i/segments
+		points.append(Vector2(cos(angle),sin(angle)) * radius)
+	return points
+
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
@@ -304,3 +311,16 @@ func calculate_polygon_area(points: PackedVector2Array) -> float:
 		var p2 = points[(i + 1) % n]
 		area += (p1.x * p2.y) - (p2.x * p1.y)
 	return abs(area) / 2.0
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	# not any army
+	if not body is CharacterBody2D: return
+	if not body.am_i_hostile(country_hashed_name): return
+	var body_position:Vector2 = body.global_position
+	var tmp_polygon2d:Polygon2D = Polygon2D.new()
+	tmp_polygon2d.color = Color.RED
+	tmp_polygon2d.position = body_position
+	tmp_polygon2d.polygon = generate_circle_points(10,32)
+	add_child(tmp_polygon2d)
+	tmp_polygon2d.owner = owner
