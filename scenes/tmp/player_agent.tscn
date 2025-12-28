@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhghdwp8hnl5o"]
+
+[ext_resource type="Script" uid="uid://cbilmb8n1hsbv" path="res://scenes/tmp/player_agent.gd" id="1_8koih"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8koih"]
+radius = 3.0
+
+[node name="player_agent" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_8koih")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 1.0
+target_desired_distance = 1.0
+navigation_layers = 3
+debug_path_custom_color = Color(1, 1, 1, 0.34117648)
+debug_path_custom_point_size = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8koih")
+
+[node name="Circle" type="Polygon2D" parent="."]
+z_index = 1
+scale = Vector2(0.365, 0.365)
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(-5, -5, 0, -7, 5, -5, 7, 0, 5, 5, 0, 7, -5, 5, -7, 0)

@@ -45,7 +45,7 @@ movie_writer/movie_file="/home/annomy/Videos/godot.ogv"
 [global_group]
 
 NavigatableLandRegion="To make countries navigatable. War or Friendly"
-agents=""
+AgentsParent=""
 
 [input_devices]
 

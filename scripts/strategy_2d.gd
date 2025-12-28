@@ -58,13 +58,10 @@ func _load_and_add_nodes():
 func string_to_color(text: String) -> Color:
 	# Hash text using MD5
 	var hash_bytes: PackedByteArray = text.md5_buffer()
-	var r_int: int = (hash_bytes[0] << 24) | (hash_bytes[1] << 16) | (hash_bytes[2] << 8) | hash_bytes[3]
-	var g_int: int = (hash_bytes[4] << 24) | (hash_bytes[5] << 16) | (hash_bytes[6] << 8) | hash_bytes[7]
-	var b_int: int = (hash_bytes[8] << 24) | (hash_bytes[9] << 16) | (hash_bytes[10] << 8) | hash_bytes[11]
-	var r: float = float(r_int & 0xFFFFFFFF) / 4294967295.0
-	var g: float = float(g_int & 0xFFFFFFFF) / 4294967295.0
-	var b: float = float(b_int & 0xFFFFFFFF) / 4294967295.0
-	return Color(clamp(r, 0.0, 1.0), clamp(g, 0.0, 1.0), clamp(b, 0.0, 1.0))
+	var r: int = hash_bytes[0]
+	var g: int = hash_bytes[1]
+	var b: int = hash_bytes[2]
+	return Color(r / 255.0, g / 255.0, b / 255.0) * 0.8 + Color.GREEN * 0.2
 
 
 func load_regions_file():

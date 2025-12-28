@@ -19,6 +19,9 @@ agent_radius = 0.0
 [node name="Game" type="Node2D"]
 script = ExtResource("1_du05j")
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(0, -1)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
 zoom = Vector2(5, 5)
@@ -47,7 +50,7 @@ debug_path_custom_line_width = 1.0
 color = Color(0.047058824, 0, 0.3647059, 0.67058825)
 polygon = PackedVector2Array(-600, 0, 1900, 0, 1900, 720, -600, 720)
 
-[node name="Agents" type="Node2D" parent="." groups=["agents"]]
+[node name="Agents" type="Node2D" parent="." groups=["AgentsParent", "agents"]]
 
 [node name="WorldNavigation" type="Node2D" parent="."]
 
@@ -94,8 +97,9 @@ vertices_data = {
 "shapeGroup": "CRI",
 "shapeName": "Costa Rica"
 }
-color_value = Color(0.34574446, 0.8461924, 0.28379115, 1)
+color_value = Color(0.27607843, 0.60784316, 0.56784314, 1)
 country_name = "Costa Rica"
+country_hashed_name = "5882b568d8a010ef48a6896f53b6eddb"
 
 [node name="c1064dae5be9904c58c2b4283805b2eb" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -110,8 +114,9 @@ vertices_data = {
 "shapeGroup": "NIC",
 "shapeName": "Nicaragua"
 }
-color_value = Color(0.23434591, 0.7610126, 0.11698937, 1)
+color_value = Color(0.18509804, 0.99686277, 0.07215687, 1)
 country_name = "Nicaragua"
+country_hashed_name = "3bfe17f6c2d1b8941df303de7aec2eb0"
 
 [node name="1d15539bb44758bf0900b72da2933835" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -126,8 +131,9 @@ vertices_data = {
 "shapeGroup": "HTI",
 "shapeName": "Haiti"
 }
-color_value = Color(0.7208458, 0.490486, 0.024822708, 1)
+color_value = Color(0.57725495, 0.62980396, 0.2792157, 1)
 country_name = "Haiti"
+country_hashed_name = "b88959cb7d907d91065ac7ec19eb0b44"
 
 [node name="c8192d1d711da923028754c41945f5f4" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -139,8 +145,9 @@ vertices_data = {
 "shapeGroup": "DOM",
 "shapeName": "Dominican Rep."
 }
-color_value = Color(0.4518235, 0.46641344, 0.2353479, 1)
+color_value = Color(0.36078432, 0.73333335, 0.5647059, 1)
 country_name = "Dominican Rep."
+country_hashed_name = "73aab49c7766deec3c3fc29d67546e02"
 
 [node name="64954aeb1f5a5d164e7ddda32891c5d5" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -155,8 +162,9 @@ vertices_data = {
 "shapeGroup": "SLV",
 "shapeName": "El Salvador"
 }
-color_value = Color(0.91182166, 0.98441017, 0.955553, 1)
+color_value = Color(0.7309804, 0.5419608, 0.11294118, 1)
 country_name = "El Salvador"
+country_hashed_name = "e96d24bdfc024e04f49f1f0cc011ca20"
 
 [node name="2764310ab2162023a8475d4dc0982b0b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -171,8 +179,9 @@ vertices_data = {
 "shapeGroup": "GTM",
 "shapeName": "Guatemala"
 }
-color_value = Color(0.58024716, 0.64015377, 0.7292139, 1)
+color_value = Color(0.46431375, 0.6360785, 0.059607845, 1)
 country_name = "Guatemala"
+country_hashed_name = "948b13d5a3e11e21baadc349e199020e"
 
 [node name="be4bf946a1dc76337ef872e9e82c7b5d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -187,8 +196,9 @@ vertices_data = {
 "shapeGroup": "CU1",
 "shapeName": "Cuba"
 }
-color_value = Color(0.20231292, 0.47113422, 0.25139123, 1)
+color_value = Color(0.16000001, 0.8337255, 0.6243138, 1)
 country_name = "Cuba"
+country_hashed_name = "33cac763789c407f405b2cf0dce7df89"
 
 [node name="f42d6205dec0253e6d2e92899e79ef0b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -203,8 +213,9 @@ vertices_data = {
 "shapeGroup": "HND",
 "shapeName": "Honduras"
 }
-color_value = Color(0.95372087, 0.6191188, 0.3237395, 1)
+color_value = Color(0.76549023, 0.32235295, 0.03764706, 1)
 country_name = "Honduras"
+country_hashed_name = "f4270ce39e7e926052e097a0e4e63bde"
 
 [node name="5601b49e6f9cc534fb03f99476844f82" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -219,8 +230,9 @@ vertices_data = {
 "shapeGroup": "US1",
 "shapeName": "United States of America"
 }
-color_value = Color(0.12137114, 0.6160508, 0.013234964, 1)
+color_value = Color(0.0972549, 0.2564706, 0.14117648, 1)
 country_name = "United States of America"
+country_hashed_name = "1f122dd19db580fd03635dd699fb49de"
 
 [node name="db48c586da5e7a1cf5e99c6a4f2e1ee5" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -235,8 +247,9 @@ vertices_data = {
 "shapeGroup": "CAN",
 "shapeName": "Canada"
 }
-color_value = Color(0.26704714, 0.36263838, 0.43593138, 1)
+color_value = Color(0.21333335, 0.49176472, 0.16000001, 1)
 country_name = "Canada"
+country_hashed_name = "445d337b5cd5de476f99333df6b0c2a7"
 
 [node name="370bb5c56841b31016882dc8b8eb80c3" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -251,8 +264,9 @@ vertices_data = {
 "shapeGroup": "MEX",
 "shapeName": "Mexico"
 }
-color_value = Color(0.5536351, 0.551864, 0.5438925, 1)
+color_value = Color(0.44235298, 0.7866667, 0.021960786, 1)
 country_name = "Mexico"
+country_hashed_name = "8dbb07a18d46f63d8b3c8994d5ccc351"
 
 [node name="1439d7c5bfa496737431944625c9d7a0" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -264,8 +278,9 @@ vertices_data = {
 "shapeGroup": "BLZ",
 "shapeName": "Belize"
 }
-color_value = Color(0.12787858, 0.321304, 0.18303469, 1)
+color_value = Color(0.10039216, 0.7898039, 0.5207843, 1)
 country_name = "Belize"
+country_hashed_name = "20bca6785240fa722edb5c85d055a93d"
 
 [node name="80b55f0c64617c2600f052347bedfae9" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -280,8 +295,9 @@ vertices_data = {
 "shapeGroup": "PAN",
 "shapeName": "Panama"
 }
-color_value = Color(0.42157295, 0.14612149, 0.32658136, 1)
+color_value = Color(0.3356863, 0.94039214, 0.16313726, 1)
 country_name = "Panama"
+country_hashed_name = "6bec347f256837d3539ad619bd489de7"
 
 [node name="8094029fc88bdd19326e04f643f52786" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -296,8 +312,9 @@ vertices_data = {
 "shapeGroup": "DN1",
 "shapeName": "Greenland"
 }
-color_value = Color(0.34470907, 0.8249433, 0.68951464, 1)
+color_value = Color(0.27607843, 0.3945098, 0.6839216, 1)
 country_name = "Greenland"
+country_hashed_name = "583eda79d32f7c1cb0840862787a73ca"
 
 [node name="18751938027fe4cd3d30272037d647a9" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -309,8 +326,9 @@ vertices_data = {
 "shapeGroup": "BHS",
 "shapeName": "Bahamas"
 }
-color_value = Color(0.42869556, 0.536453, 0.91425186, 1)
+color_value = Color(0.3419608, 0.79607844, 0.7937255, 1)
 country_name = "Bahamas"
+country_hashed_name = "6dbefdc38954fc54ea0c697d0c6ec0a7"
 
 [node name="39bd7e24e1d9e9a3952827982a0c7cb2" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -322,8 +340,9 @@ vertices_data = {
 "shapeGroup": "TTO",
 "shapeName": "Trinidad and Tobago"
 }
-color_value = Color(0.38901296, 0.46625102, 0.3936147, 1)
+color_value = Color(0.31058824, 0.67058825, 0.28235295, 1)
 country_name = "Trinidad and Tobago"
+country_hashed_name = "63965a52775c39cd64c3ef0248d585b1"
 
 [node name="9c075ec807ac518da7dba124bdf78e51" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -335,8 +354,9 @@ vertices_data = {
 "shapeGroup": "US1",
 "shapeName": "Puerto Rico"
 }
-color_value = Color(0.9663443, 0.06704372, 0.83887124, 1)
+color_value = Color(0.774902, 0.507451, 0.2729412, 1)
 country_name = "Puerto Rico"
+country_hashed_name = "f76257271129c703d6c0442c8ac00dae"
 
 [node name="f51c23a7e790a03bfc65710f8f5f6351" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -351,8 +371,9 @@ vertices_data = {
 "shapeGroup": "JAM",
 "shapeName": "Jamaica"
 }
-color_value = Color(0.10493748, 0.12418996, 0.6302992, 1)
+color_value = Color(0.08156863, 0.8933333, 0.14431374, 1)
 country_name = "Jamaica"
+country_hashed_name = "1add2eb41fcae9b2a15b4a7d68571409"
 
 [node name="c5403d8e2dc77fe783853be58999e3da" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -367,8 +388,9 @@ vertices_data = {
 "shapeGroup": "IDN",
 "shapeName": "Indonesia"
 }
-color_value = Color(0.27453327, 0.9692316, 0.6699366, 1)
+color_value = Color(0.21960786, 0.4227451, 0.652549, 1)
 country_name = "Indonesia"
+country_hashed_name = "4647d00cf81f8fb0ab80f753320d0fc9"
 
 [node name="35a6f2b3aeacfb326df5f7b51673e437" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -383,8 +405,9 @@ vertices_data = {
 "shapeGroup": "MYS",
 "shapeName": "Malaysia"
 }
-color_value = Color(0.24631177, 0.42477232, 0.6795336, 1)
+color_value = Color(0.19764706, 0.24392158, 0.22901963, 1)
 country_name = "Malaysia"
+country_hashed_name = "3f0e49c46cbde0c7adf5ea04a97ab261"
 
 [node name="2c8a265e3e7a35ca51166ac837fb680b" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -396,8 +419,9 @@ vertices_data = {
 "shapeGroup": "CYP",
 "shapeName": "Cyprus"
 }
-color_value = Color(0.9147284, 0.004365557, 0.06294098, 1)
+color_value = Color(0.7341177, 0.334902, 0.51137257, 1)
 country_name = "Cyprus"
+country_hashed_name = "ea2ba3f8011e19e3101ce65fdcefbcc4"
 
 [node name="73beb636621e43fb047bb7fed04f5a9c" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -412,8 +436,9 @@ vertices_data = {
 "shapeGroup": "IND",
 "shapeName": "India"
 }
-color_value = Color(0.48904234, 0.104394905, 0.68960774, 1)
+color_value = Color(0.39215687, 0.3537255, 0.70274514, 1)
 country_name = "India"
+country_hashed_name = "7d31e0da1ab99fe8b08a22118e2f402b"
 
 [node name="9e6a4ea3f6d9e198968a46d7958f2caa" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -428,8 +453,9 @@ vertices_data = {
 "shapeGroup": "CH1",
 "shapeName": "China"
 }
-color_value = Color(0.68097913, 0.15214698, 0.03334918, 1)
+color_value = Color(0.5458824, 0.4635294, 0.5176471, 1)
 country_name = "China"
+country_hashed_name = "ae54a5c026f31ada088992587d92cb3a"
 
 [node name="9ff336205294a123c5632358b2ed772e" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -443,8 +469,9 @@ vertices_data = {
 "shapeGroup": "IS1",
 "shapeName": "Israel"
 }
-color_value = Color(0.35285258, 0.34554964, 0.9585158, 1)
+color_value = Color(0.28235295, 0.4635294, 0.43921572, 1)
 country_name = "Israel"
+country_hashed_name = "5a548c2f5875f10bf5614b7c258876cf"
 
 [node name="e3dc28e1f777195aae8df53ec1434c50" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -456,8 +483,9 @@ vertices_data = {
 "shapeGroup": "IS1",
 "shapeName": "Palestine"
 }
-color_value = Color(0.0021503868, 0.86705744, 0.88801694, 1)
+color_value = Color(0, 0.6392157, 0.74352944, 1)
 country_name = "Palestine"
+country_hashed_name = "008ced81ddf77a45e35513f4459d7bbf"
 
 [node name="15ad2e563716f18eaaa48d1d3ef1b0a0" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -472,8 +500,9 @@ vertices_data = {
 "shapeGroup": "LBN",
 "shapeName": "Lebanon"
 }
-color_value = Color(0.7045894, 0.77006125, 0.74908024, 1)
+color_value = Color(0.5647059, 0.49803925, 0.7811765, 1)
 country_name = "Lebanon"
+country_hashed_name = "b45ff92cc522bb89bfc3b8ef3fc21b7d"
 
 [node name="7031c004dcf6e95d27e5696238fd71f5" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -488,8 +517,9 @@ vertices_data = {
 "shapeGroup": "SYR",
 "shapeName": "Syria"
 }
-color_value = Color(0.2747665, 0.6317827, 0.6757999, 1)
+color_value = Color(0.21960786, 0.47294122, 0.07529412, 1)
 country_name = "Syria"
+country_hashed_name = "465718d0a1bc8363ad01390923fad5d1"
 
 [node name="3dc804791416a6cec8dfb0bda6e80924" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -501,8 +531,9 @@ vertices_data = {
 "shapeGroup": "KOR",
 "shapeName": "South Korea"
 }
-color_value = Color(0.3018801, 0.7323863, 0.02404624, 1)
+color_value = Color(0.24156864, 0.42588237, 0.009411765, 1)
 country_name = "South Korea"
+country_hashed_name = "4d4803b0bb7dab1b0627e4f8277edc5b"
 
 [node name="f7142ebb51120f7ae8d88a7e6e6bc8b3" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -514,8 +545,9 @@ vertices_data = {
 "shapeGroup": "PRK",
 "shapeName": "North Korea"
 }
-color_value = Color(0.52092314, 0.39670962, 0.13987711, 1)
+color_value = Color(0.41725492, 0.4854902, 0.17254902, 1)
 country_name = "North Korea"
+country_hashed_name = "855b3780658ec33023cefc8b4e397a1d"
 
 [node name="c6a086286ddd7ba31b8a1e5a1d15af6e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -530,8 +562,9 @@ vertices_data = {
 "shapeGroup": "BTN",
 "shapeName": "Bhutan"
 }
-color_value = Color(0.8998117, 0.88912684, 0.61857533, 1)
+color_value = Color(0.72156864, 0.48235297, 0.04392157, 1)
 country_name = "Bhutan"
+country_hashed_name = "e65a0ed0e39dd14a9e5af441efb09b37"
 
 [node name="5a2d6cc9c8d0c0cb586810cbb5cbd877" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -546,8 +579,9 @@ vertices_data = {
 "shapeGroup": "OMN",
 "shapeName": "Oman"
 }
-color_value = Color(0.11120185, 0.21952596, 0.12492027, 1)
+color_value = Color(0.08784314, 0.5733333, 0.5803922, 1)
 country_name = "Oman"
+country_hashed_name = "1c77b9733832da9d1ffac66620f3c006"
 
 [node name="05ca51d40bb047d84d999e6fc45b0bd4" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -562,8 +596,9 @@ vertices_data = {
 "shapeGroup": "UZB",
 "shapeName": "Uzbekistan"
 }
-color_value = Color(0.6275011, 0.5365948, 0.58644956, 1)
+color_value = Color(0.5019608, 0.71137255, 0.72784317, 1)
 country_name = "Uzbekistan"
+country_hashed_name = "a0a3e881895e46eb96218f0988d405b9"
 
 [node name="dd8d3654a39aa0a53ff81759067914c0" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -578,8 +613,9 @@ vertices_data = {
 "shapeGroup": "KA1",
 "shapeName": "Kazakhstan"
 }
-color_value = Color(0.48478055, 0.94771075, 0.24891984, 1)
+color_value = Color(0.3890196, 0.28156865, 0.46431375, 1)
 country_name = "Kazakhstan"
+country_hashed_name = "7c1a943bf29d2c753fb935e99428482c"
 
 [node name="561556d476c0fc78954c20bd77146a8e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -594,8 +630,9 @@ vertices_data = {
 "shapeGroup": "TJK",
 "shapeName": "Tajikistan"
 }
-color_value = Color(0.7096168, 0.38567683, 0.2680471, 1)
+color_value = Color(0.56784314, 0.7301961, 0.35764706, 1)
 country_name = "Tajikistan"
+country_hashed_name = "b5a9722262bbb7a7449ebc0f4394c901"
 
 [node name="8b482cf5f589596714733aed51816b6e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -610,8 +647,9 @@ vertices_data = {
 "shapeGroup": "MNG",
 "shapeName": "Mongolia"
 }
-color_value = Color(0.73209304, 0.66090876, 0.09421255, 1)
+color_value = Color(0.5866667, 0.532549, 0.35764706, 1)
 country_name = "Mongolia"
+country_hashed_name = "bb6a72b6a93150d4181e50496fc15f5a"
 
 [node name="37e61db3922d3001301d1484c8d9f2a8" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -626,8 +664,9 @@ vertices_data = {
 "shapeGroup": "VNM",
 "shapeName": "Vietnam"
 }
-color_value = Color(0.99193466, 0.47507483, 0.8051046, 1)
+color_value = Color(0.7937255, 0.94980395, 0.3419608, 1)
 country_name = "Vietnam"
+country_hashed_name = "fdef6daa799e80dbce1b561577b21181"
 
 [node name="9c431a39a84c77a7eb121d2f4e558c41" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -642,8 +681,9 @@ vertices_data = {
 "shapeGroup": "KHM",
 "shapeName": "Cambodia"
 }
-color_value = Color(0.02648376, 0.6375166, 0.5245908, 1)
+color_value = Color(0.01882353, 0.82431376, 0.51137257, 1)
 country_name = "Cambodia"
+country_hashed_name = "06c7a3c3a3344a62864b951aec4df830"
 
 [node name="94e9de87046d26aa5f713c346fcb2e16" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -658,8 +698,9 @@ vertices_data = {
 "shapeGroup": "ARE",
 "shapeName": "United Arab Emirates"
 }
-color_value = Color(0.5602899, 0.82040566, 0.54613173, 1)
+color_value = Color(0.44862747, 0.5482353, 0.1254902, 1)
 country_name = "United Arab Emirates"
+country_hashed_name = "8f6f28f0d2061af28bcf49d1725b2cbd"
 
 [node name="3df068a59a6fdd901e2b530ad68cadda" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -674,8 +715,9 @@ vertices_data = {
 "shapeGroup": "GEO",
 "shapeName": "Georgia"
 }
-color_value = Color(0.91739666, 0.20630015, 0.41585204, 1)
+color_value = Color(0.7341177, 0.88392156, 0.4047059, 1)
 country_name = "Georgia"
+country_hashed_name = "eada819634d0164c6a7547bdcc405033"
 
 [node name="866fc613bab6945df45624057ab0d319" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -690,8 +732,9 @@ vertices_data = {
 "shapeGroup": "AZE",
 "shapeName": "Azerbaijan"
 }
-color_value = Color(0.44322163, 0.73754686, 0.1959908, 1)
+color_value = Color(0.3545098, 0.5701961, 0.7780392, 1)
 country_name = "Azerbaijan"
+country_hashed_name = "7176f8c3bccfdf02322c73f7a0bc9688"
 
 [node name="864cc49a0c752138e48268f9f310af65" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -706,8 +749,9 @@ vertices_data = {
 "shapeGroup": "TUR",
 "shapeName": "Turkey"
 }
-color_value = Color(0.13325308, 0.18862006, 0.14165501, 1)
+color_value = Color(0.10666668, 0.28784314, 0.69960785, 1)
 country_name = "Turkey"
+country_hashed_name = "221cdfb73049678e244380b45872cbb2"
 
 [node name="b3336b8d614405b3e839216e10a5df3d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -722,8 +766,9 @@ vertices_data = {
 "shapeGroup": "LAO",
 "shapeName": "Laos"
 }
-color_value = Color(0.3754108, 0.6863076, 0.8568807, 1)
+color_value = Color(0.3011765, 0.28156865, 0.7372549, 1)
 country_name = "Laos"
+country_hashed_name = "601aebf4afb1db3fdb5c88f3cdda23ef"
 
 [node name="02cf7a6cb5563c2cd868b48058de0a28" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -738,8 +783,9 @@ vertices_data = {
 "shapeGroup": "KGZ",
 "shapeName": "Kyrgyzstan"
 }
-color_value = Color(0.36831886, 0.4224081, 0.0027239246, 1)
+color_value = Color(0.29490197, 0.43215686, 0.11294118, 1)
 country_name = "Kyrgyzstan"
+country_hashed_name = "5e4a24f76c22f03700b283dfbdf6eec1"
 
 [node name="d110d6f85b203dd6e9a8443ffc4c334e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -754,8 +800,9 @@ vertices_data = {
 "shapeGroup": "ARM",
 "shapeName": "Armenia"
 }
-color_value = Color(0.62518543, 0.059714586, 0.036127646, 1)
+color_value = Color(0.5019608, 0.23764706, 0.12235295, 1)
 country_name = "Armenia"
+country_hashed_name = "a00c273f0f497484093fa94865cf5ca5"
 
 [node name="ea4fb6a090a7227393deb77130339891" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -770,8 +817,9 @@ vertices_data = {
 "shapeGroup": "IRQ",
 "shapeName": "Iraq"
 }
-color_value = Color(0.35502622, 0.4540179, 0.78552115, 1)
+color_value = Color(0.28235295, 0.9090196, 0.8, 1)
 country_name = "Iraq"
+country_hashed_name = "5ae2ff99743a8487c917e98bbf3db2d3"
 
 [node name="f3ec75f5b230e3e96ec57a84e223de38" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -786,8 +834,9 @@ vertices_data = {
 "shapeGroup": "IRN",
 "shapeName": "Iran"
 }
-color_value = Color(0.1327577, 0.60398436, 0.18171403, 1)
+color_value = Color(0.103529416, 0.99058825, 0.3262745, 1)
 country_name = "Iran"
+country_hashed_name = "21fc68909a9eb8692e84cf64e495213e"
 
 [node name="f5f3515db52b27eca12647f47a319ed5" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -802,8 +851,9 @@ vertices_data = {
 "shapeGroup": "QAT",
 "shapeName": "Qatar"
 }
-color_value = Color(0.48742574, 0.7669244, 0.56635964, 1)
+color_value = Color(0.3890196, 0.82431376, 0.74980396, 1)
 country_name = "Qatar"
+country_hashed_name = "7cc7ef17c45527cf90fcf27516794d21"
 
 [node name="da66cf908427199052021f5557899f67" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -818,8 +868,9 @@ vertices_data = {
 "shapeGroup": "SAU",
 "shapeName": "Saudi Arabia"
 }
-color_value = Color(0.7195695, 0.7602421, 0.46902922, 1)
+color_value = Color(0.57725495, 0.36627454, 0.56784314, 1)
 country_name = "Saudi Arabia"
+country_hashed_name = "b835b521c29f399c78124c4b59341691"
 
 [node name="7ed6816ed92b8f21957046c259d1c5f8" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -834,8 +885,9 @@ vertices_data = {
 "shapeGroup": "PAK",
 "shapeName": "Pakistan"
 }
-color_value = Color(0.72426677, 0.27395645, 0.993653, 1)
+color_value = Color(0.5803922, 0.5294118, 0.43607846, 1)
 country_name = "Pakistan"
+country_hashed_name = "b9698b8546220246fe600a949db326bf"
 
 [node name="c3afd9ee0d26d57f1a65f3409ec7924c" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -850,8 +902,9 @@ vertices_data = {
 "shapeGroup": "THA",
 "shapeName": "Thailand"
 }
-color_value = Color(0.063283436, 0.8907869, 0.30708635, 1)
+color_value = Color(0.05019608, 0.36, 0.2729412, 1)
 country_name = "Thailand"
+country_hashed_name = "103357e3e40a9c0e4e9d36110f7bbc7a"
 
 [node name="03b023bfe537395578a73e569b29744d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -866,8 +919,9 @@ vertices_data = {
 "shapeGroup": "KWT",
 "shapeName": "Kuwait"
 }
-color_value = Color(0.020393327, 0.63887763, 0.2925319, 1)
+color_value = Color(0.015686275, 0.3756863, 0.3984314, 1)
 country_name = "Kuwait"
+country_hashed_name = "05387f3ca38d7bd84ae35f31f2899ecf"
 
 [node name="7ee1d6f35e187500ce59f3a4dd869fce" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -881,8 +935,9 @@ vertices_data = {
 "shapeGroup": "TLS",
 "shapeName": "Timor-Leste"
 }
-color_value = Color(0.039638277, 0.356948, 0.5218482, 1)
+color_value = Color(0.03137255, 0.31607842, 0.5866667, 1)
 country_name = "Timor-Leste"
+country_hashed_name = "0a25bbf25b60f1908597d7d60e26696e"
 
 [node name="b82c754ffe427f1052e43baedfffddfc" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -894,8 +949,9 @@ vertices_data = {
 "shapeGroup": "BRN",
 "shapeName": "Brunei"
 }
-color_value = Color(0.827965, 0.018465264, 0.5659443, 1)
+color_value = Color(0.6619608, 0.96862745, 0.41411766, 1)
 country_name = "Brunei"
+country_hashed_name = "d3f5841f04ba23bb90e1b9f4256cea70"
 
 [node name="f0f6f888479425998ab58ba1f132e437" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -907,8 +963,9 @@ vertices_data = {
 "shapeGroup": "MMR",
 "shapeName": "Myanmar"
 }
-color_value = Color(0.13085397, 0.7859662, 0.98776543, 1)
+color_value = Color(0.103529416, 0.5984314, 0.5176471, 1)
 country_name = "Myanmar"
+country_hashed_name = "217fa54cc9351504fcde32147bff005d"
 
 [node name="1956580f66a88a970a6a4e82e4bed958" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -923,8 +980,9 @@ vertices_data = {
 "shapeGroup": "BGD",
 "shapeName": "Bangladesh"
 }
-color_value = Color(0.9669566, 0.19461761, 0.7760175, 1)
+color_value = Color(0.774902, 0.6329412, 0.37333333, 1)
 country_name = "Bangladesh"
+country_hashed_name = "f78a77f631d275aac6a914a17fe1b885"
 
 [node name="edcab18b024dc5bdb1795a609b620467" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -939,8 +997,9 @@ vertices_data = {
 "shapeGroup": "AFG",
 "shapeName": "Afghanistan"
 }
-color_value = Color(0.43199778, 0.9426779, 0.10578225, 1)
+color_value = Color(0.34509805, 0.67372555, 0.32313725, 1)
 country_name = "Afghanistan"
+country_hashed_name = "6e9767f4f15357401b148b9a8ced14ef"
 
 [node name="f07bf376f99f078709a99b8b0a9e2296" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -955,8 +1014,9 @@ vertices_data = {
 "shapeGroup": "TKM",
 "shapeName": "Turkmenistan"
 }
-color_value = Color(0.9603512, 0.90863055, 0.38010842, 1)
+color_value = Color(0.76862746, 0.88078433, 0.46117648, 1)
 country_name = "Turkmenistan"
+country_hashed_name = "f5d993d8e89c037d614ec8dc2559e4b7"
 
 [node name="6e676bb111ac3d5efa54ed62ead95f53" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -971,8 +1031,9 @@ vertices_data = {
 "shapeGroup": "JOR",
 "shapeName": "Jordan"
 }
-color_value = Color(0.43215767, 0.37768352, 0.5339422, 1)
+color_value = Color(0.34509805, 0.70509803, 0.7090196, 1)
 country_name = "Jordan"
+country_hashed_name = "6ea1e24d60afddf388b06f8243c45b70"
 
 [node name="b7a6afbcbaede390e86e84a21adcdea8" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -987,8 +1048,9 @@ vertices_data = {
 "shapeGroup": "NPL",
 "shapeName": "Nepal"
 }
-color_value = Color(0.49974698, 0.23612073, 0.915476, 1)
+color_value = Color(0.3984314, 0.94980395, 0.3356863, 1)
 country_name = "Nepal"
+country_hashed_name = "7fef6b003c726890ea5ca3708fe8ff56"
 
 [node name="ad04fb4d8f5deecceebc491f203ca38f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1003,8 +1065,9 @@ vertices_data = {
 "shapeGroup": "YEM",
 "shapeName": "Yemen"
 }
-color_value = Color(0.4464715, 0.06893011, 0.3956247, 1)
+color_value = Color(0.35764706, 0.43529415, 0.76549023, 1)
 country_name = "Yemen"
+country_hashed_name = "724bf4ca11a567636547a92a37e397b7"
 
 [node name="8e82108c268013c19ad80bbb57820824" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1016,8 +1079,9 @@ vertices_data = {
 "shapeGroup": "CYN",
 "shapeName": "N. Cyprus"
 }
-color_value = Color(0.92148423, 0.9309436, 0.3368804, 1)
+color_value = Color(0.7372549, 0.92156863, 0.31058824, 1)
 country_name = "N. Cyprus"
+country_hashed_name = "ebe663c3ee525199563dcb27b1585dc2"
 
 [node name="53ce11d2b48d1429f3836450400c88a3" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1032,8 +1096,9 @@ vertices_data = {
 "shapeGroup": "PHL",
 "shapeName": "Philippines"
 }
-color_value = Color(0.46818084, 0.10321883, 0.21459547, 1)
+color_value = Color(0.37333333, 0.88392156, 0.5584314, 1)
 country_name = "Philippines"
+country_hashed_name = "77dab2f81a6c8c9136efba7ab2c4c0f2"
 
 [node name="b2afcc8089799932b40f48e2c487470a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1048,8 +1113,9 @@ vertices_data = {
 "shapeGroup": "LKA",
 "shapeName": "Sri Lanka"
 }
-color_value = Color(0.934883, 0.5910685, 0.4262725, 1)
+color_value = Color(0.74980396, 0.4635294, 0.39529413, 1)
 country_name = "Sri Lanka"
+country_hashed_name = "ef547e2d9750443f6d203233dfa38e39"
 
 [node name="d494343b4416e6ef4c67e1bd6447a8d1" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1064,8 +1130,9 @@ vertices_data = {
 "shapeGroup": "TWN",
 "shapeName": "Taiwan"
 }
-color_value = Color(0.3325177, 0.955037, 0.6155431, 1)
+color_value = Color(0.26666668, 0.29725492, 0.7058824, 1)
 country_name = "Taiwan"
+country_hashed_name = "551fe18ef47d4e6e9d943b9a68ada21d"
 
 [node name="de0c45bd9b6e7e1760f21a4a5cc25459" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1080,8 +1147,9 @@ vertices_data = {
 "shapeGroup": "JPN",
 "shapeName": "Japan"
 }
-color_value = Color(0.32674357, 0.23348282, 0.7599292, 1)
+color_value = Color(0.26039216, 0.7176471, 0.37333333, 1)
 country_name = "Japan"
+country_hashed_name = "53a577bb3bc587b0c28ab808390f1c9b"
 
 [node name="4de6597fe4c0ef3f5fc6b4faf675d36e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1096,8 +1164,9 @@ vertices_data = {
 "shapeGroup": "CHL",
 "shapeName": "Chile"
 }
-color_value = Color(0.18122911, 0.04145446, 0.70726585, 1)
+color_value = Color(0.14431374, 0.51686275, 0.021960786, 1)
 country_name = "Chile"
+country_hashed_name = "2e6507f70a9cc26fb50f5fd82a83c7ef"
 
 [node name="9f7e2daf976bc461cffd3ab08104907d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1112,8 +1181,9 @@ vertices_data = {
 "shapeGroup": "BOL",
 "shapeName": "Bolivia"
 }
-color_value = Color(0.15885447, 0.33424908, 0.80582416, 1)
+color_value = Color(0.1254902, 0.73333335, 0.54901963, 1)
 country_name = "Bolivia"
+country_hashed_name = "28aaafc355915903ce4a7e1d3af3bc4e"
 
 [node name="11e14a90ba9bfc81b765f0f09946d523" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1128,8 +1198,9 @@ vertices_data = {
 "shapeGroup": "PER",
 "shapeName": "Peru"
 }
-color_value = Color(0.51869166, 0.2576876, 0.6325413, 1)
+color_value = Color(0.41411766, 0.827451, 0.78431374, 1)
 country_name = "Peru"
+country_hashed_name = "84c8fa2341f7d052a1ee3a36ff043798"
 
 [node name="c394fa92e6b3a29e6a014ea41e29c19a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1144,8 +1215,9 @@ vertices_data = {
 "shapeGroup": "ARG",
 "shapeName": "Argentina"
 }
-color_value = Color(0.20786656, 0.8047955, 0.30574483, 1)
+color_value = Color(0.16627452, 0.36941177, 0.59607846, 1)
 country_name = "Argentina"
+country_hashed_name = "3536be57ce0713954e454ae6c53ec023"
 
 [node name="f8064d685b3454c475ea35e802281670" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1160,8 +1232,9 @@ vertices_data = {
 "shapeGroup": "SUR",
 "shapeName": "Suriname"
 }
-color_value = Color(0.39166898, 0.1447819, 0.09170218, 1)
+color_value = Color(0.3137255, 0.41333336, 0.33254904, 1)
 country_name = "Suriname"
+country_hashed_name = "64446ac025106d201779cb4bf5ab6b2e"
 
 [node name="303fa5366dadc1c8d2c75dfaecd6e593" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1176,8 +1249,9 @@ vertices_data = {
 "shapeGroup": "GUY",
 "shapeName": "Guyana"
 }
-color_value = Color(0.8097609, 0.41076806, 0.34169394, 1)
+color_value = Color(0.6494118, 0.43843138, 0.39529413, 1)
 country_name = "Guyana"
+country_hashed_name = "cf4c7e1169281886577940e361854a84"
 
 [node name="15dd76e594a6c3bf9b8758ef5ae7a07d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1192,8 +1266,9 @@ vertices_data = {
 "shapeGroup": "BRA",
 "shapeName": "Brazil"
 }
-color_value = Color(0.25908655, 0.7087127, 0.04189695, 1)
+color_value = Color(0.20705883, 0.46039218, 0.3984314, 1)
 country_name = "Brazil"
+country_hashed_name = "42537f0fb56e31e20ab9c2305752087d"
 
 [node name="af44e88fd87709cf084f6a276abc4abb" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1208,8 +1283,9 @@ vertices_data = {
 "shapeGroup": "URY",
 "shapeName": "Uruguay"
 }
-color_value = Color(0.4581524, 0.25240657, 0.79813784, 1)
+color_value = Color(0.36705884, 0.42901963, 0.38274512, 1)
 country_name = "Uruguay"
+country_hashed_name = "75497a22409db78dcc52c291e078bc10"
 
 [node name="f22ed674998d6c64697ed337b29fe91f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1224,8 +1300,9 @@ vertices_data = {
 "shapeGroup": "ECU",
 "shapeName": "Ecuador"
 }
-color_value = Color(0.30220827, 0.20282237, 0.857045, 1)
+color_value = Color(0.24156864, 0.49176472, 0.41725492, 1)
 country_name = "Ecuador"
+country_hashed_name = "4d5d85af33ec2aaedb674d2d6a7d53b6"
 
 [node name="43b5f8b1445cf44791eae0ce79d5f334" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1240,8 +1317,9 @@ vertices_data = {
 "shapeGroup": "COL",
 "shapeName": "Colombia"
 }
-color_value = Color(0.9343801, 0.3373068, 0.45385316, 1)
+color_value = Color(0.74980396, 0.36, 0.4266667, 1)
 country_name = "Colombia"
+country_hashed_name = "ef3388cc5659bccb742fb8af762f1bfd"
 
 [node name="427852f90d36954a27811878a05cce6e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1256,8 +1334,9 @@ vertices_data = {
 "shapeGroup": "PRY",
 "shapeName": "Paraguay"
 }
-color_value = Color(0.44946426, 0.8535446, 0.72063285, 1)
+color_value = Color(0.36078432, 0.2501961, 0.07215687, 1)
 country_name = "Paraguay"
+country_hashed_name = "73101738da81e5cbb87b64cd400a4405"
 
 [node name="ab4a040c24f482bc7e2caee17867c334" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1272,8 +1351,9 @@ vertices_data = {
 "shapeGroup": "VEN",
 "shapeName": "Venezuela"
 }
-color_value = Color(0.91141635, 0.19125536, 0.45832914, 1)
+color_value = Color(0.7309804, 0.45725495, 0.46431375, 1)
 country_name = "Venezuela"
+country_hashed_name = "e95294b730f61c8175550ec244bfcb50"
 
 [node name="bea89415444f441b62f57558d532aa9a" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1285,8 +1365,9 @@ vertices_data = {
 "shapeGroup": "GB1",
 "shapeName": "Falkland Is."
 }
-color_value = Color(0.10442089, 0.6517568, 0.30402854, 1)
+color_value = Color(0.08156863, 0.7866667, 0.26039216, 1)
 country_name = "Falkland Is."
+country_hashed_name = "1abb53d7a6d9893a4dd4d06b466a4dae"
 
 [node name="bf64b488a9532aa86113e0bfc6f01add" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1301,8 +1382,9 @@ vertices_data = {
 "shapeGroup": "ETH",
 "shapeName": "Ethiopia"
 }
-color_value = Color(0.88515997, 0.060430933, 0.90565574, 1)
+color_value = Color(0.7090196, 0.68, 0.6745098, 1)
 country_name = "Ethiopia"
+country_hashed_name = "e299d7cb0f7866cce7d90da2af14047c"
 
 [node name="1a7911b86d1070785a9e2e2145352235" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1314,8 +1396,9 @@ vertices_data = {
 "shapeGroup": "SDS",
 "shapeName": "S. Sudan"
 }
-color_value = Color(0.77195853, 0.61752874, 0.48647347, 1)
+color_value = Color(0.61803925, 0.6988236, 0.05647059, 1)
 country_name = "S. Sudan"
+country_hashed_name = "c59f12819e165cdb7c8986613c445c21"
 
 [node name="38e796fa1b70f739b7ef3edab10e334e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1330,8 +1413,9 @@ vertices_data = {
 "shapeGroup": "SOM",
 "shapeName": "Somalia"
 }
-color_value = Color(0.57068384, 0.32646453, 0.38561252, 1)
+color_value = Color(0.45803925, 0.27529413, 0.26666668, 1)
 country_name = "Somalia"
+country_hashed_name = "921855f753932de762b780405a50bdf7"
 
 [node name="df412e8e32c23eed24cbcd039d8b420e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1346,8 +1430,9 @@ vertices_data = {
 "shapeGroup": "KEN",
 "shapeName": "Kenya"
 }
-color_value = Color(0.5804488, 0.28354767, 0.60815156, 1)
+color_value = Color(0.46431375, 0.6768628, 0.23215687, 1)
 country_name = "Kenya"
+country_hashed_name = "94984a8c4896946d9bafd24959cb6181"
 
 [node name="bec45752bc9738c49da38a0cefd5dc5a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1362,8 +1447,9 @@ vertices_data = {
 "shapeGroup": "MWI",
 "shapeName": "Malawi"
 }
-color_value = Color(0.43979454, 0.01663205, 0.75622845, 1)
+color_value = Color(0.35137257, 0.67058825, 0.29803923, 1)
 country_name = "Malawi"
+country_hashed_name = "70965feb0441ff7fc1982fc5c509136e"
 
 [node name="affe53e265967ad1817f088d80240e82" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1378,8 +1464,9 @@ vertices_data = {
 "shapeGroup": "TZA",
 "shapeName": "Tanzania"
 }
-color_value = Color(0.7509013, 0.8920841, 0.63702667, 1)
+color_value = Color(0.602353, 0.38509804, 0.05333334, 1)
 country_name = "Tanzania"
+country_hashed_name = "c03b1123e45fa00da3142e0424ee5eec"
 
 [node name="676da2b5ec642faa77010cb262189ed3" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1391,8 +1478,9 @@ vertices_data = {
 "shapeGroup": "SOL",
 "shapeName": "Somaliland"
 }
-color_value = Color(0.74071616, 0.15028194, 0.658765, 1)
+color_value = Color(0.5929412, 0.6988236, 0.45803925, 1)
 country_name = "Somaliland"
+country_hashed_name = "bd9f92992678e083a8a4d2c52de297a7"
 
 [node name="581aaf5e7c34e34f66225bd3261bf223" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1407,8 +1495,9 @@ vertices_data = {
 "shapeGroup": "MAR",
 "shapeName": "Morocco"
 }
-color_value = Color(0.30191177, 0.84729534, 0.6463448, 1)
+color_value = Color(0.24156864, 0.43215686, 0.07215687, 1)
 country_name = "Morocco"
+country_hashed_name = "4d4a1722d8e85909a576da2c42878ff0"
 
 [node name="03d94b901a4c4d7ebe79f52e7d9fc856" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1420,8 +1509,9 @@ vertices_data = {
 "shapeGroup": "SAH",
 "shapeName": "W. Sahara"
 }
-color_value = Color(0.62635267, 0.2515648, 0.81301665, 1)
+color_value = Color(0.5019608, 0.47607845, 0.5207843, 1)
 country_name = "W. Sahara"
+country_hashed_name = "a058a60f40668cc3d021dbff10689c8e"
 
 [node name="9ffa67e6a2e9fefc5575d248a3b48bdf" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1433,8 +1523,9 @@ vertices_data = {
 "shapeGroup": "COG",
 "shapeName": "Congo"
 }
-color_value = Color(0.89292556, 0.5772104, 0.7809911, 1)
+color_value = Color(0.7152941, 0.67058825, 0.61803925, 1)
 country_name = "Congo"
+country_hashed_name = "e496c53293c4103dc7ef0820eee96954"
 
 [node name="aee54cfba6b40ae70e3d0146428780d7" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1446,8 +1537,9 @@ vertices_data = {
 "shapeGroup": "COD",
 "shapeName": "Dem. Rep. Congo"
 }
-color_value = Color(0.5640901, 0.7645856, 0.81365174, 1)
+color_value = Color(0.45176473, 0.5262745, 0.16313726, 1)
 country_name = "Dem. Rep. Congo"
+country_hashed_name = "906834b6c3bbe211d04b7b55d24254bb"
 
 [node name="cf19b86424a81f302acf45d2e886d4cb" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1462,8 +1554,9 @@ vertices_data = {
 "shapeGroup": "NAM",
 "shapeName": "Namibia"
 }
-color_value = Color(0.4138818, 0.15110633, 0.5776792, 1)
+color_value = Color(0.32941177, 0.9654902, 0.1254902, 1)
 country_name = "Namibia"
+country_hashed_name = "69f4287626aee77f93e2c891b518838b"
 
 [node name="63419ba0451ffaa89bf88e2b4beb511f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1478,8 +1571,9 @@ vertices_data = {
 "shapeGroup": "ZAF",
 "shapeName": "South Africa"
 }
-color_value = Color(0.7836268, 0.7638802, 0.077251844, 1)
+color_value = Color(0.627451, 0.6862745, 0.61490196, 1)
 country_name = "South Africa"
+country_hashed_name = "c89bc418c38da77213c6c6e03cac2510"
 
 [node name="1188e2f01c7856e1f00531d3aea83a5b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1494,8 +1588,9 @@ vertices_data = {
 "shapeGroup": "LBY",
 "shapeName": "Libya"
 }
-color_value = Color(0.45378938, 0.34165424, 0.26039392, 1)
+color_value = Color(0.36392158, 0.334902, 0.4329412, 1)
 country_name = "Libya"
+country_hashed_name = "742b8abe5776a6d942a92ce7dc7d84a0"
 
 [node name="9a24c441c7d65e46c12ea1d7bd918e9a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1510,8 +1605,9 @@ vertices_data = {
 "shapeGroup": "TUN",
 "shapeName": "Tunisia"
 }
-color_value = Color(0.8392761, 0.22931872, 0.71556294, 1)
+color_value = Color(0.6713726, 0.88392156, 0.63686275, 1)
 country_name = "Tunisia"
+country_hashed_name = "d6dacba23ab4a1d5b72f223bfb010a05"
 
 [node name="78062659da41153816ed319451ffcfb6" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1526,8 +1622,9 @@ vertices_data = {
 "shapeGroup": "ZMB",
 "shapeName": "Zambia"
 }
-color_value = Color(0.6900945, 0.9002478, 0.3347063, 1)
+color_value = Color(0.55215687, 0.73333335, 0.02509804, 1)
 country_name = "Zambia"
+country_hashed_name = "b0aa0804e676a38255af4fd70236af7c"
 
 [node name="0a92828f0896e81cb494b31cef6ce373" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1542,8 +1639,9 @@ vertices_data = {
 "shapeGroup": "SLE",
 "shapeName": "Sierra Leone"
 }
-color_value = Color(0.5911025, 0.04250568, 0.34993756, 1)
+color_value = Color(0.47372553, 0.45725495, 0.39215687, 1)
 country_name = "Sierra Leone"
+country_hashed_name = "97527dec0ae1a703599581d4f25dfbce"
 
 [node name="7ab71c83f8d6ef2e7fa56c7f488823c3" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1558,8 +1656,9 @@ vertices_data = {
 "shapeGroup": "GIN",
 "shapeName": "Guinea"
 }
-color_value = Color(0.5558719, 0.82154334, 0.39715835, 1)
+color_value = Color(0.4454902, 0.44156864, 0.4956863, 1)
 country_name = "Guinea"
+country_hashed_name = "8e4d9eeed250a9d065ac2bb8bdc67b30"
 
 [node name="b925dd3598bac9b5d802f203bd97c1c2" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1574,8 +1673,9 @@ vertices_data = {
 "shapeGroup": "LBR",
 "shapeName": "Liberia"
 }
-color_value = Color(0.3913066, 0.9849584, 0.10505371, 1)
+color_value = Color(0.3137255, 0.33803922, 0.5364706, 1)
 country_name = "Liberia"
+country_hashed_name = "642cab67fc263bb61ae4ccbd577c8aa4"
 
 [node name="48d37cae3b682b74870f2251e063f877" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1587,8 +1687,9 @@ vertices_data = {
 "shapeGroup": "CAF",
 "shapeName": "Central African Rep."
 }
-color_value = Color(0.81832814, 0.78349936, 0.6007729, 1)
+color_value = Color(0.6556863, 0.5921569, 0.76549023, 1)
 country_name = "Central African Rep."
+country_hashed_name = "d17df45bc89369e499cc40dc94cbd35f"
 
 [node name="4c6e461ecbf88e4cea900a048bc92d1b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1603,8 +1704,9 @@ vertices_data = {
 "shapeGroup": "SDN",
 "shapeName": "Sudan"
 }
-color_value = Color(0.45418608, 0.24363998, 0.13444707, 1)
+color_value = Color(0.36392158, 0.4164706, 0.4329412, 1)
 country_name = "Sudan"
+country_hashed_name = "74458a3d3e5f3074226b1f9fa23c9163"
 
 [node name="82d6d537a2ce6b08580ef2a27a4153e0" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1619,8 +1721,9 @@ vertices_data = {
 "shapeGroup": "DJI",
 "shapeName": "Djibouti"
 }
-color_value = Color(0.5632259, 0.5874133, 0.58414906, 1)
+color_value = Color(0.45176473, 0.34745097, 0.45803925, 1)
 country_name = "Djibouti"
+country_hashed_name = "902f92c09660b797958acb27421fd9ac"
 
 [node name="8e89e7c570aaa6cb29e50b4e3520f50c" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1635,8 +1738,9 @@ vertices_data = {
 "shapeGroup": "ERI",
 "shapeName": "Eritrea"
 }
-color_value = Color(0.78823763, 0.96598494, 0.89864755, 1)
+color_value = Color(0.63058823, 0.8305882, 0.7560784, 1)
 country_name = "Eritrea"
+country_hashed_name = "c9c9f116f74ac9d7e60dc415523dfeff"
 
 [node name="6f1bc64a020e54ee4992987f3156ef78" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1648,8 +1752,9 @@ vertices_data = {
 "shapeGroup": "CIV",
 "shapeName": "Côte d'Ivoire"
 }
-color_value = Color(0.018451005, 0.33180255, 0.09007064, 1)
+color_value = Color(0.01254902, 0.78039217, 0.16313726, 1)
 country_name = "Côte d'Ivoire"
+country_hashed_name = "04b9348054f102f0170ede9e58ef0a88"
 
 [node name="cef35c31b8a8cbd1f2bee4bbc3a47894" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1664,8 +1769,9 @@ vertices_data = {
 "shapeGroup": "MLI",
 "shapeName": "Mali"
 }
-color_value = Color(0.9103482, 0.72187597, 0.23232265, 1)
+color_value = Color(0.7309804, 0.23764706, 0.46117648, 1)
 country_name = "Mali"
+country_hashed_name = "e90c93ceb8ccdcdf3b797f47edee866d"
 
 [node name="055668fd6746fcab6cd880409361e808" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1680,8 +1786,9 @@ vertices_data = {
 "shapeGroup": "SEN",
 "shapeName": "Senegal"
 }
-color_value = Color(0.5997059, 0.3489537, 0.7929641, 1)
+color_value = Color(0.48000002, 0.6203922, 0.26039216, 1)
 country_name = "Senegal"
+country_hashed_name = "9986531359550785caffb2032622437f"
 
 [node name="a891632ddbd4f984bf89de0ad049f4ce" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1696,8 +1803,9 @@ vertices_data = {
 "shapeGroup": "NGA",
 "shapeName": "Nigeria"
 }
-color_value = Color(0.36528882, 0.7821984, 0.113704145, 1)
+color_value = Color(0.2917647, 0.61098045, 0.454902, 1)
 country_name = "Nigeria"
+country_hashed_name = "5d839147c83e283c1d1bb705dc50586f"
 
 [node name="d60f045c3457a1cfe739d2415ca832aa" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1712,8 +1820,9 @@ vertices_data = {
 "shapeGroup": "BEN",
 "shapeName": "Benin"
 }
-color_value = Color(0.61889666, 0.23946713, 0.67699224, 1)
+color_value = Color(0.4956863, 0.5513726, 0.00627451, 1)
 country_name = "Benin"
+country_hashed_name = "9e7002d53d4db7bfad4f5cf419b0c126"
 
 [node name="48cd68634813701b9c71f7705226b351" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1728,8 +1837,9 @@ vertices_data = {
 "shapeGroup": "AGO",
 "shapeName": "Angola"
 }
-color_value = Color(0.13738924, 0.71917427, 0.4139315, 1)
+color_value = Color(0.10980393, 0.334902, 0.7560784, 1)
 country_name = "Angola"
+country_hashed_name = "232bf11cb81bcdb269f76a08fde8b947"
 
 [node name="be5eda916b19d3d977262e22890a4374" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1744,8 +1854,9 @@ vertices_data = {
 "shapeGroup": "BWA",
 "shapeName": "Botswana"
 }
-color_value = Color(0.42512605, 0.03556887, 0.23478334, 1)
+color_value = Color(0.33882353, 0.8682353, 0.047058824, 1)
 country_name = "Botswana"
+country_hashed_name = "6cd50fb3091b0a9d3c1ac2cf52441390"
 
 [node name="8f7b7f524689107516d005ada9af9b5f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1760,8 +1871,9 @@ vertices_data = {
 "shapeGroup": "ZWE",
 "shapeName": "Zimbabwe"
 }
-color_value = Color(0.6145186, 0.26995525, 0.1690479, 1)
+color_value = Color(0.49254903, 0.45411766, 0.06901961, 1)
 country_name = "Zimbabwe"
+country_hashed_name = "9d5116a2451bc98c2b46b93acbc1b4f0"
 
 [node name="de55e0cb8bf7d5ff28a92435aaac4213" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1776,8 +1888,9 @@ vertices_data = {
 "shapeGroup": "TCD",
 "shapeName": "Chad"
 }
-color_value = Color(0.875829, 0.8649796, 0.18473494, 1)
+color_value = Color(0.70274514, 0.36941177, 0.26039216, 1)
 country_name = "Chad"
+country_hashed_name = "e03653dedd6f4e142f4aca131995964f"
 
 [node name="9916b663260519209b30564366261a50" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1792,8 +1905,9 @@ vertices_data = {
 "shapeGroup": "DZA",
 "shapeName": "Algeria"
 }
-color_value = Color(0.34124112, 0.71427363, 0.8085298, 1)
+color_value = Color(0.2729412, 0.4854902, 0.46431375, 1)
 country_name = "Algeria"
+country_hashed_name = "575b9408b6daa2ddcefbcf6d81c9b4c9"
 
 [node name="1d5d39dfee6576551695e8fa4c34c5ab" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1808,8 +1922,9 @@ vertices_data = {
 "shapeGroup": "MOZ",
 "shapeName": "Mozambique"
 }
-color_value = Color(0.6516685, 0.978126, 0.32373813, 1)
+color_value = Color(0.5207843, 0.86196077, 0.59607846, 1)
 country_name = "Mozambique"
+country_hashed_name = "a6d3bea3fa66775952e080b90bb0c4f1"
 
 [node name="6ce564ee586e65f021aa65dfa0213577" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1821,8 +1936,9 @@ vertices_data = {
 "shapeGroup": "SWZ",
 "shapeName": "eSwatini"
 }
-color_value = Color(0.7294467, 0.9885437, 0.093374744, 1)
+color_value = Color(0.5835294, 0.7929412, 0.015686275, 1)
 country_name = "eSwatini"
+country_hashed_name = "babd057cfd11329e17e76831b327eb57"
 
 [node name="74c758ceb03f838498e1aac325522aef" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1836,8 +1952,9 @@ vertices_data = {
 "shapeGroup": "BDI",
 "shapeName": "Burundi"
 }
-color_value = Color(0.15805557, 0.9370378, 0.2111847, 1)
+color_value = Color(0.1254902, 0.5701961, 0.26352942, 1)
 country_name = "Burundi"
+country_hashed_name = "28765464efe1b6583610335965b4d75a"
 
 [node name="1aa2e8532b5d8311b3c430819f1d8584" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -1851,8 +1968,9 @@ vertices_data = {
 "shapeGroup": "RWA",
 "shapeName": "Rwanda"
 }
-color_value = Color(0.6152166, 0.48981467, 0.76483256, 1)
+color_value = Color(0.49254903, 0.5952941, 0.6682353, 1)
 country_name = "Rwanda"
+country_hashed_name = "9d7ed5d77d647e89c3cc11757d651dc2"
 
 [node name="86fcf6a1e2097b05e6e43fc062387307" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1867,8 +1985,9 @@ vertices_data = {
 "shapeGroup": "UGA",
 "shapeName": "Uganda"
 }
-color_value = Color(0.32696202, 0.6251878, 0.07610025, 1)
+color_value = Color(0.26039216, 0.76156867, 0.627451, 1)
 country_name = "Uganda"
+country_hashed_name = "53b3c88ea00c4f0e137b4e6fe7bd23f1"
 
 [node name="f56a0eb65cff9da7537c552a6c905f27" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1883,8 +2002,9 @@ vertices_data = {
 "shapeGroup": "LSO",
 "shapeName": "Lesotho"
 }
-color_value = Color(0.91253227, 0.12092768, 0.30829737, 1)
+color_value = Color(0.7309804, 0.6862745, 0.5709804, 1)
 country_name = "Lesotho"
+country_hashed_name = "e99bb6b91ef51dbe4eec9340dc7c68cf"
 
 [node name="41e34ce758bea34b7640c50734655df9" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1899,8 +2019,9 @@ vertices_data = {
 "shapeGroup": "CMR",
 "shapeName": "Cameroon"
 }
-color_value = Color(0.29642293, 0.15567695, 0.91222316, 1)
+color_value = Color(0.23529413, 0.9090196, 0.29803923, 1)
 country_name = "Cameroon"
+country_hashed_name = "4be25f9d27da71d4e98775668b5b12af"
 
 [node name="0ed21e95dd906f5a1f613983a6673020" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1915,8 +2036,9 @@ vertices_data = {
 "shapeGroup": "GAB",
 "shapeName": "Gabon"
 }
-color_value = Color(0.98796624, 0.05448281, 0.34500048, 1)
+color_value = Color(0.79058826, 0.9372549, 0.28235295, 1)
 country_name = "Gabon"
+country_hashed_name = "fceb5af40df295d85851f390f4f8d78d"
 
 [node name="d5a20f2a0e430073d76c983b31f4c00a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1931,8 +2053,9 @@ vertices_data = {
 "shapeGroup": "NER",
 "shapeName": "Niger"
 }
-color_value = Color(0.74680734, 0.15619121, 0.9903903, 1)
+color_value = Color(0.5992157, 0.34431374, 0.61490196, 1)
 country_name = "Niger"
+country_hashed_name = "bf2ec44b27fc25c6fd8a38792b9ef2a8"
 
 [node name="ab69b379e3e26b18d9ebd10e1d54d751" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1947,8 +2070,9 @@ vertices_data = {
 "shapeGroup": "BFA",
 "shapeName": "Burkina Faso"
 }
-color_value = Color(0.15822312, 0.8556169, 0.5858214, 1)
+color_value = Color(0.1254902, 0.6047059, 0.24784315, 1)
 country_name = "Burkina Faso"
+country_hashed_name = "28814f84db09b59b95f863b9c143c3a9"
 
 [node name="f297d91f0f0f19b14bd5925ff97971f7" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1963,8 +2087,9 @@ vertices_data = {
 "shapeGroup": "TGO",
 "shapeName": "Togo"
 }
-color_value = Color(0.11896398, 0.5225335, 0.22668986, 1)
+color_value = Color(0.09411765, 0.5639216, 0.33882353, 1)
 country_name = "Togo"
+country_hashed_name = "1e746c5c85c4c0de3a0858b0dd047476"
 
 [node name="5801e2d1607cb5ae18931a2340c580a8" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1979,8 +2104,9 @@ vertices_data = {
 "shapeGroup": "GHA",
 "shapeName": "Ghana"
 }
-color_value = Color(0.9033206, 0.9445563, 0.38578442, 1)
+color_value = Color(0.7247059, 0.4007843, 0.01254902, 1)
 country_name = "Ghana"
+country_hashed_name = "e7400496f1ce70cb62c2c44ca2ddc469"
 
 [node name="2998b15c0c769abc4983f869d70ec322" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -1995,8 +2121,9 @@ vertices_data = {
 "shapeGroup": "GNB",
 "shapeName": "Guinea-Bissau"
 }
-color_value = Color(0.177337, 0.38290197, 0.77600294, 1)
+color_value = Color(0.14117648, 0.51686275, 0.76862746, 1)
 country_name = "Guinea-Bissau"
+country_hashed_name = "2d65f5236205dd23c6a8212627568fb8"
 
 [node name="f47c9549788a513cd21bae3f482bb1c1" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2011,8 +2138,9 @@ vertices_data = {
 "shapeGroup": "EGY",
 "shapeName": "Egypt"
 }
-color_value = Color(0.8871056, 0.15727012, 0.6438206, 1)
+color_value = Color(0.7121569, 0.2784314, 0.2792157, 1)
 country_name = "Egypt"
+country_hashed_name = "e31959fe2842dacea4d16d36e9813620"
 
 [node name="36c09ad94e6d1f3573f21f5052ebc480" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2027,8 +2155,9 @@ vertices_data = {
 "shapeGroup": "MRT",
 "shapeName": "Mauritania"
 }
-color_value = Color(0.8437264, 0.5173032, 0.1336502, 1)
+color_value = Color(0.6745098, 0.99686277, 0.36078432, 1)
 country_name = "Mauritania"
+country_hashed_name = "d7fe73b6846dfc672236e636aa2cf6b5"
 
 [node name="d7301886832b549782fc48de37bbe569" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -2040,8 +2169,9 @@ vertices_data = {
 "shapeGroup": "GNQ",
 "shapeName": "Eq. Guinea"
 }
-color_value = Color(0.59376585, 0.3803246, 0.058932375, 1)
+color_value = Color(0.47686276, 0.20313726, 0.03137255, 1)
 country_name = "Eq. Guinea"
+country_hashed_name = "98010a06615cf3e90f16312dfe48378c"
 
 [node name="e12d61df0f95b2673ca1ffa8e4ed3bc6" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -2053,8 +2183,9 @@ vertices_data = {
 "shapeGroup": "GMB",
 "shapeName": "Gambia"
 }
-color_value = Color(0.8853978, 0.30513826, 0.42928186, 1)
+color_value = Color(0.7090196, 0.7301961, 0.34509805, 1)
 country_name = "Gambia"
+country_hashed_name = "e2a96e074e1d8a6f6de56abbd4a4d8dc"
 
 [node name="9ca6bd9d2e99d51a8345b7cd4ab76413" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2069,8 +2200,9 @@ vertices_data = {
 "shapeGroup": "MDG",
 "shapeName": "Madagascar"
 }
-color_value = Color(0.7099122, 0.053195015, 0.6285133, 1)
+color_value = Color(0.56784314, 0.7898039, 0.6462745, 1)
 country_name = "Madagascar"
+country_hashed_name = "b5bcce260d9e303ca0e63f055187ed28"
 
 [node name="68c86f16a78ac106066d1ebc541575b2" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2085,8 +2217,9 @@ vertices_data = {
 "shapeGroup": "FR1",
 "shapeName": "France"
 }
-color_value = Color(0.01186602, 0.40099573, 0.99111724, 1)
+color_value = Color(0.009411765, 0.2282353, 0.5207843, 1)
 country_name = "France"
+country_hashed_name = "0309a6c666a7a803fdb9db95de71cf01"
 
 [node name="aa4837d13dd3db3b0793ccbf9d67f6ca" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2101,8 +2234,9 @@ vertices_data = {
 "shapeGroup": "UKR",
 "shapeName": "Ukraine"
 }
-color_value = Color(0.937985, 0.14054355, 0.95033514, 1)
+color_value = Color(0.7529412, 0.29725492, 0.63058823, 1)
 country_name = "Ukraine"
+country_hashed_name = "f01fc92b23faa973f3492a23d5a705c5"
 
 [node name="e5966a87ea5ed4deb22538aed09a489a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2117,8 +2251,9 @@ vertices_data = {
 "shapeGroup": "BLR",
 "shapeName": "Belarus"
 }
-color_value = Color(0.39555314, 0.9165131, 0.33225054, 1)
+color_value = Color(0.31686276, 0.40705884, 0.7780392, 1)
 country_name = "Belarus"
+country_hashed_name = "6542f875eaa09a5c550e5f3986400ad9"
 
 [node name="98752070840dade143b716d6dfe6bcad" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2133,8 +2268,9 @@ vertices_data = {
 "shapeGroup": "LTU",
 "shapeName": "Lithuania"
 }
-color_value = Color(0.84773433, 0.4686391, 0.12976968, 1)
+color_value = Color(0.68078434, 0.21568628, 0.09411765, 1)
 country_name = "Lithuania"
+country_hashed_name = "d9051e0b77f8bb5521389618e70e2ada"
 
 [node name="d84cb012803b658313fb0196999128f1" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2149,8 +2285,9 @@ vertices_data = {
 "shapeGroup": "RUS",
 "shapeName": "Russia"
 }
-color_value = Color(0.3746809, 0.6600843, 0.798976, 1)
+color_value = Color(0.29803923, 0.9372549, 0.06901961, 1)
 country_name = "Russia"
+country_hashed_name = "5feb168ca8fb495dcc89b1208cdeb919"
 
 [node name="0e41247f7103aa12c1fc20a8894cace4" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2165,8 +2302,9 @@ vertices_data = {
 "shapeGroup": "CZE",
 "shapeName": "Czechia"
 }
-color_value = Color(0.1949449, 0.39698857, 0.47477528, 1)
+color_value = Color(0.15372549, 0.92470586, 0.72784317, 1)
 country_name = "Czechia"
+country_hashed_name = "31e7e8bf65a10ae8798adfbd8c0cd8c8"
 
 [node name="78ccbe6b75d2713a63e721033b74ea53" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2181,8 +2319,9 @@ vertices_data = {
 "shapeGroup": "DEU",
 "shapeName": "Germany"
 }
-color_value = Color(0.8464361, 0.8702143, 0.13676676, 1)
+color_value = Color(0.67764705, 0.75215685, 0.028235296, 1)
 country_name = "Germany"
+country_hashed_name = "d8b00929dec65d422303256336ada04f"
 
 [node name="0173a9bf87e809e6eb63c20851adba35" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2197,8 +2336,9 @@ vertices_data = {
 "shapeGroup": "EST",
 "shapeName": "Estonia"
 }
-color_value = Color(0.46614465, 0.62461865, 0.37783113, 1)
+color_value = Color(0.37333333, 0.4666667, 0.20392159, 1)
 country_name = "Estonia"
+country_hashed_name = "7755415a9fe7022060b98a689236ccd2"
 
 [node name="885c783f6cb91fe389750347f99ac10f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2213,8 +2353,9 @@ vertices_data = {
 "shapeGroup": "LVA",
 "shapeName": "Latvia"
 }
-color_value = Color(0.6274306, 0.90037596, 0.6700603, 1)
+color_value = Color(0.5019608, 0.6988236, 0.23529413, 1)
 country_name = "Latvia"
+country_hashed_name = "a09f4b2ae67f0a63ab8912047a1a1b55"
 
 [node name="bf41dd957709b7a0800d3e39c8fceec9" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2229,8 +2370,9 @@ vertices_data = {
 "shapeGroup": "NOR",
 "shapeName": "Norway"
 }
-color_value = Color(0.83485657, 0.04454723, 0.29543748, 1)
+color_value = Color(0.6682353, 0.78039217, 0.12862746, 1)
 country_name = "Norway"
+country_hashed_name = "d5b9290a0b67727d4ba1ca6059dc31a6"
 
 [node name="4e95835df4498e727009e1c5c8ec4bd7" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2245,8 +2387,9 @@ vertices_data = {
 "shapeGroup": "SWE",
 "shapeName": "Sweden"
 }
-color_value = Color(0.7849754, 0.6221756, 0.33999452, 1)
+color_value = Color(0.627451, 0.9654902, 0.11921569, 1)
 country_name = "Sweden"
+country_hashed_name = "c8f4261f9f46e6465709e17ebea7a92b"
 
 [node name="e56d750615099673ea90b739c000e841" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2261,8 +2404,9 @@ vertices_data = {
 "shapeGroup": "FI1",
 "shapeName": "Finland"
 }
-color_value = Color(0.4354265, 0.35010946, 0.8537827, 1)
+color_value = Color(0.3482353, 0.5764706, 0.08784314, 1)
 country_name = "Finland"
+country_hashed_name = "6f781c6559a0c605da918096bdb69edf"
 
 [node name="8704b2ada2e84cc6aac13883fc6a96ed" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -2274,8 +2418,9 @@ vertices_data = {
 "shapeGroup": "LUX",
 "shapeName": "Luxembourg"
 }
-color_value = Color(0.024948867, 0.041913863, 0.13498926, 1)
+color_value = Color(0.01882353, 0.5105882, 0.03764706, 1)
 country_name = "Luxembourg"
+country_hashed_name = "06630c890abadde9228ea818ce52b621"
 
 [node name="5194ff73e0bb5055b5acddf31a5ac86b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2290,8 +2435,9 @@ vertices_data = {
 "shapeGroup": "BEL",
 "shapeName": "Belgium"
 }
-color_value = Color(0.42221767, 0.29672202, 0.26155776, 1)
+color_value = Color(0.33882353, 0.2690196, 0.36392158, 1)
 country_name = "Belgium"
+country_hashed_name = "6c1674d14bf5f95742f572cddb0641a7"
 
 [node name="304771b6deb16c777ea19ae2fbc91ac9" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -2303,8 +2449,9 @@ vertices_data = {
 "shapeGroup": "MKD",
 "shapeName": "North Macedonia"
 }
-color_value = Color(0.87769765, 0.59094733, 0.48087037, 1)
+color_value = Color(0.70274514, 0.75215685, 0.6337255, 1)
 country_name = "North Macedonia"
+country_hashed_name = "e0b0caa59748528a7b1a52272e7487cd"
 
 [node name="820041255e8a1a65864424c845099bc0" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2319,8 +2466,9 @@ vertices_data = {
 "shapeGroup": "ALB",
 "shapeName": "Albania"
 }
-color_value = Color(0.7661265, 0.50894713, 0.92359716, 1)
+color_value = Color(0.61490196, 0.30039215, 0.6933333, 1)
 country_name = "Albania"
+country_hashed_name = "c420ddff824a5c0eec70dd23d62496bc"
 
 [node name="2d8014f0bb2d0c35c59cf1350337a983" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2335,8 +2483,9 @@ vertices_data = {
 "shapeGroup": "KOS",
 "shapeName": "Kosovo"
 }
-color_value = Color(0.25350884, 0.9470213, 0.28516406, 1)
+color_value = Color(0.20078433, 0.9184314, 0.76549023, 1)
 country_name = "Kosovo"
+country_hashed_name = "40e5f4acf26ffcc0490082c11aad831f"
 
 [node name="6fd159193b004d9983214dc30b3a0a7e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2351,8 +2500,9 @@ vertices_data = {
 "shapeGroup": "ESP",
 "shapeName": "Spain"
 }
-color_value = Color(0.5644337, 0.8488884, 0.40677643, 1)
+color_value = Color(0.45176473, 0.5952941, 0.5835294, 1)
 country_name = "Spain"
+country_hashed_name = "907eba32d950bfab68227fd7ea22999b"
 
 [node name="c09a32b3a16899004de2bc4462436a93" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2367,8 +2517,9 @@ vertices_data = {
 "shapeGroup": "DN1",
 "shapeName": "Denmark"
 }
-color_value = Color(0.2588208, 0.35799226, 0.7891176, 1)
+color_value = Color(0.20705883, 0.40705884, 0.0627451, 1)
 country_name = "Denmark"
+country_hashed_name = "424214945ba5615eca039bfe5d731c09"
 
 [node name="e7cb31e54b7e20eb102ceb7798aaf42d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2383,8 +2534,9 @@ vertices_data = {
 "shapeGroup": "ROU",
 "shapeName": "Romania"
 }
-color_value = Color(0.048787765, 0.29361033, 0.9212622, 1)
+color_value = Color(0.03764706, 0.5921569, 0.28235295, 1)
 country_name = "Romania"
+country_hashed_name = "0c7d5ae44b2a0be9ebd7d6b9f7d60f20"
 
 [node name="364ad0e0b71b3a0634f6a4f434f09e43" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2399,8 +2551,9 @@ vertices_data = {
 "shapeGroup": "HUN",
 "shapeName": "Hungary"
 }
-color_value = Color(0.97842044, 0.365948, 0.81238234, 1)
+color_value = Color(0.78431374, 0.57960784, 0.6117647, 1)
 country_name = "Hungary"
+country_hashed_name = "fa79c3005daec47ecff84a116a0927a1"
 
 [node name="b7d9924878ff9b204361e6e9e0200dd3" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2415,8 +2568,9 @@ vertices_data = {
 "shapeGroup": "SVK",
 "shapeName": "Slovakia"
 }
-color_value = Color(0.53374594, 0.6595606, 0.52673686, 1)
+color_value = Color(0.4266667, 0.71137255, 0.45803925, 1)
 country_name = "Slovakia"
+country_hashed_name = "88a392b5a8d8f73986d83a2deefb0472"
 
 [node name="61f1418a5dc340bf9bf2c0765d47828d" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2431,8 +2585,9 @@ vertices_data = {
 "shapeGroup": "POL",
 "shapeName": "Poland"
 }
-color_value = Color(0.5802009, 0.5146126, 0.33817336, 1)
+color_value = Color(0.46431375, 0.6266667, 0.034509804, 1)
 country_name = "Poland"
+country_hashed_name = "94880bda83bda77c5692876700711f15"
 
 [node name="c6cf7788bcf0fe42e66108a132b42587" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2447,8 +2602,9 @@ vertices_data = {
 "shapeGroup": "IRL",
 "shapeName": "Ireland"
 }
-color_value = Color(0.026917813, 0.096763134, 0.44983894, 1)
+color_value = Color(0.01882353, 0.9152941, 0.065882355, 1)
 country_name = "Ireland"
+country_hashed_name = "06e415f918c577f07328a52e24f75d43"
 
 [node name="e3c1baaf5876bb7ff6ded7feb31e49cb" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2463,8 +2619,9 @@ vertices_data = {
 "shapeGroup": "GB1",
 "shapeName": "United Kingdom"
 }
-color_value = Color(0.5389677, 0.538058, 0.8099349, 1)
+color_value = Color(0.42980394, 0.9811765, 0.63058823, 1)
 country_name = "United Kingdom"
+country_hashed_name = "89f9c9f489be2a83cf57e53b9197d288"
 
 [node name="d9885ba3275bdd6df6300fcc3b38bc26" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2479,8 +2636,9 @@ vertices_data = {
 "shapeGroup": "GRC",
 "shapeName": "Greece"
 }
-color_value = Color(0.419701, 0.45360714, 0.40985435, 1)
+color_value = Color(0.3356863, 0.5545098, 0.4203922, 1)
 country_name = "Greece"
+country_hashed_name = "6b718641741f992e68ec3712718561b8"
 
 [node name="5fad1126037261796db5441f684bd6ce" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2495,8 +2653,9 @@ vertices_data = {
 "shapeGroup": "AUT",
 "shapeName": "Austria"
 }
-color_value = Color(0.59596944, 0.5799168, 0.02179602, 1)
+color_value = Color(0.47686276, 0.654902, 0.36078432, 1)
 country_name = "Austria"
+country_hashed_name = "9891739094756d2605946c867b32ad28"
 
 [node name="e5897ffd90403d4da71401235938889e" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2511,8 +2670,9 @@ vertices_data = {
 "shapeGroup": "ITA",
 "shapeName": "Italy"
 }
-color_value = Color(0.06262027, 0.97102165, 0.44776788, 1)
+color_value = Color(0.05019608, 0.22196078, 0.7058824, 1)
 country_name = "Italy"
+country_hashed_name = "1007e1b7f894dfbf72a0eaa80f3bc57e"
 
 [node name="4b703ef7f17490720c4d2a694b456826" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2527,8 +2687,9 @@ vertices_data = {
 "shapeGroup": "CHE",
 "shapeName": "Switzerland"
 }
-color_value = Color(0.22974417, 0.8607632, 0.95042926, 1)
+color_value = Color(0.18196079, 0.852549, 0.41098043, 1)
 country_name = "Switzerland"
+country_hashed_name = "3ad08396dc5afa78f34f548eea3c1d64"
 
 [node name="0234baf25921853a8abbf52f808cb527" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2543,8 +2704,9 @@ vertices_data = {
 "shapeGroup": "NL1",
 "shapeName": "Netherlands"
 }
-color_value = Color(0.65034944, 0.8191775, 0.98749423, 1)
+color_value = Color(0.5207843, 0.5921569, 0.23843138, 1)
 country_name = "Netherlands"
+country_hashed_name = "a67d4cbdd1b59e0ffccc6bafc83eb033"
 
 [node name="29aa82809fe3d07e3e0c5283069bc64c" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2559,8 +2721,9 @@ vertices_data = {
 "shapeGroup": "SRB",
 "shapeName": "Serbia"
 }
-color_value = Color(0.18736108, 0.73899937, 0.47511968, 1)
+color_value = Color(0.14745098, 0.9717647, 0.7184314, 1)
 country_name = "Serbia"
+country_hashed_name = "2ff6e535bd2f100979a171ad430e642b"
 
 [node name="1b0a2f02be01481dae470892cbbd2b0a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2575,8 +2738,9 @@ vertices_data = {
 "shapeGroup": "HRV",
 "shapeName": "Croatia"
 }
-color_value = Color(0.33614042, 0.9538846, 0.27716047, 1)
+color_value = Color(0.26980394, 0.24078432, 0.23843138, 1)
 country_name = "Croatia"
+country_hashed_name = "560d4c6ff431c86546f3fcec72c748c7"
 
 [node name="76eaecc4d3af78f5a78c142f45f8523a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2591,8 +2755,9 @@ vertices_data = {
 "shapeGroup": "SVN",
 "shapeName": "Slovenia"
 }
-color_value = Color(0.0005561465, 0.7639902, 0.24135497, 1)
+color_value = Color(0, 0.3129412, 0.35764706, 1)
 country_name = "Slovenia"
+country_hashed_name = "00247297c394dd443dc97067830c35f4"
 
 [node name="36489192f970af807fa48edd16dff625" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2607,8 +2772,9 @@ vertices_data = {
 "shapeGroup": "BGR",
 "shapeName": "Bulgaria"
 }
-color_value = Color(0.0063677947, 0.7467651, 0.5641978, 1)
+color_value = Color(0.003137255, 0.70509803, 0.25411767, 1)
 country_name = "Bulgaria"
+country_hashed_name = "01a151debf2bfee8906f43f4342eb10b"
 
 [node name="ec51c49cb40eb52886291ff0e266f05f" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2623,8 +2789,9 @@ vertices_data = {
 "shapeGroup": "MNE",
 "shapeName": "Montenegro"
 }
-color_value = Color(0.30693018, 0.8044544, 0.28605482, 1)
+color_value = Color(0.2447059, 0.6580393, 0.7811765, 1)
 country_name = "Montenegro"
+country_hashed_name = "4e92f9d2cdf0b8eb493ae3a19709d121"
 
 [node name="485f79cf7c508b0208540055e85fab9d" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -2636,8 +2803,9 @@ vertices_data = {
 "shapeGroup": "BIH",
 "shapeName": "Bosnia and Herz."
 }
-color_value = Color(0.05066091, 0.816224, 0.11941371, 1)
+color_value = Color(0.03764706, 0.9780392, 0.08784314, 1)
 country_name = "Bosnia and Herz."
+country_hashed_name = "0cf81cffd0f40dcd1e91e5981835b0ed"
 
 [node name="cc21eeb8f3451f9ea5a2f5b30912cef8" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2652,8 +2820,9 @@ vertices_data = {
 "shapeGroup": "PRT",
 "shapeName": "Portugal"
 }
-color_value = Color(0.9157974, 0.8902984, 0.85559624, 1)
+color_value = Color(0.7341177, 0.5545098, 0.5615687, 1)
 country_name = "Portugal"
+country_hashed_name = "ea71b362e3ea9969db085abfccdeb10d"
 
 [node name="7d2eefbd3f9dc6313b63fbafa85a7e94" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2668,8 +2837,9 @@ vertices_data = {
 "shapeGroup": "MDA",
 "shapeName": "Moldova"
 }
-color_value = Color(0.04716428, 0.35544533, 0.14133944, 1)
+color_value = Color(0.03764706, 0.2564706, 0.76862746, 1)
 country_name = "Moldova"
+country_hashed_name = "0c12f5495afe76d9242ed25668979de9"
 
 [node name="634aa9674ff5f05c8f15cb82edc11539" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2684,8 +2854,9 @@ vertices_data = {
 "shapeGroup": "ISL",
 "shapeName": "Iceland"
 }
-color_value = Color(0.71702355, 0.9577339, 0.099118285, 1)
+color_value = Color(0.57411766, 0.6454902, 0.6839216, 1)
 country_name = "Iceland"
+country_hashed_name = "b78edab0f52e0d6c195fd0d8c5709d26"
 
 [node name="4fb2046f2d53769951505f91ca704f5a" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2700,8 +2871,9 @@ vertices_data = {
 "shapeGroup": "PNG",
 "shapeName": "Papua New Guinea"
 }
-color_value = Color(0.9626591, 0.42704844, 0.3620903, 1)
+color_value = Color(0.7717647, 0.5513726, 0.6619608, 1)
 country_name = "Papua New Guinea"
+country_hashed_name = "f670d3806d530c3e5cb1f31dca457751"
 
 [node name="17b097522a94f86d3c1ac59c8fd3a5cc" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2716,8 +2888,9 @@ vertices_data = {
 "shapeGroup": "AU1",
 "shapeName": "Australia"
 }
-color_value = Color(0.2666457, 0.03550656, 0.03118209, 1)
+color_value = Color(0.21333335, 0.40705884, 0.7152941, 1)
 country_name = "Australia"
+country_hashed_name = "4442e4af0916f53a07fb8ca9a49b98ed"
 
 [node name="dde677d4920326ad772fd84adb2b1b8b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2732,8 +2905,9 @@ vertices_data = {
 "shapeGroup": "FJI",
 "shapeName": "Fiji"
 }
-color_value = Color(0.33472854, 0.9360358, 0.39152804, 1)
+color_value = Color(0.26666668, 0.75215685, 0.61490196, 1)
 country_name = "Fiji"
+country_hashed_name = "55b0c4d4efa00b59643b2e6a6e7c18c0"
 
 [node name="d8e67c7a76c8a49b07d4a260f26c325b" parent="Regions" instance=ExtResource("5_y1hhk")]
 is_playable = true
@@ -2748,8 +2922,9 @@ vertices_data = {
 "shapeGroup": "NZ1",
 "shapeName": "New Zealand"
 }
-color_value = Color(0.77000177, 0.9154988, 0.065816045, 1)
+color_value = Color(0.61803925, 0.29411766, 0.6682353, 1)
 country_name = "New Zealand"
+country_hashed_name = "c51ed580ea5e20c910d951f692512b4d"
 
 [node name="d73f7394ed3a17a472a356f39ec30c15" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -2761,8 +2936,9 @@ vertices_data = {
 "shapeGroup": "FR1",
 "shapeName": "New Caledonia"
 }
-color_value = Color(0.32680243, 0.19835031, 0.1062704, 1)
+color_value = Color(0.26039216, 0.7301961, 0.25725493, 1)
 country_name = "New Caledonia"
+country_hashed_name = "53a952d732c715fb1b34898400320751"
 
 [node name="5446e3b3b8dc2326176fd51f3bf40561" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -2774,8 +2950,9 @@ vertices_data = {
 "shapeGroup": "SLB",
 "shapeName": "Solomon Is."
 }
-color_value = Color(0.29683015, 0.5757308, 0.22333106, 1)
+color_value = Color(0.23529413, 0.9937255, 0.047058824, 1)
 country_name = "Solomon Is."
+country_hashed_name = "4bfd0f9b936317e5392c398f43812c4d"
 
 [node name="8640f90cde03bbab1137ad75386d99bf" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -2787,8 +2964,9 @@ vertices_data = {
 "shapeGroup": "VUT",
 "shapeName": "Vanuatu"
 }
-color_value = Color(0.99230796, 0.993502, 0.27008128, 1)
+color_value = Color(0.7968628, 0.22196078, 0.7152941, 1)
 country_name = "Vanuatu"
+country_hashed_name = "fe07e488fe56260f45240c1c8a8882a8"
 
 [node name="f501a8da9f1b898e8c0f0ebbc28c3e31" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -2800,8 +2978,9 @@ vertices_data = {
 "shapeGroup": "ATA",
 "shapeName": "Antarctica"
 }
-color_value = Color(0.268375, 0.59945637, 0.010564236, 1)
+color_value = Color(0.21333335, 0.7647059, 0.17882353, 1)
 country_name = "Antarctica"
+country_hashed_name = "44b439ba9975f8e802b456777c54a854"
 
 [node name="fc7681833f97e8a3881907f9f192337f" parent="Regions" instance=ExtResource("5_y1hhk")]
 vertices_data = {
@@ -2813,5 +2992,6 @@ vertices_data = {
 "shapeGroup": "FR1",
 "shapeName": "Fr. S. Antarctic Lands"
 }
-color_value = Color(0.60424435, 0.38388127, 0.69640636, 1)
+color_value = Color(0.48313728, 0.7490196, 0.6054902, 1)
 country_name = "Fr. S. Antarctic Lands"
+country_hashed_name = "9aafc1e062460b00b247b030d4dfeb6a"
