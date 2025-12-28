@@ -50,8 +50,7 @@ func _load_and_add_nodes():
 		$Regions.add_child(tmpRegion)
 		tmpRegion.owner = get_tree().edited_scene_root
 
-		# add in global script
-		#Game.add_countries(country)
+
 
 
 

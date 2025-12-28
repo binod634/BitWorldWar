@@ -9,7 +9,7 @@ func _ready() -> void:
 	timer.one_shot = false
 	timer.timeout.connect(_process_fps)
 	add_child(timer)
-	
+
 func _process_fps():
 	var fps:float = Engine.get_frames_per_second()
 	text = "FPS: " + str(int(fps))

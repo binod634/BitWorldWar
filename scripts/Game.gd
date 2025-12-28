@@ -208,8 +208,12 @@ func _highlight_country(hashed_name:String,positive:bool):
 		a.queue_redraw()
 
 
-func remove_agent(agent_node:String):
-	agents.erase(get_node(agent_node))
+func remove_agent(agent:CharacterBody2D):
+	if not is_instance_valid(agent):
+		printerr("Agent is not valid anymore")
+		return
+	agents.erase(agent)
+	agent.queue_free()
 
 
 

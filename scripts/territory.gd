@@ -29,29 +29,21 @@ var capital_position:Vector2 = Vector2.ZERO
 var is_baking:bool = false
 var is_baking_completed:bool = false
 var navMeshArray:Array = []
-#
+var polygons_node:Array[Polygon2D] = []
+var collision_polygons_node:Array[CollisionPolygon2D] = []
+@onready var conquerWarn:Node2D = $ConquerWarn
+var ConquerWarnings:Array[Node2D] = []
+
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		build_everything()
 
 
-#func _ready() -> void:
-	#return
-	## not to be executed when on editor.
-	#if  Engine.is_editor_hint():
-		#return
-	#_decode_all_vertices()
-	#_add_map_visible_layer_with_collision()
-	##_make_capital()
-	#_put_marking_on_capital()
-	##_calculate_overall_center()
-	##_show_country_label()
 
 func build_everything():
 	_decode_all_vertices()
 	_add_map_visible_layer_with_collision()
-	#_make_capital()
 	_put_marking_on_capital()
 
 
@@ -105,6 +97,8 @@ func _add_map_visible_layer_with_collision():
 		_add_full_sided_polygons(country_lands[a])
 
 
+
+
 func _add_full_sided_polygons(tmpvectors:PackedVector2Array):
 	var offsets_to_have:PackedVector2Array = [
 		Vector2.ZERO,
@@ -120,7 +114,10 @@ func _add_collision_polygon(tmpvectors:PackedVector2Array):
 	#var clean_vertices:PackedVector2Array = _clean_vectors(tmpvectors)
 	check_duplicates(tmpvectors.slice(0,len(tmpvectors ) -1))
 	var clean_vertices:PackedVector2Array = tmpvectors.slice(0,len(tmpvectors)-1)
+	var tmpname =  "cp_" + str(RandomNumberGenerator.new().randi())
+	polygon2d.name = tmpname
 	polygon2d.polygon = clean_vertices
+	collision_polygons_node.append(polygon2d)
 	area2d.add_child(polygon2d)
 	polygon2d.owner = owner
 	add_avoidance.emit(clean_vertices)
@@ -169,6 +166,7 @@ func _add_polygon_with_offset(tmpvectors:PackedVector2Array,offset:Vector2):
 	polygon2d.position = offset
 	if offset == Vector2.ZERO:
 		polygon2d.add_to_group("visual_node_" + country_hashed_name,true)
+	polygons_node.append(polygon2d)
 	area2d.add_child(polygon2d)
 	polygon2d.owner = owner
 
@@ -178,6 +176,8 @@ func _decode_vertices_from_dict(tmp:Array) -> PackedVector2Array:
 	for i in tmp:
 		vertices_array.append(_decode_vertices(i[0],i[1]))
 	return vertices_array
+
+
 
 func _decode_vertices(x:float,y:float) -> Vector2:
 	return Vector2(x*raw_vector_scale_value.x+raw_vector_offset_value.x,y*raw_vector_scale_value.y+raw_vector_offset_value.y)
@@ -215,7 +215,7 @@ func create_circle_polygon(radius: float,offset_position:Vector2,segments: int =
 	return poly
 
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
 		if event.pressed:
 			var mouse_position:Vector2 = get_viewport().get_camera_2d().get_global_mouse_position()
@@ -223,15 +223,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				Game.send_agent(country_hashed_name,mouse_position)
 			else:
 				Game.popup_territory_action(country_hashed_name,mouse_position)
-	#if (event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT):
-		#if not is_baking_completed:
-			#Game.make_country_navigatable(country_name.md5_text())
-			#is_baking_completed = true
-		#elif (is_baking_completed):
-			#find_navigatoin()
-
-
-
 
 
 
@@ -246,51 +237,70 @@ func find_navigatoin():
 func _is_country_self(hashed_name:String) -> bool:
 	return hashed_name == country_hashed_name
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("body detected..")
-	if (body is CharacterBody2D && body.has_method("entered_nation")):
-		body.entered_nation(country_hashed_name)
-		if (body.am_i_hostile(country_hashed_name)):
-			var power:float = body.get_power_level()
-			while (power > 10):
-				var body_position:Vector2 = body.global_position
-				var radius_should_be:float = sqrt(power / PI)
-				var circlePoly:PackedVector2Array = generate_circle_polygon(body_position, radius_should_be)
-				for a in country_lands:
-					print("infinite calculation isn't it ?")
-					if not (Geometry2D.is_point_in_polygon(body_position,country_lands[a])):
-						continue
-					var new_polygon = Geometry2D.exclude_polygons(country_lands[a], circlePoly)
-					var original_area = calculate_polygon_area(country_lands[a])
-					var new_area = 0.0
-					for poly in new_polygon:
-						new_area += calculate_polygon_area(poly)
-					var area_taken = original_area - new_area
-					if area_taken > 0.0:
-						if  area_taken < power:
-							Game.apply_damage_to_country(country_hashed_name, area_taken)
-							power -= area_taken
-						else:
-							printerr("How can area be greater than calculated...")
-							return
 
-func generate_circle_polygon(body_position:Vector2,radius_should_be:float) -> PackedVector2Array:
-	var circlePoly:PackedVector2Array = PackedVector2Array()
-	var segments:int = 32
+
+func make_new_polygon_from_captured(new_poly: PackedVector2Array):
+	var polygon2d:Polygon2D = Polygon2D.new()
+	polygon2d.color = Color(color_value)
+	polygon2d.color = Color.BLACK*0.8 + Color(color_value) * 0.2
+	polygon2d.polygon = new_poly
+	polygon2d.position = Vector2.ZERO
+	polygon2d.add_to_group("visual_node_" + country_hashed_name,true)
+	polygons_node.append(polygon2d)
+	area2d.add_child(polygon2d)
+	polygon2d.owner = owner
+
+func make_new_collision_polygon_from_captured(new_poly: PackedVector2Array):
+	var polygon2d:CollisionPolygon2D = CollisionPolygon2D.new()
+	#var clean_vertices:PackedVector2Array = _clean_vectors(tmpvectors)
+	check_duplicates(new_poly.slice(0,new_poly.size() -1))
+	var clean_vertices:PackedVector2Array = new_poly.slice(0,new_poly.size()-1)
+	var tmpname =  "cp_" + str(RandomNumberGenerator.new().randi())
+	polygon2d.name = tmpname
+	polygon2d.polygon = clean_vertices
+	collision_polygons_node.append(polygon2d)
+	area2d.add_child(polygon2d)
+	polygon2d.owner = owner
+
+func update_existing_collision_polygons(new_polys: Array) -> bool:
+	for node in collision_polygons_node:
+		var node_polygon:PackedVector2Array = node.polygon
+		var result := Geometry2D.clip_polygons(new_polys,node_polygon)
+		if  result.is_empty():
+			node.polygon = new_polys
+			return true
+	return false
+
+func update_existing_polygons(new_polys: Array) -> bool:
+	var success:bool = false
+	for node in polygons_node:
+		var node_polygon:PackedVector2Array = node.polygon
+		var result := Geometry2D.clip_polygons(new_polys,node_polygon)
+		if  result.is_empty():
+			node.polygon = new_polys
+			success = true
+	return success
+
+
+
+
+func generate_circle_polygon(body_position: Vector2, radius_should_be: float) -> PackedVector2Array:
+	var circlePoly := PackedVector2Array()
+	var segments := 4
 	for i in range(segments):
 		var angle = TAU * i / segments
 		circlePoly.append(body_position + Vector2(cos(angle), sin(angle)) * radius_should_be)
 	return circlePoly
 
+
+
 func calculate_polygon_area(points: PackedVector2Array) -> float:
-	var area = 0.0
-	var n = points.size()
-
-	if n < 3: return 0.0
-
+	var area := 0.0
+	var n := points.size()
+	if n < 3:
+		return 0.0
 	for i in range(n):
 		var p1 = points[i]
-		var p2 = points[(i + 1) % n] # Next point (wraps to start)
+		var p2 = points[(i + 1) % n]
 		area += (p1.x * p2.y) - (p2.x * p1.y)
-
 	return abs(area) / 2.0

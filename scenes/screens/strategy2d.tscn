@@ -61,26 +61,6 @@ polygon = PackedVector2Array(-600, 0, 1900, 0, 1900, 720, -600, 720)
 [node name="SeaNavigation" type="NavigationRegion2D" parent="WorldNavigation"]
 navigation_polygon = SubResource("NavigationPolygon_y1hhk")
 
-[node name="NavigationLink2D" type="NavigationLink2D" parent="WorldNavigation/SeaNavigation"]
-start_position = Vector2(0, 350)
-end_position = Vector2(1279, 350)
-travel_cost = 0.0
-
-[node name="NavigationLink2D2" type="NavigationLink2D" parent="WorldNavigation/SeaNavigation"]
-start_position = Vector2(0, 150)
-end_position = Vector2(1279, 150)
-travel_cost = 0.0
-
-[node name="NavigationLink2D3" type="NavigationLink2D" parent="WorldNavigation/SeaNavigation"]
-start_position = Vector2(0, 50)
-end_position = Vector2(1279, 50)
-travel_cost = 0.0
-
-[node name="NavigationLink2D4" type="NavigationLink2D" parent="WorldNavigation/SeaNavigation"]
-start_position = Vector2(0, 600)
-end_position = Vector2(1279, 600)
-travel_cost = 0.0
-
 [node name="Regions" type="Node2D" parent="."]
 script = ExtResource("4_y1hhk")
 

@@ -1,7 +1,7 @@
 extends Camera2D
 
 @export var pan_speed :=1
-const max_zoom:float = 7.5	
+const max_zoom:float = 7.5
 const min_zoom:float = 4.0
 
 var dragging := false
@@ -15,7 +15,7 @@ func _unhandled_input(event):
 		if to_zoom.x < min_zoom: return
 		if to_zoom.x > max_zoom:return
 		zoom = to_zoom
-			
+
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			dragging = event.pressed
@@ -26,8 +26,8 @@ func _unhandled_input(event):
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			if zoom.x*1.05 > max_zoom: return
 			zoom *=1.05
-	
-			
+
+
 	elif event is InputEventMouseMotion and dragging:
 		var delta :Vector2 = event.position - last_pos
 		global_position -= delta * pan_speed/zoom
