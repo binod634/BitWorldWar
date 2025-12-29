@@ -77,7 +77,7 @@ func add_navigatable_region(vertices:PackedVector2Array,hashed_name:String):
 	nav_region.add_to_group("nav_" + hashed_name)
 	nav_region.name = generate_navigation_region_name(hashed_name)
 	nav_region.enter_cost = 100
-	nav_region.travel_cost = 2
+	nav_region.travel_cost = 5
 	nav_region.navigation_layers = 2
 	var new_navigation_mesh:NavigationPolygon = NavigationPolygon.new()
 	new_navigation_mesh.agent_radius = 1
@@ -222,3 +222,6 @@ func is_country_enemy(hashed_name:String) -> bool:
 
 func apply_damage_to_country(hashed_name:String,area_taken:float):
 	print("Applying %f damage to country %s"%[area_taken,countries_data[hashed_name]['name']])
+
+func is_country_mine(hashed_name:String):
+	return hashed_name == selected_country['hashed_name']

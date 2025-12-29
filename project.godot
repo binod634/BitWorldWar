@@ -36,6 +36,7 @@ window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=4
+window/vsync/vsync_mode=0
 mouse_cursor/custom_image="uid://coqdmrci7i7h2"
 
 [editor]
@@ -57,7 +58,7 @@ pointing/android/enable_pan_and_scale_gestures=true
 
 2d/default_cell_size=10.0
 2d/merge_rasterizer_cell_scale=0.1
-2d/default_edge_connection_margin=3.0
+2d/default_edge_connection_margin=4.0
 2d/default_link_connection_radius=10.0
 
 [physics]
@@ -65,9 +66,11 @@ pointing/android/enable_pan_and_scale_gestures=true
 2d/run_on_separate_thread=true
 3d/run_on_separate_thread=true
 common/physics_ticks_per_second=30
-common/physics_jitter_fix=0.0
+common/max_physics_steps_per_frame=4
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+environment/screen_space_reflection/roughness_quality=0

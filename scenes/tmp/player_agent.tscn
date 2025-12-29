@@ -3,18 +3,17 @@
 [ext_resource type="Script" uid="uid://cbilmb8n1hsbv" path="res://scenes/tmp/player_agent.gd" id="1_8koih"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8koih"]
-radius = 3.0
+radius = 1.0
 
 [node name="player_agent" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_8koih")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 1.0
-target_desired_distance = 1.0
+path_desired_distance = 2.0
+target_desired_distance = 5.0
 navigation_layers = 3
-debug_path_custom_color = Color(1, 1, 1, 0.34117648)
-debug_path_custom_point_size = 0.0
+simplify_path = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8koih")

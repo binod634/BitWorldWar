@@ -24,14 +24,11 @@ var capital_name:String = ""
 var center_of_country:Vector2 = Vector2.ZERO
 var capital_position:Vector2 = Vector2.ZERO
 @onready var area2d:Area2D = $Area2D
-@onready var specific_nav_region:NavigationRegion2D = $"../../WorldNavigation/SpecificNav"
-@onready var navAgent:NavigationAgent2D =  $"../../NavigationAgent2D"
 var is_baking:bool = false
 var is_baking_completed:bool = false
 var navMeshArray:Array = []
 var polygons_node:Array[Polygon2D] = []
 var collision_polygons_node:Array[CollisionPolygon2D] = []
-@onready var conquerWarn:Node2D = $ConquerWarn
 var ConquerWarnings:Array[Node2D] = []
 
 
@@ -165,6 +162,7 @@ func _add_polygon_with_offset(tmpvectors:PackedVector2Array,offset:Vector2):
 	polygon2d.polygon = tmpvectors
 	polygon2d.position = offset
 	if offset == Vector2.ZERO:
+		polygon2d.add_to_group("navigation_avoid",true)
 		polygon2d.add_to_group("visual_node_" + country_hashed_name,true)
 	polygons_node.append(polygon2d)
 	area2d.add_child(polygon2d)
@@ -214,31 +212,25 @@ func create_circle_polygon(radius: float,offset_position:Vector2,segments: int =
 	poly.color = color
 	return poly
 
-func generate_circle_points(radius:float, segments:int) -> PackedVector2Array:
+func generate_circle_points(radius:float, segments:int,offset_position:Vector2 = Vector2.ZERO) -> PackedVector2Array:
 	var points:PackedVector2Array = PackedVector2Array()
 	for i in segments:
-		var angle = TAU * i/segments
-		points.append(Vector2(cos(angle),sin(angle)) * radius)
+		var angle:float = TAU * i/segments
+		points.append(Vector2(cos(angle),sin(angle)) * radius + offset_position)
 	return points
 
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	print("got pressed...")
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
 		if event.pressed:
+			if Game.is_country_mine(country_hashed_name): return
 			var mouse_position:Vector2 = get_viewport().get_camera_2d().get_global_mouse_position()
 			if (Game._is_country_navigatable(country_hashed_name)):
 				Game.send_agent(country_hashed_name,mouse_position)
 			else:
 				Game.popup_territory_action(country_hashed_name,mouse_position)
 
-
-
-func find_navigatoin():
-	var mouse_pos_world = get_viewport().get_camera_2d().get_global_mouse_position()
-	navAgent.target_position = mouse_pos_world
-	navAgent.is_target_reachable()
-	print(NavigationServer2D.map_get_path(get_world_2d().get_navigation_map(),Vector2(10,10),mouse_pos_world,true))
-	print("to reach: %s"%[mouse_pos_world])
 
 
 func _is_country_self(hashed_name:String) -> bool:
@@ -295,7 +287,7 @@ func generate_circle_polygon(body_position: Vector2, radius_should_be: float) ->
 	var circlePoly := PackedVector2Array()
 	var segments := 4
 	for i in range(segments):
-		var angle = TAU * i / segments
+		var angle:float = TAU * i / segments
 		circlePoly.append(body_position + Vector2(cos(angle), sin(angle)) * radius_should_be)
 	return circlePoly
 
@@ -315,12 +307,19 @@ func calculate_polygon_area(points: PackedVector2Array) -> float:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# not any army
-	if not body is CharacterBody2D: return
-	if not body.am_i_hostile(country_hashed_name): return
-	var body_position:Vector2 = body.global_position
-	var tmp_polygon2d:Polygon2D = Polygon2D.new()
-	tmp_polygon2d.color = Color.RED
-	tmp_polygon2d.position = body_position
-	tmp_polygon2d.polygon = generate_circle_points(10,32)
-	add_child(tmp_polygon2d)
-	tmp_polygon2d.owner = owner
+	if body is CharacterBody2D and body.has_method("entered_territory"):
+		print("entered...")
+		body.entered_territory(country_hashed_name,being_capturing)
+
+
+func being_capturing(radius:float,location:Vector2,_hashed_name:String,army_survived:Callable):
+	var polygon_asked:PackedVector2Array = generate_circle_points(radius,8,location)
+	for keys in country_lands:
+		var intersection:Array[PackedVector2Array] = Geometry2D.intersect_polygons(country_lands[keys],polygon_asked)
+		if intersection.is_empty():
+			continue # no intersection. not this land
+		else:
+			var warn_poly_instance:Node2D = preload("res://scenes/tmp/warn_poly.tscn").instantiate()
+			warn_poly_instance.polygons = intersection
+			add_child(warn_poly_instance)
+			

@@ -6,6 +6,7 @@ var target_position:Vector2
 var timer:Timer = Timer.new()
 
 func _ready() -> void:
+	navAgent.max_speed = 50
 	remove_after_reaching_target()
 	remove_if_unreachable()
 	make_beeping()
@@ -13,18 +14,20 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if not is_inside_tree() or is_queued_for_deletion():
+		return
 	if navAgent.is_navigation_finished():
 		return
-	var next_path_pos = navAgent.get_next_path_position()
-	velocity = (next_path_pos - global_position).normalized() * 50
+	var next_path_pos:Vector2 = navAgent.get_next_path_position()
+	velocity = global_position.direction_to(next_path_pos) * 50
 	move_and_slide()
 
 
-func make_beeping():
+func make_beeping() -> void:
 	timer.autostart = true
 	timer.one_shot = false
 	timer.wait_time = 0.25
-	timer.timeout.connect(func ():
+	timer.timeout.connect(func () -> void:
 		$Circle.visible = not $Circle.visible
 		)
 	add_child(timer)
@@ -50,3 +53,9 @@ func am_i_hostile(hashed_name:String) -> bool:
 
 func check_enough_power_to_conquer():
 	return true
+
+
+func entered_territory(hname:String,make_warn:Callable):
+	if Game.is_country_enemy(hname):
+		set_physics_process(false)
+		make_warn.call(10,global_position,host_country,func (): set_physics_process(true))
