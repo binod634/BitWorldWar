@@ -6,15 +6,13 @@ var target_position:Vector2
 var timer:Timer = Timer.new()
 
 func _ready() -> void:
-	navAgent.max_speed = 50
 	remove_after_reaching_target()
 	remove_if_unreachable()
 	make_beeping()
-	
+
 	# can't set navAgent target in _ready first frame. hot fix
 	await get_tree().physics_frame
 	navAgent.target_position = target_position
-	
 
 
 func _physics_process(_delta: float) -> void:
@@ -30,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 func make_beeping() -> void:
 	timer.autostart = true
 	timer.one_shot = false
-	timer.wait_time = 0.25
+	timer.wait_time = 1000
 	timer.timeout.connect(func () -> void:
 		$Circle.visible = not $Circle.visible
 		)
@@ -40,7 +38,7 @@ func make_beeping() -> void:
 func remove_after_reaching_target():
 		navAgent.target_reached.connect(func ():
 			get_tree().create_timer(2).timeout.connect(func ():
-				Game.remove_agent(self)
+				ArmyManager.remove_agent(self)
 			)
 		)
 
@@ -59,7 +57,6 @@ func check_enough_power_to_conquer():
 	return true
 
 
-func entered_territory(hname:String,make_warn:Callable):
-	if Game.is_country_enemy(hname):
-		set_physics_process(false)
-		make_warn.call(10,global_position,host_country,func (): set_physics_process(true))
+func entered_territory(country_id:String,make_warn:Callable):
+	if World.is_country_enemy(country_id):
+		make_warn.call(10,global_position,host_country)

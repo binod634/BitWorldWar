@@ -35,5 +35,5 @@ func _on_support_icon_pressed() -> void:
 
 func _on_war_icon_pressed() -> void:
 	print("pressed war icon")
-	Game.declare_war_on(name)
+	World.declare_war_on(name)
 	queue_free()
