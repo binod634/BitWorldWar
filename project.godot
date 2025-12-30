@@ -28,6 +28,10 @@ config/icon="uid://jmvg33r5axtg"
 Game="*res://scripts/Game.gd"
 VerticesHelper="*res://scripts/VerticesHelper.gd"
 
+[debug]
+
+settings/physics_interpolation/enable_warnings=false
+
 [display]
 
 window/size/viewport_width=1280
@@ -56,6 +60,7 @@ pointing/android/enable_pan_and_scale_gestures=true
 
 [navigation]
 
+2d/warnings/navmesh_edge_merge_errors=false
 2d/default_cell_size=10.0
 2d/merge_rasterizer_cell_scale=0.1
 2d/default_edge_connection_margin=4.0

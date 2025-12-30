@@ -10,7 +10,11 @@ func _ready() -> void:
 	remove_after_reaching_target()
 	remove_if_unreachable()
 	make_beeping()
+	
+	# can't set navAgent target in _ready first frame. hot fix
+	await get_tree().physics_frame
 	navAgent.target_position = target_position
+	
 
 
 func _physics_process(_delta: float) -> void:

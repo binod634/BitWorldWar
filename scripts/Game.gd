@@ -3,6 +3,7 @@ extends Node
 
 # variables
 const resolution:Vector2 = Vector2(1280,720)
+const PLAYER_AGENT_SCENE :PackedScene = preload("res://scenes/tmp/player_agent.tscn")
 
 
 # prefer to have link/name with md5. can also be with coordinate {name:corrdinate} if necessary
@@ -142,13 +143,13 @@ func send_agent(hashed_name:String,target_position:Vector2):
 	_add_agent(hashed_name,target_position)
 
 func _add_agent(hashed_name:String,target_position:Vector2):
-	var player_agent:CharacterBody2D = preload("res://scenes/tmp/player_agent.tscn").instantiate()
+	var player_agent:CharacterBody2D = PLAYER_AGENT_SCENE.instantiate()
 	player_agent.target_position = target_position
 	player_agent.position = selected_country['capital_location']
 	player_agent.host_country = hashed_name
 	player_agent.name = "agent_" + str(agents.size())
-	get_tree().get_first_node_in_group("AgentsParent").add_child(player_agent)
 	agents.append(player_agent)
+	get_tree().get_first_node_in_group("AgentsParent").add_child(player_agent)
 	# var agent:NavigationAgent2D = NavigationAgent2D.new()
 	# agent.radius = 5
 	# agent.target_desired_distance = 10

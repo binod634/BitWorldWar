@@ -221,7 +221,6 @@ func generate_circle_points(radius:float, segments:int,offset_position:Vector2 =
 
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	print("got pressed...")
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
 		if event.pressed:
 			if Game.is_country_mine(country_hashed_name): return
@@ -308,11 +307,10 @@ func calculate_polygon_area(points: PackedVector2Array) -> float:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# not any army
 	if body is CharacterBody2D and body.has_method("entered_territory"):
-		print("entered...")
 		body.entered_territory(country_hashed_name,being_capturing)
 
 
-func being_capturing(radius:float,location:Vector2,_hashed_name:String,army_survived:Callable):
+func being_capturing(radius:float,location:Vector2,_hashed_name:String,_army_survived:Callable):
 	var polygon_asked:PackedVector2Array = generate_circle_points(radius,8,location)
 	for keys in country_lands:
 		var intersection:Array[PackedVector2Array] = Geometry2D.intersect_polygons(country_lands[keys],polygon_asked)
