@@ -28,7 +28,7 @@ var ConquerWarnings:Array[Node2D] = []
 	set(value):
 		vertices_data = value
 		if Engine.is_editor_hint():
-			call_deferred("build_everything")
+			call_deferred("build_editor")
 
 # onready
 @onready var area2d:Area2D = $Area2D
@@ -37,6 +37,11 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		build_everything()
 
+func build_editor():
+	_decode_map_editor()
+	_add_map_visible_layer_with_collision()
+	_put_marking_on_capital()
+
 
 
 func build_everything():
@@ -44,6 +49,10 @@ func build_everything():
 	_decode_map()
 	_add_map_visible_layer_with_collision()
 	_put_marking_on_capital()
+
+func _decode_map_editor():
+	country_polygons =  GeoHelper.decode_all_vertices(vertices_data)
+
 
 func _check_playable():
 	is_playable = vertices_data['is_playable']

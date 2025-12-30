@@ -32,6 +32,7 @@ PlayerData="*res://scripts/PlayerData.gd"
 
 [debug]
 
+settings/stdout/print_fps=true
 settings/physics_interpolation/enable_warnings=false
 
 [display]

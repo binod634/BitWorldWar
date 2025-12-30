@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhghdwp8hnl5o"]
+[gd_scene load_steps=5 format=3 uid="uid://bhghdwp8hnl5o"]
 
 [ext_resource type="Script" uid="uid://cbilmb8n1hsbv" path="res://scenes/tmp/player_agent.gd" id="1_8koih"]
+[ext_resource type="FontFile" uid="uid://cmapcli34ypt7" path="res://assets/fonts/BBHBogle-Regular.ttf" id="2_8koih"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_t6opw"]
 b = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jnv26"]
+font = ExtResource("2_8koih")
+shadow_size = 0
 
 [node name="player_agent" type="CharacterBody2D"]
 z_index = 1
@@ -26,3 +31,21 @@ z_index = 1
 scale = Vector2(0.365, 0.365)
 color = Color(1, 0, 0, 1)
 polygon = PackedVector2Array(-5, -5, 0, -7, 5, -5, 7, 0, 5, 5, 0, 7, -5, 5, -7, 0)
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+anchors_preset = -1
+anchor_bottom = 0.5
+offset_left = -1.0000001
+offset_top = -1.0
+offset_right = 19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 4
+text = "22"
+label_settings = SubResource("LabelSettings_jnv26")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

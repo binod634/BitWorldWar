@@ -60,3 +60,11 @@ func check_enough_power_to_conquer():
 func entered_territory(country_id:String,make_warn:Callable):
 	if World.is_country_enemy(country_id):
 		make_warn.call(10,global_position,host_country)
+		start_capture_timer()
+
+func start_capture_timer():
+	set_physics_process(false)
+	get_tree().create_timer(20).timeout.connect(_capture_territory)
+
+func _capture_territory():
+	pass

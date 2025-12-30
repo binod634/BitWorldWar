@@ -4,7 +4,7 @@
 
 [node name="territory" type="Node2D"]
 script = ExtResource("1_grpuo")
-country_hashed_name = "d41d8cd98f00b204e9800998ecf8427e"
+country_id = "d41d8cd98f00b204e9800998ecf8427e"
 
 [node name="Area2D" type="Area2D" parent="."]
 
