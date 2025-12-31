@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ht0udsjh7aen"]
+
+[ext_resource type="Script" uid="uid://bc7u4fbvmx41t" path="res://scenes/tmp/try_delaunary_triangle.gd" id="1_3af1w"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3af1w")

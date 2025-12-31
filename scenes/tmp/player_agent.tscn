@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cbilmb8n1hsbv" path="res://scenes/tmp/player_agent.gd" id="1_8koih"]
 [ext_resource type="FontFile" uid="uid://cmapcli34ypt7" path="res://assets/fonts/BBHBogle-Regular.ttf" id="2_8koih"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_t6opw"]
-b = Vector2(0, 0)
+[sub_resource type="CircleShape2D" id="CircleShape2D_8koih"]
+radius = 0.1
 
 [sub_resource type="LabelSettings" id="LabelSettings_jnv26"]
 font = ExtResource("2_8koih")
@@ -16,14 +16,14 @@ script = ExtResource("1_8koih")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 1.0
-target_desired_distance = 5.0
+target_desired_distance = 1.0
 navigation_layers = 3
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_point_size = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("SegmentShape2D_t6opw")
+shape = SubResource("CircleShape2D_8koih")
 one_way_collision_margin = 0.0
 
 [node name="Circle" type="Polygon2D" parent="."]

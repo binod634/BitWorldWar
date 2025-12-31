@@ -43,10 +43,10 @@ func parse_geolocation_data():
 		}
 		if map_type == "Polygon":
 			var coordinate_data:Array = country['geometry']["coordinates"][0]
-			countries_data[hashed_name]['vertices'][0] = World.decode_vertices_from_dict(coordinate_data)
+			countries_data[hashed_name]['vertices'][0] = decode_vertices_from_dict(coordinate_data)
 		elif map_type == "MultiPolygon":
 			for coords in country['geometry']["coordinates"]:
-				var tmp:PackedVector2Array = World.decode_vertices_from_dict(coords[0])
+				var tmp:PackedVector2Array = decode_vertices_from_dict(coords[0])
 				if not tmp.is_empty():
 					countries_data[hashed_name]['vertices'].append(tmp)
 
@@ -102,15 +102,9 @@ func make_country_navigatable(hashed_name:String,forced:bool = false):
 
 func make_friendly_country(hashed_name:String):
 	highlight_country(hashed_name,false)
-	if hashed_name in enemy_nations:
-		printerr("Cannot be friendly with a war declared country")
-		return
-	if hashed_name == PlayerData.country_id:
-		printerr("Cannot be friendly with self")
-		return
-	if hashed_name in friendly_countries:
-		printerr("Already friendly")
-		return
+	if hashed_name in enemy_nations:printerr("Cannot be friendly with a war declared country");return
+	if hashed_name == PlayerData.country_id: printerr("Cannot be friendly with self");return
+	if hashed_name in friendly_countries:printerr("Already friendly");return
 	friendly_countries.append(hashed_name)
 	add_navigatable_region(countries_data[hashed_name]['vertices'],hashed_name)
 

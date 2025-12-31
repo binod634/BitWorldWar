@@ -11,7 +11,6 @@ const file_path:String  = "res://assets/files/simple_countries.json"
 
 
 func _ready() -> void:
-	print(Geometry2D.offset_polygon(PackedVector2Array([Vector2(0,0),Vector2(100,0),Vector2(100,100),Vector2(0,100)]),2.0))
 	_rebuild_node_in_editor_if_necessary()
 	start_game()
 

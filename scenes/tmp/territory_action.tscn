@@ -29,12 +29,10 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="WarIcon" type="TextureButton" parent="MarginContainer/HBoxContainer"]
-texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("2_5whbm")
 
 [node name="SupportIcon" type="TextureButton" parent="MarginContainer/HBoxContainer"]
-texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("3_73aaq")
 

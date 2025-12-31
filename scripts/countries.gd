@@ -34,13 +34,14 @@ var ConquerWarnings:Array[Node2D] = []
 @onready var area2d:Area2D = $Area2D
 
 func _ready() -> void:
+	if randf() < 0.01: print(vertices_data)
 	if not Engine.is_editor_hint():
 		build_everything()
 
 func build_editor():
 	_decode_map_editor()
 	_add_map_visible_layer_with_collision()
-	_put_marking_on_capital()
+	#_put_marking_on_capital()
 
 
 
@@ -58,8 +59,8 @@ func _check_playable():
 	is_playable = vertices_data['is_playable']
 
 func _add_map_visible_layer_with_collision():
-	for a in range(len(country_polygons)):
-		_add_full_sided_polygons(country_polygons[a])
+	for polygon in country_polygons:
+		_add_full_sided_polygons(polygon)
 
 func _decode_map():
 	country_polygons =  World.decode_all_vertices(vertices_data)
