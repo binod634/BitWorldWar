@@ -3,7 +3,6 @@ extends Node2D
 
 # signals
 signal add_avoidance(vertices:PackedVector2Array)
-
 # const
 const collision_polygon_minimum_distance_allowded:float = 1
 
@@ -123,7 +122,7 @@ func _put_marking_on_capital():
 	if not is_playable:return
 	var capital_location_dict:Array = vertices_data['capital_location']
 	capital_name = vertices_data['capital_name']
-	capital_position =  World.decode_vertices(capital_location_dict[0],capital_location_dict[1])
+	capital_position =  GeoHelper.decode_vertices(capital_location_dict[0],capital_location_dict[1])
 	var tmp:Polygon2D = World.create_circle_polygon(1.0,16,capital_position)
 	area2d.add_child(tmp)
 
@@ -143,7 +142,6 @@ func _is_country_self(hashed_name:String) -> bool:
 	return hashed_name == country_id
 
 
-
 func make_new_polygon_from_captured(new_poly: PackedVector2Array):
 	var polygon2d:Polygon2D = Polygon2D.new()
 	polygon2d.color = Color(color_value)
@@ -154,6 +152,7 @@ func make_new_polygon_from_captured(new_poly: PackedVector2Array):
 	polygons_node.append(polygon2d)
 	area2d.add_child(polygon2d)
 	polygon2d.owner = owner
+
 
 func make_new_collision_polygon_from_captured(new_poly: PackedVector2Array):
 	var polygon2d:CollisionPolygon2D = CollisionPolygon2D.new()
@@ -167,6 +166,7 @@ func make_new_collision_polygon_from_captured(new_poly: PackedVector2Array):
 	area2d.add_child(polygon2d)
 	polygon2d.owner = owner
 
+
 func update_existing_collision_polygons(new_polys: Array) -> bool:
 	for node in collision_polygons_node:
 		var node_polygon:PackedVector2Array = node.polygon
@@ -175,6 +175,7 @@ func update_existing_collision_polygons(new_polys: Array) -> bool:
 			node.polygon = new_polys
 			return true
 	return false
+
 
 func update_existing_polygons(new_polys: Array) -> bool:
 	var success:bool = false
@@ -189,9 +190,9 @@ func update_existing_polygons(new_polys: Array) -> bool:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	# not any army
 	if body is CharacterBody2D and body.has_method("entered_territory"):
 		body.entered_territory(country_id,being_capturing)
+
 
 
 func being_capturing(radius:float,location:Vector2,_hashed_name:String,):

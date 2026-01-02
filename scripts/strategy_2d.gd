@@ -3,7 +3,7 @@ extends Node2D
 
 
 # territory buildign for each nations.
-var terriroty:PackedScene =  preload("res://scenes/screens/territory.tscn")
+var terriroty:PackedScene =  preload("res://scenes/screens/Territory.tscn")
 # file to build nations
 const file_path:String  = "res://assets/files/simple_countries.json"
 # check if rebuild is necessary

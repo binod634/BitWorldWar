@@ -22,3 +22,19 @@ static func decode_all_vertices(vertices_data:Dictionary) -> Array[PackedVector2
 		for coords in vertices_data['geometry']["coordinates"]:
 			country_lands.append(decode_vertices_from_dict(coords[0]))
 	return country_lands
+
+static func create_circle_polygon(radius: float,segments: int = 8,offset_position:Vector2 = Vector2.ZERO,color: Color = Color.RED) -> Polygon2D:
+	var poly := Polygon2D.new()
+	poly.z_index = 1
+	var points := generate_circle_points(radius,segments,offset_position)
+	poly.polygon = points
+	poly.position = offset_position
+	poly.color = color
+	return poly
+
+static func generate_circle_points(radius:float, segments:int,offset_position:Vector2 = Vector2.ZERO) -> PackedVector2Array:
+	var points:PackedVector2Array = PackedVector2Array()
+	for i in segments:
+		var angle:float = TAU * i/segments
+		points.append(Vector2(cos(angle),sin(angle)) * radius + offset_position)
+	return points
