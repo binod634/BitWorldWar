@@ -5,19 +5,25 @@ extends Node2D
 var territory:PackedScene = preload("res://scenes/screens/Territory.tscn")
 # Folder containing all region polygon JSON files
 const REGIONS_FOLDER:String = "res://assets/files/regions_output/"
-# Check if rebuild is necessary
-@onready var rebuild_needed:bool = $Regions.get_child_count() == 0
 
 # territory polygon data dictionary
 @export var territories_data:Dictionary = {}
-
+# Check if rebuild is necessary
+@onready var rebuild_needed:bool = $Regions.get_child_count() == 0
+@onready var CountriesParent:Node = $Regions
 
 func _ready() -> void:
-	decode_all_polygons()
+	# no runtime code.
+	if Engine.is_editor_hint():
+		decode_all_polygons()
+	else:
+		provide_countries_data()
+
+
+func provide_countries_data():
+	World.set_countries_data(territories_data)
 
 func decode_all_polygons():
-	if not Engine.is_editor_hint():
-		return
 	if not rebuild_needed:
 		return
 	print("Decoding all polygons from region files...")
@@ -31,31 +37,34 @@ func decode_all_polygons():
 		var country_name:String = country_data.get("country", "")
 		var country_id:String = country_data.get("id", "")
 		var regions:Array = country_data.get("regions", [])
-		var color:Color = string_to_color(country_name)
+		var default_owned_polygons_id:Array = []
 		for region in regions:
 			if not region.has("id"):
 				printerr("Region without ID in country %s"%(country_name))
 				continue
 			var polygon_id = region["id"]
+			var color:Color = string_to_color(country_id) * 0.95 + Color(randf(),randf(),randf()) * 0.05
+			default_owned_polygons_id.append(polygon_id)
 			territories_data[polygon_id] = {
 				"country_id": country_id,
 				"country_name": country_name,
 				"polygon_vertices": region.get("coordinates", []),
 				"color": color
 			}
-	# Now instantiate one tmpRegion per polygon using territories_data
-	for polygon_id in territories_data.keys():
-		var data = territories_data[polygon_id]
+		# make country node
 		var tmpRegion:Node2D = territory.instantiate()
-		tmpRegion.name = polygon_id
-		tmpRegion.add_to_group("visual_node_" + String(data.country_id))
-		tmpRegion.country_name = data.country_name
-		tmpRegion.color_value = data.color
-		tmpRegion.vertices_data = data.polygon_vertices
-		tmpRegion.country_id = data.country_id
-		tmpRegion.polygon_id = polygon_id
-		$Regions.add_child(tmpRegion)
-		tmpRegion.owner = get_parent().owner	# Set owner for the editor
+		tmpRegion.name = country_id
+		tmpRegion.owned_country = country_id
+		tmpRegion.default_owned_polygons_id = default_owned_polygons_id
+		var territory_owned:Dictionary = {}
+		for i in default_owned_polygons_id:
+			territory_owned[i] = territories_data[i]
+		tmpRegion.owned_territory_data = territory_owned
+		tmpRegion.is_playable_country = country_data['playable']
+		CountriesParent.add_child(tmpRegion)
+		tmpRegion.owner = get_tree().edited_scene_root
+		tmpRegion.build_territory()
+
 
 func get_region_files() -> Array:
 	var files:Array = []

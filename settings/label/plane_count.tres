@@ -6,6 +6,6 @@
 font = ExtResource("1_0knoj")
 font_size = 32
 font_color = Color(0.36078432, 0.49803922, 0.6392157, 1)
-outline_size = 1
 outline_color = Color(1, 1, 1, 0.47058824)
+shadow_size = 0
 shadow_color = Color(0, 0, 0, 0.64705884)

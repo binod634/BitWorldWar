@@ -1,7 +1,7 @@
 class_name  GeoHelper
 
-const raw_vector_scale_value:Vector2 = Vector2(3.559,-4.0)
-const raw_vector_offset_value:Vector2 = Vector2(640.0,360.0)
+const raw_vector_scale_value:Vector2 = Vector2(3.559,-4.0) * 2
+const raw_vector_offset_value:Vector2 = Vector2(640.0,360.0) * 2
 
 static func decode_vertices_from_dict(tmp:Array) -> PackedVector2Array:
 	var vertices_array:PackedVector2Array = []
@@ -11,6 +11,7 @@ static func decode_vertices_from_dict(tmp:Array) -> PackedVector2Array:
 
 static func decode_vertices(x:float,y:float) -> Vector2:
 	return Vector2(x*raw_vector_scale_value.x+raw_vector_offset_value.x,y*raw_vector_scale_value.y+raw_vector_offset_value.y)
+
 
 static func decode_all_vertices(vertices_data:Dictionary) -> Array[PackedVector2Array]:
 	if vertices_data.is_empty(): printerr("No data in vertices");return []
@@ -38,3 +39,14 @@ static func generate_circle_points(radius:float, segments:int,offset_position:Ve
 		var angle:float = TAU * i/segments
 		points.append(Vector2(cos(angle),sin(angle)) * radius + offset_position)
 	return points
+
+static func calculate_polygon_area(points: PackedVector2Array) -> float:
+	var area := 0.0
+	var n := points.size()
+	if n < 3:
+		return 0.0
+	for i in range(n):
+		var p1 = points[i]
+		var p2 = points[(i + 1) % n]
+		area += (p1.x * p2.y) - (p2.x * p1.y)
+	return abs(area) / 2.0

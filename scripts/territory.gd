@@ -1,189 +1,122 @@
 @tool
-extends Node2D
+extends  Node2D
 
-# Signals
-signal add_avoidance(vertices:PackedVector2Array)
 
-# Constants
-const collision_polygon_minimum_distance_allowded:float = 1
+@export var owned_territory_id:Array = []
+@export var owned_country:String
+@export var is_playable_country:bool = false
+@export var default_owned_polygons_id:Array = []
+@export var owned_territory_data:Dictionary = {}
+var visual_nodes:Array[Polygon2D] = []
+var collision_nodes:Array[CollisionPolygon2D] = []
+#var duplicated_nodes_right:Array[Polygon2D] = []
+#var duplicated_nodes_left:Array[Polygon2D] = []
+var centers_of_polygons:PackedVector2Array = PackedVector2Array()
 
-#Variables
-var country_polygons:Array = []
-var capital_name:String = ""
-var center_of_country:Vector2 = Vector2.ZERO
-var capital_position:Vector2 = Vector2.ZERO
-var polygons_node:Array[Polygon2D] = []
-var collision_polygons_node:Array[CollisionPolygon2D] = []
-var ConquerWarnings:Array[Node2D] = []
+#onready
+@onready var CollisionArea:Area2D = $CollisionArea
+@onready var Visuals:Node2D = $Visuals
+@onready var Armys:Node2D = $Army
 
-# Exports
-@export var color_value:Color = Color.BLACK
-@export var country_name:String = ""
-@export var country_id:String = "":
-	get():
-			return country_name.md5_text()
-@export var is_playable:bool = false
-@export var vertices_data: Dictionary = {}:
-	set(value):
-		vertices_data = value
-		if Engine.is_editor_hint():
-			call_deferred("build_editor")
+# scenes
+var playerAgent:PackedScene = preload("res://scenes/tmp/player_agent.tscn")
 
-# Onready
-@onready var area2d:Area2D = $Area2D
+
 
 func _ready() -> void:
- if randf() < 0.01: print(vertices_data)
- if not Engine.is_editor_hint():
-  build_everything()
+	if not Engine.is_editor_hint():
+		World.setup_completed.connect(build_runtime)
 
-func build_editor():
- _decode_map_editor()
- _add_map_visible_layer_with_collision()
- # _put_marking_on_capital()
 
-func build_everything():
- _check_playable()
- _decode_map()
- _add_map_visible_layer_with_collision()
- _put_marking_on_capital()
+func build_runtime():
+	build_territory(false)
+	deploy_army()
 
-func _decode_map_editor():
- country_polygons = GeoHelper.decode_all_vertices(vertices_data)
+func deploy_army():
+	for i in centers_of_polygons:
+		var tmp:CharacterBody2D = playerAgent.instantiate()
+		tmp.global_position = i
+		Armys.add_child(tmp)
 
-func _check_playable():
- is_playable = vertices_data.get('is_playable', false)
 
-func _add_map_visible_layer_with_collision():
- for polygon in country_polygons:
-  _add_full_sided_polygons(polygon)
+func _draw() -> void:
+	#if not is_playable_country: return
+	#for i in centers_of_polygons:
+		#draw_circle(i,0.5,Color.RED)
+	for i in visual_nodes:
+		draw_polyline(i.polygon,Color.WHITE)
 
-func _decode_map():
- country_polygons = World.decode_all_vertices(vertices_data)
 
-func _add_full_sided_polygons(tmpvectors:PackedVector2Array):
- var offsets_to_have:Array = [
-  Vector2.ZERO,
-  Vector2(Game.resolution.x, 0),
-  Vector2(-Game.resolution.x, 0),
- ]
- _add_collision_polygon(tmpvectors)
- for offsets in offsets_to_have:
-  _add_polygon_with_offset(tmpvectors, offsets)
 
-func _add_collision_polygon(tmpvectors:PackedVector2Array):
- var polygon2d:CollisionPolygon2D = CollisionPolygon2D.new()
- check_duplicates(tmpvectors.slice(0, tmpvectors.size() - 1))
- var clean_vertices:PackedVector2Array = tmpvectors.slice(0, tmpvectors.size() - 1)
- var tmpname = "cp_" + str(RandomNumberGenerator.new().randi())
- polygon2d.name = tmpname
- polygon2d.polygon = clean_vertices
- collision_polygons_node.append(polygon2d)
- area2d.add_child(polygon2d)
- polygon2d.owner = owner
- add_avoidance.emit(clean_vertices)
+func build_territory(is_editor_build:bool = true):
+	for polygons_id in default_owned_polygons_id:
+		if owned_territory_data.has(polygons_id):
+			var country_info:Dictionary = owned_territory_data[polygons_id]
+			var color:Color = country_info.get("color", Color.WHITE)
+			var polygon_vertices:Array = country_info.get("polygon_vertices", [])
 
-func check_duplicates(vertices: PackedVector2Array) -> void:
-	for i in range(vertices.size()):
-		for j in range(i+1, vertices.size()):
-			if vertices[i].distance_to(vertices[j]) < 0.001:
-				print("Duplicate or near-duplicate vertices at indices %d and %d: %s %s" % [i, j, vertices[i], vertices[j]])
+			# there should be 1 array
+			var packed_vertices:PackedVector2Array = PackedVector2Array()
+			assert(polygon_vertices.size() == 1,"Polygon size is not 1")
+			for i in polygon_vertices[0]:
+				packed_vertices.append(GeoHelper.decode_vertices(i[0],i[1]))
+			#var decomposed = Geometry2D.decompose_polygon_in_convex(polygon_vertices[0])
+			#if decomposed.is_empty():
+				#print("--- CONVEX DECOMPOSITION FAILED ---")
+				#print("Territory Name/ID: ", polygons_id)
+				#print("Vertex Count: ", polygon_vertices.size())
+				#print("Vertices: ", polygon_vertices)
+			if GeoHelper.calculate_polygon_area(packed_vertices) > 5:
+				centers_of_polygons.append(center_point_in_polygon(packed_vertices))
+			else:
+				print("got area less %s"%[GeoHelper.calculate_polygon_area(packed_vertices)])
+			build_collision_node(packed_vertices,polygons_id,is_editor_build)
+			build_polygon_node(packed_vertices,polygons_id,is_editor_build,color)
+	queue_redraw()
 
-func _add_polygon_with_offset(tmpvectors:PackedVector2Array, offset:Vector2):
- var polygon2d:Polygon2D = Polygon2D.new()
- polygon2d.color = Color(color_value)
- polygon2d.color = Color.BLACK * 0.8 + Color(color_value) * 0.2
- polygon2d.polygon = tmpvectors
- polygon2d.position = offset
- if offset == Vector2.ZERO:
-  polygon2d.add_to_group("navigation_avoid", true)
-  polygon2d.add_to_group("visual_node_" + country_id, true)
- polygons_node.append(polygon2d)
- area2d.add_child(polygon2d)
- polygon2d.owner = owner
+func build_polygon_node(polygon:PackedVector2Array,node_name:String,is_editor_build:bool,node_color:Color):
+	var polygonNode:Polygon2D = Polygon2D.new()
+	polygonNode.add_to_group("navigation_avoid",true)
+	polygonNode.polygon = polygon
+	polygonNode.name = node_name
+	polygonNode.color = node_color
+	visual_nodes.append(polygonNode)
+	Visuals.add_child(polygonNode)
+	if is_editor_build: polygonNode.owner = get_tree().edited_scene_root
 
-func _decode_vertices_from_dict(tmp:Array) -> PackedVector2Array:
- var vertices_array:PackedVector2Array = []
- for i in tmp:
-  vertices_array.append(World.decode_vertices(i[0], i[1]))
- return vertices_array
 
-func _put_marking_on_capital():
- if not is_playable:
-  return
- var capital_location_dict:Array = vertices_data.get('capital_location', [])
- if capital_location_dict.size() >= 2:
-  capital_name = vertices_data.get('capital_name', "")
-  capital_position = GeoHelper.decode_vertices(capital_location_dict[0], capital_location_dict[1])
-  var tmp:Polygon2D = World.create_circle_polygon(1.0, 16, capital_position)
-  area2d.add_child(tmp)
+func build_collision_node(polygon:PackedVector2Array,node_name:String,is_editor_build:bool):
+	var collisionNode:CollisionPolygon2D = CollisionPolygon2D.new()
 
-func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT):
-		if event.pressed:
-   			if PlayerData.is_country_mine(country_id):
-				return
-			var mouse_position:Vector2 = get_viewport().get_camera_2d().get_global_mouse_position()
-			if World._is_country_navigatable(country_id):
-			ArmyManager.send_agent(country_id, mouse_position)
-   		else:
-			Game.popup_territory_action(country_id, mouse_position)
+	collisionNode.polygon = polygon
+	collisionNode.name = node_name
+	collision_nodes.append(collisionNode)
+	CollisionArea.add_child(collisionNode)
+	if is_editor_build: collisionNode.owner = get_tree().edited_scene_root
 
-func _is_country_self(hashed_name:String) -> bool:
- return hashed_name == country_id
-
-func make_new_polygon_from_captured(new_poly: PackedVector2Array):
- var polygon2d:Polygon2D = Polygon2D.new()
- polygon2d.color = Color(color_value)
- polygon2d.color = Color.BLACK * 0.8 + Color(color_value) * 0.2
- polygon2d.polygon = new_poly
- polygon2d.position = Vector2.ZERO
- polygon2d.add_to_group("visual_node_" + country_id, true)
- polygons_node.append(polygon2d)
- area2d.add_child(polygon2d)
- polygon2d.owner = owner
-
-func make_new_collision_polygon_from_captured(new_poly: PackedVector2Array):
- var polygon2d:CollisionPolygon2D = CollisionPolygon2D.new()
- check_duplicates(new_poly.slice(0, new_poly.size() - 1))
- var clean_vertices:PackedVector2Array = new_poly.slice(0, new_poly.size() - 1)
- var tmpname = "cp_" + str(RandomNumberGenerator.new().randi())
- polygon2d.name = tmpname
- polygon2d.polygon = clean_vertices
- collision_polygons_node.append(polygon2d)
- area2d.add_child(polygon2d)
- polygon2d.owner = owner
-
-func update_existing_collision_polygons(new_polys: Array) -> bool:
- for node in collision_polygons_node:
-  var node_polygon:PackedVector2Array = node.polygon
-  var result := Geometry2D.clip_polygons(new_polys, node_polygon)
-  if result.is_empty():
-   node.polygon = new_polys
-   return true
- return false
-
-func update_existing_polygons(new_polys: Array) -> bool:
- var success:bool = false
- for node in polygons_node:
-  var node_polygon:PackedVector2Array = node.polygon
-  var result := Geometry2D.clip_polygons(new_polys, node_polygon)
-  if result.is_empty():
-   node.polygon = new_polys
-   success = true
- return success
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
- if body is CharacterBody2D and body.has_method("entered_territory"):
-  body.entered_territory(country_id, being_capturing)
-
-func being_capturing(radius:float, location:Vector2, _hashed_name:String):
- var polygon_asked:PackedVector2Array = World.generate_circle_points(radius, 8, location)
- for country_polygon in country_polygons:
-  var intersection:Array[PackedVector2Array] = Geometry2D.intersect_polygons(country_polygon, polygon_asked)
-  if intersection.is_empty():
-   continue # no intersection. not this land
-  else:
-   var warn_poly_instance:Node2D = preload("res://scenes/tmp/warn_poly.tscn").instantiate()
-   warn_poly_instance.polygons = intersection
-   add_child(warn_poly_instance)
+func center_point_in_polygon(polygon:PackedVector2Array) -> Vector2:
+	# Calculate centroid
+	var center:Vector2 = Vector2.ZERO
+	for point in polygon:
+		center += point
+	center /= polygon.size()
+	# Check if centroid is inside polygon
+	if Geometry2D.is_point_in_polygon(center, polygon):
+		return center
+	# If not, try to find a reliable fallback inside the polygon
+	var fallback1:Vector2 = polygon[0]
+	for a in range(1, len(polygon)):
+		var testCenter = (fallback1 * a + polygon[a]) / (a + 1)
+		if not Geometry2D.is_point_in_polygon(testCenter, polygon):
+			# If fallback1 steps outside, revert to previous value and break
+			break
+		else:
+			fallback1 = testCenter
+	if Geometry2D.is_point_in_polygon(fallback1, polygon):
+		return fallback1
+	if polygon.size() >= 3:
+		var fallback2:Vector2 = (polygon[0] + polygon[1] + polygon[2]) / 3.0
+		if Geometry2D.is_point_in_polygon(fallback2, polygon):
+			return fallback2
+	# As a last resort, return the first vertex
+	return polygon[0]

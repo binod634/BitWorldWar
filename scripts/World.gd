@@ -1,8 +1,11 @@
 extends Node
 
-const raw_vector_scale_value:Vector2 = Vector2(3.559,-4.0)
-const raw_vector_offset_value:Vector2 = Vector2(640.0,360.0)
+# signals
+signal setup_completed
 
+
+const raw_vector_scale_value:Vector2 = GeoHelper.raw_vector_scale_value
+const raw_vector_offset_value:Vector2 = GeoHelper.raw_vector_offset_value
 
 # prefer to have link/name with md5. can also be with coordinate {name:corrdinate} if necessary
 var enemy_nations:Array = []
@@ -11,6 +14,10 @@ var countries_data:Dictionary  = {}
 var my_country_vertices:Array  = []
 const file_path:String  = "res://assets/files/simple_countries.json"
 
+
+func set_countries_data(data:Dictionary):
+	countries_data = data
+	setup_completed.emit()
 
 func declare_war_on(hashed_name:String):
 	highlight_country(hashed_name,false)
@@ -138,57 +145,16 @@ func get_country_data(hashed_name:String) -> Dictionary:
 	return countries_data.get(hashed_name,{})
 
 func create_circle_polygon(radius: float,segments: int = 8,offset_position:Vector2 = Vector2.ZERO,color: Color = Color.RED) -> Polygon2D:
-	var poly := Polygon2D.new()
-	poly.z_index = 1
-	var points := generate_circle_points(radius,segments,offset_position)
-	poly.polygon = points
-	poly.position = offset_position
-	poly.color = color
-	return poly
+	return GeoHelper.create_circle_polygon(radius,segments,offset_position,color)
+
 
 func generate_circle_points(radius:float, segments:int,offset_position:Vector2 = Vector2.ZERO) -> PackedVector2Array:
-	var points:PackedVector2Array = PackedVector2Array()
-	for i in segments:
-		var angle:float = TAU * i/segments
-		points.append(Vector2(cos(angle),sin(angle)) * radius + offset_position)
-	return points
+	return GeoHelper.generate_circle_points(radius,segments,offset_position)
+
 
 func calculate_polygon_area(points: PackedVector2Array) -> float:
-	var area := 0.0
-	var n := points.size()
-	if n < 3:
-		return 0.0
-	for i in range(n):
-		var p1 = points[i]
-		var p2 = points[(i + 1) % n]
-		area += (p1.x * p2.y) - (p2.x * p1.y)
-	return abs(area) / 2.0
-
-
+	return GeoHelper.calculate_polygon_area(points)
 
 
 func decode_all_vertices(vertices_data:Dictionary) -> Array[PackedVector2Array]:
-	if vertices_data.is_empty(): printerr("No data in vertices");return []
-	var country_lands:Array[PackedVector2Array] = []
-	var vertices_type = vertices_data['geometry']['type']
-	if vertices_type == "Polygon":
-		country_lands.append(decode_vertices_from_dict(vertices_data['geometry']["coordinates"][0]))
-	elif vertices_type == "MultiPolygon":
-		for coords in vertices_data['geometry']["coordinates"]:
-			country_lands.append(decode_vertices_from_dict(coords[0]))
-	return country_lands
-
-
-# func _clean_vectors(tmpvectors:PackedVector2Array) -> PackedVector2Array:
-# 	var cleaned_vertex:PackedVector2Array = []
-# 	for a in len(tmpvectors):
-# 		if a == 0: continue
-# 		if (tmpvectors[a].distance_to(tmpvectors[a-1]) > collision_polygon_minimum_distance_allowded):
-# 			cleaned_vertex.append(tmpvectors[a])
-
-# 	# returned cleaned_vertex. tries
-# 	if len(cleaned_vertex) < 3:
-# 		return PackedVector2Array()
-# 	if World.calculate_polygon_area(cleaned_vertex) < 5.0:
-# 		return PackedVector2Array()
-# 	return cleaned_vertex
+	return GeoHelper.decode_all_vertices(vertices_data)
