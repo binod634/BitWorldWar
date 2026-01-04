@@ -1,7 +1,13 @@
 class_name  GeoHelper
 
-const raw_vector_scale_value:Vector2 = Vector2(3.559,-4.0) * 2
-const raw_vector_offset_value:Vector2 = Vector2(640.0,360.0) * 2
+const scale_value:float = 2.0
+const raw_vector_scale_value:Vector2 = Vector2(3.559,-4.0) * scale_value
+const raw_vector_offset_value:Vector2 = Vector2(640.0,360.0) * scale_value
+
+enum  TerritoryData {
+	coordinates,
+	center,
+}
 
 static func decode_vertices_from_dict(tmp:Array) -> PackedVector2Array:
 	var vertices_array:PackedVector2Array = []
@@ -50,3 +56,12 @@ static func calculate_polygon_area(points: PackedVector2Array) -> float:
 		var p2 = points[(i + 1) % n]
 		area += (p1.x * p2.y) - (p2.x * p1.y)
 	return abs(area) / 2.0
+
+
+static func string_to_color(text: String) -> Color:
+	# Hash text using MD5
+	var hash_bytes: PackedByteArray = text.md5_buffer()
+	var r: int = hash_bytes[0]
+	var g: int = hash_bytes[1]
+	var b: int = hash_bytes[2]
+	return Color(r / 255.0, g / 255.0, b / 255.0) * 0.8 + Color.GREEN * 0.2

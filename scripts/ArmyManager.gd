@@ -1,26 +1,24 @@
 extends Node
 
-var agents:Array = []
-const PLAYER_AGENT_SCENE :PackedScene = preload("res://scenes/tmp/player_agent.tscn")
 
-func send_agent(hashed_name:String,target_position:Vector2):
-	if agents.size() >= 10:
-		printerr("Max agents deployed")
-		return
-	_add_agent(hashed_name,target_position)
+var selected_army:Array = []
 
-func _add_agent(hashed_name:String,target_position:Vector2):
-	var player_agent:CharacterBody2D = PLAYER_AGENT_SCENE.instantiate()
-	player_agent.target_position = target_position
-	player_agent.position = PlayerData.capital_location
-	player_agent.host_country = hashed_name
-	player_agent.name = "agent_" + str(agents.size())
-	agents.append(player_agent)
-	get_tree().get_first_node_in_group("AgentsParent").add_child(player_agent)
 
-func remove_agent(agent:CharacterBody2D):
-	if not is_instance_valid(agent):
-		printerr("Agent is not valid anymore")
-		return
-	agents.erase(agent)
-	agent.queue_free()
+func add_army_to_selection(node:CharacterBody2D):
+	selected_army.append(node)
+
+
+func remove_army_from_selection(node:CharacterBody2D):
+	if OS.is_debug_build():
+		assert(node in selected_army,"node not found in selection")
+	if node in selected_army:
+		selected_army.erase(node)
+
+func clear_army_selection():
+	for a in selected_army:
+		a.reset_selection()
+	selected_army = []
+
+func got_location_point(point_position:Vector2):
+	for a in selected_army:
+		a.target_position = point_position

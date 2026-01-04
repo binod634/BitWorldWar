@@ -19,6 +19,8 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			dragging = event.pressed
+			if not dragging && event.position == last_pos:
+				ArmyManager.got_location_point(get_global_mouse_position())
 			last_pos = event.position
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			if zoom.x/1.05 < min_zoom: return
@@ -29,9 +31,11 @@ func _unhandled_input(event):
 
 
 	elif event is InputEventMouseMotion and dragging:
-		var delta :Vector2 = event.position - last_pos
-		global_position -= delta * pan_speed/zoom
+		var diff_position:Vector2 = event.position - last_pos
+		global_position -= diff_position * pan_speed/zoom
 		last_pos = event.position
+
+
 
 func _physics_process(_delta: float)  -> void:
 	if interpolation_disabled:

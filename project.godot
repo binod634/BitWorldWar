@@ -32,7 +32,6 @@ PlayerData="*res://scripts/PlayerData.gd"
 
 [debug]
 
-settings/stdout/print_fps=true
 settings/physics_interpolation/enable_warnings=false
 
 [display]
@@ -80,5 +79,5 @@ common/physics_interpolation=true
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
-viewport/hdr_2d=true
+shader_compiler/shader_cache/strip_debug=true
 environment/screen_space_reflection/roughness_quality=0

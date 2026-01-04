@@ -6,7 +6,7 @@ extends  Node2D
 @export var owned_country:String
 @export var is_playable_country:bool = false
 @export var default_owned_polygons_id:Array = []
-@export var owned_territory_data:Dictionary = {}
+@export var territory_data:Dictionary = {}
 var visual_nodes:Array[Polygon2D] = []
 var collision_nodes:Array[CollisionPolygon2D] = []
 #var duplicated_nodes_right:Array[Polygon2D] = []
@@ -19,8 +19,7 @@ var centers_of_polygons:PackedVector2Array = PackedVector2Array()
 @onready var Armys:Node2D = $Army
 
 # scenes
-var playerAgent:PackedScene = preload("res://scenes/tmp/player_agent.tscn")
-
+var playerAgent:PackedScene = preload("res://scenes/objects/army.tscn")
 
 
 func _ready() -> void:
@@ -36,13 +35,12 @@ func deploy_army():
 	for i in centers_of_polygons:
 		var tmp:CharacterBody2D = playerAgent.instantiate()
 		tmp.global_position = i
+		tmp.owned_country = owned_country
 		Armys.add_child(tmp)
 
 
 func _draw() -> void:
-	#if not is_playable_country: return
-	#for i in centers_of_polygons:
-		#draw_circle(i,0.5,Color.RED)
+	# show line in every polygon
 	for i in visual_nodes:
 		draw_polyline(i.polygon,Color.WHITE)
 
@@ -50,29 +48,23 @@ func _draw() -> void:
 
 func build_territory(is_editor_build:bool = true):
 	for polygons_id in default_owned_polygons_id:
-		if owned_territory_data.has(polygons_id):
-			var country_info:Dictionary = owned_territory_data[polygons_id]
-			var color:Color = country_info.get("color", Color.WHITE)
-			var polygon_vertices:Array = country_info.get("polygon_vertices", [])
-
+		if territory_data.has(polygons_id):
+			#var color:Color = GeoHelper.string_to_color(owned_country) * 0.95 + Color(randf(),randf(),randf()) * 0.05
+			var color:Color = Color.LIGHT_GREEN if not is_editor_build &&  PlayerData.is_country_mine(owned_country) else (Color.SEA_GREEN * 0.8  + GeoHelper.string_to_color(owned_country) * 0.2)
 			# there should be 1 array
 			var packed_vertices:PackedVector2Array = PackedVector2Array()
-			assert(polygon_vertices.size() == 1,"Polygon size is not 1")
-			for i in polygon_vertices[0]:
+			for i in territory_data[polygons_id][GeoHelper.TerritoryData.coordinates]:
 				packed_vertices.append(GeoHelper.decode_vertices(i[0],i[1]))
-			#var decomposed = Geometry2D.decompose_polygon_in_convex(polygon_vertices[0])
-			#if decomposed.is_empty():
-				#print("--- CONVEX DECOMPOSITION FAILED ---")
-				#print("Territory Name/ID: ", polygons_id)
-				#print("Vertex Count: ", polygon_vertices.size())
-				#print("Vertices: ", polygon_vertices)
 			if GeoHelper.calculate_polygon_area(packed_vertices) > 5:
-				centers_of_polygons.append(center_point_in_polygon(packed_vertices))
-			else:
-				print("got area less %s"%[GeoHelper.calculate_polygon_area(packed_vertices)])
+				var center:Array = territory_data[polygons_id][GeoHelper.TerritoryData.center]
+				if center.is_empty():
+					centers_of_polygons.append(center_point_in_polygon(packed_vertices))
+				else:
+					centers_of_polygons.append(GeoHelper.decode_vertices(center[0],center[1]))
 			build_collision_node(packed_vertices,polygons_id,is_editor_build)
 			build_polygon_node(packed_vertices,polygons_id,is_editor_build,color)
 	queue_redraw()
+
 
 func build_polygon_node(polygon:PackedVector2Array,node_name:String,is_editor_build:bool,node_color:Color):
 	var polygonNode:Polygon2D = Polygon2D.new()
@@ -87,12 +79,12 @@ func build_polygon_node(polygon:PackedVector2Array,node_name:String,is_editor_bu
 
 func build_collision_node(polygon:PackedVector2Array,node_name:String,is_editor_build:bool):
 	var collisionNode:CollisionPolygon2D = CollisionPolygon2D.new()
-
 	collisionNode.polygon = polygon
 	collisionNode.name = node_name
 	collision_nodes.append(collisionNode)
 	CollisionArea.add_child(collisionNode)
 	if is_editor_build: collisionNode.owner = get_tree().edited_scene_root
+
 
 func center_point_in_polygon(polygon:PackedVector2Array) -> Vector2:
 	# Calculate centroid

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhghdwp8hnl5o"]
+
+[ext_resource type="Script" uid="uid://cbilmb8n1hsbv" path="res://scripts/army.gd" id="1_wbi2p"]
+[ext_resource type="Texture2D" uid="uid://bak72y7p38k17" path="res://assets/images/military.png" id="3_rcrev"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kn48e"]
+radius = 5.0
+
+[node name="player_agent" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_wbi2p")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 3.0
+navigation_layers = 3
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_point_size = 1.0
+
+[node name="Army" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0.45, -3)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("3_rcrev")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kn48e")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_shape_entered" from="Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Area2D" to="." method="_on_area_2d_mouse_shape_exited"]

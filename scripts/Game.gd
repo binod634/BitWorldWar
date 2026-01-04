@@ -4,9 +4,8 @@ const resolution:Vector2 = Vector2(1280,720) * 2
 var country_action_popups:Control
 
 func start_game():
-	World.pick_nation()
 	World.parse_geolocation_data()
-	World.make_country_navigatable(PlayerData.country_id,true)
+	World.make_country_navigatable(PlayerData.country_id)
 
 func popup_territory_action(hashed_name:String,location:Vector2):
 	check_and_remove_exisiting_popups()
