@@ -38,6 +38,7 @@ settings/physics_interpolation/enable_warnings=false
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=4
@@ -80,4 +81,5 @@ common/physics_interpolation=true
 
 textures/vram_compression/import_etc2_astc=true
 shader_compiler/shader_cache/strip_debug=true
+environment/glow/upscale_mode=0
 environment/screen_space_reflection/roughness_quality=0

@@ -3,23 +3,24 @@ extends Node2D
 
 # Territory scene to instantiate for each country
 var territory:PackedScene = preload("res://scenes/screens/Territory.tscn")
-# Folder containing all region polygon JSON files
 const REGIONS_FOLDER:String = "res://assets/files/regions_output/"
-
-# territory polygon data dictionary
 @export var territories_data:Dictionary = {}
 @export var country_to_territories_map:Dictionary = {}
 @export var nation_details_map:Dictionary = {}
-# Check if rebuild is necessary
 @onready var rebuild_needed:bool = $Regions.get_child_count() == 0
 @onready var CountriesParent:Node = $Regions
-
+var builded:bool = false
 
 func _ready() -> void:
 	# no runtime code.
 	if Engine.is_editor_hint():
-		clear_all_data()
-		decode_all_polygons()
+		if rebuild_needed:
+			clear_all_data()
+			decode_all_polygons()
+		else:
+			if not builded:
+				tell_all_countries_to_show_agn()
+
 	else:
 		provide_countries_data()
 		signal_build_complte()
@@ -37,7 +38,7 @@ func signal_build_complte():
 func provide_countries_data():
 	World.set_territories_data(territories_data)
 	World.set_country_territories_map(country_to_territories_map)
-	World.pick_nation(get_id_from_name("India"))
+	World.pick_nation("75a95d714dc74a54a1c749e10449cd8e")
 
 func get_id_from_name(target_name: String) -> String:
 	for id in nation_details_map:
@@ -52,10 +53,7 @@ func tell_all_countries_to_show_agn():
 
 
 func decode_all_polygons():
-	if not rebuild_needed:
-		tell_all_countries_to_show_agn()
-		return
-	print("Decoding all polygons from region files...")
+	print("[*] Rebuilt Necessary. Decoding...")
 	var region_files:Array = get_region_files()
 	territories_data.clear()
 	for file_path in region_files:
@@ -66,8 +64,6 @@ func decode_all_polygons():
 		var country_name:String = country_data.get("country", "")
 
 		var country_id:String = country_data.get("id", "")
-		if country_name == "India":
-			print("found idnai with id: %s"%[country_id])
 		var regions:Array = country_data.get("regions", [])
 		var default_owned_polygons_id:Array = []
 		nation_details_map[country_id] = {

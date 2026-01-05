@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://vg2gsciyrpnv"]
+[gd_scene load_steps=5 format=3 uid="uid://vg2gsciyrpnv"]
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_qfcod"]
 
 [sub_resource type="Curve" id="Curve_qfcod"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.46666667, 0.8105264), 0.0, 0.0, 0, 0, Vector2(0.7375001, 0.51578945), 0.0, 0.0, 0, 0, Vector2(0.99583346, 0), 0.0, 0.0, 0, 0]
@@ -9,6 +11,9 @@ curve = SubResource("Curve_qfcod")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qj6yl"]
 particle_flag_disable_z = true
+emission_shape = 4
+emission_point_texture = SubResource("Texture2DRD_qfcod")
+emission_point_count = 13
 scale_max = 10.0
 scale_curve = SubResource("CurveTexture_8b6mr")
 

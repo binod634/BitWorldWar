@@ -29,7 +29,15 @@ func _ready() -> void:
 
 func build_runtime():
 	build_territory(false)
+	make_dollar_effect_if_owned()
 	deploy_army()
+
+func make_dollar_effect_if_owned():
+	if not World.is_country_owned(owned_country): return
+	make_particles_effects()
+
+func make_particles_effects():
+	pass
 
 func deploy_army():
 	for i in centers_of_polygons:
@@ -112,3 +120,8 @@ func center_point_in_polygon(polygon:PackedVector2Array) -> Vector2:
 			return fallback2
 	# As a last resort, return the first vertex
 	return polygon[0]
+
+
+func _on_collision_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_MASK_LEFT && event.is_pressed()):
+		Game.popup_territory_action(owned_country,get_global_mouse_position())

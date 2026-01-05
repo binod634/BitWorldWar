@@ -28,10 +28,13 @@ func signal_setup_completed():
 	setup_completed.emit()
 
 func declare_war_on(hashed_name:String):
-	highlight_country(hashed_name,false)
+	assert(countries_territory_map.has(hashed_name),"No such country data")
 	enemy_nations.append(hashed_name)
-	make_country_navigatable(hashed_name)
-	print("War declared on %s"%(territories_data[hashed_name]['name']))
+
+	#highlight_country(hashed_name,false)
+	#enemy_nations.append(hashed_name)
+	#make_country_navigatable(hashed_name)
+	#print("War declared on %s"%(territories_data[hashed_name]['name']))
 	# update required regions and game.
 
 func is_country_owned(hash_id:String):
@@ -102,7 +105,7 @@ func make_country_navigatable(country_id:String,forced:bool = false):
 		print("Can't find country ????")
 		return
 	#print("terr %s"%[territories_data.keys()])
-	print("country %s"%[countries_territory_map.keys()])
+	#print("country %s"%[countries_territory_map.keys()])
 	var trttt_list:Array = countries_territory_map[country_id]
 	for territory_id in trttt_list:
 		var packed_vector:PackedVector2Array = GeoHelper.decode_vertices_from_dict(territories_data[territory_id][GeoHelper.TerritoryData.coordinates])

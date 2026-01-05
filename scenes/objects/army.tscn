@@ -12,6 +12,7 @@ script = ExtResource("1_wbi2p")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 3.0
+target_desired_distance = 2.0
 navigation_layers = 3
 debug_enabled = true
 debug_use_custom = true

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var polygons:Array[PackedVector2Array] 
+@export var polygons:Array[PackedVector2Array]
 var nodes:Array[Polygon2D]
 var beep_timer:Timer = Timer.new()
 var beepticker:bool = false
@@ -17,7 +17,7 @@ func activate_beep_timer():
 	beep_timer.autostart = true
 	beep_timer.timeout.connect(make_beep)
 	add_child(beep_timer)
-	
+
 func make_beep():
 	for node in nodes:
 		node.color = Color.RED if beepticker else Color.TRANSPARENT
