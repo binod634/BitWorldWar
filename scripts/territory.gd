@@ -124,4 +124,5 @@ func center_point_in_polygon(polygon:PackedVector2Array) -> Vector2:
 
 func _on_collision_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_MASK_LEFT && event.is_pressed()):
-		Game.popup_territory_action(owned_country,get_global_mouse_position())
+		#Game.popup_territory_action(owned_country,get_global_mouse_position())
+		pass

@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://6k5vuafsfg2t"]
+[gd_scene load_steps=9 format=3 uid="uid://6k5vuafsfg2t"]
 
 [ext_resource type="Script" uid="uid://bl21gx7k7gtcw" path="res://scripts/MainGame.gd" id="1_du05j"]
 [ext_resource type="PackedScene" uid="uid://d4gy0rd3mo67s" path="res://scenes/screens/TopPanelBar.tscn" id="3_ao4ig"]
 [ext_resource type="Script" uid="uid://wtu6riasvkt5" path="res://scripts/camera.gd" id="3_c3qoo"]
 [ext_resource type="PackedScene" uid="uid://2psi8lnahwt5" path="res://scenes/screens/Territory.tscn" id="4_h2q64"]
 [ext_resource type="PackedScene" uid="uid://dpwjxd0xi36yd" path="res://scenes/screens/BottomInfoBar.tscn" id="5_h2q64"]
-[ext_resource type="Script" uid="uid://f2aa3wq54l3i" path="res://scripts/territory.gd" id="6_icnho"]
 
 [sub_resource type="Environment" id="Environment_h2q64"]
 background_mode = 3
@@ -495,7 +494,7 @@ territories_data = {
 1: []
 },
 "1cdfc625ef634075a18d10d1852b685d": {
-0: [[-3.7078426011455212, 51.35530624422135], [-3.414850633142123, 51.42600861266925], [-3.638519027897006, 51.44987261349906], [-2.6489434765926214, 52.79978235743803], [-1.8236040646615623, 50.60764890318232], [-2.489997524414434, 50.50001862243124], [-2.956273972984093, 50.69687999124704], [-3.617448085942385, 50.22835561787275], [-4.458352376497914, 50.33151330861959], [-3.7078426011455212, 51.35530624422135]],
+0: [[-3.7078426011455217, 51.35530624422135], [-3.414850633142123, 51.42600861266925], [-3.638519027897006, 51.44987261349906], [-2.6489434765926214, 52.79978235743803], [-1.8236040646615623, 50.60764890318232], [-2.489997524414434, 50.50001862243124], [-2.956273972984093, 50.69687999124704], [-3.617448085942385, 50.22835561787275], [-4.458352376497914, 50.33151330861959], [-3.7078426011455217, 51.35530624422135]],
 1: []
 },
 "1d6752f18d84461abd6e3c07e3fc3e12": {
@@ -827,7 +826,7 @@ territories_data = {
 1: []
 },
 "3361e0329c454a2596fdf10421bc20f2": {
-0: [[-4.458352376497914, 50.33151330861959], [-4.542507900399244, 50.341837063185665], [-5.245023159191135, 49.95999990498109], [-5.776566941745273, 50.15967763935686], [-4.309989793301895, 51.21000112568919], [-3.7078426011455212, 51.35530624422135], [-4.458352376497914, 50.33151330861959]],
+0: [[-4.458352376497914, 50.33151330861959], [-4.542507900399244, 50.341837063185665], [-5.245023159191135, 49.95999990498109], [-5.776566941745273, 50.15967763935686], [-4.309989793301895, 51.21000112568919], [-3.7078426011455217, 51.35530624422135], [-4.458352376497914, 50.33151330861959]],
 1: []
 },
 "3370ba1a427346e0af46ed5ea741fbc4": {
@@ -4548,6 +4547,7 @@ script = ExtResource("3_c3qoo")
 [node name="TopPanelBar" parent="." instance=ExtResource("3_ao4ig")]
 
 [node name="BottomInfoBar" parent="." instance=ExtResource("5_h2q64")]
+visible = false
 
 [node name="Agents" type="Node2D" parent="." groups=["AgentsParent", "agents"]]
 
@@ -4563,8 +4563,7 @@ navigation_polygon = SubResource("NavigationPolygon_y1hhk")
 
 [node name="Regions" type="Node2D" parent="."]
 
-[node name="942a06b246924a1e949d9829c7114071" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="942a06b246924a1e949d9829c7114071" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "942a06b246924a1e949d9829c7114071"
 default_owned_polygons_id = ["afc023701b88499aa2c1206b52f7f281"]
 territory_data = {
@@ -4574,8 +4573,7 @@ territory_data = {
 }
 }
 
-[node name="b29592a46a3847eca339666655365c60" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="b29592a46a3847eca339666655365c60" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "b29592a46a3847eca339666655365c60"
 default_owned_polygons_id = ["810c7981dc114bed83ffa6a90244c58c", "d3426acba0084f6ab5c89c4fc84b9ec0"]
 territory_data = {
@@ -4589,8 +4587,7 @@ territory_data = {
 }
 }
 
-[node name="659bac49859541c0a827670404267210" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="659bac49859541c0a827670404267210" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "659bac49859541c0a827670404267210"
 is_playable_country = true
 default_owned_polygons_id = ["5d67a0aa2c024eda8559bbd1de049032", "96dd72897a354ef38ff4119844dbe0d7", "552c7bff5d9a45d18e13cc4bd39ea21a", "035e2103d05f4a74bd39fddc5dd76b4e", "56ef0405144d42b9bfecad05cc51fbb1", "fbbe3e7938d4415684b361444f49d7a0", "c7a879057636408fa5b36ede14a928d9"]
@@ -4625,8 +4622,7 @@ territory_data = {
 }
 }
 
-[node name="093adffaa63348b08097361e593bf9b9" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="093adffaa63348b08097361e593bf9b9" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "093adffaa63348b08097361e593bf9b9"
 default_owned_polygons_id = ["b3504982365b4ddf9539eb0d3ea19747"]
 territory_data = {
@@ -4636,8 +4632,7 @@ territory_data = {
 }
 }
 
-[node name="f00286662d524775992dae1d803b0072" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="f00286662d524775992dae1d803b0072" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "f00286662d524775992dae1d803b0072"
 default_owned_polygons_id = ["00b81de40abd41308a5c0d2be4829430"]
 territory_data = {
@@ -4647,8 +4642,7 @@ territory_data = {
 }
 }
 
-[node name="14d4a807a20042aaac789df8ef664876" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="14d4a807a20042aaac789df8ef664876" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "14d4a807a20042aaac789df8ef664876"
 is_playable_country = true
 default_owned_polygons_id = ["f908aadd1ef54171b73d3306be592e0d", "fecbe6ca881a47aaad0c9dce45a0a724", "5b4f3c1aa6fe4b6cbaa0d33eb0216786", "8680d13a77d542929c8b8f929ad7ae40", "d7696a7909664a46827c18d7570645a0", "6e9d966e7ee2411b80b43051a11eee5b", "e32a782ee4ac421ba0baf7bb8655731e", "ff5cb25f7de5426db2ba66168d876f65"]
@@ -4687,8 +4681,7 @@ territory_data = {
 }
 }
 
-[node name="86f9a5f445a74290aba9a19da04bb9e6" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="86f9a5f445a74290aba9a19da04bb9e6" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "86f9a5f445a74290aba9a19da04bb9e6"
 is_playable_country = true
 default_owned_polygons_id = ["1b474bf1c1a54200ac15bec18b298b1a", "bccf78c08d7f453bafac21fe1d7df470", "3370ba1a427346e0af46ed5ea741fbc4", "753858bc4c7540b3814c938d4a7a3c39", "19572f2a2aed46a391c104cf8bad6307", "d90a01a5d6204c388f1cd4cc7bffc195", "406e45316c8d497b86571574a2019227", "03898d84f2f64728a1f3595a75344f42"]
@@ -4727,8 +4720,7 @@ territory_data = {
 }
 }
 
-[node name="b489f42c7bb045958f16abf9d252e271" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="b489f42c7bb045958f16abf9d252e271" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "b489f42c7bb045958f16abf9d252e271"
 is_playable_country = true
 default_owned_polygons_id = ["bbe2eaac599d4f4eb0d13d1b3ca00e8b", "9b71803ddb28494da3de33b01154094c", "b55f82c8245246ad882354c99160e512", "06c2c25e0cc44f668aa54957a8cbd239", "1ca899f7fd964e69bb6405ba30301aff", "2b58fdc0c05d458e82dc9dc181fd2e89", "78632747c5c44c2d9f5cdc6f31be6c64", "45a962dd26ac4f17a905cefa3f8f6f93", "7906d39fd5814c6b88ae32243c559252", "d3d1a326d569440a986b1a94b100aef2"]
@@ -4775,8 +4767,7 @@ territory_data = {
 }
 }
 
-[node name="07a8583e83b34f1db8d0789e596d86c0" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="07a8583e83b34f1db8d0789e596d86c0" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "07a8583e83b34f1db8d0789e596d86c0"
 is_playable_country = true
 default_owned_polygons_id = ["5d7adfa7a902431a812b795385af82f5", "eaad7b2f8d494ea8af46b73f51d32946", "9a18cc4772d94386b9dab486f425a586", "5803cbaca1da4a61bbc7d903dc9b9483", "2f0ba3c5b0704b39aee913fe377d0a48", "a666bd2d4fb043d784582027a48f05de", "8910a24398ba48b08322563c948360fc", "7d771f29a19c42d0a6224a53142813e0", "dc86312066674a14ad1e4734af4a9e9b", "1152202ad8bb4b20bbae2bbd2939ea8b", "2385cdc49b254b16bb4cb3b0e411d63d"]
@@ -4827,8 +4818,7 @@ territory_data = {
 }
 }
 
-[node name="286569f4c04e4f1f83ab4fc01c50d51a" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="286569f4c04e4f1f83ab4fc01c50d51a" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "286569f4c04e4f1f83ab4fc01c50d51a"
 default_owned_polygons_id = ["4a3887f4c96e422aabbdc8b6f669aab4"]
 territory_data = {
@@ -4838,8 +4828,7 @@ territory_data = {
 }
 }
 
-[node name="2c9bcec3eafa4497bd1863d89b9b1f24" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="2c9bcec3eafa4497bd1863d89b9b1f24" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "2c9bcec3eafa4497bd1863d89b9b1f24"
 default_owned_polygons_id = ["daa52d8ed0f04a8392322173c9bf0d37"]
 territory_data = {
@@ -4849,8 +4838,7 @@ territory_data = {
 }
 }
 
-[node name="0d080dcdfeb247a8a540ab67b97411f7" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="0d080dcdfeb247a8a540ab67b97411f7" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "0d080dcdfeb247a8a540ab67b97411f7"
 default_owned_polygons_id = ["3729a382962746dc874ae5c8d9fb9550"]
 territory_data = {
@@ -4860,8 +4848,7 @@ territory_data = {
 }
 }
 
-[node name="7e49a778150f4e1cb5ead1b94bf5f4c5" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="7e49a778150f4e1cb5ead1b94bf5f4c5" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "7e49a778150f4e1cb5ead1b94bf5f4c5"
 is_playable_country = true
 default_owned_polygons_id = ["2f6164bd60d64307a52d48c17bf6008c", "0b85363ffcd14fea84094b56a7c20fc9", "843bedfdbecd4714b5f779a90a08ef97", "a1c7b62e73774f75a8ff80d5e57132dd", "94bc59d38d3b4887b8f1216ccec8bc69", "740e0fa0655347959c7b2e2545247d56", "ce22a65b26ad4a378af4c178d9fc3adb", "1938fecfea10429db9ad952c5bb5d229", "a6712be26d2b4497b2633e444ad6bce1"]
@@ -4904,8 +4891,7 @@ territory_data = {
 }
 }
 
-[node name="9c5b9389839b42448861735a202dc12d" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="9c5b9389839b42448861735a202dc12d" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "9c5b9389839b42448861735a202dc12d"
 default_owned_polygons_id = ["9750936a4301470690e7971398fee36e"]
 territory_data = {
@@ -4915,8 +4901,7 @@ territory_data = {
 }
 }
 
-[node name="34d84d4fc3bd49b09d011818cab5ba9d" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="34d84d4fc3bd49b09d011818cab5ba9d" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "34d84d4fc3bd49b09d011818cab5ba9d"
 is_playable_country = true
 default_owned_polygons_id = ["5aec2ec6af514098a0a3c1c24a156e12", "ac469d234ef3409f92d923a01e2e71de", "4465d29cf78246aeb8b756ca4099ceeb", "bca79054fd1342179e45b60bac84489e", "760c9351656d4ac9be47578dda74e24c", "c4acd5bf17e6497ea3393f73bde9a8a8", "0549767caa57466aad12808a8015b3c0"]
@@ -4951,8 +4936,7 @@ territory_data = {
 }
 }
 
-[node name="17350c6a93ba4cbca30a5c1488013cc1" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="17350c6a93ba4cbca30a5c1488013cc1" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "17350c6a93ba4cbca30a5c1488013cc1"
 is_playable_country = true
 default_owned_polygons_id = ["01d20b8ca8034f87aba8f50abb9cdd17", "6fb55b4e9ca04264bc05fa2976b0b834", "8e0f87dcca4d42dbaef0d5b656385957", "5a780652bc8c479cb2d9bf52853894b8", "46d0f1f0058f496ea4f85326fd5ad664", "072a7f377ac24a7fb903d42dab7ba68f", "2a4f947cf57d4272bc8b0771ff25bd58"]
@@ -4987,8 +4971,7 @@ territory_data = {
 }
 }
 
-[node name="949b9690f8154997bacf22ca3bdcb15c" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="949b9690f8154997bacf22ca3bdcb15c" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "949b9690f8154997bacf22ca3bdcb15c"
 is_playable_country = true
 default_owned_polygons_id = ["158589381b27410aa7c1b8d93c7ca53c", "2bd5fca523ce4dbc855587e330abadbf", "0b76071965a34a6eab02c1076e872d81", "bbf64e4777dc4c14b4f80581c4a3be3d", "1758251eb1564ef3a1630743d3635905", "8cafadc251dc4fb5809f7018d621801c", "4f4a7df84bcc4563a9c09f86fb1afaad", "5c10f0e0f9e34b1d86071a656fc0fa47"]
@@ -5027,8 +5010,7 @@ territory_data = {
 }
 }
 
-[node name="ca1102bca83a40ff8b8fdf363fb0ba87" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="ca1102bca83a40ff8b8fdf363fb0ba87" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "ca1102bca83a40ff8b8fdf363fb0ba87"
 default_owned_polygons_id = ["f6deeaecbf044648aa95cdec663d8308"]
 territory_data = {
@@ -5038,8 +5020,7 @@ territory_data = {
 }
 }
 
-[node name="bb28295c810242528ce3571200286586" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="bb28295c810242528ce3571200286586" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "bb28295c810242528ce3571200286586"
 default_owned_polygons_id = ["a1ac9994fe3b4b0da7f425ff25778be2", "7e73ce8f8a3245c5954d7fc7bd2956d7"]
 territory_data = {
@@ -5053,8 +5034,7 @@ territory_data = {
 }
 }
 
-[node name="f794223d5dbf42bf8b4559b925333984" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="f794223d5dbf42bf8b4559b925333984" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "f794223d5dbf42bf8b4559b925333984"
 default_owned_polygons_id = ["47f9cf7c8a0347c78481493a6a49b92f"]
 territory_data = {
@@ -5064,8 +5044,7 @@ territory_data = {
 }
 }
 
-[node name="0be4175d811e466087643f0f0f260c26" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="0be4175d811e466087643f0f0f260c26" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "0be4175d811e466087643f0f0f260c26"
 is_playable_country = true
 default_owned_polygons_id = ["ac71cb8784f143c3aae7ccd4317e2548", "8a2f7071507942d69a9dcbbcc26047ec", "85e373f559964007adc010718e8a2cfc", "24779b44242a43d48f0eeae61dbc98f2", "5d4f1c3d5b7f47899b0cbeb52da41bc6", "54018920b0434471bb74c3123eb4523b", "52378585dfe44a65bbf0efd5eb226971", "804b01f6fa0d42c798d2a556d0eb4c40"]
@@ -5104,8 +5083,7 @@ territory_data = {
 }
 }
 
-[node name="da9b0b887429433e868e2495226230b3" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="da9b0b887429433e868e2495226230b3" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "da9b0b887429433e868e2495226230b3"
 is_playable_country = true
 default_owned_polygons_id = ["952741028b4a4584afbb763e4237ef97", "3dcd15514e8b4a00a0c235c60241c1bf", "ceeb0a77334242a981ae740339d05a45", "f2d40f0760f941769c4cbc43f3d538a4", "2c7ac3a6edee478a8e4184f1ac166d67", "066416084d8f49d6bbfc7c52350eca25", "7eb202a49480496e84196fd510b3e911"]
@@ -5140,8 +5118,7 @@ territory_data = {
 }
 }
 
-[node name="3827a075c1b34d8092b8a8b0f47d68dc" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="3827a075c1b34d8092b8a8b0f47d68dc" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "3827a075c1b34d8092b8a8b0f47d68dc"
 is_playable_country = true
 default_owned_polygons_id = ["b56ce83618a9491da74a1392d1ba8d41", "b4c3ac3d64c24e7885dd8c1c420d95b1", "123fa1212e074055a1776c95f68ffed8", "f57b7e0ae17641ea8a4cb33f8e2c850f", "e5516937c05a4f54ba2be5cc416605ce", "165aeee78ae7475b9cc02c40006fa183", "25cbe15a10cd4c6f93244b59e07094fa", "8b2701a0d08b4d2ea79a322f4c5aa93a", "557a6d5e33e44acd92d39726dddba4ec", "89d3ea8fca6548bdb7667ce6219f82e9", "45dbfd0e8ac54d319d5d25167af480cc", "707b6206eacc4701bb8327d40c2bbbb8", "cfcfb9de4e1346ea977978e150cb9d3a", "77cda32d3ccb4031948a52b3956d1371", "f6dba3ab7d714ed78d030fc0a3a4800f", "de0832d64a214107b2e0b2a9a5349a1a", "5a94433ce66f4c45a358e1cc67b20b91", "37a36785394a4a55813f66194bbba8a3", "59d02e9d9296461d99672845b476e817", "a1803b6875e640f8aedd8372ab9785d0", "e0a821b3355f49df8b1848a02381c716", "062bac0e432b4c1bac4d9eb2191cbea9", "07c511c423ff408d91604d194332c587", "e74ba40476f54ef482d70fa07e3f4ce4", "895fbdca34c54c15b57d71040356c59b", "2dbfa4aa915044258ea9defe781ece0a"]
@@ -5252,8 +5229,7 @@ territory_data = {
 }
 }
 
-[node name="20830955dff84e758fc1bec53b1880e9" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="20830955dff84e758fc1bec53b1880e9" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "20830955dff84e758fc1bec53b1880e9"
 default_owned_polygons_id = ["f76e7d18bafa461b8ef681361fafd4b4"]
 territory_data = {
@@ -5263,8 +5239,7 @@ territory_data = {
 }
 }
 
-[node name="3f01397071c5448ba493311839f5bbba" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="3f01397071c5448ba493311839f5bbba" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "3f01397071c5448ba493311839f5bbba"
 default_owned_polygons_id = ["50c02be740184850a744752563213ebf"]
 territory_data = {
@@ -5274,8 +5249,7 @@ territory_data = {
 }
 }
 
-[node name="4f9bf071cd2c4097b9edcdb1c3667759" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="4f9bf071cd2c4097b9edcdb1c3667759" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "4f9bf071cd2c4097b9edcdb1c3667759"
 is_playable_country = true
 default_owned_polygons_id = ["2c5c5032f3d3417c9bc61fc0fa4983d0", "59f937b47aae4b668f92ff1c90d898be", "94797941621c4e8eb6a715dcfc120a53", "2f80bb461a564ffabcd25c931e7e6667", "215115043bcf4687abeadd4da6940fa2", "e64a13906cdc480394679ad3920835af", "160f25984b004e32a610c430afbd82c4", "968d3cf93baf43b2ad9a972d0e6737dc"]
@@ -5314,8 +5288,7 @@ territory_data = {
 }
 }
 
-[node name="238397ccd45b41ac9941541f31ad6979" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="238397ccd45b41ac9941541f31ad6979" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "238397ccd45b41ac9941541f31ad6979"
 default_owned_polygons_id = ["166cd0c8d5cc43bfbe61d20eab2d2d9d"]
 territory_data = {
@@ -5325,8 +5298,7 @@ territory_data = {
 }
 }
 
-[node name="16c8fe6ffc4f44539e56f6087c63a8e4" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="16c8fe6ffc4f44539e56f6087c63a8e4" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "16c8fe6ffc4f44539e56f6087c63a8e4"
 is_playable_country = true
 default_owned_polygons_id = ["eb4e0c5babe04cfead5039e9baf948d9", "d3978f9b922c489cb44793563342885a", "831e6331ccef4f0c82e0dbd77f66a17a", "fea3ae5078464784ae625a33d69f7fa1", "007f2e19d3e74a3488f8b049b49e18f9", "efa333b2198a407ab990a3ea320cc9d1", "00d923b35c3c4238b8efa368e6d85896", "34733a458df943a1ada0f9a82de4f47c"]
@@ -5365,8 +5337,7 @@ territory_data = {
 }
 }
 
-[node name="b929f342288c49dd9a371b1b3f0383ad" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="b929f342288c49dd9a371b1b3f0383ad" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "b929f342288c49dd9a371b1b3f0383ad"
 is_playable_country = true
 default_owned_polygons_id = ["0c9cf70dbdef443d9eef9119f6e3ea03", "998d1276d6f04b628ed3630c37d997e7", "abbcc73c428b4ff0ab8ff98cf2ab50db", "ebd1ca725e564a6c9883691de05856f0", "b5060d55385c45468946218e7af6f8c9", "1957676a8fb8430d9f39555a87fc9fb1", "2249c53f17e240d9a108ee8334af73ab", "8715c54e75f6485ca430218173a3989d", "042f565bc7274091b5b1c38f26ea60e1", "cc1b00f7e5414d97b757cfc293283a39", "95af117468c24db4bf1d684a08aa4965"]
@@ -5417,8 +5388,7 @@ territory_data = {
 }
 }
 
-[node name="2d2aaced599b4021984a8ad2da6b97d5" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="2d2aaced599b4021984a8ad2da6b97d5" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "2d2aaced599b4021984a8ad2da6b97d5"
 default_owned_polygons_id = ["06de3c5a566e417db30ef8d0792cdce0"]
 territory_data = {
@@ -5428,8 +5398,7 @@ territory_data = {
 }
 }
 
-[node name="0d0c1a68a8014493906a1ddb2932b387" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="0d0c1a68a8014493906a1ddb2932b387" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "0d0c1a68a8014493906a1ddb2932b387"
 is_playable_country = true
 default_owned_polygons_id = ["977d531066ab4d16b21571ae44a2e637", "e5d12ff1190e4cdb8753ea63aeb7391a", "42ebf1dcba3c41c78253858aaf512197", "50e1583534ca432985d7353bf300d3c9", "c582fd2af39246edb24952bdc5e92386", "8f14c9fd0f60401c9fa0520ed4cba982", "9212034ac4ac41cb8ad5e1cc1c7351c1"]
@@ -5464,8 +5433,7 @@ territory_data = {
 }
 }
 
-[node name="c7fc007176c54e1390fecbb94464668a" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="c7fc007176c54e1390fecbb94464668a" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "c7fc007176c54e1390fecbb94464668a"
 default_owned_polygons_id = ["b182e9c350d04e7980aa38d73d4dcfd0"]
 territory_data = {
@@ -5475,8 +5443,7 @@ territory_data = {
 }
 }
 
-[node name="c4114cc9afd44cdb808e1dba18f26224" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="c4114cc9afd44cdb808e1dba18f26224" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "c4114cc9afd44cdb808e1dba18f26224"
 default_owned_polygons_id = ["08a0e647a30c4b3a8255bb60c69fd051"]
 territory_data = {
@@ -5486,8 +5453,7 @@ territory_data = {
 }
 }
 
-[node name="36fbfd7db205486ca83e172d69706f2b" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="36fbfd7db205486ca83e172d69706f2b" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "36fbfd7db205486ca83e172d69706f2b"
 default_owned_polygons_id = ["3acd12a74cb349308bf8c71b35d0fc67"]
 territory_data = {
@@ -5497,8 +5463,7 @@ territory_data = {
 }
 }
 
-[node name="9c578b158e614c2994840355ec0f52be" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="9c578b158e614c2994840355ec0f52be" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "9c578b158e614c2994840355ec0f52be"
 is_playable_country = true
 default_owned_polygons_id = ["9945cefe09b94dae8db2e2ce10d43991", "f4e9bc3900f14b669a96f2af43d726ab", "ee587caf42884e0eb36b50943d455e93", "ae0dcadb9d404014be58062bbd7549a4", "835744fabe6845c99869950fe76b59b0", "b09fbaff7a9248f2bb4372ec13398137"]
@@ -5529,8 +5494,7 @@ territory_data = {
 }
 }
 
-[node name="13b3e382bd05413186fec532d99bcbe2" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="13b3e382bd05413186fec532d99bcbe2" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "13b3e382bd05413186fec532d99bcbe2"
 default_owned_polygons_id = ["aa584b095216413091d6af027b2b53d9", "9dc8a80c0fee40f8b78c72172d61b8bf", "e6e2482df2ab4524a4bd6083b9d75c8e"]
 territory_data = {
@@ -5548,8 +5512,7 @@ territory_data = {
 }
 }
 
-[node name="442655bc69864edfaac9a3b3be3c5e9c" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="442655bc69864edfaac9a3b3be3c5e9c" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "442655bc69864edfaac9a3b3be3c5e9c"
 is_playable_country = true
 default_owned_polygons_id = ["3daef1516b94421ea37f9a4bcc40ee72", "fae0b7bf9ba6492e90be48c1845e9f7d", "d7fef38a672d4b6dbb7fc642881797d6", "cf33c47f7ff345c7821f274ced184c69", "261754762d614e43bd2d8b2c3206369b", "13329487af9f460b9eab7d5ba0fc2ad3", "02d2c66ebced4c0188585dcfd038cc9d", "117c6d6d1d1d4cd6b41d200ca95b43a8", "d322d98243834b568d0afe3a918b76c9", "b065d1893af34d71bd364985057e7481", "bc852d6c9d824e2bb702cb704401d7b3"]
@@ -5600,8 +5563,7 @@ territory_data = {
 }
 }
 
-[node name="169eb62e7f614b2b8347d026eb2a9cf6" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="169eb62e7f614b2b8347d026eb2a9cf6" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "169eb62e7f614b2b8347d026eb2a9cf6"
 is_playable_country = true
 default_owned_polygons_id = ["22a8236200d644a9b680127a14d78d61", "f7c6e75099974db3932ffd11fe510a14", "0fa5cd36427e4734ad07a95b8045fef1", "c3bcfc89b1084a02bea1106eb026c1e9", "6afb6194430c4ab18f2a6f59dc56f359", "3ea04f360c3e4a5380d43bb55bdfb6d2", "5639701befb9488285b1cc5f207f7611", "135d8c342259446d8fcf576f301e1a43"]
@@ -5640,8 +5602,7 @@ territory_data = {
 }
 }
 
-[node name="365e9a3ecc494b509e8a5c91be9da5a9" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="365e9a3ecc494b509e8a5c91be9da5a9" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "365e9a3ecc494b509e8a5c91be9da5a9"
 default_owned_polygons_id = ["298ddaafdbd1445cbfe9e8abd71bacba"]
 territory_data = {
@@ -5651,8 +5612,7 @@ territory_data = {
 }
 }
 
-[node name="2d64a906691f4237b877d63b92414a18" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="2d64a906691f4237b877d63b92414a18" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "2d64a906691f4237b877d63b92414a18"
 default_owned_polygons_id = ["ccc2ffd19402445d8c87b1e6b66318b0"]
 territory_data = {
@@ -5662,8 +5622,7 @@ territory_data = {
 }
 }
 
-[node name="db155684e8d741209887dbc726923f3d" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="db155684e8d741209887dbc726923f3d" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "db155684e8d741209887dbc726923f3d"
 default_owned_polygons_id = ["87c113fe28874659a2c6609760b62beb"]
 territory_data = {
@@ -5673,8 +5632,7 @@ territory_data = {
 }
 }
 
-[node name="c2439bdd6aee471a83bd9b19ce7f9ecc" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="c2439bdd6aee471a83bd9b19ce7f9ecc" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "c2439bdd6aee471a83bd9b19ce7f9ecc"
 is_playable_country = true
 default_owned_polygons_id = ["dc4f19fd0fa34b069afb94aa1d2e4b00", "78b09025de934691bf78b386f6fffccd", "6b6de1b4544a49bca31e8b87a07dbf69", "6c60fc52ac5b46de9fda6076dad625d6", "2ea029afce0a468bacb854a088777a8b", "fa5c4f6b3dcd44f4a0b9f6290167a0a7", "36a64b24b8214b079f219cc67be2a8a6", "8fb165d366084be4a833b6e17ed7dfdc", "735c5519f7bb4ba2b4c52f41dbc799e0", "60792f48421c4572a943d43250f091ff", "58bdf9c36e5d4ffead0c66a0994b34b3", "ed2e5ab64acb4562b086c96e31c8b64c", "fa59180d3e21459a98bc46223ce6e72f"]
@@ -5733,8 +5691,7 @@ territory_data = {
 }
 }
 
-[node name="d5f201935a124e2787d8b71f58a5885a" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="d5f201935a124e2787d8b71f58a5885a" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "d5f201935a124e2787d8b71f58a5885a"
 default_owned_polygons_id = ["a59f7665120240e1804674677829fa0b"]
 territory_data = {
@@ -5744,8 +5701,7 @@ territory_data = {
 }
 }
 
-[node name="4b6a58213c904fa5bcdb7b2816989d82" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="4b6a58213c904fa5bcdb7b2816989d82" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "4b6a58213c904fa5bcdb7b2816989d82"
 default_owned_polygons_id = ["1f622ea99d7b4e859a3be0b0c1747ca5"]
 territory_data = {
@@ -5755,8 +5711,7 @@ territory_data = {
 }
 }
 
-[node name="8b8301fbd2ef42408b9edb42856b0789" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="8b8301fbd2ef42408b9edb42856b0789" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "8b8301fbd2ef42408b9edb42856b0789"
 is_playable_country = true
 default_owned_polygons_id = ["3109840b6543424fb58b0c3d26dab600", "ff0d3db1ba2845e4bdbe99dbc1999d80", "e63a409fee3e42f193bdf5dab06d5149", "1edcac3b9437455fb8e38700a78730ca", "8186d2fce44641a892514ba89962e1ec", "991f8f4fbd144912b73c5c9ee79baae7", "555e05a680074bc7a2e53b37ad515e66"]
@@ -5791,8 +5746,7 @@ territory_data = {
 }
 }
 
-[node name="af6fe804e72b4c8c90ac81ad45b1a511" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="af6fe804e72b4c8c90ac81ad45b1a511" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "af6fe804e72b4c8c90ac81ad45b1a511"
 is_playable_country = true
 default_owned_polygons_id = ["6c2141309c654d9c9edbfd99f4b630bb", "640fbcf861644227a0cb29243765c267", "311be649391b4c5d8e8920adf33e83ed", "843b723cfdbc4270b12700225cca0275", "d58f8ed7973949a099967a8065cf7ae3", "aaa09a0f03ec4e72ac76cb1951d2afe1", "30f333cc16404137a15970ca2730e6b0", "482570abf0a8492d90c91eb957907366", "9c7796b3d22a4d13a5f7e8311a68988b"]
@@ -5835,8 +5789,7 @@ territory_data = {
 }
 }
 
-[node name="a2569f65fabf424681cfe2a06c140e84" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="a2569f65fabf424681cfe2a06c140e84" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "a2569f65fabf424681cfe2a06c140e84"
 default_owned_polygons_id = ["5168cb7af9e148cb9dab8cae85004df8"]
 territory_data = {
@@ -5846,8 +5799,7 @@ territory_data = {
 }
 }
 
-[node name="3a76c6d0d62e450a9e3f8fd6c6524cac" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="3a76c6d0d62e450a9e3f8fd6c6524cac" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "3a76c6d0d62e450a9e3f8fd6c6524cac"
 default_owned_polygons_id = ["3a46cace498b4ccf830e07c7302d0709"]
 territory_data = {
@@ -5857,8 +5809,7 @@ territory_data = {
 }
 }
 
-[node name="74c50609eb59431db9d19af0e8f50e82" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="74c50609eb59431db9d19af0e8f50e82" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "74c50609eb59431db9d19af0e8f50e82"
 default_owned_polygons_id = ["bc88bc0d42614ac398cd2bab7043c1ba"]
 territory_data = {
@@ -5868,8 +5819,7 @@ territory_data = {
 }
 }
 
-[node name="6a405d64d57049048f5058b54338f998" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="6a405d64d57049048f5058b54338f998" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "6a405d64d57049048f5058b54338f998"
 default_owned_polygons_id = ["71f6565affd54742bf4a8b06c85ef870"]
 territory_data = {
@@ -5879,8 +5829,7 @@ territory_data = {
 }
 }
 
-[node name="85a9fc3d91284d6888c4dd315a6601b3" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="85a9fc3d91284d6888c4dd315a6601b3" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "85a9fc3d91284d6888c4dd315a6601b3"
 default_owned_polygons_id = ["d8966407881047c6bdbed3fd09d5cbdc"]
 territory_data = {
@@ -5890,8 +5839,7 @@ territory_data = {
 }
 }
 
-[node name="940f1dc25cb441ee9be9cade0f3df542" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="940f1dc25cb441ee9be9cade0f3df542" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "940f1dc25cb441ee9be9cade0f3df542"
 is_playable_country = true
 default_owned_polygons_id = ["56fb30947f404917828fc89970b4cd37", "07ef0663a8974e0f9968ca079f4476d5", "afc7ee7737344f14920a66ad5621a1de", "e46807bb55c2414fb2ed010d870ed236", "5fc0c578cd964c1080e265ff1a579e69", "5355cc5cf74d434e96df0c9ad7c62711", "700dccbc4ac64b4b9be7bd5a8810ef83", "4939df2d87f24c8ea0b4be1d1b665f4f"]
@@ -5930,8 +5878,7 @@ territory_data = {
 }
 }
 
-[node name="113371c6a676483490c3bc4c7c95f905" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="113371c6a676483490c3bc4c7c95f905" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "113371c6a676483490c3bc4c7c95f905"
 is_playable_country = true
 default_owned_polygons_id = ["0614f74c22374f73bc5d9e8ba3cde595", "0136fe31b4d344f1a168843fec072bfa", "20f5cbce23a34b4388285176c443c79f", "2154be6eb8c5429b9fa1d03177104556", "4e9d7103a9d3448f92b2985ea3c8c138", "d4b1a7b23941408a8f33741dd24a8e38", "b2832451b0a0446490382a55704389fc", "ee5f51c3c0f84f03a60bd80a4c7ad4ee"]
@@ -5970,8 +5917,7 @@ territory_data = {
 }
 }
 
-[node name="77f2788e4fb9445abe76b1e27e76d00e" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="77f2788e4fb9445abe76b1e27e76d00e" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "77f2788e4fb9445abe76b1e27e76d00e"
 default_owned_polygons_id = ["3602ca67b0234501989dacd9dd5ea7ae"]
 territory_data = {
@@ -5981,8 +5927,7 @@ territory_data = {
 }
 }
 
-[node name="18408e1a9f4843018ca5d80bba22cfb2" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="18408e1a9f4843018ca5d80bba22cfb2" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "18408e1a9f4843018ca5d80bba22cfb2"
 is_playable_country = true
 default_owned_polygons_id = ["6f927c1fb5d04e0089c466e6838ccaa8", "bd72f6dbf3314e5bb6cd7c57be9f0a2a", "a628f7bfca2841659c134686c3e5685d", "a5c61e05c144451896bc9d7cce70e149", "0c36588def654bd1a4bbcf1fdf496e4b", "52a4f9fa7f7a4ae5a11aa5e8e7b3f2c5", "db5b598a2600496e8e7b86abe8d853ff"]
@@ -6017,8 +5962,7 @@ territory_data = {
 }
 }
 
-[node name="4329069f9a1f48f28631d36a68f23be9" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="4329069f9a1f48f28631d36a68f23be9" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "4329069f9a1f48f28631d36a68f23be9"
 is_playable_country = true
 default_owned_polygons_id = ["de44012e937f4bc69283035fa91f4aee", "f72c8376b3074c348475bd9db03882e5", "abc59ef75dca4b0c8869cd4003a95a1e", "672b9b16a1484b6e98961d9d197805c4", "02fef3ffe6e241d8b84fc13ae61a054e", "5ace78f82d684425a23297ff78c5f8be", "b201b4bde8674563a77c546c0ee4b3d4"]
@@ -6053,8 +5997,7 @@ territory_data = {
 }
 }
 
-[node name="0d6dd3ed43b1452b9d6c6be8da8088f4" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="0d6dd3ed43b1452b9d6c6be8da8088f4" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "0d6dd3ed43b1452b9d6c6be8da8088f4"
 default_owned_polygons_id = ["c247ccda4e6043619c96b4332b15d0f4"]
 territory_data = {
@@ -6064,8 +6007,7 @@ territory_data = {
 }
 }
 
-[node name="c94e2529ac7c437aadf38c0daa5e54fc" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="c94e2529ac7c437aadf38c0daa5e54fc" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "c94e2529ac7c437aadf38c0daa5e54fc"
 default_owned_polygons_id = ["765ab89137fb4ccdac59aea09dd74680"]
 territory_data = {
@@ -6075,8 +6017,7 @@ territory_data = {
 }
 }
 
-[node name="68cc868dbd3a4fec9c3030e1fd747426" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="68cc868dbd3a4fec9c3030e1fd747426" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "68cc868dbd3a4fec9c3030e1fd747426"
 default_owned_polygons_id = ["28d6f16738fc4c61abf1a426d3333415"]
 territory_data = {
@@ -6086,8 +6027,7 @@ territory_data = {
 }
 }
 
-[node name="ce79484e73e7445487f5074110a8c904" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="ce79484e73e7445487f5074110a8c904" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "ce79484e73e7445487f5074110a8c904"
 default_owned_polygons_id = ["86938ce45fde4ea8a05ab972aa42be58"]
 territory_data = {
@@ -6097,8 +6037,7 @@ territory_data = {
 }
 }
 
-[node name="aa0ec9669b484b5086734b76fdbc3696" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="aa0ec9669b484b5086734b76fdbc3696" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "aa0ec9669b484b5086734b76fdbc3696"
 default_owned_polygons_id = ["9b37a65691fb4034943dabd0b0b45902", "6aff84acf3324ef88f1fdc3ba5c941fc", "9534a7d36394451baa352e6ededb355c"]
 territory_data = {
@@ -6116,8 +6055,7 @@ territory_data = {
 }
 }
 
-[node name="2fa204bd366443b4a473303879b06ca8" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="2fa204bd366443b4a473303879b06ca8" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "2fa204bd366443b4a473303879b06ca8"
 is_playable_country = true
 default_owned_polygons_id = ["5fa696a416b94605bb0acb9ff0386cdf", "f0d4edea3577409ca02f309113ef075c", "fe787cf26fae45bc804c57931471b228", "0dde62c6eff84c418100a7617cc812f8", "142ba9c496b44519adcd50818545691b", "f9413a55541d458f80ad307e2e9d62f4", "b88f7ac2b4a14307a75802dca139a922", "896697bfdfe846c185f1b4adaac2b1c5"]
@@ -6156,8 +6094,7 @@ territory_data = {
 }
 }
 
-[node name="11973aa4646f4e9bbc360179f2a09029" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="11973aa4646f4e9bbc360179f2a09029" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "11973aa4646f4e9bbc360179f2a09029"
 default_owned_polygons_id = ["db94d5b0bbf540dfb40b6bf36ee5dae9"]
 territory_data = {
@@ -6167,8 +6104,7 @@ territory_data = {
 }
 }
 
-[node name="9d7be83f34614a819c04aaf9d02a1d06" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="9d7be83f34614a819c04aaf9d02a1d06" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "9d7be83f34614a819c04aaf9d02a1d06"
 default_owned_polygons_id = ["a7c4b8cc512041eb80ef631413be617a"]
 territory_data = {
@@ -6178,8 +6114,7 @@ territory_data = {
 }
 }
 
-[node name="74f1cba4c1ac441890f2c2742f9d1213" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="74f1cba4c1ac441890f2c2742f9d1213" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "74f1cba4c1ac441890f2c2742f9d1213"
 is_playable_country = true
 default_owned_polygons_id = ["c90ff11faf924835b97194ca30d650a2", "8bff995ed4bc485991a9df271d10b537", "6c546a30a62a4b779693464aadabb463", "4028c220d12f46138847ef07f7f91e38", "31e84425c6ad4c0ca34df271c71c1487", "651b3d39862f4071abf1cda62e4813b9", "b60df1a78633441399f030fa1f3a895b", "f35ac08c20a84b179e13742687126769"]
@@ -6218,8 +6153,7 @@ territory_data = {
 }
 }
 
-[node name="470dc30330524bb29a46c8f5e8d2ec90" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="470dc30330524bb29a46c8f5e8d2ec90" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "470dc30330524bb29a46c8f5e8d2ec90"
 is_playable_country = true
 default_owned_polygons_id = ["f31bd979205d464fbc4dcc9f773719c4", "c518aefc1dc143eeb3704995c5ae53c2", "f159fd056361464e8d0eeeb171ae68ea", "c4dff26d2f7a49158d7b96013a755710", "73d78c5344ea4925ae3359c00bdf9eb6", "b766e67f0a044bf3b4c6faf1124622b6", "29889baf47ca4110b1e9ef3fd3143609", "70f162f1853c43a19ed1dab96d8c5215"]
@@ -6258,8 +6192,7 @@ territory_data = {
 }
 }
 
-[node name="3101411e164c4056bc95ca0d74f804b2" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="3101411e164c4056bc95ca0d74f804b2" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "3101411e164c4056bc95ca0d74f804b2"
 is_playable_country = true
 default_owned_polygons_id = ["4b1dfdfda19141f6b8d48636527ad779", "133ce1cb1afd452fa729357763de580a", "a6d202c7dec54c6d9dabc5c600fdac49", "10a239e2cf0048c49c36348706881f66", "f8c7404f53ba486ea4d1509a92ec502d", "45a7b3a330f8480994b58e6a45e7b0fa", "c22db141540b407892e9821e9fb2ea3d", "4ed119f3f66e4293a5b8c14179642ca3", "66c5209176734a9abe82bffd00501a36", "91a4063e45ec4525be74e623cd93fe63", "355842e321d34e7880a28c49e6f9cbdd", "1f95ea7ce3e04740845251afbf4db8bf", "aefe9e9252004bba83b0a22357a99bfc", "c4d528052c194cd390ae7acd7c56de9e", "27a1bf75149d4441b02e54f5860bccee", "d4c53effea9c485bb0143ae18492c4a9", "957e65e6bb794864af97f0135eb3fa5a", "33f0d37e8ffa4fa19948e9dfc82e61b7", "812c93b759874d7fa65790accdda94ce", "e95b01da038e4f699769c14b7da0c72e", "6698e237056e4acfb38869b848f486d0", "561859a501674c5b9b96776da36998e9"]
@@ -6354,8 +6287,7 @@ territory_data = {
 }
 }
 
-[node name="e40bee94a15e46219421e50a8760bf25" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="e40bee94a15e46219421e50a8760bf25" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "e40bee94a15e46219421e50a8760bf25"
 is_playable_country = true
 default_owned_polygons_id = ["29922538ed1f4af7a7d3a89a5ea32ed1", "f3e8a7a163d3462495dc79fe9ad2ba97", "fadb28964ea44c5eac7c7662e8655c86", "b37e608775b8441fabbf5bb2b51f6c8f", "7ab8d6ec9466432e88e224549746fa47", "442e54db1e3144739c9a3c4db3aa605a", "fc8e626ace894f3696df046a6d5ee4eb", "4e041a9d9a4a4691bba4304187f6a8e7", "a70c2ee55f40488e8428c3edb6d56c7f", "d65e95e3080b48e8955cef43ac9c4b29", "9a118a27fbb6456a8bcb0da7e5593a99"]
@@ -6406,8 +6338,7 @@ territory_data = {
 }
 }
 
-[node name="2c7cfd3a8ead474baeccb96d582fab04" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="2c7cfd3a8ead474baeccb96d582fab04" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "2c7cfd3a8ead474baeccb96d582fab04"
 default_owned_polygons_id = ["4285987d7d6542b0ac0b70102ca3cf1a"]
 territory_data = {
@@ -6417,8 +6348,7 @@ territory_data = {
 }
 }
 
-[node name="cd2ac0a00d724cec9c00cc0917d1c86c" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="cd2ac0a00d724cec9c00cc0917d1c86c" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "cd2ac0a00d724cec9c00cc0917d1c86c"
 is_playable_country = true
 default_owned_polygons_id = ["bd7c8a4a7f684e5a8cf496a47b24441f", "94691198d29b48cdaaa862df2c979403", "bae4d20ce8f04393a314437e501d804b", "70565787e0f74f54ad3ff35e21440096", "2a6927024d0f42f7b94a03833250da95", "f36487d3e1ad402d82bbd46e223048f8", "ed0e7a0be3a341249dda1708dad2952b", "59759fffb9334c679a2735e944303f4b"]
@@ -6457,8 +6387,7 @@ territory_data = {
 }
 }
 
-[node name="a6faa71dcbe241f4aea321fbb7f47f8f" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="a6faa71dcbe241f4aea321fbb7f47f8f" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "a6faa71dcbe241f4aea321fbb7f47f8f"
 is_playable_country = true
 default_owned_polygons_id = ["7209a6e6ffe94e29be0975a91768acca", "fbab6d182c8946d78fe2c37dd9d385e5", "7a4c1b8f28924563908fe28c905fc4ad", "949d2c78f8aa4337b1a7faff2cc3dd66", "30ec3676135f444db6b4a4a194d8be16", "a8d6cd59492a4a2da67b171965340688", "798e3d5af1d74efba6ed9e99ee205d48", "47e35ea8e7ac4652adbbce4848d0b67b", "db99a2b0e54d45a9a9adf4c3a42a810b"]
@@ -6501,8 +6430,7 @@ territory_data = {
 }
 }
 
-[node name="82abe6530fc24dd2be93b1b5defb3311" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="82abe6530fc24dd2be93b1b5defb3311" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "82abe6530fc24dd2be93b1b5defb3311"
 default_owned_polygons_id = ["805003c9d74a43d0954582d59554db97"]
 territory_data = {
@@ -6512,8 +6440,7 @@ territory_data = {
 }
 }
 
-[node name="ae7cb4a7759542ff8b84f9db706daa78" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="ae7cb4a7759542ff8b84f9db706daa78" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "ae7cb4a7759542ff8b84f9db706daa78"
 is_playable_country = true
 default_owned_polygons_id = ["8eb3e5d1ab2d45a99b38512d3e2cb11b", "c05cba513c5c448d91a403db405a9aac", "6170126658a94e7cbf0daea150c5ae79", "62bd8b24bab64d46a2f6f980ecc21b7d", "1e986f9ad5e240288697bbc73438e9d8", "9cd63b15e6e14acea134e93779d6095d", "2627ba83dd0a4121b9f0ac86d2ee6376", "62ca7dfec10f4fc9b54a79938791afcc"]
@@ -6552,8 +6479,7 @@ territory_data = {
 }
 }
 
-[node name="a99550d0f58c49199b5539beff5a589e" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="a99550d0f58c49199b5539beff5a589e" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "a99550d0f58c49199b5539beff5a589e"
 is_playable_country = true
 default_owned_polygons_id = ["7c580ba26d0041368057bf8987631dce", "69d37222dc2144f0a67abeb690e3e50b", "3b6503df9773488c8a68cea85b995db3", "455f052027ec407b85b53df729d842d5", "8f560d5209b44dd3a1b0035a8b508492", "d9b825569c6046109c98c209f0b67206", "4e8b295a6064439a882519905bed3be9", "963d6c2263ed4b7f992d75a20b9f0629", "31827bce5a2643d3acd121a005d11200"]
@@ -6596,8 +6522,7 @@ territory_data = {
 }
 }
 
-[node name="dda31f4e8bb943b39a746488d793874b" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="dda31f4e8bb943b39a746488d793874b" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "dda31f4e8bb943b39a746488d793874b"
 default_owned_polygons_id = ["ce8366a0dd7a4992b16ae7f060f6f3fa", "295c6d51701044c3874437aa0366c32f"]
 territory_data = {
@@ -6611,8 +6536,7 @@ territory_data = {
 }
 }
 
-[node name="8f7f3907d32d49a8ad85eeb80dc49f39" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="8f7f3907d32d49a8ad85eeb80dc49f39" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "8f7f3907d32d49a8ad85eeb80dc49f39"
 is_playable_country = true
 default_owned_polygons_id = ["6e6bf6f16d44485db41403c58f64f155", "0fb51556d9714e739774d51ce22b3825", "199691b7e2ac494fb2f496066d741339", "db1a5238beee42528557e17b7e8f324e", "ef3284cb19f247d2984ed97c6ad808bb", "ccc77544aefa4603907c013a2c9519ef", "5300e1d5d04a4aaba5ce1ec14ec49974", "9e92d67d87a14e7da8b2ae4c5af721ea"]
@@ -6651,8 +6575,7 @@ territory_data = {
 }
 }
 
-[node name="c979a16f77e842ccb8c1f10827979667" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="c979a16f77e842ccb8c1f10827979667" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "c979a16f77e842ccb8c1f10827979667"
 default_owned_polygons_id = ["fcc707a710444ae89f8ef37ccee3c70b"]
 territory_data = {
@@ -6662,8 +6585,7 @@ territory_data = {
 }
 }
 
-[node name="26023ef63e54409a9060251527f390ef" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="26023ef63e54409a9060251527f390ef" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "26023ef63e54409a9060251527f390ef"
 is_playable_country = true
 default_owned_polygons_id = ["23ef089515934066ac72f1d5773490c3", "a563c44c18bc4a6eb2176e618e951212", "90cbefa05c134ad78c1f8d5c62d7f88e", "d0a697642ca945379133f8512eca47cf", "84bba8ab1e8c4412ab67268e03f120d4", "e864c53f31904b718e68d446ce91d549", "b5527164aee3448b85845ec940220dbf", "7dd0f9573e8d43f8b63e891362dae578"]
@@ -6702,8 +6624,7 @@ territory_data = {
 }
 }
 
-[node name="38a7c98878444683a75629981a19feab" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="38a7c98878444683a75629981a19feab" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "38a7c98878444683a75629981a19feab"
 default_owned_polygons_id = ["1d6752f18d84461abd6e3c07e3fc3e12"]
 territory_data = {
@@ -6713,8 +6634,7 @@ territory_data = {
 }
 }
 
-[node name="376ce1a98c444f03ad2e8591d1595445" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="376ce1a98c444f03ad2e8591d1595445" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "376ce1a98c444f03ad2e8591d1595445"
 default_owned_polygons_id = ["dae6b4e9f2dc4e478380a34b2f1b5f64"]
 territory_data = {
@@ -6724,8 +6644,7 @@ territory_data = {
 }
 }
 
-[node name="1c0ef008937e4447bea5777317e89d94" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="1c0ef008937e4447bea5777317e89d94" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "1c0ef008937e4447bea5777317e89d94"
 is_playable_country = true
 default_owned_polygons_id = ["9cd2dae9d31c4caba7a58c5758536b90", "9ca226c05afd4accadf2c3174fe79ac1", "e8b78c23e3a84216bcf96f93e4800142", "7fe09e3544ab4ab8b8d5de458cdbb6ec", "e70181f7e7ac4b4c83d6d1c5b1938516", "20675251c8604cf19b3a090dca3b1263", "4c4e76856cbf492880a28547357fc8a8"]
@@ -6760,8 +6679,7 @@ territory_data = {
 }
 }
 
-[node name="2dac5eda2409429b8dd88d7c2b8b85ca" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="2dac5eda2409429b8dd88d7c2b8b85ca" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "2dac5eda2409429b8dd88d7c2b8b85ca"
 is_playable_country = true
 default_owned_polygons_id = ["d0a2c7fd3e0241e5a2142a99612cbd08", "d15f863ba6d14eee8bd22c9877075fc6", "1596bbd1050c4538a99640af39e72648", "5c9db14e63bc4b969b4d5d272e0e1cf8", "542e4af550194e05add3e5374c50bc79", "1c0d551cdbe8420197ae7aea1264a913", "da7a8122c88c4f2f94bdb12860595159", "fdd27036f0444bd9a87ec97248faa4bf"]
@@ -6800,8 +6718,7 @@ territory_data = {
 }
 }
 
-[node name="c82d4328a4f34329a1dec7b261ba5112" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="c82d4328a4f34329a1dec7b261ba5112" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "c82d4328a4f34329a1dec7b261ba5112"
 is_playable_country = true
 default_owned_polygons_id = ["1a77eb01491a49008e8800b82dbeb45f", "c8ef73db62bf438dbdba73fb5ff22b42", "b195382f0d4247e08a42cb83ca42ca7a", "811a66e5e8004d62bc0c7e52c599fedd", "8b2c6e210a964e18a74cf35bbdb7004e", "9186a8691b1c4431af2739ed995acec4", "3fe14914ea87401dbd8b79fc5553846f", "37a457f7f6204674b68372ff7b487f64", "5c18b1ad3f1f499891e076f82e5f3b95"]
@@ -6844,8 +6761,7 @@ territory_data = {
 }
 }
 
-[node name="313e49b4d66d428da01f3acac7a343f2" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="313e49b4d66d428da01f3acac7a343f2" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "313e49b4d66d428da01f3acac7a343f2"
 is_playable_country = true
 default_owned_polygons_id = ["206ede759f4b4a56a0887545f9a24d23", "3ad7e5858a634563ad1fa20c3a87e467", "a441474383b7463fa2cce46d67362a4a", "267a06aa6ad14af5bf7059b426cd6823", "bde24de03e6944e88b1e0b47a876f2e5", "68451813abf742d8ab5bd004df51917a"]
@@ -6876,8 +6792,7 @@ territory_data = {
 }
 }
 
-[node name="3e76613b29c843fe883046c9af91894f" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="3e76613b29c843fe883046c9af91894f" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "3e76613b29c843fe883046c9af91894f"
 default_owned_polygons_id = ["24bb3410ae824c839ee7f43de834c398"]
 territory_data = {
@@ -6887,8 +6802,7 @@ territory_data = {
 }
 }
 
-[node name="535a639d5fde4997b0a3dbca066eae8f" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="535a639d5fde4997b0a3dbca066eae8f" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "535a639d5fde4997b0a3dbca066eae8f"
 default_owned_polygons_id = ["ba68e27bfc7e40db8c442b530412c128"]
 territory_data = {
@@ -6898,8 +6812,7 @@ territory_data = {
 }
 }
 
-[node name="0c330f0ec2144ab18d849b202088dfa4" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="0c330f0ec2144ab18d849b202088dfa4" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "0c330f0ec2144ab18d849b202088dfa4"
 default_owned_polygons_id = ["defc814f57794e8da3637cca8d3452bc"]
 territory_data = {
@@ -6909,8 +6822,7 @@ territory_data = {
 }
 }
 
-[node name="296e7477981d43c19d51145cc9c0653c" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="296e7477981d43c19d51145cc9c0653c" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "296e7477981d43c19d51145cc9c0653c"
 default_owned_polygons_id = ["58758e15fa8b430a82a6950d59d03a90"]
 territory_data = {
@@ -6920,8 +6832,7 @@ territory_data = {
 }
 }
 
-[node name="6ca89d97695b4ab38506afbf231acbf2" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="6ca89d97695b4ab38506afbf231acbf2" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "6ca89d97695b4ab38506afbf231acbf2"
 is_playable_country = true
 default_owned_polygons_id = ["0d9096e2d60f4071819754fda9459419", "82141b9740054a79881bc9b45012fdbc", "c91578bba64343919f33ba5722638654", "92f8ca091c4c47fe970d875ed04cb1a8", "0a4060f21458406bad210c8bd686521f", "5e5d1496e6d14b7bba1db747b4ff329e", "e8f6696db50248cba9b220086f2af847"]
@@ -6956,8 +6867,7 @@ territory_data = {
 }
 }
 
-[node name="baecd42667ef4896bfdaca85b0d1ea2d" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="baecd42667ef4896bfdaca85b0d1ea2d" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "baecd42667ef4896bfdaca85b0d1ea2d"
 default_owned_polygons_id = ["5aada60167dd4452ba6216ce8616710f"]
 territory_data = {
@@ -6967,8 +6877,7 @@ territory_data = {
 }
 }
 
-[node name="3a17213719f9483c8f6d8df991895c9b" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="3a17213719f9483c8f6d8df991895c9b" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "3a17213719f9483c8f6d8df991895c9b"
 is_playable_country = true
 default_owned_polygons_id = ["a4522349f5d341fe87b331fc0e9b190a", "19e3a43eafb84c11978c96a30aa56c22", "c15a8cb8edb54e21bf8298e558d9ff69", "02fab15ae6404bfb8cbe98ec4302d014", "1a93794535a84362abe5f0e16441164c", "dee54029559548c5b44d18ef575252dc", "01b17a935b9846dd9e4c31ceeed7a68f", "310b9c65c6b3415d966fecd3951fdb21", "811b6a0b5ea447ff964b000d218fde65"]
@@ -7011,8 +6920,7 @@ territory_data = {
 }
 }
 
-[node name="6c10c13c23334041a28d2f67bdceb324" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="6c10c13c23334041a28d2f67bdceb324" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "6c10c13c23334041a28d2f67bdceb324"
 default_owned_polygons_id = ["05bac40fa83041b3a6d465748c27c43e"]
 territory_data = {
@@ -7022,8 +6930,7 @@ territory_data = {
 }
 }
 
-[node name="21042e4c8355420d8e34dbe224bf9a37" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="21042e4c8355420d8e34dbe224bf9a37" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "21042e4c8355420d8e34dbe224bf9a37"
 default_owned_polygons_id = ["354952a29b3f461bad137b0ce4944ae9"]
 territory_data = {
@@ -7033,8 +6940,7 @@ territory_data = {
 }
 }
 
-[node name="a14d3c35d7694e44ad8df5a621514853" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="a14d3c35d7694e44ad8df5a621514853" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "a14d3c35d7694e44ad8df5a621514853"
 default_owned_polygons_id = ["138b8741371e466db8f7000a8f8b79a1"]
 territory_data = {
@@ -7044,8 +6950,7 @@ territory_data = {
 }
 }
 
-[node name="b6bfe849a4794030b89127767e168d18" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="b6bfe849a4794030b89127767e168d18" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "b6bfe849a4794030b89127767e168d18"
 default_owned_polygons_id = ["b6823a5db8f240d2b4976f249a1506a2"]
 territory_data = {
@@ -7055,8 +6960,7 @@ territory_data = {
 }
 }
 
-[node name="442786b5aa5e4895829467b1d77a7989" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="442786b5aa5e4895829467b1d77a7989" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "442786b5aa5e4895829467b1d77a7989"
 is_playable_country = true
 default_owned_polygons_id = ["69a403f052aa48b08bd397252d370dc8", "373776280600420ca97736c3c58d53d4", "b898230ff6884403b034196a152a4398", "8f5413b0db58414985e0e987e8855a39", "08b7738d1986480583ea405005aa860d", "9f566ed673bc4b7181863eed2c43877c", "7faee5051e69454da66c07a949f949d4", "66b746ebfea34e5885047758fe1b469c"]
@@ -7095,8 +6999,7 @@ territory_data = {
 }
 }
 
-[node name="fc58b71eff5e431292c822a0ec9b352f" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="fc58b71eff5e431292c822a0ec9b352f" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "fc58b71eff5e431292c822a0ec9b352f"
 default_owned_polygons_id = ["44a545883f7441c5ab3066da4114f021"]
 territory_data = {
@@ -7106,8 +7009,7 @@ territory_data = {
 }
 }
 
-[node name="ec18318b521d4c60998c9d49ae592827" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="ec18318b521d4c60998c9d49ae592827" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "ec18318b521d4c60998c9d49ae592827"
 is_playable_country = true
 default_owned_polygons_id = ["1c06c95b6f8949afbc8530f7cfef4f5d", "38e09562d6a24cb3b0abdf0432e15226", "6a66ba95055c4828bbfb199e406e7a1b", "1c33fd5134e240d6954c7ee502d7897c", "403b2a9bb6fb4e0cb7b7f2b8c56850d8", "3a3a16901cd244828eb5b2d0341d6c3d", "bf62034aa6894c25b3f7f469fbe3b650", "301a17f5b94145d1b92b13139d7d9671", "4eba6f8b27134b4d978a665e0d66700a", "b3625293ffec4d388e60983eee45a2af", "a6c473caa0f04e369c76a73e9fbd2569", "586399fc85a34ed4a706d11a4dd2577c", "c78ce5fec8b84ab09e3d7b7ef0c0d0bb", "a8b83323092b44199d043ed23b96ca86", "7082152ac95546b2a0b8aab66386f25a", "a975711f426b4538bb53582f80ac5257", "49c92d67de2b400db82ae4cf5ebd0726", "b5ec2cb4f9914a569457088227454989", "e233bb75e5d64b38acec5917beca6658", "bd0c097fe844414682ed46367baa7d9b", "01b232c724c4493fbf7cc8d1e791cfc6", "a296e39833ee4b989f4da4d44d05b2b9", "105fbd9c6c124ace9c81aba9bc377b2e", "e5e3d21452d34dd590c20ff309ee0343", "39ba4cab440543d486cd2bb5572d0bf3", "a9d28950584947e09e066f7d71a03788", "acffad1c827d460399ae7bdf28d6bc46", "7c6a17418fba432d8c28c4f17e265538", "d7c0255305334cc2949299a64857da32", "8fbfa7e3f4d94522a2ce102ecad03b8d", "c179cab202574a77a654b87e49527cde", "5c07f90659d04886ad57703d32662da3", "bfee932bc0ed4cc190c1f95bfe531c56", "f35c1c58133f4173a25a74d4fcdc358c", "51e5e53d36104087ae7cc64dfad80d09", "0e37bc0911ea40ef8ba22a03cf24a817", "fc80506d03084f41a5e2edc17c511bd2", "68d93d3383e5493f9c2e96345e319c14", "04e483e512d34bc8ba0bc0c78efe1531", "566352e46d274451aed80b6b5b323a57", "9875baa04235457586dea880dde58dca", "d72dc53c15a04e9da5ac52264b0e2a34", "481afca0266d4b8d8b5e46f72570e13d", "89744bc8eb8640eab288e1415ec0fcf9", "643979d4ebda4bbba856725b27e57f40", "c3c9990d94524175af0605bdea9b33d3", "d499bfcb94dc477da562ea848032e7ea", "eccb5a308f054a279c1d827cd1fe516b", "8bbfad0d343c425cb7d8daabe564e0ea", "36cf50fc03e54bc4a50d1461e3393fed", "910f09f2438b4634b7f5d826ac91f2a7", "9d22c5794e484774b66fde13b3e41f92", "fc966f007dbd43f58680cc10022ffc81", "fafe25662f3e410988c73f135877e96f", "49bd0b22dfce4a6296200dc35fe99584", "d83ccdfb956d4679a774e0fa248d8657", "f9c874ac019a4259a1841526572438f8", "8e025ae1152849a288bdbff88a16b7f8", "faa570871dbf44d68b3616e9c44baf25", "43916cba07884e368d0b88221ef68c25", "c3487f46d017414a8959de97a9759a9a", "b97601c4ec6143b79dc46a1a2bc2d48c", "dd94a55eba65440b9f4ae4f6d1f4a0c4", "6c95701435b4429da92c80bb60c81594", "70594eecf4a94b41aa2fd1318f8fac49", "02da3f6229554ca2b3b469275ba05e3c", "980d4c5eaa6840ad9eda319eb0964b14", "78c7b8ae46fb440484808143b4627e53", "51977626b86742aa9167e820c90850ec"]
@@ -7390,8 +7292,7 @@ territory_data = {
 }
 }
 
-[node name="1ca703bf12ed4f7484fb7e1fc842d64c" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="1ca703bf12ed4f7484fb7e1fc842d64c" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "1ca703bf12ed4f7484fb7e1fc842d64c"
 default_owned_polygons_id = ["759867eddfa1485a99256b7a7d12b3f2"]
 territory_data = {
@@ -7401,8 +7302,7 @@ territory_data = {
 }
 }
 
-[node name="f2ec3a6a739a4b969f64cec72e5ee192" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="f2ec3a6a739a4b969f64cec72e5ee192" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "f2ec3a6a739a4b969f64cec72e5ee192"
 default_owned_polygons_id = ["abffb5539867468da672b46646ce3106"]
 territory_data = {
@@ -7412,8 +7312,7 @@ territory_data = {
 }
 }
 
-[node name="12522e7b7977443f88c8a022fd0e6288" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="12522e7b7977443f88c8a022fd0e6288" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "12522e7b7977443f88c8a022fd0e6288"
 default_owned_polygons_id = ["0a24f89b1726490c80d0e5339c5487b1"]
 territory_data = {
@@ -7423,8 +7322,7 @@ territory_data = {
 }
 }
 
-[node name="eb2aca0aa8e04591906d9e4da9c898c4" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="eb2aca0aa8e04591906d9e4da9c898c4" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "eb2aca0aa8e04591906d9e4da9c898c4"
 default_owned_polygons_id = ["b4665539f3fc452d82b44baee2f2584b"]
 territory_data = {
@@ -7434,8 +7332,7 @@ territory_data = {
 }
 }
 
-[node name="ff3e33ef1e5c441a8dd9dc443eb1dd4f" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="ff3e33ef1e5c441a8dd9dc443eb1dd4f" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "ff3e33ef1e5c441a8dd9dc443eb1dd4f"
 default_owned_polygons_id = ["797f1c1f0884469ab8e8cbd30ab7a2c7"]
 territory_data = {
@@ -7445,8 +7342,7 @@ territory_data = {
 }
 }
 
-[node name="6754c02fb6854898835a55237ec92a86" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="6754c02fb6854898835a55237ec92a86" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "6754c02fb6854898835a55237ec92a86"
 default_owned_polygons_id = ["bc6c334d0f90428bb4c3db5e1935e0f5"]
 territory_data = {
@@ -7456,8 +7352,7 @@ territory_data = {
 }
 }
 
-[node name="46776491750c44b3acf442d42d24b557" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="46776491750c44b3acf442d42d24b557" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "46776491750c44b3acf442d42d24b557"
 is_playable_country = true
 default_owned_polygons_id = ["9c7938f5b0a244c9ae5eddd75cfe8e2d", "94a0c0c0da734c5ab743dfe0ad7cc855", "179dee8011f246498bbe417c2246d909", "e06abec3ea654dcf8be8de3cc8f8548f", "d1aaf348939f40c8a7c836e170ee19b0", "e46e0c6e49b04418a652e54e87410335", "7c19c993cc574f24a5045e6860fba8da", "dc6d3084123546e89835b0cda5c8f81a", "ad60f042bed441b0b74347de3646b8c7", "d102b870fcab4fbca0715463d59aa919", "4f9a38a0143f4d06acce13da597bb969"]
@@ -7508,8 +7403,7 @@ territory_data = {
 }
 }
 
-[node name="070300cc2e904ee6ad38f13e1be7ea64" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="070300cc2e904ee6ad38f13e1be7ea64" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "070300cc2e904ee6ad38f13e1be7ea64"
 is_playable_country = true
 default_owned_polygons_id = ["b23e3955ec0d4c959b62b6e24872631d", "f3ebfa6a296f41e8b2ff279a6c8965e7", "12bce698c54640a2a943718ff58a06cd", "43c5c678dbe745f9a227d04837cd4963", "d119e103286f4c8a9b79ebd40b57257e", "f11bc67fc8624b1abe12d38f2b223159", "b1ac885f43f24759aa4d9749fff19b89"]
@@ -7544,8 +7438,7 @@ territory_data = {
 }
 }
 
-[node name="926ac32b6fc84b40b1730eefecbe3eb0" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="926ac32b6fc84b40b1730eefecbe3eb0" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "926ac32b6fc84b40b1730eefecbe3eb0"
 is_playable_country = true
 default_owned_polygons_id = ["841444b9347d41f5b72f879aad8a60c4", "7ba534c2a3b746718d049fb9f66b7fa7", "d7c694dfa5ef4f119b5aca22139673d3", "87971f5d310342158ce42b747d7edd32", "4721360776c44170b31738888d545557", "815ca79e2b1945d2aa123ba5586c222b", "4eacfcbe0c6741d3a5e3d143187397d5", "d99e88c9fff046f38584c7f47e0d5518"]
@@ -7584,8 +7477,7 @@ territory_data = {
 }
 }
 
-[node name="835b0d762d404ef6b99d5afdaa07d9d0" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="835b0d762d404ef6b99d5afdaa07d9d0" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "835b0d762d404ef6b99d5afdaa07d9d0"
 is_playable_country = true
 default_owned_polygons_id = ["d16b20c02b3b47a285bcbed86b338e3f", "1849047d21bc49029200cf172c07ecf2", "696fa3af109646bd9db7e8984e18dfcc", "eb13d5371744408ea96336bc1ae0bb0a", "011131d33e68409abfaca460156cc2c9", "21fa86bc442746d0b8e2d8307e5bc498", "6ed3b361680845738f388256a277ff69", "c1e0b68920e647c7ada26a91c9c2bd5a", "1502af8507b442aa880be2843d154444", "2e34b0ab4fa44f4094b0040568b077d1", "1c1a55bc51984704aa86d6e539b4456d", "3125935570c74649be6410d476673097"]
@@ -7640,8 +7532,7 @@ territory_data = {
 }
 }
 
-[node name="c2a9e00d9dd3470cb473e6c36c0715cc" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="c2a9e00d9dd3470cb473e6c36c0715cc" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "c2a9e00d9dd3470cb473e6c36c0715cc"
 default_owned_polygons_id = ["e40b5341931d44088a9e7d5e29a696dc"]
 territory_data = {
@@ -7651,8 +7542,7 @@ territory_data = {
 }
 }
 
-[node name="f25a3c0359514c86bef85cd101f84a41" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="f25a3c0359514c86bef85cd101f84a41" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "f25a3c0359514c86bef85cd101f84a41"
 is_playable_country = true
 default_owned_polygons_id = ["0c39e628941643de9ea0aaabde1ada64", "4e6f415ddc064f0dbe1310ee334b00bb", "f2c59d1c8b714ca3971da21b9da101fe", "db3da471ba1e4561a8d63e84fc8406aa", "e151516b7f284cfc98bedc061acfcb82", "cee2cba71b7d42e19681f475ce72470c", "7e5f2a885d7c4daf9adb30c857aa1301", "547e035062004bb5adb61cba63f55649", "ed4661db83e84c3585634aec13d3d311", "b0907c660cb846b3a10dbf1a6f1c76a1"]
@@ -7699,8 +7589,7 @@ territory_data = {
 }
 }
 
-[node name="75a95d714dc74a54a1c749e10449cd8e" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="75a95d714dc74a54a1c749e10449cd8e" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "75a95d714dc74a54a1c749e10449cd8e"
 is_playable_country = true
 default_owned_polygons_id = ["e5e7a971c94644b59746e51a5943c7e4", "806abcfafede442fa07a3243ae0f4d1e", "83e33f923c1446938d04de22a269e990", "8616804c25c8474da7e72b776242d5f6", "177abf1bc7fb48a6bbd9d69bdb19f654", "12572532f6284eaf9a0e4426abd7a19b", "68cb9ce2c5eb4145ac0306fbb4c7818f", "2eb38f04ed1e44218a2646400c9545a3"]
@@ -7739,8 +7628,7 @@ territory_data = {
 }
 }
 
-[node name="e3c070ff4d2240f894c6415a373f6c1d" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="e3c070ff4d2240f894c6415a373f6c1d" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "e3c070ff4d2240f894c6415a373f6c1d"
 is_playable_country = true
 default_owned_polygons_id = ["7729ef2c8da14a6c83c0456837b10de2", "2eb4a03da11345e98a34281d388314bc", "5aa60d4a37334fac89429667c5dfdd2d", "7a4e0acf077740fabd8013a5e7d0f417", "c3562656a626467fbe2fc3d25867227b", "706a9092324540a2a865b350ab0c09e5", "d93b79c555204634b4015e9968108b46"]
@@ -7775,8 +7663,7 @@ territory_data = {
 }
 }
 
-[node name="5e5aa972023a429a9b2436c87d4c253a" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="5e5aa972023a429a9b2436c87d4c253a" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "5e5aa972023a429a9b2436c87d4c253a"
 default_owned_polygons_id = ["1f5b73c95fe84c87a4dce35744091fc7"]
 territory_data = {
@@ -7786,8 +7673,7 @@ territory_data = {
 }
 }
 
-[node name="457fd504c7f549e99862feaa3e4a3afa" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="457fd504c7f549e99862feaa3e4a3afa" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "457fd504c7f549e99862feaa3e4a3afa"
 default_owned_polygons_id = ["19c3242684ad4e348b5f13a062125ff2"]
 territory_data = {
@@ -7797,8 +7683,7 @@ territory_data = {
 }
 }
 
-[node name="b366877a476349a19ced1d28bb950318" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="b366877a476349a19ced1d28bb950318" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "b366877a476349a19ced1d28bb950318"
 is_playable_country = true
 default_owned_polygons_id = ["474385fd04594c8ca119c777d5fbb831", "2ff5764ed15843e79d924d5d9ef89cea", "5f7cdbb6d0234c82b0d7793419e6df83", "4ebea0b27ab846b9b0657e1b422ced69", "9a1c27fff34049c5898e9e9a622c4f92", "9b7f48b665ef401493d5832331780504", "d8aa319337b64812a8f910b9f28506e8", "a2970ec648704462a84ebb844dfc528a"]
@@ -7837,8 +7722,7 @@ territory_data = {
 }
 }
 
-[node name="30c404e369f84f61b49c41a6218296a6" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="30c404e369f84f61b49c41a6218296a6" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "30c404e369f84f61b49c41a6218296a6"
 default_owned_polygons_id = ["80c53e50b09f48609f52be1da3658304"]
 territory_data = {
@@ -7848,8 +7732,7 @@ territory_data = {
 }
 }
 
-[node name="b5d67b4f25ec42b48e8e2837e4b8b1f5" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="b5d67b4f25ec42b48e8e2837e4b8b1f5" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "b5d67b4f25ec42b48e8e2837e4b8b1f5"
 default_owned_polygons_id = ["1d953b33b4674781a2ffa764882b5a12"]
 territory_data = {
@@ -7859,8 +7742,7 @@ territory_data = {
 }
 }
 
-[node name="a9dff063c33c44cc89053880424a643d" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="a9dff063c33c44cc89053880424a643d" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "a9dff063c33c44cc89053880424a643d"
 is_playable_country = true
 default_owned_polygons_id = ["714239a8fa5f4b77bf56bc262c742f38", "4c81cdb8084e4867ae954797effe4c8f", "832ae95cdcd84a7dab59f82466951706", "57d723367420476cb13e42280a752167", "9967ba37ee734b3e80f4e1fec39056f4", "ceae701337af45f4a0333bf5406f64b8", "57ef6237f6f54627abf134158a634862", "bf769d0cc3184bcdb08136e0771407d8", "daf6c77a2f864c33ab94ee7118cb367a"]
@@ -7903,8 +7785,7 @@ territory_data = {
 }
 }
 
-[node name="2a3124ad09214543bc93adddd9eb718d" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="2a3124ad09214543bc93adddd9eb718d" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "2a3124ad09214543bc93adddd9eb718d"
 is_playable_country = true
 default_owned_polygons_id = ["2bf0322f74194d3795b84cadea1d4d8b", "566180525d8c4940b3c89d1bcc589daa", "d98878549c454938a3b30f2bd93b2b65", "32a1f441f8d54a6eb9f68f38e69143dc", "81b56025b59b42fd8ad86fd65e0047f6", "99b4a77101ed4e21af2629609b000568", "56008c3b0e194c5b9300e4655d91e805", "f2df2141b9c64db4b56cdfd57b3bdfe8"]
@@ -7943,8 +7824,7 @@ territory_data = {
 }
 }
 
-[node name="fc2269675b7940918e5e397d0c9e2960" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="fc2269675b7940918e5e397d0c9e2960" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "fc2269675b7940918e5e397d0c9e2960"
 default_owned_polygons_id = ["8ee69863ab7346cf981a6a93741537f8"]
 territory_data = {
@@ -7954,8 +7834,7 @@ territory_data = {
 }
 }
 
-[node name="6c628f45e70345f1a3711f7c261852a3" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="6c628f45e70345f1a3711f7c261852a3" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "6c628f45e70345f1a3711f7c261852a3"
 default_owned_polygons_id = ["ae1f8e5ad8e84cfeba0e1dd843ca2672"]
 territory_data = {
@@ -7965,8 +7844,7 @@ territory_data = {
 }
 }
 
-[node name="5c8d96f1f3ac4bf1b6be0bae373ff668" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="5c8d96f1f3ac4bf1b6be0bae373ff668" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "5c8d96f1f3ac4bf1b6be0bae373ff668"
 default_owned_polygons_id = ["f92f214aeaf44a0fb37c125e4e374816"]
 territory_data = {
@@ -7976,8 +7854,7 @@ territory_data = {
 }
 }
 
-[node name="e4cdc73bddc642b1af2d4ac9834e89ac" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="e4cdc73bddc642b1af2d4ac9834e89ac" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "e4cdc73bddc642b1af2d4ac9834e89ac"
 is_playable_country = true
 default_owned_polygons_id = ["e16c5e7a837c49989e6b8e7e7eccde48", "3b558c3e32984141b267a8b394df6154", "90bee0f24d844b0ba5360e43e6160aad", "75b3f37f190a4ac7ae5a1c2d5bb7a759", "33223b1dad29409ea3f2cb2cd4b6c58b", "3398327c9c7447a1a3ba13a3bad11d0a", "8a4647cf6711479d8c5438b798dd48e5", "f2bf400563fa4045a294033356560080"]
@@ -8016,8 +7893,7 @@ territory_data = {
 }
 }
 
-[node name="e94ac00581b846a18d30168b37d31560" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="e94ac00581b846a18d30168b37d31560" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "e94ac00581b846a18d30168b37d31560"
 is_playable_country = true
 default_owned_polygons_id = ["3401be8406a245c59cfc4e46c2b43e9b", "8a51a92b06df4cd59f4476bf84c9093a", "c8ff0c1a29b84273a480f204a2f7a9ab", "fe95538ff0f44b5b8e9cc9f102f23d5d", "bd52dc023dbf4ccfb841a6f10cd573c0", "5417605cb134415181bdfc8b5dabfe33", "ef0258b7ab0943f68929349b3da9281e", "224075575c324cac85420ed74adf7d56", "b9b209db0c3b4bf89aa56876de943c65", "70d8f52d8e484c58862adcbcde12bd36"]
@@ -8064,8 +7940,7 @@ territory_data = {
 }
 }
 
-[node name="f1261124e63849ff9ace7a2f145b04bc" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="f1261124e63849ff9ace7a2f145b04bc" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "f1261124e63849ff9ace7a2f145b04bc"
 default_owned_polygons_id = ["f24645dc7090442cbcd516ce1a01e332"]
 territory_data = {
@@ -8075,8 +7950,7 @@ territory_data = {
 }
 }
 
-[node name="036003e14f44451889f774524a302a5e" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="036003e14f44451889f774524a302a5e" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "036003e14f44451889f774524a302a5e"
 is_playable_country = true
 default_owned_polygons_id = ["d653bcb8960c433c8269236d79d97562", "3fb48456e4f14295a527b0f1e60849fb", "3ffc5a238d774e5aaa4362673fda3465", "0c90e058535e4b92b5585a533e79d991", "e56e8f8466b240f095f309e45dd6c26d", "ea0d66e73e374a528fa9ee89fb748670", "2fd02e600acc4752818d8c0be0b24a56", "d605768f9cf8482097d06e700c144290", "460f5e6b6b7c4bbda2396d9970220018", "50d9696bfab3462c8dbca14495388538", "332f77d4447d48f2a4afcd80a882cf44", "3fad90407a0f49679043f7b3599f72e7"]
@@ -8131,8 +8005,7 @@ territory_data = {
 }
 }
 
-[node name="12e5e47c047c4f9085c77922762a2335" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="12e5e47c047c4f9085c77922762a2335" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "12e5e47c047c4f9085c77922762a2335"
 is_playable_country = true
 default_owned_polygons_id = ["013585c4801343318f68ef6225ce32a2", "4f84cc6a58ac40c486d5e7a170d476a4", "8946c49d3ea04525b2a1c0274bbb9de8", "a45574dfd8184268b81e5556e5f45b36", "01fe5392287b4ee7a775c776a2269f21", "fcbfdaac158f4341a9bac47ec083db46", "61d917b44baa493e959a3f784c773ba5", "8816d66e5c8749d98bd5fb94ce3f3967", "155532eae84741ae87c5c9fb73f05260", "869b1a5869ab4f849f804f4e188c9970"]
@@ -8179,8 +8052,7 @@ territory_data = {
 }
 }
 
-[node name="ce805510af5c4479bc1e496afc2e94e8" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="ce805510af5c4479bc1e496afc2e94e8" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "ce805510af5c4479bc1e496afc2e94e8"
 is_playable_country = true
 default_owned_polygons_id = ["c3c9c49ba35041fc91246170399ef32c", "1f3960f4bded4499a2e006655e1a1dfa", "0d9516494c55455e82302b0417238c00", "1f9fed5b46ec4388a303996daa853165", "8753c5f32a06494aa8d30d67e29175eb", "f40c1045e6b441a6a4fa22e2f6a0d5e9", "08954b9eab4e4e2ab5f09ee92661f5d1", "06c8eccc9c3748d7a76cfcb09cbcb023", "ad2b192bbc5d49ff9b89e87cf2e002f2"]
@@ -8223,8 +8095,7 @@ territory_data = {
 }
 }
 
-[node name="1d656e68d56e4498840f3c593e6f185a" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="1d656e68d56e4498840f3c593e6f185a" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "1d656e68d56e4498840f3c593e6f185a"
 is_playable_country = true
 default_owned_polygons_id = ["f84452d032e74b58a576e441e598e2ed", "a02a05a6c3364224b78d38703cbe2434", "bf6a9cf78365470a9db15ef5f14045c7", "a6fde9a8e9b7430bb334ca2389929535", "fd9134fe21934d199a6862fe6d24e72c", "25b4157516c14986bfc1a0796c922560", "1837c632bfac4bce94af9c473df10004", "6bd78073ee944173887d2823f82ef3d9", "d95d8c27e00940ed9ecf8ed62df363e2"]
@@ -8267,8 +8138,7 @@ territory_data = {
 }
 }
 
-[node name="d5721ad42d084cdbacaf7f571eb40572" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="d5721ad42d084cdbacaf7f571eb40572" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "d5721ad42d084cdbacaf7f571eb40572"
 default_owned_polygons_id = ["c729e5c29d05463d847883fc27947a1d"]
 territory_data = {
@@ -8278,8 +8148,7 @@ territory_data = {
 }
 }
 
-[node name="47b96cde3da743189f8476211e8bf031" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="47b96cde3da743189f8476211e8bf031" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "47b96cde3da743189f8476211e8bf031"
 is_playable_country = true
 default_owned_polygons_id = ["79dcadc9dc4c4a9f89a7940c2616435b", "b8763933f6ad4b6eb2217a0ae3c653e4", "9c7b816ddbb74a7d985cb44c50bebcb2", "726a1828438a42c5b1acf8fea1a29df0", "0ad54591abfc47ada450c33d13c3a47e", "396ac29283ff44b893a83b8dfc5685c8", "63681dcd6cab48dfa4d58a72349b4245", "584c64fa5a29447cb1f529536f93e4dc", "1e89bb98e10342fba52dd0a86c57cb4d"]
@@ -8322,8 +8191,7 @@ territory_data = {
 }
 }
 
-[node name="51dc139e435b4b6598708a2fc4088ebe" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="51dc139e435b4b6598708a2fc4088ebe" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "51dc139e435b4b6598708a2fc4088ebe"
 is_playable_country = true
 default_owned_polygons_id = ["b9a8bf2240a8461d9c5887daa29d0087", "8e1c78ec34d54d6abf75ed0319ffe028", "c422f6f4378d48d39ac0224c58c3c0d0", "91acd2739750450f9d69d72a5549bd95", "4b5ac814e4044ef489e850bc898e976f", "e9872d5f8a0c419ab99c19a6e6e141ff", "6372acc766c14cb8a356f92af22e8c5f"]
@@ -8358,8 +8226,7 @@ territory_data = {
 }
 }
 
-[node name="256580d12abf403cb47e61cefa0e48c5" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="256580d12abf403cb47e61cefa0e48c5" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "256580d12abf403cb47e61cefa0e48c5"
 is_playable_country = true
 default_owned_polygons_id = ["5fdb7f54501e4731b39dc849ebac7855", "eb8ead946fb7470baa3e0b8acb7cfedd", "c698197c4a184b6281dacfc6de77574b", "a8ec22c229404577855035250679cc15", "1ec6af70053e46ff98b00dd0e9500ef0", "a88191443c1e4f2aa21afab553a848a8", "e321ae6da289441ba963b2827c608d9c", "7176d19dc7784179a67d129c87e3dfe7", "3083edd3360a4b50aa3ce4e260de0f25"]
@@ -8402,14 +8269,13 @@ territory_data = {
 }
 }
 
-[node name="90fba6a6907945868e944c41eef382ed" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="90fba6a6907945868e944c41eef382ed" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "90fba6a6907945868e944c41eef382ed"
 is_playable_country = true
 default_owned_polygons_id = ["236190ed1ca047b2b97a1d92eecd1404", "e7fdf0658a7348118bb624ba2321c265", "a45b3d9eda7d4cb1b5a670ee65538754", "d89732a8825942e8aae2dc6453f58039", "3361e0329c454a2596fdf10421bc20f2", "36967465b54145d483b74ba6dcfc69ba", "1cdfc625ef634075a18d10d1852b685d", "eb68d985c7184458b0bd6d6d2bb6fc99", "453654aeb9604889963d1d3b13728bb0", "b37398201c954c2db6c29f8212ebde8c"]
 territory_data = {
 "1cdfc625ef634075a18d10d1852b685d": {
-0: [[-3.7078426011455212, 51.35530624422135], [-3.414850633142123, 51.42600861266925], [-3.638519027897006, 51.44987261349906], [-2.6489434765926214, 52.79978235743803], [-1.8236040646615623, 50.60764890318232], [-2.489997524414434, 50.50001862243124], [-2.956273972984093, 50.69687999124704], [-3.617448085942385, 50.22835561787275], [-4.458352376497914, 50.33151330861959], [-3.7078426011455212, 51.35530624422135]],
+0: [[-3.7078426011455217, 51.35530624422135], [-3.414850633142123, 51.42600861266925], [-3.638519027897006, 51.44987261349906], [-2.6489434765926214, 52.79978235743803], [-1.8236040646615623, 50.60764890318232], [-2.489997524414434, 50.50001862243124], [-2.956273972984093, 50.69687999124704], [-3.617448085942385, 50.22835561787275], [-4.458352376497914, 50.33151330861959], [-3.7078426011455217, 51.35530624422135]],
 1: []
 },
 "236190ed1ca047b2b97a1d92eecd1404": {
@@ -8417,7 +8283,7 @@ territory_data = {
 1: []
 },
 "3361e0329c454a2596fdf10421bc20f2": {
-0: [[-4.458352376497914, 50.33151330861959], [-4.542507900399244, 50.341837063185665], [-5.245023159191135, 49.95999990498109], [-5.776566941745273, 50.15967763935686], [-4.309989793301895, 51.21000112568919], [-3.7078426011455212, 51.35530624422135], [-4.458352376497914, 50.33151330861959]],
+0: [[-4.458352376497914, 50.33151330861959], [-4.542507900399244, 50.341837063185665], [-5.245023159191135, 49.95999990498109], [-5.776566941745273, 50.15967763935686], [-4.309989793301895, 51.21000112568919], [-3.7078426011455217, 51.35530624422135], [-4.458352376497914, 50.33151330861959]],
 1: []
 },
 "36967465b54145d483b74ba6dcfc69ba": {
@@ -8450,8 +8316,7 @@ territory_data = {
 }
 }
 
-[node name="a8e86205097646d9ac13469dbe849359" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="a8e86205097646d9ac13469dbe849359" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "a8e86205097646d9ac13469dbe849359"
 default_owned_polygons_id = ["63d8c9ddbff04a4bb4e8ca202dddde98"]
 territory_data = {
@@ -8461,8 +8326,7 @@ territory_data = {
 }
 }
 
-[node name="c0a5ed09cfc8449bac508b1864312728" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="c0a5ed09cfc8449bac508b1864312728" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "c0a5ed09cfc8449bac508b1864312728"
 default_owned_polygons_id = ["5fcea64f988446db84d695bb49728e77"]
 territory_data = {
@@ -8472,8 +8336,7 @@ territory_data = {
 }
 }
 
-[node name="4ae1f57c73fc41bc9046f67ab823dd7b" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="4ae1f57c73fc41bc9046f67ab823dd7b" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "4ae1f57c73fc41bc9046f67ab823dd7b"
 default_owned_polygons_id = ["9556ebdb3d564c86b3599c54718f2382"]
 territory_data = {
@@ -8483,8 +8346,7 @@ territory_data = {
 }
 }
 
-[node name="3655d0414d7646a497914379dd85f27e" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="3655d0414d7646a497914379dd85f27e" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "3655d0414d7646a497914379dd85f27e"
 is_playable_country = true
 default_owned_polygons_id = ["addec8ee38fc488694f383b9982da45e", "3e4326d35dcb4ef7b162ba37e48f5d43", "c4ffa5e8346b49f9919c635512def9fc", "aee5edcb3a3f482c88ef625cecf00c92", "78c464167cf545adbf4a528d9c874088", "02e7cebe4da64c0b8c9fec83cc498fe8", "f035fffd558944d9928e108c817dc600", "c5261e3ab1ea40dab354095cc061559c", "dfecad0142fd4caea75cdcd4683c2505"]
@@ -8527,8 +8389,7 @@ territory_data = {
 }
 }
 
-[node name="2375d869c2944dc984dce4fc2562d1d7" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="2375d869c2944dc984dce4fc2562d1d7" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "2375d869c2944dc984dce4fc2562d1d7"
 is_playable_country = true
 default_owned_polygons_id = ["69d35090e63b49598c9566bb45f220f4", "4bb04be1a12c4fdfbdc926f61208aac9", "cb3c95d5629c49ce9932223e3fb43e1e", "066dcd2a12d94fc3ac21a1b32d663bf8", "d1bfe94f44694a098dd567e99f67e8f8", "6bdaf1bd02bc4aae8cb51a86b043912e", "e928b369a9d04841894b5828020e7e5f", "ea6fd3bdaf2245f6a36b161550888c31", "51d276abe37a44a18c58c0f7b91a21d9", "6143d69ed7104c20b42ee878734035b6", "235ea6f6327941159eb6739f71ec1859", "02e0e396b11a440488e142407c26acbc", "9aac38aa702b4ba19851522bbd41d445", "49880e51bc6042769f43e1f3cbb544bf", "131f2f86f9604e7cad2ad30ea84c4673", "93c9b1a730e0452b941d7e01228200f5"]
@@ -8599,8 +8460,7 @@ territory_data = {
 }
 }
 
-[node name="27c2f9f544a14e4a97911e19a4a81dde" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="27c2f9f544a14e4a97911e19a4a81dde" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "27c2f9f544a14e4a97911e19a4a81dde"
 default_owned_polygons_id = ["f38b56299b854d868332d1e0c008a1bc"]
 territory_data = {
@@ -8610,8 +8470,7 @@ territory_data = {
 }
 }
 
-[node name="0b77863253894facaf6c8ffafc6d34b2" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="0b77863253894facaf6c8ffafc6d34b2" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "0b77863253894facaf6c8ffafc6d34b2"
 default_owned_polygons_id = ["f621f9ed4c7d4d6ca87190b470aef092"]
 territory_data = {
@@ -8621,8 +8480,7 @@ territory_data = {
 }
 }
 
-[node name="9b03cc4670424470bf21eeccef831a95" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="9b03cc4670424470bf21eeccef831a95" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "9b03cc4670424470bf21eeccef831a95"
 is_playable_country = true
 default_owned_polygons_id = ["1e7ead5d0d904031b6e5e925b6376445", "ad10bfb4e0d84bf0b636ca4f913c485c", "0f8de9b91d0e46109c4efcdc6bbeafd1", "6cdabe1f68b84838bae93c659b9c31f0", "70b79acf3bc44b3cbdfd20aa663dbac1", "04e9342963ca4e70b6af0c92eea3a3d0", "c4bc555632c049a4be4eac3723bff6d6", "79bad880a2b3483bb8c54cd7c66ca97a", "b683a686a94241bd865630e8e01e3a43", "482222c98f56452d8375bb4a4518e325", "4555dec433a54ad38a3008dd1b2d92d0", "0a94611fd797464e9520b65b835ae019", "a9db8afce3f04d04bf224d5645df3e18", "aa8396b27b2b48e8b124f7a343183b83", "96d9c5420e1f4a0d983ce448c555d394"]
@@ -8689,8 +8547,7 @@ territory_data = {
 }
 }
 
-[node name="b29b03820e7241ca83c7cb150171f93f" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="b29b03820e7241ca83c7cb150171f93f" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "b29b03820e7241ca83c7cb150171f93f"
 is_playable_country = true
 default_owned_polygons_id = ["2ddb1dd400bc4f509ca39c3c49f853a5", "d6390772d0644b1b974f6f38378d6c11", "7cd60ecd37da47fa9878badd9d31e840", "bec651c2ce2648a28efd252c37a3db99", "82cc57b04bd84ab7a85e84b044029fd0", "fb97f9374b604a37ad89d0fd3c656011", "93faf4f80b98469fa40aea60ed71eefe", "a2bd8e3aaba34e0e9f13b1eebc732442", "eb5844d87b814317b4f66c8520df1936", "5483b718f4204c60b8c250e88405f2eb", "790872c9d5274aaea3481ed453bd2c0d", "b0963d3d5b6147fe90918e39a74b93b0", "d5bd897130904258be0b3051c03cf6c6", "1e674d24dd37462f83c3ce6d8f2793c7", "1666aa0b073f40858e4ddc22a08e7474", "775cfe1946d6428691601909cf17d6dd", "4039fde0fd6842edbf2b8fd5555498ee", "84021090d7e5481ebfa94d8b730488dc", "8a2267e037554cbcb0daed810363ee18", "1675b81fd0874b76a8fd5279e7b609a7", "e8887d09e37544b8bb162dd20a33fe26", "3111106e331c4b269107587f3bdfb898", "d48c7a0a6a9348fe9c5034a190874901"]
@@ -8789,8 +8646,7 @@ territory_data = {
 }
 }
 
-[node name="4bac6987bea9407e9e9f19ae96a95ac0" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="4bac6987bea9407e9e9f19ae96a95ac0" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "4bac6987bea9407e9e9f19ae96a95ac0"
 default_owned_polygons_id = ["6457e9176b0b4e8d873fbfe2b6c1aac8"]
 territory_data = {
@@ -8800,8 +8656,7 @@ territory_data = {
 }
 }
 
-[node name="0227910f19d042ef930d912837487520" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="0227910f19d042ef930d912837487520" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "0227910f19d042ef930d912837487520"
 is_playable_country = true
 default_owned_polygons_id = ["1c26c1d5939e4580802b30a5df0487c0", "736adcd6db914b8da3bcf11d86008473", "cd852429f00f4bd69a8d35e99e2fdd5d", "7cfd0c6b02bd4e419691ac165342dd90", "831c7df031bb47969632113df838e713", "b20e99a9a8e54959b1defe4ebe731499", "7bdb6d14e57f4607bbf6be6ba1a67d26", "e16651f27f8046bf896bd4dd2a216f92"]
@@ -8840,8 +8695,7 @@ territory_data = {
 }
 }
 
-[node name="94535c1ae9194062b5d1e79d464a46f0" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="94535c1ae9194062b5d1e79d464a46f0" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "94535c1ae9194062b5d1e79d464a46f0"
 default_owned_polygons_id = ["10bd648c75dc458999ceccd7b9bcc94f"]
 territory_data = {
@@ -8851,8 +8705,7 @@ territory_data = {
 }
 }
 
-[node name="8bfb27bad20a4a6f8d1ed7dfe40c9544" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="8bfb27bad20a4a6f8d1ed7dfe40c9544" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "8bfb27bad20a4a6f8d1ed7dfe40c9544"
 is_playable_country = true
 default_owned_polygons_id = ["0866eb183e494ca4a8b130ed7ab849da", "1be0e7c2ef424e9c86cd8ae71432dcb0", "9dc5551ed3c94a00a9520bfa120fc228", "fee35871bc904be19cfbcdcdeb0c37e4", "7d2b84e800634dd29aca4ae6b2742e17", "feb2c38ecfc64433be1e9d4d0ad1ef16", "f5a1b2bb743c48c9ab7ac2489aec097f", "6da1b84001644571b38eb0913984757a", "3d99d7551fac40379828f18311fb761b"]
@@ -8895,8 +8748,7 @@ territory_data = {
 }
 }
 
-[node name="a1a36eda515c45d29b2fb1b5c37d6907" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="a1a36eda515c45d29b2fb1b5c37d6907" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "a1a36eda515c45d29b2fb1b5c37d6907"
 default_owned_polygons_id = ["fc4042a6c15f4a4bb804009703396fdd"]
 territory_data = {
@@ -8906,8 +8758,7 @@ territory_data = {
 }
 }
 
-[node name="d254a960db3a4dde87f1ce477b7e6548" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="d254a960db3a4dde87f1ce477b7e6548" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "d254a960db3a4dde87f1ce477b7e6548"
 default_owned_polygons_id = ["69e883ab746a470181a9acfb559a1e51"]
 territory_data = {
@@ -8917,8 +8768,7 @@ territory_data = {
 }
 }
 
-[node name="a2cd5d44398c48db9eb6b0433194e26a" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="a2cd5d44398c48db9eb6b0433194e26a" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "a2cd5d44398c48db9eb6b0433194e26a"
 default_owned_polygons_id = ["055fc5d505a44c408dc4409e5c79fedb"]
 territory_data = {
@@ -8928,8 +8778,7 @@ territory_data = {
 }
 }
 
-[node name="97b7b4b68e774803bcc7bae4d848bb03" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="97b7b4b68e774803bcc7bae4d848bb03" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "97b7b4b68e774803bcc7bae4d848bb03"
 default_owned_polygons_id = ["a13525a1bd154dd2aef1932bf8e00745"]
 territory_data = {
@@ -8939,8 +8788,7 @@ territory_data = {
 }
 }
 
-[node name="48510630cf51491a9f09063f6f2ad069" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="48510630cf51491a9f09063f6f2ad069" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "48510630cf51491a9f09063f6f2ad069"
 is_playable_country = true
 default_owned_polygons_id = ["4c28e9e198fa489d8a19e10a768924ad", "b9dc4af50b4f472b8e4c124acf1cd868", "f9695c3ea28c43f6a9e003ceea912f76", "3d660ef1d5b34d74a2178ac4affcd29d", "55c7bdaac9fb4edba5c2132d33957354", "22461ed52844454e825309683fa28f23", "bba17e28204e410e84b70452467d3025"]
@@ -8975,8 +8823,7 @@ territory_data = {
 }
 }
 
-[node name="27e8fd80ad1742e2b5e4100afe5a00d1" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="27e8fd80ad1742e2b5e4100afe5a00d1" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "27e8fd80ad1742e2b5e4100afe5a00d1"
 is_playable_country = true
 default_owned_polygons_id = ["8ea5ab612b4a468c968f7b68c107bf02", "16f51c8431b24af589ef238b9360f270", "88c3e01cd4564d52b77ff68d8e40317b", "9eec07ee205f4d68afa0ef5f9655c130", "0529fb2bf6b94286bfa4164460f9e873", "d2ad28d2332a4348ae2b6216433f1c22", "d7e738f9cb00484998df322f948e3be3", "50471314d92e4764aa7368561c86067f", "cd2f779a3503422485a2dc50311f972b", "bdbce5eb57cd40a49208e7e314f50481"]
@@ -9023,8 +8870,7 @@ territory_data = {
 }
 }
 
-[node name="8904201380604dd1b952404e57606651" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="8904201380604dd1b952404e57606651" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "8904201380604dd1b952404e57606651"
 is_playable_country = true
 default_owned_polygons_id = ["54926143269145ce993b2dc400dfa3f0", "be6079fbf73448a097e8991576483cbd", "34b219ec9d0a4588b858efd5af89461d", "fcd46a1656424c4ab920a36c67e2c528", "1baeb81b0304409191c946d2abc5b059", "89ca940d365843e39473cda683ff7dc6", "300140476c164a7cbd6211bfd275f741", "1aaecb179d974137923c887987daff66", "313b42e9f8ea4fe287e91f12b368f53d", "b4cdffaab6d74ad8afe8efe2c9d96918", "36fa9786155e4dc680672381a33876d2", "2c4d0c1880614edb87e46b010b07ec20", "3b207118cc3b4e01a9122c16b793f72f", "d82357ea36174968abee6b2928479944"]
@@ -9087,8 +8933,7 @@ territory_data = {
 }
 }
 
-[node name="1583b90de1ca4c11a0f08f3ff62652c2" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="1583b90de1ca4c11a0f08f3ff62652c2" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "1583b90de1ca4c11a0f08f3ff62652c2"
 is_playable_country = true
 default_owned_polygons_id = ["90c63dfadc87480bb24566c55101a227", "8dddaa6e6007415c90a4c2f7d9838012", "ab43c89efa474180847d239427b6de3c", "4a60532533774dd2a8f8dc981833f776", "a3aea7df2f7e4ee5a0243392e80b8aeb", "e27694c1b9f44a41a64c04a649d32c73", "bc0b90322c6b458485a41e3fde1130de", "9c4cfe376ab94bf89d0ad3488e8b220c", "45909395ceed467a89cba735062eb6f4"]
@@ -9131,8 +8976,7 @@ territory_data = {
 }
 }
 
-[node name="64f358ae517d47b2808e09faf2000461" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="64f358ae517d47b2808e09faf2000461" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "64f358ae517d47b2808e09faf2000461"
 is_playable_country = true
 default_owned_polygons_id = ["065f9fe9ce054b308dbdb03fd37c6fad", "6ee6988a895d4edfac286d846399dd6c", "a50cb6b92d754488bb26422ba21d2bb9", "a94946a7126343b2bff6a0e932143f8e", "7dbb894e935d43948cf9ebad85a0305c", "2793a57aa1cf4eebb401cbca79b20333", "3bb6b8928e204d49a07b25362539e0bb", "42c803f5403d4d1cba94afb80bbdec70"]
@@ -9171,8 +9015,7 @@ territory_data = {
 }
 }
 
-[node name="526ba99202a84d92b310afa92fb3f78e" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="526ba99202a84d92b310afa92fb3f78e" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "526ba99202a84d92b310afa92fb3f78e"
 default_owned_polygons_id = ["87eb961804d44737a44dcb82b9b2a023"]
 territory_data = {
@@ -9182,8 +9025,7 @@ territory_data = {
 }
 }
 
-[node name="af920efede754e1aa9eaf6ee4d62e252" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="af920efede754e1aa9eaf6ee4d62e252" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "af920efede754e1aa9eaf6ee4d62e252"
 is_playable_country = true
 default_owned_polygons_id = ["600798b81ed04d0da518756474ffab5c", "ed47b4a92d8048699bc8ff28a6ec15fa", "15438023ba8c4e30b733cf335de289f5", "411067e2008b4076864e6580488fa350", "6975420b1cc34332951a799986b3b3a1", "7cc88879d3b44d1b8374ca46afc46669", "4f8b221cc97e4e19bffa124b2318a8fd", "24f9673f6ea348a9af2b45b1a36a8703"]
@@ -9222,8 +9064,7 @@ territory_data = {
 }
 }
 
-[node name="e2f7faaac31c4b8ab35792a6d92af171" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="e2f7faaac31c4b8ab35792a6d92af171" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "e2f7faaac31c4b8ab35792a6d92af171"
 default_owned_polygons_id = ["10df1d3460b944c59d4a9547c6ac7fc0"]
 territory_data = {
@@ -9233,8 +9074,7 @@ territory_data = {
 }
 }
 
-[node name="e467c61bb0c841c0b4b976e443330296" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="e467c61bb0c841c0b4b976e443330296" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "e467c61bb0c841c0b4b976e443330296"
 default_owned_polygons_id = ["42b120f7e66b411d9bf27866158fe9f0"]
 territory_data = {
@@ -9244,8 +9084,7 @@ territory_data = {
 }
 }
 
-[node name="75a0b96102ae4b3d92ea552acafbfedd" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="75a0b96102ae4b3d92ea552acafbfedd" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "75a0b96102ae4b3d92ea552acafbfedd"
 is_playable_country = true
 default_owned_polygons_id = ["f6504ae35ca14dcb9604d3aabf742a06", "e1d51990c54e4f5ca6124571f6fc59fd", "c1deb930cabf454293c75c6c115f758a", "ae6ee76000934b7196c3e1f20f3213c9", "2e0a840f7a6d474c931b20c613cbaccd", "305ce8e849e140ff9704bed7c98c88f1", "6e2ffc11cf7b41688e8d2c5de30746ec", "82afa7e7cf2240ad88afcf0fcd78f9d6", "80093be153ca4f7b985ccc9411b586e6"]
@@ -9288,8 +9127,7 @@ territory_data = {
 }
 }
 
-[node name="5eb8f55a107f45a3a5403b70e7aaa553" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="5eb8f55a107f45a3a5403b70e7aaa553" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "5eb8f55a107f45a3a5403b70e7aaa553"
 default_owned_polygons_id = ["704e3b850f9b4ae3a12b3327e66ba5ba"]
 territory_data = {
@@ -9299,8 +9137,7 @@ territory_data = {
 }
 }
 
-[node name="b432c85af4114e68ac57d308786eaa11" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="b432c85af4114e68ac57d308786eaa11" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "b432c85af4114e68ac57d308786eaa11"
 default_owned_polygons_id = ["36841235e059450382b185cd2a0a7304"]
 territory_data = {
@@ -9310,8 +9147,7 @@ territory_data = {
 }
 }
 
-[node name="7f1605abee9645639bfd1e71366327c9" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="7f1605abee9645639bfd1e71366327c9" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "7f1605abee9645639bfd1e71366327c9"
 is_playable_country = true
 default_owned_polygons_id = ["4fb99397b9454a2eacc3a6a095e3dee8", "4d24b10f04c04890aed8a6280ded9d05", "77a0d970bf574645873ca5744b22ad0a", "4b1070d0f2bf422ca63f1ecdc517f713", "d5bf59a445464b2787e9b2d5eca5567e", "29d92828003847b2a205c8b4afe65969", "0d58b2504097455a8761039986f7c0a4", "99b62281ba9f4cfa851859324f9f2d82"]
@@ -9350,8 +9186,7 @@ territory_data = {
 }
 }
 
-[node name="1cfbbb97b9354d388e95f1b471350c8a" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="1cfbbb97b9354d388e95f1b471350c8a" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "1cfbbb97b9354d388e95f1b471350c8a"
 default_owned_polygons_id = ["83c1e07924bc496887e28d69645cfdbe"]
 territory_data = {
@@ -9361,8 +9196,7 @@ territory_data = {
 }
 }
 
-[node name="703dc5759b3e4c528a539eace89b94b3" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="703dc5759b3e4c528a539eace89b94b3" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "703dc5759b3e4c528a539eace89b94b3"
 default_owned_polygons_id = ["a31a65975a0f472b8ef4d47c49f8e74e", "62a29812644f4e58979f5c11ac31c119"]
 territory_data = {
@@ -9376,8 +9210,7 @@ territory_data = {
 }
 }
 
-[node name="cc1232c6dea14e7b8d3c86629f5a0b73" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="cc1232c6dea14e7b8d3c86629f5a0b73" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "cc1232c6dea14e7b8d3c86629f5a0b73"
 default_owned_polygons_id = ["17071ffa86e242c0be2e3c99031ccabe"]
 territory_data = {
@@ -9387,8 +9220,7 @@ territory_data = {
 }
 }
 
-[node name="899ee2ec9c4b46aaae3373ccd6ee89fa" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="899ee2ec9c4b46aaae3373ccd6ee89fa" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "899ee2ec9c4b46aaae3373ccd6ee89fa"
 is_playable_country = true
 default_owned_polygons_id = ["64c9cca84b034f96b8570c86d483d8a7", "4f99a9b7fff444b98fe4ecc51d6e234b", "79cafa2c5f364230b005ae4b67561f43", "cb7ed9b2d5c443c0946f203848886235", "b4e2979e3f7a4c68ab7896fe49d49931", "9241cfd08f1c427883b24f6c560ef47e", "e53dce87131b40a2a9050b5439cd0c5a"]
@@ -9423,8 +9255,7 @@ territory_data = {
 }
 }
 
-[node name="e82cfe6c5bf348ebaa1a8ce98a78b36d" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="e82cfe6c5bf348ebaa1a8ce98a78b36d" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "e82cfe6c5bf348ebaa1a8ce98a78b36d"
 default_owned_polygons_id = ["15e897c5ed514f87a9783df2e3cfe9a4"]
 territory_data = {
@@ -9434,8 +9265,7 @@ territory_data = {
 }
 }
 
-[node name="69a2129c757847879b3f9de254364b0e" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="69a2129c757847879b3f9de254364b0e" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "69a2129c757847879b3f9de254364b0e"
 is_playable_country = true
 default_owned_polygons_id = ["978d901f15964a5bb6e4f3b49bfadd76", "accf5f1c6bbf440aaf408844202c53f4", "2cc8f8f1dd424c8abb9f482110970d92", "c4e817dd913542abaa437436e740cae4", "7b8dfd8cb0e445279b1fd691d9dc1a20", "df5326ada8604a6ab74e204338367c6f", "0e8d8fc9d82443adb29a61d7ce258d05", "a210de8c65d44a20a661d330365f6971", "bc6c48d08c7d47d799d5ec9d8793c479", "268e03cdeb5547aabebe4caaa9cf8d61", "ff47957af87643e589985befc21b5762", "68718b7dc78047f18f2b4d9c60c58091", "3a5cc796cde4459a8faec59a323a85a5", "4e4fa433241c42059e2ebb7cb1dc3f7c", "969d1f868781415ea45277a4c33939f9", "cf38386223a74a309f5eaf20edb1c8bd", "674ae0f8c3ef40e989e5e2cb850ee8b0", "ff60dedc8d1948c084b01d474ac61af7", "b515405db1e34296bba92845229d1a91", "acf760914eee4bc8ba7f77a26af9aa5e", "0a05b3c241004a1eae62cd486b105d59", "3cb9762eaf89444a96d5e589b7ec1f1a", "592f662792f745179da6690818972134", "538cf36e23744b96aa0a7e0e9cd2c98f", "8a719308a81043be95dbda7a6b9658c9", "a58b6c004770461cad9201e6f5af58ed", "19bac2bf939c40f8a12fa6cdf9c7668f", "c0b84311bb4341f3bba4d273d0da505b", "f19f657d9ea64a61b3e4799c132ae9c4", "402e03dd5f5040f3abba322ccc0b6a65"]
@@ -9562,8 +9392,7 @@ territory_data = {
 }
 }
 
-[node name="8eab11ae9891486eaeeaaa6781560e10" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="8eab11ae9891486eaeeaaa6781560e10" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "8eab11ae9891486eaeeaaa6781560e10"
 default_owned_polygons_id = ["45d40ed02a50498890dd313ad1abdc56"]
 territory_data = {
@@ -9573,8 +9402,7 @@ territory_data = {
 }
 }
 
-[node name="6e53fcb39f2d4a979daf87b174a2e838" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="6e53fcb39f2d4a979daf87b174a2e838" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "6e53fcb39f2d4a979daf87b174a2e838"
 default_owned_polygons_id = ["05f0f92d29ce4586a653b86c4a4f632d"]
 territory_data = {
@@ -9584,8 +9412,7 @@ territory_data = {
 }
 }
 
-[node name="66aa192a6ecd402798db21c297334344" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="66aa192a6ecd402798db21c297334344" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "66aa192a6ecd402798db21c297334344"
 default_owned_polygons_id = ["52022f5514334e8592168f58706701f3"]
 territory_data = {
@@ -9595,8 +9422,7 @@ territory_data = {
 }
 }
 
-[node name="a67f49768e76406895abf865ce928837" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="a67f49768e76406895abf865ce928837" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "a67f49768e76406895abf865ce928837"
 default_owned_polygons_id = ["81e141eceb9642b7a1250023e2bc6dc6"]
 territory_data = {
@@ -9606,8 +9432,7 @@ territory_data = {
 }
 }
 
-[node name="82fc148354bb44d1802860453f5dce3e" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="82fc148354bb44d1802860453f5dce3e" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "82fc148354bb44d1802860453f5dce3e"
 default_owned_polygons_id = ["09c6e39bd6724194a1b8203bb96ce8e3"]
 territory_data = {
@@ -9617,8 +9442,7 @@ territory_data = {
 }
 }
 
-[node name="95c44d1c59c6490687d380237029ff8e" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="95c44d1c59c6490687d380237029ff8e" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "95c44d1c59c6490687d380237029ff8e"
 is_playable_country = true
 default_owned_polygons_id = ["38c6d25f85a3447e8c76827e23dd61c6", "ed3fb1d6005546be93e59b2dae52ac5c", "574dafeb29d54e2792cfd0fe63987f0a", "46abab795ef847b094581d4983cfc731", "c0862d0f67df4fc3b49c61ce9d168844"]
@@ -9645,8 +9469,7 @@ territory_data = {
 }
 }
 
-[node name="e3e03eaff85d47c5b10beaabda506768" type="Node2D" parent="Regions" instance=ExtResource("4_h2q64")]
-script = ExtResource("6_icnho")
+[node name="e3e03eaff85d47c5b10beaabda506768" parent="Regions" instance=ExtResource("4_h2q64")]
 owned_country = "e3e03eaff85d47c5b10beaabda506768"
 default_owned_polygons_id = ["065f7b901d704222a39fd95665d589b9"]
 territory_data = {
