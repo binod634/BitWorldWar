@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bo3dobgyi6d3r"]
+
+[ext_resource type="FontFile" uid="uid://dgha77c2vk1pa" path="res://assets/fonts/NotoSerif-Bold.ttf" id="1_57aph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgvjh"]
+bg_color = Color(4.813075e-08, 0.23945993, 0.26356462, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
+anti_aliasing = false
+
+[resource]
+default_font = ExtResource("1_57aph")
+Label/colors/font_color = Color(0.12941177, 0.80784315, 0.38431373, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/outline_size = 1
+Label/fonts/font = ExtResource("1_57aph")
+Panel/styles/panel = SubResource("StyleBoxFlat_cgvjh")

@@ -1,7 +1,9 @@
 extends  Node
 
+
 const resolution:Vector2 = Vector2(1280,720) * 2
 var country_action_popups:Control
+
 
 func start_game():
 	World.parse_geolocation_data()

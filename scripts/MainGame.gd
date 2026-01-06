@@ -9,6 +9,7 @@ const REGIONS_FOLDER:String = "res://assets/files/regions_output/"
 @export var nation_details_map:Dictionary = {}
 @onready var rebuild_needed:bool = $Regions.get_child_count() == 0
 @onready var CountriesParent:Node = $Regions
+@onready var ArmyCommand:CanvasLayer = $VisiblityLayer/ArmyAction
 var builded:bool = false
 
 func _ready() -> void:
@@ -20,9 +21,9 @@ func _ready() -> void:
 		else:
 			if not builded:
 				tell_all_countries_to_show_agn()
-
 	else:
 		provide_countries_data()
+		register_signals()
 		signal_build_complte()
 
 func clear_all_data():
@@ -118,3 +119,13 @@ func load_region_file(file_path:String) -> Dictionary:
 	var json_data = JSON.parse_string(file.get_as_text())
 	assert(typeof(json_data) == TYPE_DICTIONARY,"Json data type not dictionary")
 	return json_data
+
+
+func register_signals():
+	print("registered")
+	ArmyManager.show_army_command.connect(show_army_actions)
+
+
+func show_army_actions(status:bool):
+	print("called")
+	ArmyCommand.visible = status

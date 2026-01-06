@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4gy0rd3mo67s"]
+[gd_scene load_steps=12 format=3 uid="uid://d4gy0rd3mo67s"]
 
 [ext_resource type="PackedScene" uid="uid://dpr465mf0ckgx" path="res://scenes/components/fps_label.tscn" id="1_4exey"]
+[ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_kk7ym"]
 [ext_resource type="Texture2D" uid="uid://boa0yfjwc4d72" path="res://assets/images/special-forces_resize.png" id="2_0w7af"]
 [ext_resource type="LabelSettings" uid="uid://br6s7d82nns10" path="res://settings/label/infantry_count.tres" id="2_psfl5"]
 [ext_resource type="LabelSettings" uid="uid://b6xcbq2m7wsl1" path="res://settings/label/tank_count.tres" id="3_1kj34"]
@@ -17,14 +18,15 @@ corner_radius_bottom_left = 4
 
 [node name="TopPanelBar" type="CanvasLayer"]
 
-[node name="ContainWithin" type="Control" parent="."]
+[node name="SizeTheme" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
+theme = ExtResource("1_kk7ym")
 
-[node name="Backgrounds" type="Control" parent="ContainWithin"]
+[node name="Backgrounds" type="Control" parent="SizeTheme"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -35,7 +37,7 @@ offset_bottom = 60.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="ContainWithin/Backgrounds"]
+[node name="Panel" type="Panel" parent="SizeTheme/Backgrounds"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4exey")
 
-[node name="Container" type="BoxContainer" parent="ContainWithin"]
+[node name="Container" type="BoxContainer" parent="SizeTheme"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -56,32 +58,32 @@ grow_horizontal = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ContainWithin/Container"]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/Container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ContainWithin/Container/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/Container/MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Infantry" type="HBoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer"]
+[node name="Infantry" type="HBoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="Container" type="BoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Infantry"]
+[node name="Container" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Infantry"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Infantry"]
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Infantry"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 4
 
-[node name="Label" type="Label" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Infantry/MarginContainer2"]
+[node name="Label" type="Label" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Infantry/MarginContainer2"]
 layout_direction = 2
 layout_mode = 2
 text = "000979"
@@ -93,39 +95,39 @@ visible_characters = 7
 visible_characters_behavior = 1
 visible_ratio = 1.1666666
 
-[node name="MarginContainer" type="MarginContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Infantry"]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Infantry"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="TextureRect" type="TextureRect" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Infantry/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Infantry/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("2_0w7af")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="BoxContainer" type="BoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer"]
+[node name="BoxContainer" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Tank" type="HBoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer"]
+[node name="Tank" type="HBoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="Container" type="BoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Tank"]
+[node name="Container" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Tank"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Tank"]
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Tank"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 4
 
-[node name="Label" type="Label" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Tank/MarginContainer2"]
+[node name="Label" type="Label" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Tank/MarginContainer2"]
 layout_direction = 2
 layout_mode = 2
 text = "00081"
@@ -135,39 +137,39 @@ vertical_alignment = 3
 max_lines_visible = 1
 visible_characters_behavior = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Tank"]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Tank"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="TextureRect" type="TextureRect" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Tank/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Tank/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("4_0w7af")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="BoxContainer2" type="BoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer"]
+[node name="BoxContainer2" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Plane" type="HBoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer"]
+[node name="Plane" type="HBoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="Container" type="BoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Plane"]
+[node name="Container" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Plane"]
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 4
 
-[node name="Label" type="Label" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Plane/MarginContainer2"]
+[node name="Label" type="Label" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane/MarginContainer2"]
 layout_direction = 2
 layout_mode = 2
 text = "000008"
@@ -177,39 +179,39 @@ vertical_alignment = 3
 max_lines_visible = 1
 visible_characters_behavior = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Plane"]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="TextureRect" type="TextureRect" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Plane/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("6_baiqi")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="BoxContainer3" type="BoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer"]
+[node name="BoxContainer3" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Plane2" type="HBoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer"]
+[node name="Plane2" type="HBoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="Container" type="BoxContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Plane2"]
+[node name="Container" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane2"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Plane2"]
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 4
 
-[node name="Label" type="Label" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Plane2/MarginContainer2"]
+[node name="Label" type="Label" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane2/MarginContainer2"]
 layout_direction = 2
 layout_mode = 2
 text = "000008"
@@ -219,23 +221,23 @@ vertical_alignment = 3
 max_lines_visible = 1
 visible_characters_behavior = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Plane2"]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane2"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="TextureRect" type="TextureRect" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Plane2/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane2/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("8_met05")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="Disabled" type="Control" parent="ContainWithin/Container/MarginContainer/HBoxContainer"]
+[node name="Disabled" type="Control" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Fps" parent="ContainWithin/Container/MarginContainer/HBoxContainer/Disabled" instance=ExtResource("1_4exey")]
+[node name="Fps" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Disabled" instance=ExtResource("1_4exey")]
 visible = false
 layout_mode = 1
 offset_left = 1240.0

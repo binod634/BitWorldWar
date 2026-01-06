@@ -1,9 +1,6 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://he1sv26qlo8c"]
-
-[ext_resource type="FontFile" uid="uid://cmapcli34ypt7" path="res://assets/fonts/BBHBogle-Regular.ttf" id="1_qrlp1"]
+[gd_resource type="LabelSettings" format=3 uid="uid://he1sv26qlo8c"]
 
 [resource]
-font = ExtResource("1_qrlp1")
 font_size = 32
 font_color = Color(0.7882353, 0.7294118, 0.5529412, 1)
 outline_color = Color(1, 1, 1, 0.47058824)
