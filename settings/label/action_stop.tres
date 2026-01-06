@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d35jsj7ulxqdh"]
+
+[ext_resource type="FontFile" uid="uid://1352r0jutpl1" path="res://assets/fonts/PressStart2P.ttf" id="1_kyq2d"]
+
+[resource]
+font = ExtResource("1_kyq2d")
+font_size = 42
+font_color = Color(0.9137255, 0.26666668, 0.26666668, 1)

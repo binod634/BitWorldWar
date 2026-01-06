@@ -1,0 +1,152 @@
+[gd_scene load_steps=5 format=3 uid="uid://b36dws7ocop3k"]
+
+[ext_resource type="Texture2D" uid="uid://l76wmpuo1yoo" path="res://assets/images/raw_original/right-arrow.png" id="2_isg26"]
+[ext_resource type="LabelSettings" uid="uid://c67al8jjndkqi" path="res://settings/label/label.tres" id="3_4kuoy"]
+[ext_resource type="Texture2D" uid="uid://cbyjq7p3y1keq" path="res://assets/images/raw_original/forbidden.png" id="4_pwx8x"]
+[ext_resource type="LabelSettings" uid="uid://d35jsj7ulxqdh" path="res://settings/label/action_stop.tres" id="5_1gory"]
+
+[node name="BottomInfoBar" type="CanvasLayer"]
+
+[node name="Sizing" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -180.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ContainWithin" type="MarginContainer" parent="Sizing"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Backgrounds" type="Control" parent="Sizing/ContainWithin"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="Sizing/ContainWithin/Backgrounds"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Sizing/ContainWithin"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Commands" type="HBoxContainer" parent="Sizing/ContainWithin/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Sizing/ContainWithin/MarginContainer/Commands"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Control" type="Control" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureButton" type="TextureButton" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_isg26")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="Panel2" type="Panel" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="Label" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Move"
+label_settings = ExtResource("3_4kuoy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Sizing/ContainWithin/MarginContainer/Commands"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Control" type="Control" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer2/VBoxContainer2/Control"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 188.0
+offset_bottom = 118.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureButton" type="TextureButton" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer2/VBoxContainer2/Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_pwx8x")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="Panel" type="Panel" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer2/VBoxContainer2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="Label" parent="Sizing/ContainWithin/MarginContainer/Commands/HBoxContainer2/VBoxContainer2/MarginContainer2"]
+layout_mode = 2
+text = "Stop"
+label_settings = ExtResource("5_1gory")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -81,5 +81,6 @@ common/physics_interpolation=true
 
 textures/vram_compression/import_etc2_astc=true
 shader_compiler/shader_cache/strip_debug=true
+viewport/hdr_2d=true
 environment/glow/upscale_mode=0
 environment/screen_space_reflection/roughness_quality=0
