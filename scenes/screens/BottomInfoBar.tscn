@@ -1,15 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpwjxd0xi36yd"]
+[gd_scene load_steps=6 format=3 uid="uid://dpwjxd0xi36yd"]
 
 [ext_resource type="Script" uid="uid://cguc2336u088w" path="res://scenes/tmp/bottom_info_bar.gd" id="1_lr5ic"]
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="2_6g0yk"]
+[ext_resource type="LabelSettings" uid="uid://beu3btyqqus3k" path="res://settings/label/bar_war_country_value.tres" id="4_jkjlx"]
+[ext_resource type="LabelSettings" uid="uid://bwqhoe7a6exos" path="res://settings/label/bat_friendly_with_value.tres" id="5_3es13"]
 [ext_resource type="Texture2D" uid="uid://cfoi7dq4lg4hm" path="res://assets/images/raw_original/images.png" id="13_k7oy5"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_01bho"]
-font_color = Color(1, 0, 0, 1)
-outline_size = 1
 
 [node name="BottomInfoBar" type="CanvasLayer"]
 script = ExtResource("1_lr5ic")
+war_with_nations = PackedStringArray("", "", "", "", "", "", "", "", "")
 
 [node name="SizeTheme" type="Control" parent="."]
 layout_mode = 3
@@ -82,9 +81,13 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/CountryInfo/VBoxContainer"]
 layout_mode = 2
-text = "United state of America"
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+text = "United State of america"
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
+justification_flags = 227
 uppercase = true
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/ContainWithin/MarginContainer/NationData/CountryInfo/VBoxContainer"]
@@ -104,10 +107,132 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_6g0yk")
 text = "relationships"
-label_settings = SubResource("LabelSettings_01bho")
 horizontal_alignment = 1
 uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "War"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="GridContainer" type="GridContainer" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+columns = 2
+
+[node name="Label2" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "France"
+label_settings = ExtResource("4_jkjlx")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "Greece"
+label_settings = ExtResource("4_jkjlx")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "Austrailia"
+label_settings = ExtResource("4_jkjlx")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "New zealand"
+label_settings = ExtResource("4_jkjlx")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "Pakistan"
+label_settings = ExtResource("4_jkjlx")
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "India"
+label_settings = ExtResource("4_jkjlx")
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "Friendly"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="GridContainer" type="GridContainer" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+columns = 2
+
+[node name="Label2" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "France"
+label_settings = ExtResource("5_3es13")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "Greece"
+label_settings = ExtResource("5_3es13")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "Austrailia"
+label_settings = ExtResource("5_3es13")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "New zealand"
+label_settings = ExtResource("5_3es13")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "Pakistan"
+label_settings = ExtResource("5_3es13")
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="SizeTheme/ContainWithin/MarginContainer/NationData/DataInformation/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_6g0yk")
+text = "India"
+label_settings = ExtResource("5_3es13")
+horizontal_alignment = 1
 
 [node name="DataInformation2" type="BoxContainer" parent="SizeTheme/ContainWithin/MarginContainer/NationData"]
 layout_mode = 2

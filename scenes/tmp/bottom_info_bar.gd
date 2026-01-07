@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var NationDock:Control = $Sizing/ContainWithin/NationData
 @onready var ArmyDock:Control = $Sizing/ContainWithin/ArmyData
+@export var war_with_nations:PackedStringArray = PackedStringArray()
 
 # varaible
 enum DockType {

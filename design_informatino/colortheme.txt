@@ -1,0 +1,25 @@
+UI & Background Colors
+These colors form the frame, panels, and deep-sea background of the interface.
+Element,Purpose,Hex Value
+End Turn,Primary Action Button,4682B4
+Declare War,Destructive Action / Warning,8B0000
+Selection Highlight,Active country outline/glow,00CED1
+
+
+Political Map Colors
+These are the flat, functional colors used for territory control and diplomacy.
+Element,Color Description,Hex Value
+Primary Navy,Deep base for the UI panels and ocean,1A2F3A
+Dark Teal,Accents and button gradients,2D5A6E
+Panel Border,Subtle highlight for window edges,3C6E82
+Header Bar,Top navigation background,13242D
+Text White,High-contrast readable text,E1EBF0
+
+Functional Elements
+Colors used for specific buttons and status indicators.
+Element,Alignment,Hex Value
+Player (Green),Controlled territory,4B7D52
+Enemy (Red),Hostile territory / Axis powers,AD3A3A
+Ally (Blue),Allied territory / Comintern,3A70AD
+Neutral (Dark Green),Non-aligned territory,2F4F4F
+

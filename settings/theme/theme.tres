@@ -14,8 +14,6 @@ anti_aliasing = false
 [resource]
 default_font = ExtResource("1_57aph")
 Label/colors/font_color = Color(0.12941177, 0.80784315, 0.38431373, 1)
-Label/colors/font_outline_color = Color(1, 1, 1, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
-Label/constants/outline_size = 1
 Label/fonts/font = ExtResource("1_57aph")
 Panel/styles/panel = SubResource("StyleBoxFlat_cgvjh")
