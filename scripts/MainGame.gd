@@ -10,6 +10,7 @@ const REGIONS_FOLDER:String = "res://assets/files/regions_output/"
 @onready var rebuild_needed:bool = $Regions.get_child_count() == 0
 @onready var CountriesParent:Node = $Regions
 @onready var ArmyCommand:CanvasLayer = $VisiblityLayer/ArmyAction
+@onready var BottomInfo:CanvasLayer = $VisiblityLayer/BottomInfoBar
 var builded:bool = false
 
 func _ready() -> void:
@@ -22,6 +23,7 @@ func _ready() -> void:
 			if not builded:
 				tell_all_countries_to_show_agn()
 	else:
+		print(Colors.ColorsValue[Colors.ColorName.DarkBlue])
 		provide_countries_data()
 		register_signals()
 		signal_build_complte()
@@ -54,7 +56,7 @@ func tell_all_countries_to_show_agn():
 
 
 func decode_all_polygons():
-	print("[*] Rebuilt Necessary. Decoding...")
+	print("[*] Rebuild Necessary. Decoding...")
 	var region_files:Array = get_region_files()
 	territories_data.clear()
 	for file_path in region_files:
@@ -129,3 +131,4 @@ func register_signals():
 func show_army_actions(status:bool):
 	print("called")
 	ArmyCommand.visible = status
+	BottomInfo.visible = not status

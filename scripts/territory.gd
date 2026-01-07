@@ -58,7 +58,9 @@ func build_territory(is_editor_build:bool = true):
 	for polygons_id in default_owned_polygons_id:
 		if territory_data.has(polygons_id):
 			#var color:Color = GeoHelper.string_to_color(owned_country) * 0.95 + Color(randf(),randf(),randf()) * 0.05
-			var color:Color = Color.LIGHT_GREEN if not is_editor_build &&  PlayerData.is_country_mine(owned_country) else (Color.DARK_GREEN * 0.8  + GeoHelper.string_to_color(owned_country) * 0.2)
+			var owned_color:Color = Colors.ColorsValue[Colors.ColorName.LightBlue]
+			var neutral_color:Color = Colors.ColorsValue[Colors.ColorName.Green]
+			var color:Color = owned_color if not is_editor_build &&  PlayerData.is_country_mine(owned_country) else (neutral_color * 0.8  + GeoHelper.string_to_color(owned_country) * 0.2)
 			# there should be 1 array
 			var packed_vertices:PackedVector2Array = PackedVector2Array()
 			for i in territory_data[polygons_id][GeoHelper.TerritoryData.coordinates]:
@@ -124,5 +126,5 @@ func center_point_in_polygon(polygon:PackedVector2Array) -> Vector2:
 
 func _on_collision_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_MASK_LEFT && event.is_pressed()):
-		#Game.popup_territory_action(owned_country,get_global_mouse_position())
+		# Game.popup_territory_action(owned_country,get_global_mouse_position())
 		pass

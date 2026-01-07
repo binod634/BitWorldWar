@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpr465mf0ckgx"]
 
-[ext_resource type="LabelSettings" uid="uid://c67al8jjndkqi" path="res://settings/label/label.tres" id="1_i3f6n"]
+[ext_resource type="LabelSettings" uid="uid://c67al8jjndkqi" path="res://settings/label/fps.tres" id="1_i3f6n"]
 [ext_resource type="Script" uid="uid://f611wt2y3mr2" path="res://scenes/components/scripts/fps_label.gd" id="1_k1b1b"]
 
 [node name="Fps" type="Control"]

@@ -1,0 +1,245 @@
+[gd_scene load_steps=13 format=3 uid="uid://bmd0yfcr80v2e"]
+
+[ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_4ayhn"]
+[ext_resource type="Texture2D" uid="uid://ben3i8ultgsyk" path="res://assets/images/support.png" id="2_a2l10"]
+[ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/RightBarInfoHeaderValue.tres" id="2_tgwj3"]
+[ext_resource type="FontFile" uid="uid://b40652g02ivxr" path="res://assets/fonts/NotoSerif-VariableFont_wdth,wght.ttf" id="3_d0j11"]
+[ext_resource type="Texture2D" uid="uid://ckppk642ig3ft" path="res://assets/images/circle.png" id="3_jrjp1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ayhn"]
+bg_color = Color(0.10980392, 0.24313726, 0.2901961, 0.8784314)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4ayhn"]
+content_margin_right = 997.0
+color = Color(0.21839619, 0.35146013, 0.40275267, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_bs1oh"]
+base_font = ExtResource("3_d0j11")
+variation_opentype = {
+2003072104: 100,
+2003265652: 600
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bs1oh"]
+content_margin_left = 14.0
+content_margin_right = 14.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgwj3"]
+content_margin_left = 15.0
+content_margin_right = 14.0
+bg_color = Color(0.35675973, 0.5360081, 0.60571516, 0.6117647)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0j11"]
+bg_color = Color(0.1938785, 0.31635028, 0.3635163, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbgl4"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.6901961, 0.23921569, 0.2901961, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="RightBarInfo" type="CanvasLayer"]
+
+[node name="SizeTheme" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -266.5
+offset_bottom = 266.5
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_4ayhn")
+
+[node name="Background" type="Control" parent="SizeTheme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SizeTheme/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ayhn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="SizeTheme/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Country" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "China"
+label_settings = ExtResource("2_tgwj3")
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = ":"
+label_settings = ExtResource("2_tgwj3")
+
+[node name="Diplomacy" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Diplomacy"
+label_settings = ExtResource("2_tgwj3")
+
+[node name="Line" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 32
+
+[node name="HSeparator" type="HSeparator" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/Line"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_4ayhn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TabBar" type="TabBar" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_unselected_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 16
+theme_override_constants/icon_max_width = 32
+theme_override_fonts/font = SubResource("FontVariation_bs1oh")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_bs1oh")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_bs1oh")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_tgwj3")
+theme_override_styles/tab_focus = SubResource("StyleBoxFlat_bs1oh")
+current_tab = 0
+tab_alignment = 1
+close_with_middle_mouse = false
+scrolling_enabled = false
+tab_count = 2
+tab_0/title = "Allies"
+tab_0/tooltip = "Allies"
+tab_0/icon = ExtResource("2_a2l10")
+tab_1/title = "Enemies"
+tab_1/icon = ExtResource("3_jrjp1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/TabBar"]
+visible = false
+layout_mode = 0
+offset_right = 55.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/TabBar/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_a2l10")
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/TabBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="ListCountries" type="Control" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("1_4ayhn")
+
+[node name="Background" type="Control" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0j11")
+
+[node name="ListValue" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Button" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Form Alliance"
+
+[node name="Button2" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pbgl4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pbgl4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pbgl4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pbgl4")
+text = "Declare War"

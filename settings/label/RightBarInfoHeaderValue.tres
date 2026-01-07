@@ -1,0 +1,14 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://2kcv3edumldm"]
+
+[ext_resource type="FontFile" uid="uid://b40652g02ivxr" path="res://assets/fonts/NotoSerif-VariableFont_wdth,wght.ttf" id="1_pk1pb"]
+
+[sub_resource type="FontVariation" id="FontVariation_pk1pb"]
+base_font = ExtResource("1_pk1pb")
+variation_opentype = {
+2003072104: 100,
+2003265652: 600
+}
+
+[resource]
+font = SubResource("FontVariation_pk1pb")
+font_size = 24

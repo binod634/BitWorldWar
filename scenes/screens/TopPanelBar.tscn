@@ -1,18 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4gy0rd3mo67s"]
+[gd_scene load_steps=8 format=3 uid="uid://d4gy0rd3mo67s"]
 
-[ext_resource type="PackedScene" uid="uid://dpr465mf0ckgx" path="res://scenes/components/fps_label.tscn" id="1_4exey"]
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_kk7ym"]
-[ext_resource type="Texture2D" uid="uid://boa0yfjwc4d72" path="res://assets/images/special-forces_resize.png" id="2_0w7af"]
-[ext_resource type="LabelSettings" uid="uid://br6s7d82nns10" path="res://settings/label/infantry_count.tres" id="2_psfl5"]
-[ext_resource type="LabelSettings" uid="uid://b6xcbq2m7wsl1" path="res://settings/label/tank_count.tres" id="3_1kj34"]
-[ext_resource type="Texture2D" uid="uid://bnjpl28lrlyvq" path="res://assets/images/tank_resize.png" id="4_0w7af"]
-[ext_resource type="LabelSettings" uid="uid://cjj6vmm7nct7x" path="res://settings/label/plane_count.tres" id="5_0w7af"]
-[ext_resource type="Texture2D" uid="uid://dn1ob8nbufjsm" path="res://assets/images/aircraft_resized.png" id="6_baiqi"]
-[ext_resource type="LabelSettings" uid="uid://he1sv26qlo8c" path="res://settings/label/anti_air.tres" id="7_frwnf"]
-[ext_resource type="Texture2D" uid="uid://bfqu0fqn7cmwq" path="res://assets/images/missile_resize.png" id="8_met05"]
+[ext_resource type="Texture2D" uid="uid://cpctoqsjm4ct3" path="res://assets/images/clock-white.png" id="2_hntsg"]
+[ext_resource type="LabelSettings" uid="uid://lgumts37a8w4" path="res://settings/label/panel_detail_value.tres" id="3_sgcot"]
+[ext_resource type="Texture2D" uid="uid://ddxkftncdwko1" path="res://assets/images/dollar.png" id="3_te04m"]
+[ext_resource type="Texture2D" uid="uid://c5l4qr80td75p" path="res://assets/images/engineers.png" id="5_c7jub"]
+[ext_resource type="Texture2D" uid="uid://bdpxbw5h5fj6k" path="res://assets/images/settings.png" id="5_iafrw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4exey"]
-bg_color = Color(0.07450981, 0.12941177, 0.15686275, 0.6784314)
+bg_color = Color(0, 0.23921569, 0.2627451, 1)
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
@@ -20,21 +16,20 @@ corner_radius_bottom_left = 4
 
 [node name="SizeTheme" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
 grow_horizontal = 2
+size_flags_horizontal = 3
 theme = ExtResource("1_kk7ym")
 
 [node name="Backgrounds" type="Control" parent="SizeTheme"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -400.0
-offset_right = 400.0
-offset_bottom = 60.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 
 [node name="Panel" type="Panel" parent="SizeTheme/Backgrounds"]
@@ -46,199 +41,85 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4exey")
 
-[node name="Container" type="BoxContainer" parent="SizeTheme"]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -400.0
-offset_right = 400.0
-offset_bottom = 60.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_constants/separation = 0
-alignment = 1
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
 
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/Container"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_right = 8
+theme_override_constants/separation = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/Container/MarginContainer"]
+[node name="Year" type="HBoxContainer" parent="SizeTheme/MarginContainer/HBoxContainer"]
 layout_mode = 2
-alignment = 1
 
-[node name="Infantry" type="HBoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MarginContainer/HBoxContainer/Year"]
 layout_mode = 2
-theme_override_constants/separation = 4
-alignment = 1
-
-[node name="Container" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Infantry"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Infantry"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 4
-
-[node name="Label" type="Label" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Infantry/MarginContainer2"]
-layout_direction = 2
-layout_mode = 2
-text = "000979"
-label_settings = ExtResource("2_psfl5")
-horizontal_alignment = 3
-vertical_alignment = 3
-max_lines_visible = 1
-visible_characters = 7
-visible_characters_behavior = 1
-visible_ratio = 1.1666666
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Infantry"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Infantry/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("2_0w7af")
+texture = ExtResource("2_hntsg")
 expand_mode = 3
-stretch_mode = 4
+stretch_mode = 5
 
-[node name="BoxContainer" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="SizeTheme/MarginContainer/HBoxContainer/Year"]
+layout_mode = 2
+size_flags_stretch_ratio = 4.0
+text = "Year 1942"
+label_settings = ExtResource("3_sgcot")
+
+[node name="Tresury" type="HBoxContainer" parent="SizeTheme/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MarginContainer/HBoxContainer/Tresury"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Tank" type="HBoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 4
-alignment = 1
-
-[node name="Container" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Tank"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Tank"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 4
-
-[node name="Label" type="Label" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Tank/MarginContainer2"]
-layout_direction = 2
-layout_mode = 2
-text = "00081"
-label_settings = ExtResource("3_1kj34")
-horizontal_alignment = 3
-vertical_alignment = 3
-max_lines_visible = 1
-visible_characters_behavior = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Tank"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Tank/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("4_0w7af")
+texture = ExtResource("3_te04m")
 expand_mode = 3
-stretch_mode = 4
+stretch_mode = 5
 
-[node name="BoxContainer2" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="SizeTheme/MarginContainer/HBoxContainer/Tresury"]
+layout_mode = 2
+size_flags_stretch_ratio = 4.0
+text = "Tresury: $1.2k"
+label_settings = ExtResource("3_sgcot")
+
+[node name="Manpower" type="HBoxContainer" parent="SizeTheme/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MarginContainer/HBoxContainer/Manpower"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="Plane" type="HBoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 4
-alignment = 1
-
-[node name="Container" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 4
-
-[node name="Label" type="Label" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane/MarginContainer2"]
-layout_direction = 2
-layout_mode = 2
-text = "000008"
-label_settings = ExtResource("5_0w7af")
-horizontal_alignment = 3
-vertical_alignment = 3
-max_lines_visible = 1
-visible_characters_behavior = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("6_baiqi")
+texture = ExtResource("5_c7jub")
 expand_mode = 3
-stretch_mode = 4
+stretch_mode = 5
 
-[node name="BoxContainer3" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="SizeTheme/MarginContainer/HBoxContainer/Manpower"]
+layout_mode = 2
+size_flags_stretch_ratio = 4.0
+text = "Manpower:2.5M"
+label_settings = ExtResource("3_sgcot")
+
+[node name="Spacing" type="HBoxContainer" parent="SizeTheme/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Plane2" type="HBoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
+[node name="Research" type="HBoxContainer" parent="SizeTheme/MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 4
-alignment = 1
 
-[node name="Container" type="BoxContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane2"]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MarginContainer/HBoxContainer/Research"]
 layout_mode = 2
 size_flags_horizontal = 3
-alignment = 1
-
-[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 4
-
-[node name="Label" type="Label" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane2/MarginContainer2"]
-layout_direction = 2
-layout_mode = 2
-text = "000008"
-label_settings = ExtResource("7_frwnf")
-horizontal_alignment = 3
-vertical_alignment = 3
-max_lines_visible = 1
-visible_characters_behavior = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane2"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Plane2/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("8_met05")
+texture = ExtResource("5_iafrw")
 expand_mode = 3
-stretch_mode = 4
+stretch_mode = 5
 
-[node name="Disabled" type="Control" parent="SizeTheme/Container/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="SizeTheme/MarginContainer/HBoxContainer/Research"]
 layout_mode = 2
-
-[node name="Fps" parent="SizeTheme/Container/MarginContainer/HBoxContainer/Disabled" instance=ExtResource("1_4exey")]
-visible = false
-layout_mode = 1
-offset_left = 1240.0
-offset_right = 1240.0
+size_flags_stretch_ratio = 4.0
+text = "Research: 82%"
+label_settings = ExtResource("3_sgcot")
