@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x42eqxs835yf"
-path="res://.godot/imported/swords.png-3fe05550451d666808cf84bcc939644b.ctex"
+uid="uid://c73yu1dlyjtdr"
+path="res://.godot/imported/pakistan.png-b029e4e175c3df6e9df2174292eeebfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/swords.png"
-dest_files=["res://.godot/imported/swords.png-3fe05550451d666808cf84bcc939644b.ctex"]
+source_file="res://assets/images/flags/pakistan.png"
+dest_files=["res://.godot/imported/pakistan.png-b029e4e175c3df6e9df2174292eeebfb.ctex"]
 
 [params]
 

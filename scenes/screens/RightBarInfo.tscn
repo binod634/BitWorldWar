@@ -1,10 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmd0yfcr80v2e"]
+[gd_scene load_steps=19 format=3 uid="uid://bmd0yfcr80v2e"]
 
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_4ayhn"]
 [ext_resource type="Texture2D" uid="uid://ben3i8ultgsyk" path="res://assets/images/support.png" id="2_a2l10"]
 [ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/RightBarInfoHeaderValue.tres" id="2_tgwj3"]
 [ext_resource type="FontFile" uid="uid://b40652g02ivxr" path="res://assets/fonts/NotoSerif-VariableFont_wdth,wght.ttf" id="3_d0j11"]
-[ext_resource type="Texture2D" uid="uid://ckppk642ig3ft" path="res://assets/images/circle.png" id="3_jrjp1"]
+[ext_resource type="Texture2D" uid="uid://ccxlnep05duqi" path="res://assets/images/handshake.png" id="4_bs1oh"]
+[ext_resource type="Texture2D" uid="uid://x42eqxs835yf" path="res://assets/images/war.png" id="5_d0j11"]
+[ext_resource type="Texture2D" uid="uid://d2k0rbm2ftk5n" path="res://assets/images/flags/china.png" id="7_pbgl4"]
+[ext_resource type="Texture2D" uid="uid://d3skwy7dhu7av" path="res://assets/images/flags/india.png" id="8_n4ywu"]
+[ext_resource type="Texture2D" uid="uid://tpsgbnsf1xyt" path="res://assets/images/flags/nepal.png" id="9_qin25"]
+[ext_resource type="Texture2D" uid="uid://c73yu1dlyjtdr" path="res://assets/images/flags/pakistan.png" id="10_wu3nv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ayhn"]
 bg_color = Color(0.10980392, 0.24313726, 0.2901961, 0.8784314)
@@ -43,6 +48,8 @@ corner_radius_top_right = 8
 bg_color = Color(0.1938785, 0.31635028, 0.3635163, 1)
 corner_detail = 1
 
+[sub_resource type="LabelSettings" id="LabelSettings_pbgl4"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbgl4"]
 content_margin_left = 16.0
 content_margin_top = 16.0
@@ -56,8 +63,7 @@ corner_radius_bottom_left = 16
 
 [node name="RightBarInfo" type="CanvasLayer"]
 
-[node name="SizeTheme" type="Control" parent="."]
-layout_mode = 3
+[node name="SizeTheme" type="MarginContainer" parent="."]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -71,12 +77,7 @@ grow_vertical = 2
 theme = ExtResource("1_4ayhn")
 
 [node name="Background" type="Control" parent="SizeTheme"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Panel" type="Panel" parent="SizeTheme/Background"]
 layout_mode = 1
@@ -88,12 +89,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ayhn")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Control" type="Control" parent="SizeTheme/HBoxContainer"]
 layout_mode = 2
@@ -169,10 +165,9 @@ close_with_middle_mouse = false
 scrolling_enabled = false
 tab_count = 2
 tab_0/title = "Allies"
-tab_0/tooltip = "Allies"
-tab_0/icon = ExtResource("2_a2l10")
+tab_0/icon = ExtResource("4_bs1oh")
 tab_1/title = "Enemies"
-tab_1/icon = ExtResource("3_jrjp1")
+tab_1/icon = ExtResource("5_d0j11")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/TabBar"]
 visible = false
@@ -211,13 +206,185 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d0j11")
 
-[node name="ListValue" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries"]
+[node name="ScrollContainer" type="ScrollContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+draw_focus_border = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_pbgl4")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "China"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_n4ywu")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "India"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("9_qin25")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Nepal"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("10_wu3nv")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Pakistan"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("7_pbgl4")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "China"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("8_n4ywu")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "India"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("9_qin25")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Nepal"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+texture = ExtResource("10_wu3nv")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+text = "Pakistan"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+texture = ExtResource("7_pbgl4")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+text = "China"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+texture = ExtResource("8_n4ywu")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+text = "India"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+texture = ExtResource("9_qin25")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+text = "Nepal"
+label_settings = SubResource("LabelSettings_pbgl4")
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+texture = ExtResource("10_wu3nv")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+text = "Pakistan"
+label_settings = SubResource("LabelSettings_pbgl4")
 
 [node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2

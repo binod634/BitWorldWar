@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl055a54m1kcs"
-path="res://.godot/imported/images.png-4e6908a40a969850023982ad3579f8f8.ctex"
+uid="uid://ccxlnep05duqi"
+path="res://.godot/imported/handshake.png-cb311b080c9e16e6b145dda8013742c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/screens/images.png"
-dest_files=["res://.godot/imported/images.png-4e6908a40a969850023982ad3579f8f8.ctex"]
+source_file="res://assets/images/handshake.png"
+dest_files=["res://.godot/imported/handshake.png-cb311b080c9e16e6b145dda8013742c8.ctex"]
 
 [params]
 
