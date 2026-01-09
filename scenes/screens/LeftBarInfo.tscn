@@ -29,6 +29,7 @@ corner_radius_bottom_left = 16
 
 [node name="LeftBarInfo" type="CanvasLayer"]
 script = ExtResource("1_ulmx0")
+ActionShown = false
 
 [node name="SizeTheme" type="MarginContainer" parent="."]
 anchors_preset = 4
@@ -40,10 +41,23 @@ offset_bottom = 266.5
 grow_vertical = 2
 theme = ExtResource("1_d8bky")
 
-[node name="Background" type="Control" parent="SizeTheme"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="Panel" type="Panel" parent="SizeTheme/Background"]
+[node name="Content" type="Control" parent="SizeTheme/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Background" type="Control" parent="SizeTheme/HBoxContainer/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SizeTheme/HBoxContainer/Content/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,14 +66,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ayhn")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="SizeTheme/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/HBoxContainer/Content"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,34 +79,34 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/HBoxContainer/Content/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_ptuq5")
 expand_mode = 3
 
-[node name="Country" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Country" type="Label" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "India"
 label_settings = ExtResource("2_lcsnk")
 
-[node name="Line" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer"]
+[node name="Line" type="MarginContainer" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 32
 
-[node name="HSeparator" type="HSeparator" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/Line"]
+[node name="HSeparator" type="HSeparator" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/Line"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_4ayhn")
 
-[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -107,35 +114,57 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="FormAliance" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Produce Units"
 
-[node name="FormAliance2" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance2" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Construct Buildings"
 
-[node name="FormAliance3" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance3" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Iniciate Research"
 
-[node name="FormAliance4" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance4" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Sabotage and Spy"
 
-[node name="FormAliance5" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance5" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Send Message"
 
-[node name="DeclareWar" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="DeclareWar" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_pbgl4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pbgl4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pbgl4")
 theme_override_styles/focus = SubResource("StyleBoxFlat_pbgl4")
 text = "Declare War"
+
+[node name="CollapseExpand" type="Control" parent="SizeTheme/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Background" type="Control" parent="SizeTheme/HBoxContainer/CollapseExpand"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SizeTheme/HBoxContainer/CollapseExpand/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ayhn")

@@ -11,6 +11,8 @@ const REGIONS_FOLDER:String = "res://assets/files/regions_output/"
 @onready var CountriesParent:Node = $Regions
 @onready var ArmyCommand:CanvasLayer = $VisiblityLayer/ArmyAction
 @onready var BottomInfo:CanvasLayer = $VisiblityLayer/BottomInfoBar
+@onready var CountryActionMenu:CanvasLayer = $VisiblityLayer/LeftBarInfo
+@onready var DiplomacyDataMenu:CanvasLayer = $VisiblityLayer/RightBarInfo
 var builded:bool = false
 
 func _ready() -> void:
@@ -22,6 +24,7 @@ func _ready() -> void:
 		else:
 			if not builded:
 				tell_all_countries_to_show_agn()
+				builded = true
 	else:
 		print(Colors.ColorsValue[Colors.ColorName.DarkBlue])
 		provide_countries_data()
@@ -126,7 +129,8 @@ func load_region_file(file_path:String) -> Dictionary:
 func register_signals():
 	print("registered")
 	ArmyManager.show_army_command.connect(show_army_actions)
-
+	RelationManager.show_country_action_menu.connect(func (): CountryActionMenu.visible = not CountryActionMenu.visible)
+	RelationManager.show_diplomacy_information_menu.connect(func (): DiplomacyDataMenu.visible = not DiplomacyDataMenu.visible)
 
 func show_army_actions(status:bool):
 	print("called")

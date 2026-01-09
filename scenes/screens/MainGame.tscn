@@ -9472,3 +9472,4 @@ AutoHide = false
 
 [node name="LeftBarInfo" parent="VisiblityLayer" instance=ExtResource("8_6pk0q")]
 AutoHide = false
+ActionShown = true

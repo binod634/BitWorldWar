@@ -1,0 +1,6 @@
+Things TODO:
+	make production unit layer
+	make building construction layer
+	implement declaration of war.
+	multiplayer implementation
+	layer hiding when not in focus

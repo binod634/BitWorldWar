@@ -2,7 +2,8 @@ extends Node
 
 # signals
 signal setup_completed
-
+signal show_country_action_menu
+signal show_diplomacy_information_menu
 
 const raw_vector_scale_value:Vector2 = GeoHelper.raw_vector_scale_value
 const raw_vector_offset_value:Vector2 = GeoHelper.raw_vector_offset_value
@@ -163,3 +164,9 @@ func calculate_polygon_area(points: PackedVector2Array) -> float:
 
 func decode_all_vertices(vertices_data:Dictionary) -> Array[PackedVector2Array]:
 	return GeoHelper.decode_all_vertices(vertices_data)
+
+func territory_clicked(country_id:String):
+	if PlayerData.is_country_mine(country_id):
+		show_country_action_menu.emit()
+	else:
+		show_diplomacy_information_menu.emit()
