@@ -6,13 +6,13 @@ var country_action_popups:Control
 
 
 func start_game():
-	World.parse_geolocation_data()
-	World.make_country_navigatable(PlayerData.country_id)
+	RelationManager.parse_geolocation_data()
+	RelationManager.make_country_navigatable(PlayerData.country_id)
 
 func popup_territory_action(hashed_name:String,location:Vector2):
 	if PlayerData.is_country_mine(hashed_name): return
 	check_and_remove_exisiting_popups()
-	World.highlight_country(hashed_name,true)
+	RelationManager.highlight_country(hashed_name,true)
 	_make_new_popup(hashed_name,location)
 
 
@@ -29,7 +29,7 @@ func _make_new_popup(hashed_name:String,location:Vector2):
 
 func check_and_remove_exisiting_popups():
 	if country_action_popups != null:
-		World.highlight_country(country_action_popups.name,false)
+		RelationManager.highlight_country(country_action_popups.name,false)
 		country_action_popups.name  = "removing..."
 		country_action_popups.queue_free()
 		country_action_popups = null

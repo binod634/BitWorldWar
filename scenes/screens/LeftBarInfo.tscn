@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkai00fmv5u6b"]
+[gd_scene load_steps=8 format=3 uid="uid://bkai00fmv5u6b"]
 
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_d8bky"]
+[ext_resource type="Script" uid="uid://6mh6cakxqcgq" path="res://scripts/left_bar_info.gd" id="1_ulmx0"]
 [ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/RightBarInfoHeaderValue.tres" id="2_lcsnk"]
 [ext_resource type="Texture2D" uid="uid://d3skwy7dhu7av" path="res://assets/images/flags/india.png" id="8_ptuq5"]
 
@@ -27,6 +28,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [node name="LeftBarInfo" type="CanvasLayer"]
+script = ExtResource("1_ulmx0")
 
 [node name="SizeTheme" type="MarginContainer" parent="."]
 anchors_preset = 4
@@ -85,7 +87,7 @@ expand_mode = 3
 
 [node name="Country" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "China"
+text = "India"
 label_settings = ExtResource("2_lcsnk")
 
 [node name="Line" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer"]
@@ -110,11 +112,27 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="Button" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Form Alliance"
+text = "Produce Units"
 
-[node name="Button2" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance2" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Construct Buildings"
+
+[node name="FormAliance3" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Iniciate Research"
+
+[node name="FormAliance4" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Sabotage and Spy"
+
+[node name="FormAliance5" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Send Message"
+
+[node name="DeclareWar" type="Button" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_pbgl4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pbgl4")

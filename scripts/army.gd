@@ -23,7 +23,7 @@ var is_character_selected:bool = false:
 
 func _ready() -> void:
 	name = "army_" + str(randi())
-	visible = World.is_country_owned(owned_country)
+	visible = RelationManager.is_country_owned(owned_country)
 
 func _physics_process(_delta: float) -> void:
 	if navAgent.is_navigation_finished(): return

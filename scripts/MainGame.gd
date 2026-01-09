@@ -35,13 +35,13 @@ func clear_all_data():
 
 
 func signal_build_complte():
-	World.signal_setup_completed()
+	RelationManager.signal_setup_completed()
 
 
 func provide_countries_data():
-	World.set_territories_data(territories_data)
-	World.set_country_territories_map(country_to_territories_map)
-	World.pick_nation("75a95d714dc74a54a1c749e10449cd8e")
+	RelationManager.set_territories_data(territories_data)
+	RelationManager.set_country_territories_map(country_to_territories_map)
+	RelationManager.pick_nation("75a95d714dc74a54a1c749e10449cd8e")
 
 func get_id_from_name(target_name: String) -> String:
 	for id in nation_details_map:

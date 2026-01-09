@@ -24,7 +24,7 @@ var playerAgent:PackedScene = preload("res://scenes/objects/army.tscn")
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
-		World.setup_completed.connect(build_runtime)
+		RelationManager.setup_completed.connect(build_runtime)
 
 
 func build_runtime():
@@ -33,7 +33,7 @@ func build_runtime():
 	deploy_army()
 
 func make_dollar_effect_if_owned():
-	if not World.is_country_owned(owned_country): return
+	if not RelationManager.is_country_owned(owned_country): return
 	make_particles_effects()
 
 func make_particles_effects():

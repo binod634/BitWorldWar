@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmd0yfcr80v2e"]
+[gd_scene load_steps=20 format=3 uid="uid://bmd0yfcr80v2e"]
 
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_4ayhn"]
+[ext_resource type="Script" uid="uid://uf3rfb7cyy7s" path="res://scripts/right_bar_info.gd" id="1_qin25"]
 [ext_resource type="Texture2D" uid="uid://ben3i8ultgsyk" path="res://assets/images/support.png" id="2_a2l10"]
 [ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/RightBarInfoHeaderValue.tres" id="2_tgwj3"]
 [ext_resource type="FontFile" uid="uid://b40652g02ivxr" path="res://assets/fonts/NotoSerif-VariableFont_wdth,wght.ttf" id="3_d0j11"]
@@ -62,6 +63,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [node name="RightBarInfo" type="CanvasLayer"]
+script = ExtResource("1_qin25")
 
 [node name="SizeTheme" type="MarginContainer" parent="."]
 anchors_preset = 6
@@ -71,6 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -300.0
 offset_top = -266.5
+offset_right = 0.025024414
 offset_bottom = 266.5
 grow_horizontal = 0
 grow_vertical = 2
@@ -155,6 +158,7 @@ theme_override_colors/font_unselected_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 16
 theme_override_constants/icon_max_width = 32
 theme_override_fonts/font = SubResource("FontVariation_bs1oh")
+theme_override_font_sizes/font_size = 16
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_bs1oh")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_bs1oh")
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_tgwj3")
@@ -162,7 +166,6 @@ theme_override_styles/tab_focus = SubResource("StyleBoxFlat_bs1oh")
 current_tab = 0
 tab_alignment = 1
 close_with_middle_mouse = false
-scrolling_enabled = false
 tab_count = 2
 tab_0/title = "Allies"
 tab_0/icon = ExtResource("4_bs1oh")

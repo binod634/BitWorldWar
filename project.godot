@@ -26,9 +26,9 @@ config/icon="uid://jmvg33r5axtg"
 [autoload]
 
 Game="*res://scripts/Game.gd"
-World="*res://scripts/World.gd"
 ArmyManager="*res://scripts/ArmyManager.gd"
 PlayerData="*res://scripts/PlayerData.gd"
+RelationManager="*res://scripts/RelationManager.gd"
 
 [debug]
 
