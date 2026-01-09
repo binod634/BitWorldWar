@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func set_tween():
 	var tween = get_tree().create_tween()
-	print("called")
 	tween.tween_property(SizeThemeBox,^'modulate',Color.TRANSPARENT,0.5)
 
 

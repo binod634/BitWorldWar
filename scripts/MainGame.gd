@@ -4,9 +4,8 @@ extends Node2D
 # Territory scene to instantiate for each country
 var territory:PackedScene = preload("res://scenes/screens/Territory.tscn")
 const REGIONS_FOLDER:String = "res://assets/files/regions_output/"
-@export var territories_data:Dictionary = {}
-@export var country_to_territories_map:Dictionary = {}
-@export var nation_details_map:Dictionary = {}
+var territories_data:Dictionary[String,TerritoryData]
+var countries:Dictionary[String,CountryData]
 @onready var rebuild_needed:bool = $Regions.get_child_count() == 0
 @onready var CountriesParent:Node = $Regions
 @onready var ArmyCommand:CanvasLayer = $VisiblityLayer/ArmyAction
@@ -26,15 +25,13 @@ func _ready() -> void:
 				tell_all_countries_to_show_agn()
 				builded = true
 	else:
-		print(Colors.ColorsValue[Colors.ColorName.DarkBlue])
 		provide_countries_data()
 		register_signals()
 		signal_build_complte()
 
 func clear_all_data():
 	territories_data = {}
-	country_to_territories_map = {}
-	nation_details_map = {}
+	countries = {}
 
 
 func signal_build_complte():
@@ -43,14 +40,15 @@ func signal_build_complte():
 
 func provide_countries_data():
 	RelationManager.set_territories_data(territories_data)
-	RelationManager.set_country_territories_map(country_to_territories_map)
-	RelationManager.pick_nation("75a95d714dc74a54a1c749e10449cd8e")
+	RelationManager.set_country_territories_map(countries)
+	#RelationManager.pick_nation("75a95d714dc74a54a1c749e10449cd8e")
+	RelationManager.pick_nation(find_nation_from_name("India"))
 
-func get_id_from_name(target_name: String) -> String:
-	for id in nation_details_map:
-		var c_name:String = nation_details_map[id]["name"]
-		if c_name == target_name:
-			return id
+func find_nation_from_name(nation_name:String):
+	for a in countries:
+		if countries[a].country_name == nation_name:
+			return countries[a].country_id
+	assert(false,"Why not found ???")
 	return "not found"
 
 func tell_all_countries_to_show_agn():
@@ -58,50 +56,35 @@ func tell_all_countries_to_show_agn():
 		node.build_territory()
 
 
+func _draw() -> void:
+	for a in territories_data:
+		var polygons:PackedVector2Array =  GeoHelper.decode_vertices_from_dict(territories_data[a].coordinates)
+		draw_polygon(polygons,PackedColorArray([Color.RED,Color.GREEN,Color.BLUE]))
+
 func decode_all_polygons():
 	print("[*] Rebuild Necessary. Decoding...")
 	var region_files:Array = get_region_files()
 	territories_data.clear()
 	for file_path in region_files:
-		var country_data = load_region_file(file_path)
-		if country_data == null:
-			printerr("Failed to load country data from %s"%(file_path))
-			continue
-		var country_name:String = country_data.get("country", "")
-
-		var country_id:String = country_data.get("id", "")
-		var regions:Array = country_data.get("regions", [])
-		var default_owned_polygons_id:Array = []
-		nation_details_map[country_id] = {
-			"name":country_name,
-		}
+		var tmpCountries = load_region_file(file_path)
+		if tmpCountries == null: printerr("Failed to load country data from %s"%(file_path));continue
+		var country_name:String = tmpCountries.get("country", "")
+		var country_id:String = tmpCountries.get("id", "")
+		var regions:Array = tmpCountries.get("regions", [])
+		countries[country_id] = CountryData.new(country_name,country_id,PackedStringArray())
 		for region in regions:
-			if not region.has("id"):
-				printerr("Region without ID in country %s"%(country_name))
-				continue
+			if not region.has("id"):printerr("Region without ID in country %s"%(country_name));continue
 			var polygon_id = region["id"]
-			default_owned_polygons_id.append(polygon_id)
-			territories_data[polygon_id] = {
-				GeoHelper.TerritoryData.center: region.get("center",[]),
-				GeoHelper.TerritoryData.coordinates:region.get("coordinates", [])[0]
-			}
-			if not country_id in country_to_territories_map:
-				country_to_territories_map[country_id] = []
-			country_to_territories_map[country_id].append(polygon_id)
+			territories_data[polygon_id] = TerritoryData.new(region.get("center",[]),region.get("coordinates", [])[0])
+			countries[country_id].owned_vertices.append(polygon_id)
 
 		# make country node
 		var tmpRegion:Node2D = territory.instantiate()
 		tmpRegion.name = country_id
-		tmpRegion.owned_country = country_id
-		tmpRegion.default_owned_polygons_id = default_owned_polygons_id
-		var territory_owned:Dictionary = {}
-		for i in default_owned_polygons_id:
-			territory_owned[i] = territories_data[i]
-		tmpRegion.territory_data = territory_owned
-		tmpRegion.is_playable_country = country_data['playable']
+		tmpRegion.country_id = country_id
+		tmpRegion.is_playable_country = countries['playable']
 		CountriesParent.add_child(tmpRegion)
 		tmpRegion.owner = get_tree().edited_scene_root
-		tmpRegion.build_territory()
 
 
 func get_region_files() -> Array:
