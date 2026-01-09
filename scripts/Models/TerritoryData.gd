@@ -1,8 +1,7 @@
 class_name TerritoryData extends RefCounted
-var center:Array
+var center:Vector2
 var coordinates:PackedVector2Array
 
-
 func _init(tmpcenter:Array,tmpcoordinates:Array) -> void:
-	self.center = tmpcenter
+	self.center = GeoHelper.decode_vertices(tmpcenter[0],tmpcenter[1]) if not tmpcenter.is_empty() else Vector2.ZERO
 	self.coordinates = GeoHelper.decode_vertices_from_dict(tmpcoordinates)

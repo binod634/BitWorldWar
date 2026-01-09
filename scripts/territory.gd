@@ -16,21 +16,23 @@ var territory_data_list:Dictionary[String,TerritoryData] = {}
 var playerAgent:PackedScene = preload("res://scenes/objects/army.tscn")
 
 
+
 func _ready() -> void:
-	RelationManager.setup_completed.connect(build_runtime)
+	RelationManager.build_ready.connect(build_nodes)
 
-
-func build_runtime():
+func build_nodes():
 	get_territory_data()
 	build_territory()
-	make_dollar_effect_if_owned()
 	deploy_army()
+	deploy_effects()
+
+
 
 func get_territory_data():
 	territory_data_list = RelationManager.get_territories_from_country_id(country_id)
 
 
-func make_dollar_effect_if_owned():
+func deploy_effects():
 	if not RelationManager.is_country_owned(country_id): return
 	make_particles_effects()
 
@@ -55,8 +57,16 @@ func _draw() -> void:
 func build_territory():
 	for territory_id in territory_data_list:
 		var territory:TerritoryData = territory_data_list[territory_id]
-		build_polygon_node(territory.coordinates,name,Color.RED)
+		build_polygon_centers(territory)
+		build_polygon_node(territory.coordinates,name,Color.PALE_GREEN if PlayerData.is_country_mine(country_id) else Color.DARK_GREEN)
 		build_collision_node(territory.coordinates,name)
+
+
+func build_polygon_centers(territory:TerritoryData):
+	if territory.center == Vector2.ZERO:
+		centers_of_polygons.append(center_point_in_polygon(territory.coordinates))
+	else:
+		centers_of_polygons.append(territory.center)
 
 func build_polygon_node(polygon:PackedVector2Array,node_name:String,node_color:Color):
 	var polygonNode:Polygon2D = Polygon2D.new()

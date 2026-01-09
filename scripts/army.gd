@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @onready var character:Sprite2D = $Army
 @onready var navAgent:NavigationAgent2D = $NavigationAgent2D
-@export var owned_country:String
+@export var country_id:String
 var target_position:Vector2 = Vector2.ZERO:
 	set(value):
 		target_position = value
@@ -23,7 +23,7 @@ var is_character_selected:bool = false:
 
 func _ready() -> void:
 	name = "army_" + str(randi())
-	visible = RelationManager.is_country_owned(owned_country)
+	visible = RelationManager.is_country_owned(country_id)
 
 func _physics_process(_delta: float) -> void:
 	if navAgent.is_navigation_finished(): return

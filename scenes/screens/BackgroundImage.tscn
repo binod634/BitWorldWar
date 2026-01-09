@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://clw7o87nydgyq"]
+
+[ext_resource type="Texture2D" uid="uid://cno7o4hf28dn5" path="res://assets/images/raw_original/2026-01-09-174628_1366x768_scrot.png" id="1_wb5s5"]
+
+[node name="BackgroundImage" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_wb5s5")
+expand_mode = 1

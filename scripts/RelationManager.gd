@@ -1,7 +1,7 @@
 extends Node
 
 # signals
-signal setup_completed
+signal build_ready
 signal show_country_action_menu
 signal show_diplomacy_information_menu
 
@@ -25,9 +25,6 @@ func set_territories(data:Dictionary):
 	#PlayerData.select_nation()
 
 
-func signal_setup_completed():
-	setup_completed.emit()
-
 func declare_war_on(hashed_name:String):
 	assert(countries.has(hashed_name),"No such country data")
 	enemy_nations.append(hashed_name)
@@ -46,6 +43,7 @@ func pick_nation(country_id:String):
 	# think it should be got from server when asked.
 	PlayerData.select_nation(country_id)
 	make_country_navigatable(country_id)
+	build_ready.emit()
 
 func load_regions_file():
 	var file:FileAccess = FileAccess.open(file_path,FileAccess.READ)
@@ -142,6 +140,7 @@ func territory_clicked(country_id:String):
 		show_diplomacy_information_menu.emit()
 
 func get_territories_from_country_id(id:String) -> Dictionary[String,TerritoryData]:
+	assert(countries.has(id),"No country with given hash id")
 	var territories_list:PackedStringArray = countries[id].owned_vertices
 	assert(territories.has_all(territories_list),"Country doesn't currently hold all data. missmatch data")
 	var tmpList:Dictionary[String,TerritoryData] = {}
