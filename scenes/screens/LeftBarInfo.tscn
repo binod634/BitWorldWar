@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkai00fmv5u6b"]
+[gd_scene load_steps=16 format=3 uid="uid://bkai00fmv5u6b"]
 
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_d8bky"]
 [ext_resource type="Script" uid="uid://6mh6cakxqcgq" path="res://scripts/left_bar_info.gd" id="1_ulmx0"]
 [ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/RightBarInfoHeaderValue.tres" id="2_lcsnk"]
+[ext_resource type="Texture2D" uid="uid://l76wmpuo1yoo" path="res://assets/images/raw_original/right-arrow.png" id="5_pof0m"]
+[ext_resource type="Texture2D" uid="uid://bak72y7p38k17" path="res://assets/images/military.png" id="6_3nlwf"]
+[ext_resource type="Texture2D" uid="uid://cp4x25nic731w" path="res://assets/images/raw_original/arrow-right.png" id="7_exi2d"]
+[ext_resource type="Texture2D" uid="uid://d2sacuffxe475" path="res://assets/images/raw_original/infinity.png" id="8_d8bky"]
 [ext_resource type="Texture2D" uid="uid://d3skwy7dhu7av" path="res://assets/images/flags/india.png" id="8_ptuq5"]
+[ext_resource type="Texture2D" uid="uid://hqh64dagqwsr" path="res://assets/images/raw_original/close_black.png" id="9_lcsnk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ayhn"]
 bg_color = Color(0.10980392, 0.24313726, 0.2901961, 0.8784314)
@@ -27,9 +32,25 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nlwf"]
+bg_color = Color(0.1938785, 0.31635028, 0.3635163, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8224"]
+bg_color = Color(0.19215687, 0.5254902, 0.64705884, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.95686275)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3nlwf"]
+
 [node name="LeftBarInfo" type="CanvasLayer"]
 script = ExtResource("1_ulmx0")
-ActionShown = false
 
 [node name="SizeTheme" type="MarginContainer" parent="."]
 anchors_preset = 4
@@ -41,15 +62,15 @@ offset_bottom = 266.5
 grow_vertical = 2
 theme = ExtResource("1_d8bky")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme"]
+[node name="MainMenu" type="HBoxContainer" parent="SizeTheme"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Content" type="Control" parent="SizeTheme/HBoxContainer"]
+[node name="Content" type="Control" parent="SizeTheme/MainMenu"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Background" type="Control" parent="SizeTheme/HBoxContainer/Content"]
+[node name="Background" type="Control" parent="SizeTheme/MainMenu/Content"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,7 +78,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="SizeTheme/HBoxContainer/Content/Background"]
+[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,7 +87,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ayhn")
 
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/HBoxContainer/Content"]
+[node name="ActionContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,34 +101,34 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/HBoxContainer/Content/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/MainMenu/Content/ActionContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_ptuq5")
 expand_mode = 3
 
-[node name="Country" type="Label" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Country" type="Label" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "India"
 label_settings = ExtResource("2_lcsnk")
 
-[node name="Line" type="MarginContainer" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer"]
+[node name="Line" type="MarginContainer" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 32
 
-[node name="HSeparator" type="HSeparator" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/Line"]
+[node name="HSeparator" type="HSeparator" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/Line"]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_4ayhn")
 
-[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -114,32 +136,32 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="FormAliance" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance" type="Button" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Produce Units"
 
-[node name="FormAliance2" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance2" type="Button" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Construct Buildings"
 
-[node name="FormAliance3" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance3" type="Button" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Iniciate Research"
 
-[node name="FormAliance4" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance4" type="Button" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Sabotage and Spy"
 
-[node name="FormAliance5" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="FormAliance5" type="Button" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 text = "Send Message"
 
-[node name="DeclareWar" type="Button" parent="SizeTheme/HBoxContainer/Content/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="DeclareWar" type="Button" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_pbgl4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pbgl4")
@@ -147,12 +169,201 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_pbgl4")
 theme_override_styles/focus = SubResource("StyleBoxFlat_pbgl4")
 text = "Declare War"
 
-[node name="CollapseExpand" type="Control" parent="SizeTheme/HBoxContainer"]
+[node name="Production" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/MainMenu/Content/Production"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_pof0m")
+expand_mode = 3
+flip_h = true
+
+[node name="Country" type="Label" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Produce Units"
+label_settings = ExtResource("2_lcsnk")
+
+[node name="Line" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 32
+
+[node name="HSeparator" type="HSeparator" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/Line"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_4ayhn")
+
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="BoxContainer" type="Control" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3nlwf")
+
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("6_3nlwf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Decrease" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Decrease"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
+
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Decrease"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Decrease/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("7_exi2d")
+expand_mode = 3
+flip_h = true
+
+[node name="Count" type="Label" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "020"
+label_settings = SubResource("LabelSettings_3nlwf")
+
+[node name="Increase" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Increase"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
+
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Increase"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Increase/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("7_exi2d")
+expand_mode = 3
+
+[node name="Infinity" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Infinity"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
+
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Infinity"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Infinity/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("8_d8bky")
+expand_mode = 3
+
+[node name="Stop" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Stop"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
+
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Stop"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Stop/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("9_lcsnk")
+expand_mode = 3
+
+[node name="CollapseExpand" type="Control" parent="SizeTheme/MainMenu"]
 visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="Background" type="Control" parent="SizeTheme/HBoxContainer/CollapseExpand"]
+[node name="Background" type="Control" parent="SizeTheme/MainMenu/CollapseExpand"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,7 +371,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="SizeTheme/HBoxContainer/CollapseExpand/Background"]
+[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/CollapseExpand/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

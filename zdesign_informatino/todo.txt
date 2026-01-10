@@ -4,3 +4,4 @@ Things TODO:
 	implement declaration of war.
 	multiplayer implementation
 	layer hiding when not in focus
+	mutiplayer implementation.

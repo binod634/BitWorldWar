@@ -20,6 +20,7 @@ func _ready() -> void:
 		$VisiblityLayer/BackgroundImage.queue_free()
 		decode_all_polygons()
 		provide_countries_data()
+		register_signals()
 
 
 
@@ -27,6 +28,7 @@ func _ready() -> void:
 func provide_countries_data():
 	RelationManager.set_territories(territories)
 	RelationManager.set_country_territories_map(countries)
+
 	#RelationManager.pick_nation("75a95d714dc74a54a1c749e10449cd8e")
 	RelationManager.pick_nation(find_nation_from_name("India"))
 
@@ -43,7 +45,7 @@ func tell_all_countries_to_show_agn():
 		node.build_territory()
 
 func decode_all_polygons():
-	print("[*] Rebuild Necessary. Decoding...")
+	print("[*] Decoding all files...")
 	var region_files:Array = get_region_files()
 	for file_path in region_files:
 		var tmpCountries = load_region_file(file_path)
@@ -93,10 +95,15 @@ func load_region_file(file_path:String) -> Dictionary:
 func register_signals():
 	print("registered")
 	ArmyManager.show_army_command.connect(show_army_actions)
-	RelationManager.show_country_action_menu.connect(func (): CountryActionMenu.visible = not CountryActionMenu.visible)
-	RelationManager.show_diplomacy_information_menu.connect(func (): DiplomacyDataMenu.visible = not DiplomacyDataMenu.visible)
+	RelationManager.show_country_action_menu.connect(_show_country_action_menu)
+	RelationManager.show_diplomacy_information_menu.connect(_show_diplomacy_information)
+
+func _show_diplomacy_information(data:CountryData):
+	DiplomacyDataMenu.set_country_data(data)
+
+func _show_country_action_menu():
+	CountryActionMenu.visible = not CountryActionMenu.visible
 
 func show_army_actions(status:bool):
-	print("called")
 	ArmyCommand.visible = status
 	BottomInfo.visible = not status

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @export var AutoHide:bool = true
-@export var ActionShown:bool = true:
+var ActionShown:bool = true:
 	set(value):
 		ActionShown = value
 		call_deferred(&"show_hide_acions",value)
@@ -16,4 +16,5 @@ func _hide_self():
 	visible = false
 
 func show_hide_acions(value:bool):
-	ContentNode.visible = value
+	if ContentNode:
+		ContentNode.visible = value

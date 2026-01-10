@@ -23,3 +23,19 @@ Enemy (Red),Hostile territory / Axis powers,AD3A3A
 Ally (Blue),Allied territory / Comintern,3A70AD
 Neutral (Dark Green),Non-aligned territory,2F4F4F
 
+
+
+# new updated very very good design.
+Dark Blue (#1f3c55) – For the core background of the map or UI interface.
+
+Grayish Blue (#2a4d6f) – For the secondary background layers.
+
+Steel Gray (#4e5b66) – To enhance depth and richness.
+
+Muted Steel Blue (#3a4e63) – For borders and highlight areas.
+
+Light Gray (#d0d7dc) – For secondary button areas or subtle text highlights.
+
+Darker Gray/Charcoal (#2b323a) – For darker elements like borders and buttons to give them prominence.
+
+Metallic Light Silver (#8a8f99) – For icons and subtle accents.

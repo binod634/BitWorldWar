@@ -3,7 +3,7 @@ extends Node
 # signals
 signal build_ready
 signal show_country_action_menu
-signal show_diplomacy_information_menu
+signal show_diplomacy_information_menu(countryData:CountryData)
 
 const raw_vector_scale_value:Vector2 = GeoHelper.raw_vector_scale_value
 const raw_vector_offset_value:Vector2 = GeoHelper.raw_vector_offset_value
@@ -81,8 +81,7 @@ func get_navigation_parent_node():
 func make_country_navigatable(country_id:String):
 	assert(countries.has(country_id),"Can't find country ????")
 	for territory_id in countries[country_id].owned_vertices:
-		var packed_vector:PackedVector2Array = GeoHelper.decode_vertices_from_dict(territories[territory_id].coordinates)
-		add_navigatable_region(packed_vector,territory_id)
+		add_navigatable_region(territories[territory_id].coordinates,territory_id)
 
 func make_friendly_country(hashed_name:String):
 	highlight_country(hashed_name,false)
@@ -135,9 +134,10 @@ func decode_all_vertices(vertices_data:Dictionary) -> Array[PackedVector2Array]:
 
 func territory_clicked(country_id:String):
 	if PlayerData.is_country_mine(country_id):
+		assert(countries.has(country_id),"Country id not found in countries list")
 		show_country_action_menu.emit()
 	else:
-		show_diplomacy_information_menu.emit()
+		show_diplomacy_information_menu.emit(countries[country_id])
 
 func get_territories_from_country_id(id:String) -> Dictionary[String,TerritoryData]:
 	assert(countries.has(id),"No country with given hash id")

@@ -123,16 +123,6 @@ layout_mode = 2
 text = "China"
 label_settings = ExtResource("2_tgwj3")
 
-[node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = ":"
-label_settings = ExtResource("2_tgwj3")
-
-[node name="Diplomacy" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Diplomacy"
-label_settings = ExtResource("2_tgwj3")
-
 [node name="Line" type="MarginContainer" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
