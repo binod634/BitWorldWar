@@ -1,21 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkai00fmv5u6b"]
+[gd_scene load_steps=17 format=3 uid="uid://bkai00fmv5u6b"]
 
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_d8bky"]
 [ext_resource type="Script" uid="uid://6mh6cakxqcgq" path="res://scripts/left_bar_info.gd" id="1_ulmx0"]
 [ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/RightBarInfoHeaderValue.tres" id="2_lcsnk"]
+[ext_resource type="Texture2D" uid="uid://cwuoa7pkandx2" path="res://assets/images/background/container1.png" id="3_d8bky"]
 [ext_resource type="Texture2D" uid="uid://l76wmpuo1yoo" path="res://assets/images/raw_original/right-arrow.png" id="5_pof0m"]
 [ext_resource type="Texture2D" uid="uid://bak72y7p38k17" path="res://assets/images/military.png" id="6_3nlwf"]
 [ext_resource type="Texture2D" uid="uid://cp4x25nic731w" path="res://assets/images/raw_original/arrow-right.png" id="7_exi2d"]
 [ext_resource type="Texture2D" uid="uid://d2sacuffxe475" path="res://assets/images/raw_original/infinity.png" id="8_d8bky"]
-[ext_resource type="Texture2D" uid="uid://d3skwy7dhu7av" path="res://assets/images/flags/india.png" id="8_ptuq5"]
 [ext_resource type="Texture2D" uid="uid://hqh64dagqwsr" path="res://assets/images/raw_original/close_black.png" id="9_lcsnk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ayhn"]
-bg_color = Color(0.10980392, 0.24313726, 0.2901961, 0.8784314)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_exi2d"]
+load_path = "res://.godot/imported/india.png-5615899eb1bb365dd3a8b6134859caf0.ctex"
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_4ayhn"]
 content_margin_right = 997.0
@@ -49,6 +45,13 @@ shadow_color = Color(0, 0, 0, 0.95686275)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3nlwf"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ayhn"]
+bg_color = Color(0.10980392, 0.24313726, 0.2901961, 0.8784314)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="LeftBarInfo" type="CanvasLayer"]
 script = ExtResource("1_ulmx0")
 
@@ -78,17 +81,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Background"]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_4ayhn")
+texture = ExtResource("3_d8bky")
 
 [node name="ActionContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,8 +112,9 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = ExtResource("8_ptuq5")
+texture = SubResource("CompressedTexture2D_exi2d")
 expand_mode = 3
 
 [node name="Country" type="Label" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/HBoxContainer"]
@@ -129,6 +132,7 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_4ayhn")
 
 [node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
@@ -170,6 +174,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_pbgl4")
 text = "Declare War"
 
 [node name="Production" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

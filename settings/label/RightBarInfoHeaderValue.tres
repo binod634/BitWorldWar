@@ -12,3 +12,5 @@ variation_opentype = {
 [resource]
 font = SubResource("FontVariation_pk1pb")
 font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
