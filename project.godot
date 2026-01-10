@@ -16,7 +16,7 @@ general/accessibility_support=2
 
 config/name="ArmyConflict"
 config/version="0.0.2"
-run/main_scene="uid://6k5vuafsfg2t"
+run/main_scene="uid://cu8tm14f2sw0d"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/fullsize=false
