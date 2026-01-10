@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4y6htvbdbxaa"
-path="res://.godot/imported/sholder_right.png-0e4a636d9f67f9423a292a9382dfa141.ctex"
+uid="uid://68jo00utcahn"
+path="res://.godot/imported/sholder.png-09df378c76456518c7a91ca812577918.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/background/sholder_right.png"
-dest_files=["res://.godot/imported/sholder_right.png-0e4a636d9f67f9423a292a9382dfa141.ctex"]
+source_file="res://assets/images/background/sholder.png"
+dest_files=["res://.godot/imported/sholder.png-09df378c76456518c7a91ca812577918.ctex"]
 
 [params]
 
