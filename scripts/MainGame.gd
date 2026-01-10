@@ -102,7 +102,8 @@ func _show_diplomacy_information(data:CountryData):
 	DiplomacyDataMenu.set_country_data(data)
 
 func _show_country_action_menu():
-	CountryActionMenu.visible = not CountryActionMenu.visible
+	#CountryActionMenu.visible = not CountryActionMenu.visible
+	pass
 
 func show_army_actions(status:bool):
 	ArmyCommand.visible = status
