@@ -8,7 +8,6 @@ var territories:Dictionary[String,TerritoryData]
 var countries:Dictionary[String,CountryData]
 @onready var rebuild_needed:bool = $Regions.get_child_count() == 0
 @onready var CountriesParent:Node = $Regions
-@onready var ArmyCommand:CanvasLayer = $VisiblityLayer/ArmyAction
 @onready var BottomInfo:CanvasLayer = $VisiblityLayer/BottomInfoBar
 @onready var CountryActionMenu:CanvasLayer = $VisiblityLayer/LeftBarInfo
 @onready var DiplomacyDataMenu:CanvasLayer = $VisiblityLayer/RightBarInfo
@@ -106,5 +105,5 @@ func _show_country_action_menu():
 	pass
 
 func show_army_actions(status:bool):
-	ArmyCommand.visible = status
+	#ArmyCommand.visible = status
 	BottomInfo.visible = not status

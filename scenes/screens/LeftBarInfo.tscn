@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_d8bky"]
 [ext_resource type="Script" uid="uid://6mh6cakxqcgq" path="res://scripts/left_bar_info.gd" id="1_ulmx0"]
 [ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/RightBarInfoHeaderValue.tres" id="2_lcsnk"]
-[ext_resource type="Texture2D" uid="uid://cwuoa7pkandx2" path="res://assets/images/background/container1.png" id="3_d8bky"]
+[ext_resource type="Texture2D" uid="uid://c8ftn0ms7flci" path="res://assets/images/background/container.png" id="3_lcsnk"]
 [ext_resource type="Texture2D" uid="uid://dq8m21rwx4ij7" path="res://assets/images/flags/india.png" id="4_d8bky"]
 [ext_resource type="Texture2D" uid="uid://l76wmpuo1yoo" path="res://assets/images/raw_original/right-arrow.png" id="5_pof0m"]
 [ext_resource type="Texture2D" uid="uid://bak72y7p38k17" path="res://assets/images/military.png" id="6_3nlwf"]
@@ -87,7 +87,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_d8bky")
+texture = ExtResource("3_lcsnk")
 
 [node name="ActionContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
 layout_mode = 1
@@ -288,6 +288,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 2
 
 [node name="Produce Units" type="MarginContainer" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/Actions/VBoxContainer"]
 custom_minimum_size = Vector2(200, 40)
@@ -327,19 +328,6 @@ texture = ExtResource("6_lcsnk")
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Research Units"
-
-[node name="Produce Units4" type="MarginContainer" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/Actions/VBoxContainer"]
-custom_minimum_size = Vector2(200, 40)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/Actions/VBoxContainer/Produce Units4"]
-layout_mode = 2
-texture = ExtResource("6_lcsnk")
-
-[node name="Button" type="Button" parent="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/Actions/VBoxContainer/Produce Units4"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "Diplomacy"
 
 [node name="Production" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
 visible = false

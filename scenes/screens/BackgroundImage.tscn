@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://clw7o87nydgyq"]
 
-[ext_resource type="Texture2D" uid="uid://cno7o4hf28dn5" path="res://assets/images/raw_original/2026-01-09-174628_1366x768_scrot.png" id="1_wb5s5"]
+[ext_resource type="Texture2D" uid="uid://b4ol3qk1221xh" path="res://assets/images/raw_original/2026-01-11-112638_1366x768_scrot.png" id="1_wb5s5"]
 
 [node name="BackgroundImage" type="CanvasLayer"]
 

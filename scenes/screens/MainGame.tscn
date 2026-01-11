@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://6k5vuafsfg2t"]
+[gd_scene load_steps=9 format=3 uid="uid://6k5vuafsfg2t"]
 
 [ext_resource type="Script" uid="uid://bl21gx7k7gtcw" path="res://scripts/MainGame.gd" id="1_du05j"]
 [ext_resource type="PackedScene" uid="uid://clw7o87nydgyq" path="res://scenes/screens/BackgroundImage.tscn" id="2_6pk0q"]
 [ext_resource type="PackedScene" uid="uid://d4gy0rd3mo67s" path="res://scenes/screens/TopPanelBar.tscn" id="3_ao4ig"]
 [ext_resource type="Script" uid="uid://wtu6riasvkt5" path="res://scripts/camera.gd" id="3_c3qoo"]
 [ext_resource type="PackedScene" uid="uid://dpwjxd0xi36yd" path="res://scenes/screens/BottomInfoBar.tscn" id="5_h2q64"]
-[ext_resource type="PackedScene" uid="uid://b36dws7ocop3k" path="res://scenes/screens/ArmyCommandBar.tscn" id="6_icnho"]
 [ext_resource type="PackedScene" uid="uid://bmd0yfcr80v2e" path="res://scenes/screens/RightBarInfo.tscn" id="7_ci4w4"]
 [ext_resource type="PackedScene" uid="uid://bkai00fmv5u6b" path="res://scenes/screens/LeftBarInfo.tscn" id="8_6pk0q"]
 
@@ -60,8 +59,6 @@ navigation_polygon = SubResource("NavigationPolygon_y1hhk")
 [node name="BackgroundImage" parent="VisiblityLayer" instance=ExtResource("2_6pk0q")]
 
 [node name="TopPanelBar" parent="VisiblityLayer" instance=ExtResource("3_ao4ig")]
-
-[node name="ArmyAction" parent="VisiblityLayer" instance=ExtResource("6_icnho")]
 
 [node name="BottomInfoBar" parent="VisiblityLayer" instance=ExtResource("5_h2q64")]
 visible = false
