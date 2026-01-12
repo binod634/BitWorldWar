@@ -14,6 +14,8 @@ var friendly_countries:Array = []
 var territories:Dictionary[String,TerritoryData]  = {}
 var countries:Dictionary[String,CountryData] = {}
 var my_country_vertices:Array  = []
+var navigatable_territories:Array = []
+var isMySelfNavigatable:bool = false
 const file_path:String  = "res://assets/files/simple_countries.json"
 
 
@@ -28,21 +30,20 @@ func set_territories(data:Dictionary):
 func declare_war_on(hashed_name:String):
 	assert(countries.has(hashed_name),"No such country data")
 	enemy_nations.append(hashed_name)
-
-	#highlight_country(hashed_name,false)
-	#enemy_nations.append(hashed_name)
-	#make_country_navigatable(hashed_name)
-	#print("War declared on %s"%(territories[hashed_name]['name']))
-	# update required regions and game.
+	# make full country navigatabe.
+	make_country_navigatable(hashed_name)
 
 func is_country_owned(hash_id:String):
 	return PlayerData.is_country_mine(hash_id)
 
 
 func pick_nation(country_id:String):
-	# think it should be got from server when asked.
+	assert(not isMySelfNavigatable,"Already navitable for owned country. why double. ?")
+	assert(countries.has(country_id),"country id not in countries data...")
+	if isMySelfNavigatable || not countries.has(country_id): return
 	PlayerData.select_nation(country_id)
 	make_country_navigatable(country_id)
+	isMySelfNavigatable = true
 	build_ready.emit()
 
 func load_regions_file():
@@ -81,15 +82,24 @@ func get_navigation_parent_node():
 func make_country_navigatable(country_id:String):
 	assert(countries.has(country_id),"Can't find country ????")
 	for territory_id in countries[country_id].owned_vertices:
-		add_navigatable_region(territories[territory_id].coordinates,territory_id)
+
+		if not navigatable_territories.has(territory_id):
+			add_navigatable_region(territories[territory_id].coordinates,territory_id)
+			navigatable_territories.append(territory_id)
+		else:
+			assert(false, "Problem here diagnosis...")
+
+
 
 func make_friendly_country(hashed_name:String):
+	assert(hashed_name not in enemy_nations,"Can't be friendly with enemy nations...")
+	assert(hashed_name not in friendly_countries,"Relation is already friendly. why double ?")
+	if not OS.is_debug_build() && (enemy_nations.has(hashed_name) || friendly_countries.has(hashed_name)):
+		return
+	make_country_navigatable(hashed_name)
 	highlight_country(hashed_name,false)
-	if hashed_name in enemy_nations:printerr("Cannot be friendly with a war declared country");return
-	if hashed_name == PlayerData.country_id: printerr("Cannot be friendly with self");return
-	if hashed_name in friendly_countries:printerr("Already friendly");return
 	friendly_countries.append(hashed_name)
-	add_navigatable_region(territories[hashed_name]['vertices'],hashed_name)
+
 
 func _is_country_navigatable(hashed_name:String) -> bool:
 	var nav_regions:Array = get_tree().get_nodes_in_group("nav_" + hashed_name)

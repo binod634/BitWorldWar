@@ -22,8 +22,6 @@ func _ready() -> void:
 		register_signals()
 
 
-
-
 func provide_countries_data():
 	RelationManager.set_territories(territories)
 	RelationManager.set_country_territories_map(countries)

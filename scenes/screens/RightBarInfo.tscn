@@ -389,3 +389,6 @@ offset_right = 235.0
 offset_bottom = 66.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_pbgl4")
 text = "Declare War"
+
+[connection signal="pressed" from="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer/Alliance/Button" to="." method="alliance_button_clicked"]
+[connection signal="pressed" from="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer/War/Button2" to="." method="declare_war_clicked"]

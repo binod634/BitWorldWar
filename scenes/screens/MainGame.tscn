@@ -22,8 +22,6 @@ agent_radius = 0.4
 script = ExtResource("1_du05j")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.4817894, 0.48178953, 0.4817894, 1)
-blend_mode = 1
 
 [node name="BackGround" type="Polygon2D" parent="."]
 z_index = -1
