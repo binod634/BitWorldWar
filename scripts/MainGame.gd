@@ -6,36 +6,47 @@ var territory:PackedScene = preload("res://scenes/screens/Territory.tscn")
 const REGIONS_FOLDER:String = "res://assets/files/regions_output/"
 var territories:Dictionary[String,TerritoryData]
 var countries:Dictionary[String,CountryData]
+@export_tool_button("Generate Map")var generate_maps:Callable =  build_map
 @onready var rebuild_needed:bool = $Regions.get_child_count() == 0
 @onready var CountriesParent:Node = $Regions
-@onready var BottomInfo:CanvasLayer = $VisiblityLayer/BottomInfoBar
 @onready var CountryActionMenu:CanvasLayer = $VisiblityLayer/LeftBarInfo
 @onready var DiplomacyDataMenu:CanvasLayer = $VisiblityLayer/RightBarInfo
-var testvalue:int
-var builded:bool = false
+
+
 
 func _ready() -> void:
 	if	not Engine.is_editor_hint():
-		$VisiblityLayer/BackgroundImage.queue_free()
 		decode_all_polygons()
 		provide_countries_data()
 		register_signals()
+		queue_redraw()
 
+func build_map():
+	if territories.is_empty():
+		decode_all_polygons()
+	queue_redraw()
+
+
+
+
+func _draw() -> void:
+	if not Engine.is_editor_hint(): return
+	for territory_id in territories:
+		draw_colored_polygon(territories[territory_id].coordinates,Color.DARK_SLATE_GRAY)
+		draw_polyline(territories[territory_id].coordinates,Color.WHITE)
 
 func provide_countries_data():
 	RelationManager.set_territories(territories)
 	RelationManager.set_country_territories_map(countries)
-
 	#RelationManager.pick_nation("75a95d714dc74a54a1c749e10449cd8e")
 	RelationManager.pick_nation(find_nation_from_name("India"))
 
-func find_nation_from_name(nation_name:String):
+func find_nation_from_name(nation_name:String) -> String:
 	for a in countries:
 		if countries[a].country_name == nation_name:
-			print("got nation id %s"%[countries[a].country_id])
 			return countries[a].country_id
 	assert(false,"Why not found ???")
-	return "not found"
+	return "No country found"
 
 func tell_all_countries_to_show_agn():
 	for node in CountriesParent.get_children():
@@ -64,7 +75,6 @@ func decode_all_polygons():
 		tmpRegion.country_id = country_id
 		tmpRegion.is_playable_country = playable
 		CountriesParent.add_child(tmpRegion)
-		#tmpRegion.owner = get_tree().edited_scene_root
 
 
 func get_region_files() -> Array:
@@ -90,8 +100,6 @@ func load_region_file(file_path:String) -> Dictionary:
 
 
 func register_signals():
-	print("registered")
-	ArmyManager.show_army_command.connect(show_army_actions)
 	RelationManager.show_country_action_menu.connect(_show_country_action_menu)
 	RelationManager.show_diplomacy_information_menu.connect(_show_diplomacy_information)
 
@@ -99,9 +107,4 @@ func _show_diplomacy_information(data:CountryData):
 	DiplomacyDataMenu.set_country_data(data)
 
 func _show_country_action_menu():
-	#CountryActionMenu.visible = not CountryActionMenu.visible
 	pass
-
-func show_army_actions(status:bool):
-	#ArmyCommand.visible = status
-	BottomInfo.visible = not status

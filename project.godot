@@ -18,10 +18,9 @@ config/name="ArmyConflict"
 config/version="0.0.2"
 run/main_scene="uid://cu8tm14f2sw0d"
 config/features=PackedStringArray("4.5", "Forward Plus")
-boot_splash/show_image=false
 boot_splash/fullsize=false
-boot_splash/image="uid://btpau6rnqju24"
-config/icon="uid://jmvg33r5axtg"
+boot_splash/image="uid://bak72y7p38k17"
+config/icon="uid://bak72y7p38k17"
 
 [autoload]
 
@@ -38,7 +37,6 @@ settings/physics_interpolation/enable_warnings=false
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=4

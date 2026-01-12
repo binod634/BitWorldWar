@@ -11,6 +11,7 @@ var territory_data_list:Dictionary[String,TerritoryData] = {}
 @onready var CollisionArea:Area2D = $CollisionArea
 @onready var Visuals:Node2D = $Visuals
 @onready var Armys:Node2D = $Army
+var neutral_offset_color:Color = Colors.FriendlyNationColor * 0.5 + Color(randf(),randf(),randf()) * 0.2
 
 # scenes
 var playerAgent:PackedScene = preload("res://scenes/objects/army.tscn")
@@ -18,7 +19,10 @@ var playerAgent:PackedScene = preload("res://scenes/objects/army.tscn")
 
 
 func _ready() -> void:
-	RelationManager.build_ready.connect(build_nodes)
+	if not Engine.is_editor_hint():
+		queue_redraw()
+		RelationManager.build_ready.connect(build_nodes)
+		RelationManager.relation_changed.connect(check_relation)
 
 func build_nodes():
 	get_territory_data()
@@ -31,6 +35,13 @@ func build_nodes():
 func get_territory_data():
 	territory_data_list = RelationManager.get_territories_from_country_id(country_id)
 
+
+func check_relation(id:String,relation:DiplomacyData.relation) -> void:
+	if id == country_id:
+		change_nodes_color(Colors.EnemyNationColor if relation == DiplomacyData.relation.war else neutral_offset_color)
+
+func change_nodes_color(color:Color) -> void:
+	pass
 
 func deploy_effects():
 	if not RelationManager.is_country_owned(country_id): return
@@ -48,7 +59,6 @@ func deploy_army():
 
 
 func _draw() -> void:
-	# show line in every polygon
 	for i in visual_nodes:
 		draw_polyline(i.polygon,Color.WHITE)
 
@@ -58,7 +68,7 @@ func build_territory():
 	for territory_id in territory_data_list:
 		var territory:TerritoryData = territory_data_list[territory_id]
 		build_polygon_centers(territory)
-		build_polygon_node(territory.coordinates,name,Color.PALE_GREEN if PlayerData.is_country_mine(country_id) else Color.DARK_SLATE_GRAY)
+		build_polygon_node(territory.coordinates,name,Colors.OwnedNationColor if PlayerData.is_country_mine(country_id) else neutral_offset_color)
 		build_collision_node(territory.coordinates,name)
 
 
@@ -78,11 +88,14 @@ func build_polygon_node(polygon:PackedVector2Array,node_name:String,node_color:C
 	Visuals.add_child(polygonNode)
 
 
+
+
 func build_collision_node(polygon:PackedVector2Array,node_name:String):
 	var collisionNode:CollisionPolygon2D = CollisionPolygon2D.new()
 	collisionNode.polygon = polygon
 	collisionNode.name = node_name
 	collision_nodes.append(collisionNode)
+
 	CollisionArea.add_child(collisionNode)
 
 

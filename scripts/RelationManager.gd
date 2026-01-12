@@ -4,11 +4,11 @@ extends Node
 signal build_ready
 signal show_country_action_menu
 signal show_diplomacy_information_menu(countryData:CountryData)
+signal relation_changed(id:String,relation:DiplomacyData.relation)
 
 const raw_vector_scale_value:Vector2 = GeoHelper.raw_vector_scale_value
 const raw_vector_offset_value:Vector2 = GeoHelper.raw_vector_offset_value
 
-# prefer to have link/name with md5. can also be with coordinate {name:corrdinate} if necessary
 var enemy_nations:Array = []
 var friendly_countries:Array = []
 var territories:Dictionary[String,TerritoryData]  = {}
@@ -32,6 +32,7 @@ func declare_war_on(hashed_name:String):
 	enemy_nations.append(hashed_name)
 	# make full country navigatabe.
 	make_country_navigatable(hashed_name)
+	relation_changed.emit(hashed_name,DiplomacyData.relation.war)
 
 func is_country_owned(hash_id:String):
 	return PlayerData.is_country_mine(hash_id)
@@ -66,11 +67,10 @@ func add_navigatable_region(vertices:PackedVector2Array,hashed_name:String):
 	new_navigation_mesh.agent_radius = 0.5
 	new_navigation_mesh.cell_size = 10
 	new_navigation_mesh.add_outline(vertices)
-	# NavigationServer2D.map_changed.connect(func (_di): print("not map changed"))
 	NavigationServer2D.bake_from_source_geometry_data(new_navigation_mesh, NavigationMeshSourceGeometryData2D.new());
 	nav_region.navigation_polygon = new_navigation_mesh
 	get_navigation_parent_node().add_child(nav_region)
-
+	#print("add navigation success: %s"%[hashed_name])
 
 func generate_navigation_region_name(hashed_name:String):
 	return hashed_name + str(RandomNumberGenerator.new().randi())

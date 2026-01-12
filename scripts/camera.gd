@@ -3,14 +3,12 @@ extends Camera2D
 @export var pan_speed :=1
 const max_zoom:float = 5.0
 const min_zoom:float = 1.5
-
 var dragging := false
 var last_pos := Vector2.ZERO
 var interpolation_disabled:bool = false
 
 func _unhandled_input(event):
 	if event is InputEventMagnifyGesture:
-		#print("pan working: %s"%[event.factor])
 		var to_zoom = event.factor * zoom
 		if to_zoom.x < min_zoom: return
 		if to_zoom.x > max_zoom:return

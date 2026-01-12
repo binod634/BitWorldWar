@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bmd0yfcr80v2e"]
+[gd_scene load_steps=15 format=3 uid="uid://bmd0yfcr80v2e"]
 
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_4ayhn"]
 [ext_resource type="Script" uid="uid://uf3rfb7cyy7s" path="res://scripts/right_bar_info.gd" id="1_qin25"]
@@ -18,17 +18,6 @@ bg_color = Color(0.19215687, 0.31764707, 0.3647059, 0)
 corner_detail = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_pbgl4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbgl4"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
-bg_color = Color(0.6901961, 0.23921569, 0.2901961, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
 
 [node name="RightBarInfo" type="CanvasLayer"]
 script = ExtResource("1_qin25")
@@ -387,7 +376,6 @@ texture = ExtResource("12_7mscb")
 layout_mode = 0
 offset_right = 235.0
 offset_bottom = 66.0
-theme_override_styles/focus = SubResource("StyleBoxFlat_pbgl4")
 text = "Declare War"
 
 [connection signal="pressed" from="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/VBoxContainer/Alliance/Button" to="." method="alliance_button_clicked"]
