@@ -90,6 +90,7 @@ grow_vertical = 2
 texture = ExtResource("3_lcsnk")
 
 [node name="ActionContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -330,7 +331,6 @@ theme_override_font_sizes/font_size = 16
 text = "Research Units"
 
 [node name="Production" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

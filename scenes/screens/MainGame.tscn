@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://6k5vuafsfg2t"]
+[gd_scene load_steps=8 format=3 uid="uid://6k5vuafsfg2t"]
 
 [ext_resource type="Script" uid="uid://bl21gx7k7gtcw" path="res://scripts/MainGame.gd" id="1_du05j"]
+[ext_resource type="Material" uid="uid://dw71xbfmmc367" path="res://settings/shaders/shader.tres" id="2_icnho"]
 [ext_resource type="PackedScene" uid="uid://d4gy0rd3mo67s" path="res://scenes/screens/TopPanelBar.tscn" id="3_ao4ig"]
 [ext_resource type="Script" uid="uid://wtu6riasvkt5" path="res://scripts/camera.gd" id="3_c3qoo"]
 [ext_resource type="PackedScene" uid="uid://bmd0yfcr80v2e" path="res://scenes/screens/RightBarInfo.tscn" id="7_ci4w4"]
@@ -25,6 +26,7 @@ blend_mode = 1
 
 [node name="BackGround" type="Polygon2D" parent="."]
 z_index = -1
+material = ExtResource("2_icnho")
 color = Color(0.15002856, 0, 0.7778657, 0.5921569)
 polygon = PackedVector2Array(-1280, 0, 3840, 0, 3840, 1440, -1280, 1440)
 

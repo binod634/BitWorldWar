@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://j8tr2le2n7df"]
+
+[ext_resource type="Shader" uid="uid://bic808oofaq4d" path="res://settings/shaders/file/test.gdshader" id="1_av7da"]
+[ext_resource type="Texture2D" uid="uid://b3rxkkqt1m512" path="res://assets/images/tmp/Gemini_Generated_Image_d7ny13d7ny13d7ny.png" id="2_khgya"]
+[ext_resource type="Texture2D" uid="uid://cg0v6ruqxde1g" path="res://assets/images/handshake.png" id="3_clovy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_khgya"]
+shader = ExtResource("1_av7da")
+shader_parameter/hatch_texture = ExtResource("2_khgya")
+shader_parameter/sketch_intensity = 0.658000031255
+shader_parameter/edge_roughness = 0.3330000158175
+shader_parameter/pencil_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1v81b"]
+shader = ExtResource("1_av7da")
+shader_parameter/hatch_texture = ExtResource("2_khgya")
+shader_parameter/sketch_intensity = 0.14000000665
+shader_parameter/edge_roughness = 10.0
+shader_parameter/pencil_color = Color(0.95596343, 0.9559633, 0.95596343, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource("ShaderMaterial_khgya")
+polygon = PackedVector2Array(478, 83, 290, 325, 709, 534, 1018, 242, 885.61914, 203.02121)
+
+[node name="Handshake" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1v81b")
+position = Vector2(678, 271)
+texture = ExtResource("3_clovy")

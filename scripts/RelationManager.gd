@@ -56,12 +56,12 @@ func load_regions_file():
 
 
 
-func add_navigatable_region(vertices:PackedVector2Array,hashed_name:String):
+func add_navigatable_region(vertices:PackedVector2Array,hashed_name:String,isOwnedTerritory:bool = false):
 	var nav_region = NavigationRegion2D.new()
 	nav_region.add_to_group("nav_" + hashed_name)
 	nav_region.name = generate_navigation_region_name(hashed_name)
-	nav_region.enter_cost = 100
-	nav_region.travel_cost = 5
+	nav_region.enter_cost = 100 if not isOwnedTerritory else 10
+	nav_region.travel_cost = 5 if not isOwnedTerritory else 1
 	nav_region.navigation_layers = 2
 	var new_navigation_mesh:NavigationPolygon = NavigationPolygon.new()
 	new_navigation_mesh.agent_radius = 0.5
@@ -81,10 +81,10 @@ func get_navigation_parent_node():
 
 func make_country_navigatable(country_id:String):
 	assert(countries.has(country_id),"Can't find country ????")
+	var isOwned:bool = PlayerData.is_country_mine(country_id)
 	for territory_id in countries[country_id].owned_vertices:
-
 		if not navigatable_territories.has(territory_id):
-			add_navigatable_region(territories[territory_id].coordinates,territory_id)
+			add_navigatable_region(territories[territory_id].coordinates,territory_id,isOwned)
 			navigatable_territories.append(territory_id)
 		else:
 			assert(false, "Problem here diagnosis...")
