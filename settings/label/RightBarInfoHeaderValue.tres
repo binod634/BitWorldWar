@@ -4,6 +4,10 @@
 
 [sub_resource type="FontVariation" id="FontVariation_4yp1q"]
 base_font = ExtResource("1_pk1pb")
+variation_opentype = {
+1869640570: 14,
+2003265652: 600
+}
 
 [resource]
 font = SubResource("FontVariation_4yp1q")

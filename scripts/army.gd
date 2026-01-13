@@ -27,6 +27,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if navAgent.is_navigation_finished(): return
+	if not navAgent.is_target_reachable(): return
 	var got_path:Vector2 = global_position.direction_to(navAgent.get_next_path_position()).normalized() * 100
 	velocity = got_path
 	move_and_slide()

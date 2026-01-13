@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cu8tm14f2sw0d"]
+[gd_scene load_steps=9 format=3 uid="uid://cu8tm14f2sw0d"]
 
 [ext_resource type="Texture2D" uid="uid://bgn31y4i303c5" path="res://assets/images/background/map_background.png" id="1_d0hcd"]
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_rb3jj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://68jo00utcahn" path="res://assets/images/background/sholder.png" id="3_6h67i"]
 [ext_resource type="Texture2D" uid="uid://dhxibvgtb5lry" path="res://assets/images/buttons/orange_button.png" id="3_7rinn"]
 [ext_resource type="Texture2D" uid="uid://blubw4nwuecm2" path="res://assets/images/buttons/blue_button.png" id="5_wk6b2"]
+[ext_resource type="PackedScene" uid="uid://j46bn6gnhv4q" path="res://scenes/components/audio.tscn" id="8_upfyg"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -17,6 +18,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_rb3jj")
 script = ExtResource("2_k5e5a")
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("8_upfyg")]
 
 [node name="Background" type="Control" parent="."]
 layout_mode = 1

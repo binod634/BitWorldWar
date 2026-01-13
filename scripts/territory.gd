@@ -11,7 +11,7 @@ var territory_data_list:Dictionary[String,TerritoryData] = {}
 @onready var CollisionArea:Area2D = $CollisionArea
 @onready var Visuals:Node2D = $Visuals
 @onready var Armys:Node2D = $Army
-var neutral_offset_color:Color = Colors.FriendlyNationColor * 0.5 + Color(randf(),randf(),randf()) * 0.2
+var neutral_offset_color:Color = GameColors.FriendlyNationColor * 0.5 + Color(randf(),randf(),randf()) * 0.2
 
 # scenes
 var playerAgent:PackedScene = preload("res://scenes/objects/army.tscn")
@@ -38,7 +38,7 @@ func get_territory_data():
 
 func check_relation(id:String,relation:DiplomacyData.relation) -> void:
 	if id == country_id:
-		change_nodes_color(Colors.EnemyNationColor if relation == DiplomacyData.relation.war else neutral_offset_color)
+		change_nodes_color(GameColors.EnemyNationColor if relation == DiplomacyData.relation.war else neutral_offset_color)
 
 func change_nodes_color(color:Color) -> void:
 	pass
@@ -68,7 +68,7 @@ func build_territory():
 	for territory_id in territory_data_list:
 		var territory:TerritoryData = territory_data_list[territory_id]
 		build_polygon_centers(territory)
-		build_polygon_node(territory.coordinates,name,Colors.OwnedNationColor if PlayerData.is_country_mine(country_id) else neutral_offset_color)
+		build_polygon_node(territory.coordinates,name,GameColors.OwnedNationColor if PlayerData.is_country_mine(country_id) else neutral_offset_color)
 		build_collision_node(territory.coordinates,name)
 
 
