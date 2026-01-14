@@ -24,8 +24,9 @@ func clear_army_selection():
 	show_army_action(false)
 
 func got_location_point(point_position:Vector2):
-	for a in selected_army:
-		a.target_position = point_position
+	print("setting target posiion")
+	for unit in selected_army:
+		unit.target_position = point_position
 
 
 func show_army_action(status:bool):
