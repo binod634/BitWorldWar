@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var AutoHide:bool = true
+@onready var ProdHandler:Control = $SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/ProdHandler
 var ActionShown:bool = true:
 	set(value):
 		ActionShown = value
@@ -11,3 +12,7 @@ func _ready() -> void:
 
 func _hide_self():
 	visible = false
+
+
+func add_prod_tab():
+	pass

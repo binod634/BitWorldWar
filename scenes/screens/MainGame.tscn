@@ -68,3 +68,4 @@ AutoHide = false
 position = Vector2(1777, 783)
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("7_s4ij8")]
+stream_paused = false

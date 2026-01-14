@@ -1,17 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://bkai00fmv5u6b"]
+[gd_scene load_steps=12 format=3 uid="uid://bkai00fmv5u6b"]
 
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_d8bky"]
 [ext_resource type="Script" uid="uid://6mh6cakxqcgq" path="res://scripts/left_bar_info.gd" id="1_ulmx0"]
-[ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/RightBarInfoHeaderValue.tres" id="2_lcsnk"]
+[ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/panel_header_info.tres" id="2_lcsnk"]
 [ext_resource type="Texture2D" uid="uid://c8ftn0ms7flci" path="res://assets/images/background/container.png" id="3_lcsnk"]
 [ext_resource type="Texture2D" uid="uid://dq8m21rwx4ij7" path="res://assets/images/flags/india.png" id="4_d8bky"]
 [ext_resource type="Texture2D" uid="uid://l76wmpuo1yoo" path="res://assets/images/raw_original/right-arrow.png" id="5_pof0m"]
-[ext_resource type="Texture2D" uid="uid://bak72y7p38k17" path="res://assets/images/military.png" id="6_3nlwf"]
 [ext_resource type="Texture2D" uid="uid://ck18gavdacl3a" path="res://assets/images/buttons/blue_btn.png" id="6_lcsnk"]
-[ext_resource type="Texture2D" uid="uid://cp4x25nic731w" path="res://assets/images/raw_original/arrow-right.png" id="7_exi2d"]
-[ext_resource type="Texture2D" uid="uid://d2sacuffxe475" path="res://assets/images/raw_original/infinity.png" id="8_d8bky"]
-[ext_resource type="Texture2D" uid="uid://6d0y8f7jfa5g" path="res://assets/images/tmp/button_typical.png" id="8_x3c77"]
-[ext_resource type="Texture2D" uid="uid://hqh64dagqwsr" path="res://assets/images/raw_original/close_black.png" id="9_lcsnk"]
+[ext_resource type="PackedScene" uid="uid://1i1ap815y3nj" path="res://scenes/components/production_unit.tscn" id="8_l5u0t"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_4ayhn"]
 content_margin_right = 997.0
@@ -27,23 +23,6 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nlwf"]
-bg_color = Color(0.1938785, 0.31635028, 0.3635163, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8224"]
-bg_color = Color(0.19215687, 0.5254902, 0.64705884, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-shadow_color = Color(0, 0, 0, 0.95686275)
-
-[sub_resource type="LabelSettings" id="LabelSettings_3nlwf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ayhn"]
 bg_color = Color(0.10980392, 0.24313726, 0.2901961, 0.8784314)
@@ -332,6 +311,7 @@ theme_override_font_sizes/font_size = 16
 text = "Research Units"
 
 [node name="Production" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -378,159 +358,28 @@ size_flags_vertical = 3
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2"]
+[node name="ProdHandler" type="VBoxContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="BoxContainer" type="Control" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="ProductionTab" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/ProdHandler" instance=ExtResource("8_l5u0t")]
 layout_mode = 2
 
-[node name="Background" type="Panel" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3nlwf")
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer"]
-self_modulate = Color(0.22376983, 0.38410568, 0.4072413, 0.60300004)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_x3c77")
-expand_mode = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer"]
+[node name="ProductionTab2" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/ProdHandler" instance=ExtResource("8_l5u0t")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
+[node name="ProductionTab3" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/ProdHandler" instance=ExtResource("8_l5u0t")]
 layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_right = 2
 
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="ProductionTab4" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/ProdHandler" instance=ExtResource("8_l5u0t")]
 layout_mode = 2
-texture = ExtResource("6_3nlwf")
-expand_mode = 3
-stretch_mode = 5
 
-[node name="Decrease" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
+[node name="ProductionTab5" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/ProdHandler" instance=ExtResource("8_l5u0t")]
 layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
 
-[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Decrease"]
+[node name="ProductionTab6" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/ProdHandler" instance=ExtResource("8_l5u0t")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Decrease"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Decrease/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("7_exi2d")
-expand_mode = 3
-flip_h = true
-
-[node name="Count" type="Label" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "020"
-label_settings = SubResource("LabelSettings_3nlwf")
-
-[node name="Increase" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Increase"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Increase"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Increase/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("7_exi2d")
-expand_mode = 3
-
-[node name="Infinity" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Infinity"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Infinity"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Infinity/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("8_d8bky")
-expand_mode = 3
-
-[node name="Stop" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Stop"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Stop"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/VBoxContainer/BoxContainer/MarginContainer/HBoxContainer/Stop/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("9_lcsnk")
-expand_mode = 3
 
 [node name="CollapseExpand" type="Control" parent="SizeTheme/MainMenu"]
 visible = false

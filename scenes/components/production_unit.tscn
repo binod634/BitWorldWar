@@ -1,0 +1,192 @@
+[gd_scene load_steps=9 format=3 uid="uid://1i1ap815y3nj"]
+
+[ext_resource type="Texture2D" uid="uid://bak72y7p38k17" path="res://assets/images/military.png" id="1_o1w3c"]
+[ext_resource type="Script" uid="uid://b5de3e8eqe0ye" path="res://scenes/components/scripts/production_unit.gd" id="1_q7mny"]
+[ext_resource type="Texture2D" uid="uid://cp4x25nic731w" path="res://assets/images/raw_original/arrow-right.png" id="2_q7mny"]
+[ext_resource type="Texture2D" uid="uid://d2sacuffxe475" path="res://assets/images/raw_original/infinity.png" id="3_8oosw"]
+[ext_resource type="Texture2D" uid="uid://hqh64dagqwsr" path="res://assets/images/raw_original/close_black.png" id="4_lm0md"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nlwf"]
+bg_color = Color(0.1938785, 0.31635028, 0.3635163, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8224"]
+bg_color = Color(0.3392296, 0.52881336, 0.5359955, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.95686275)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3nlwf"]
+
+[node name="ProductionTab" type="Control"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_q7mny")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3nlwf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_o1w3c")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Decrease" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Decrease"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Decrease"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Decrease" type="TextureButton" parent="MarginContainer/HBoxContainer/Decrease/MarginContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = ExtResource("2_q7mny")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="Count" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "020"
+label_settings = SubResource("LabelSettings_3nlwf")
+
+[node name="Increase" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Increase"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Increase"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Increase" type="TextureButton" parent="MarginContainer/HBoxContainer/Increase/MarginContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = ExtResource("2_q7mny")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Infinity" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Infinity"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Infinity"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Infinity" type="TextureButton" parent="MarginContainer/HBoxContainer/Infinity/MarginContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = ExtResource("3_8oosw")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="Stop" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Stop"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8224")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Stop"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Stop" type="TextureButton" parent="MarginContainer/HBoxContainer/Stop/MarginContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = ExtResource("4_lm0md")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Decrease/MarginContainer/Decrease" to="." method="_decrease_count"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Increase/MarginContainer/Increase" to="." method="_increase_count"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Infinity/MarginContainer/Infinity" to="." method="_toggle_infinity"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Stop/MarginContainer/Stop" to="." method="_stop_count"]

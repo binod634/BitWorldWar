@@ -1,9 +1,9 @@
-[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://c28yrh3mlw85c"]
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://2kcv3edumldm"]
 
-[ext_resource type="FontFile" uid="uid://dvr67wg83ldu5" path="res://assets/fonts/Inter.ttf" id="1_pk1pb"]
+[ext_resource type="FontFile" uid="uid://dvr67wg83ldu5" path="res://assets/fonts/Inter.ttf" id="1_d0b65"]
 
 [sub_resource type="FontVariation" id="FontVariation_4yp1q"]
-base_font = ExtResource("1_pk1pb")
+base_font = ExtResource("1_d0b65")
 variation_opentype = {
 1869640570: 14,
 2003265652: 600
