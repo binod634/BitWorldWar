@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhghdwp8hnl5o"]
+[gd_scene load_steps=6 format=3 uid="uid://bhghdwp8hnl5o"]
 
 [ext_resource type="Script" uid="uid://cbilmb8n1hsbv" path="res://scripts/infantry.gd" id="1_e0jsg"]
 [ext_resource type="Texture2D" uid="uid://cpfmpekiof003" path="res://assets/images/infantry/backup.png" id="3_1hxvu"]
+[ext_resource type="AudioStream" uid="uid://btfxk8ovrhvtc" path="res://assets/images/sound/infantry.mp3" id="3_oncve"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kn48e"]
 radius = 5.0
@@ -17,7 +18,12 @@ script = ExtResource("1_e0jsg")
 path_desired_distance = 3.0
 target_desired_distance = 2.0
 navigation_layers = 3
+debug_enabled = true
+debug_use_custom = true
 debug_path_custom_point_size = 1.0
+
+[node name="InfantrySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oncve")
 
 [node name="Area2D" type="Area2D" parent="."]
 

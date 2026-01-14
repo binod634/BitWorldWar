@@ -3,16 +3,10 @@
 [ext_resource type="LabelSettings" uid="uid://c67al8jjndkqi" path="res://settings/label/fps.tres" id="1_i3f6n"]
 [ext_resource type="Script" uid="uid://f611wt2y3mr2" path="res://scenes/components/scripts/fps_label.gd" id="1_k1b1b"]
 
-[node name="Fps" type="Control"]
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-grow_horizontal = 0
+[node name="Fps" type="CanvasLayer"]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_direction = 3
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/margin_top = 16
