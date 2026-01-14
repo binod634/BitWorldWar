@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4gy0rd3mo67s"]
+[gd_scene load_steps=10 format=3 uid="uid://d4gy0rd3mo67s"]
 
 [ext_resource type="Script" uid="uid://b3srmaivfsj5r" path="res://scenes/screens/scripts/top_panel_bar.gd" id="1_c4vw4"]
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_kk7ym"]
-[ext_resource type="Texture2D" uid="uid://cpctoqsjm4ct3" path="res://assets/images/clock-white.png" id="2_hntsg"]
-[ext_resource type="Texture2D" uid="uid://dhhcvsr8u1q2p" path="res://assets/images/background/top_bar.png" id="2_u5k2f"]
 [ext_resource type="LabelSettings" uid="uid://lgumts37a8w4" path="res://settings/label/panel_detail_value.tres" id="3_sgcot"]
 [ext_resource type="Texture2D" uid="uid://ddxkftncdwko1" path="res://assets/images/dollar.png" id="3_te04m"]
+[ext_resource type="Texture2D" uid="uid://bh68sxdkb4exi" path="res://assets/images/background/bar.png" id="3_wmbx2"]
 [ext_resource type="Texture2D" uid="uid://c5l4qr80td75p" path="res://assets/images/engineers.png" id="5_c7jub"]
 [ext_resource type="Texture2D" uid="uid://bdpxbw5h5fj6k" path="res://assets/images/settings.png" id="5_iafrw"]
 [ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/panel_header_info.tres" id="9_wmbx2"]
@@ -24,8 +23,8 @@ layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -400.0
-offset_right = 400.0
+offset_left = -500.0
+offset_right = 500.0
 offset_bottom = 50.0
 grow_horizontal = 2
 size_flags_horizontal = 3
@@ -57,41 +56,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_u5k2f")
-stretch_mode = 2
+texture = ExtResource("3_wmbx2")
+expand_mode = 1
 
 [node name="NormalInformation" type="MarginContainer" parent="SizeTheme"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/NormalInformation"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 32
-
-[node name="Year" type="HBoxContainer" parent="SizeTheme/NormalInformation/HBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/NormalInformation/HBoxContainer/Year"]
-layout_mode = 2
-texture = ExtResource("2_hntsg")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="SizeTheme/NormalInformation/HBoxContainer/Year"]
-layout_mode = 2
-size_flags_stretch_ratio = 4.0
-text = "Year 1942"
-label_settings = ExtResource("3_sgcot")
 
 [node name="Tresury" type="HBoxContainer" parent="SizeTheme/NormalInformation/HBoxContainer"]
 layout_mode = 2
@@ -153,9 +136,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/BuildingPlacementInfo"]

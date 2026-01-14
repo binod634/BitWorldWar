@@ -29,6 +29,7 @@ Game="*res://scripts/Game.gd"
 ArmyManager="*res://scripts/ArmyManager.gd"
 PlayerData="*res://scripts/PlayerData.gd"
 RelationManager="*res://scripts/RelationManager.gd"
+InputManager="*res://scripts/InputManager.gd"
 
 [debug]
 
