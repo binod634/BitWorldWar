@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 
-@onready var character:Sprite2D = $Army
+@onready var character:Node2D = $Character
+@onready var default_scale_value:Vector2 =  $Character.scale
 @onready var navAgent:NavigationAgent2D = $NavigationAgent2D
 @export var country_id:String
 var target_position:Vector2 = Vector2.ZERO:
@@ -19,7 +20,6 @@ var is_character_selected:bool = false:
 		is_character_selected = value
 		change_character_glow(value)
 		update_player_global(value)
-@onready var default_scale_value:Vector2 =  $Army.scale
 
 func _ready() -> void:
 	name = "army_" + str(randi())
@@ -28,8 +28,9 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if navAgent.is_navigation_finished(): return
 	if not navAgent.is_target_reachable(): return
-	var got_path:Vector2 = global_position.direction_to(navAgent.get_next_path_position()).normalized() * 100
-	velocity = got_path
+	var next_position:Vector2 = navAgent.get_next_path_position()
+	velocity = global_position.direction_to(next_position).normalized() * 100
+	character.rotation = deg_to_rad(global_position.direction_to(next_position).normalized().angle())
 	move_and_slide()
 
 

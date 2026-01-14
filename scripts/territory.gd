@@ -15,7 +15,7 @@ var neutral_offset_color:Color = GameColors.FriendlyNationColor * 0.5 + Color(ra
 
 # scenes
 var playerAgent:PackedScene = preload("res://scenes/objects/infantry.tscn")
-
+var building:PackedScene = preload('res://scenes/tmp/building.tscn')
 
 
 func _ready() -> void:
@@ -24,13 +24,24 @@ func _ready() -> void:
 		RelationManager.build_ready.connect(build_nodes)
 		RelationManager.relation_changed.connect(check_relation)
 
+
 func build_nodes():
 	get_territory_data()
 	build_territory()
 	deploy_army()
 	deploy_effects()
+	build_owned_signals()
+
+func build_owned_signals():
+	if not  PlayerData.is_country_mine(country_id): return
+	InputManager.prompt_building_placement.connect(_prompt_building_placement)
 
 
+func _prompt_building_placement():
+	var tmpBuilding:StaticBody2D = building.instantiate()
+	tmpBuilding.global_position = get_global_mouse_position()
+	add_child(tmpBuilding)
+	print("[*] Building Placed...")
 
 func get_territory_data():
 	territory_data_list = RelationManager.get_territories_from_country_id(country_id)
@@ -129,5 +140,4 @@ func center_point_in_polygon(polygon:PackedVector2Array) -> Vector2:
 
 func _on_collision_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_MASK_LEFT && event.is_pressed()):
-		# Game.popup_territory_action(country_id,get_global_mouse_position())
 		RelationManager.territory_clicked(country_id)

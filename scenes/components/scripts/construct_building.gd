@@ -2,4 +2,4 @@ extends Control
 
 
 func construct_clicked():
-	pass
+	InputManager.signal_placement()
