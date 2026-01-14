@@ -24,6 +24,8 @@ script = ExtResource("1_du05j")
 color = Color(0.24115604, 0.24115604, 0.24115601, 1)
 blend_mode = 1
 
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("7_s4ij8")]
+
 [node name="BackGround" type="Polygon2D" parent="."]
 z_index = -1
 color = Color(0.43137255, 0.56078434, 0.6, 1)
@@ -62,5 +64,3 @@ navigation_polygon = SubResource("NavigationPolygon_y1hhk")
 
 [node name="LeftBarInfo" parent="VisiblityLayer" instance=ExtResource("8_6pk0q")]
 AutoHide = false
-
-[node name="AudioStreamPlayer" parent="." instance=ExtResource("7_s4ij8")]

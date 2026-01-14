@@ -399,29 +399,25 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("5_pof0m")
 expand_mode = 3
 flip_h = true
 
-[node name="Country" type="Label" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/HBoxContainer"]
+[node name="Country" type="Label" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Construction"
 label_settings = ExtResource("2_lcsnk")
-
-[node name="Line" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_right = 32
-
-[node name="HSeparator" type="HSeparator" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/Line"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_4ayhn")
 
 [node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer"]
 layout_mode = 2

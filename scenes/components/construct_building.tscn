@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8q0a1veaf7ta"]
+[gd_scene load_steps=6 format=3 uid="uid://c8q0a1veaf7ta"]
 
+[ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_kq0oe"]
 [ext_resource type="Texture2D" uid="uid://bvgdgv78dgyit" path="res://assets/images/raw_original/industry.png" id="1_lrkgk"]
 [ext_resource type="Script" uid="uid://dqkewdbs41e4m" path="res://scenes/components/scripts/construct_building.gd" id="1_s7xsq"]
 [ext_resource type="Texture2D" uid="uid://ck18gavdacl3a" path="res://assets/images/buttons/blue_btn.png" id="2_s7xsq"]
@@ -15,6 +16,7 @@ corner_radius_bottom_left = 8
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("1_kq0oe")
 script = ExtResource("1_s7xsq")
 
 [node name="TextureRect" type="TextureRect" parent="."]

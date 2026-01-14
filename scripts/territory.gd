@@ -14,7 +14,7 @@ var territory_data_list:Dictionary[String,TerritoryData] = {}
 var neutral_offset_color:Color = GameColors.FriendlyNationColor * 0.5 + Color(randf(),randf(),randf()) * 0.2
 
 # scenes
-var playerAgent:PackedScene = preload("res://scenes/objects/army.tscn")
+var playerAgent:PackedScene = preload("res://scenes/objects/infantry.tscn")
 
 
 
