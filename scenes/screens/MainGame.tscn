@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://6k5vuafsfg2t"]
+[gd_scene load_steps=8 format=3 uid="uid://6k5vuafsfg2t"]
 
 [ext_resource type="Script" uid="uid://bl21gx7k7gtcw" path="res://scripts/MainGame.gd" id="1_du05j"]
 [ext_resource type="PackedScene" uid="uid://d4gy0rd3mo67s" path="res://scenes/screens/TopPanelBar.tscn" id="3_ao4ig"]
 [ext_resource type="Script" uid="uid://wtu6riasvkt5" path="res://scripts/camera.gd" id="3_c3qoo"]
-[ext_resource type="PackedScene" uid="uid://cvad30ec7xvqk" path="res://scenes/objects/ship.tscn" id="7_6pk0q"]
 [ext_resource type="PackedScene" uid="uid://bmd0yfcr80v2e" path="res://scenes/screens/RightBarInfo.tscn" id="7_ci4w4"]
 [ext_resource type="PackedScene" uid="uid://j46bn6gnhv4q" path="res://scenes/components/audio.tscn" id="7_s4ij8"]
 [ext_resource type="PackedScene" uid="uid://bkai00fmv5u6b" path="res://scenes/screens/LeftBarInfo.tscn" id="8_6pk0q"]
@@ -64,8 +63,4 @@ navigation_polygon = SubResource("NavigationPolygon_y1hhk")
 [node name="LeftBarInfo" parent="VisiblityLayer" instance=ExtResource("8_6pk0q")]
 AutoHide = false
 
-[node name="player_agent" parent="." instance=ExtResource("7_6pk0q")]
-position = Vector2(1777, 783)
-
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("7_s4ij8")]
-stream_paused = false

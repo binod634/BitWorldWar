@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkai00fmv5u6b"]
+[gd_scene load_steps=13 format=3 uid="uid://bkai00fmv5u6b"]
 
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_d8bky"]
 [ext_resource type="Script" uid="uid://6mh6cakxqcgq" path="res://scripts/left_bar_info.gd" id="1_ulmx0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://l76wmpuo1yoo" path="res://assets/images/raw_original/right-arrow.png" id="5_pof0m"]
 [ext_resource type="Texture2D" uid="uid://ck18gavdacl3a" path="res://assets/images/buttons/blue_btn.png" id="6_lcsnk"]
 [ext_resource type="PackedScene" uid="uid://1i1ap815y3nj" path="res://scenes/components/production_unit.tscn" id="8_l5u0t"]
+[ext_resource type="PackedScene" uid="uid://c8q0a1veaf7ta" path="res://scenes/components/construct_building.tscn" id="9_exi2d"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_4ayhn"]
 content_margin_right = 997.0
@@ -379,6 +380,79 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ProductionTab6" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/MarginContainer2/ProdHandler" instance=ExtResource("8_l5u0t")]
+layout_mode = 2
+
+[node name="Building" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SizeTheme/MainMenu/Content/Building"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_pof0m")
+expand_mode = 3
+flip_h = true
+
+[node name="Country" type="Label" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Construction"
+label_settings = ExtResource("2_lcsnk")
+
+[node name="Line" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 32
+
+[node name="HSeparator" type="HSeparator" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/Line"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_4ayhn")
+
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ConstHandler" type="VBoxContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="ConstTab" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+layout_mode = 2
+
+[node name="ConstTab2" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+layout_mode = 2
+
+[node name="ConstTab3" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+layout_mode = 2
+
+[node name="ConstTab4" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+layout_mode = 2
+
+[node name="ConstTab5" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+layout_mode = 2
+
+[node name="ConstTab6" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+layout_mode = 2
+
+[node name="ConstTab7" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
 layout_mode = 2
 
 [node name="CollapseExpand" type="Control" parent="SizeTheme/MainMenu"]

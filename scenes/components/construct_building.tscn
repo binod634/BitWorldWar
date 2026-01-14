@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8q0a1veaf7ta"]
+
+[ext_resource type="Texture2D" uid="uid://bvgdgv78dgyit" path="res://assets/images/raw_original/industry.png" id="1_lrkgk"]
+[ext_resource type="Script" uid="uid://dqkewdbs41e4m" path="res://scenes/components/scripts/construct_building.gd" id="1_s7xsq"]
+[ext_resource type="Texture2D" uid="uid://ck18gavdacl3a" path="res://assets/images/buttons/blue_btn.png" id="2_s7xsq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nlwf"]
+bg_color = Color(0.1938785, 0.31635028, 0.3635163, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ConstructBuilding" type="Control"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_s7xsq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3nlwf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_lrkgk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_s7xsq")
+
+[node name="Construct" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Construct Building"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer2/Construct" to="." method="construct_clicked"]
