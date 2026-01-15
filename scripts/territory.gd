@@ -79,7 +79,7 @@ func build_territory():
 	for territory_id in territory_data_list:
 		var territory:TerritoryData = territory_data_list[territory_id]
 		build_polygon_centers(territory)
-		build_polygon_node(territory.coordinates,name,GameColors.OwnedNationColor if PlayerData.is_country_mine(country_id) else neutral_offset_color)
+		build_polygon_node(territory.coordinates,territory_id,GameColors.OwnedNationColor if PlayerData.is_country_mine(country_id) else neutral_offset_color)
 		build_collision_node(territory.coordinates,name)
 
 
