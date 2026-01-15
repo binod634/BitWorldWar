@@ -7,6 +7,7 @@ const REGIONS_FOLDER:String = "res://assets/files/regions_output/"
 var territories:Dictionary[String,TerritoryData]
 var countries:Dictionary[String,CountryData]
 @export_tool_button("Generate Map")var generate_maps:Callable =  build_map
+@export_tool_button("Generate Polygon")var generate_polygon:Callable =  build_polygons
 @onready var rebuild_needed:bool = $Regions.get_child_count() == 0
 @onready var CountriesParent:Node = $Regions
 @onready var CountryActionMenu:CanvasLayer = $VisiblityLayer/LeftBarInfo
@@ -27,6 +28,18 @@ func build_map():
 	queue_redraw()
 
 
+func build_polygons():
+	if territories.is_empty():
+		decode_all_polygons()
+	put_polygons()
+
+func put_polygons():
+	for territory_id in territories:
+		var polygon:Polygon2D = Polygon2D.new()
+		polygon.polygon = territories[territory_id].coordinates
+		polygon.color = Color.DARK_SLATE_GRAY
+		polygon.add_to_group("navigation_avoid")
+		CountriesParent.add_child(polygon)
 
 
 func _draw() -> void:
@@ -39,7 +52,7 @@ func provide_countries_data():
 	RelationManager.set_territories(territories)
 	RelationManager.set_country_territories_map(countries)
 	#RelationManager.pick_nation("75a95d714dc74a54a1c749e10449cd8e")
-	RelationManager.pick_nation(find_nation_from_name("India"))
+	RelationManager.pick_nation(find_nation_from_name("Russia"))
 
 func find_nation_from_name(nation_name:String) -> String:
 	for a in countries:

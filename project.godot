@@ -61,11 +61,9 @@ pointing/android/enable_pan_and_scale_gestures=true
 
 [navigation]
 
-2d/warnings/navmesh_edge_merge_errors=false
 2d/default_cell_size=10.0
-2d/merge_rasterizer_cell_scale=0.1
+2d/merge_rasterizer_cell_scale=0.001
 2d/default_edge_connection_margin=4.0
-2d/default_link_connection_radius=10.0
 
 [physics]
 

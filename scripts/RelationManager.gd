@@ -66,11 +66,21 @@ func add_navigatable_region(vertices:PackedVector2Array,hashed_name:String,isOwn
 	var new_navigation_mesh:NavigationPolygon = NavigationPolygon.new()
 	new_navigation_mesh.agent_radius = 0.5
 	new_navigation_mesh.cell_size = 10
+	var shrinked_vertices:PackedVector2Array = simplify_and_shrink(vertices)
 	new_navigation_mesh.add_outline(vertices)
 	NavigationServer2D.bake_from_source_geometry_data(new_navigation_mesh, NavigationMeshSourceGeometryData2D.new());
 	nav_region.navigation_polygon = new_navigation_mesh
 	get_navigation_parent_node().add_child(nav_region)
 	#print("add navigation success: %s"%[hashed_name])
+
+func simplify_and_shrink(points: PackedVector2Array) -> PackedVector2Array:
+	# 1. Offset (shrink) the polygon inward by 0.1 units
+	# JOIN_MITER (0) keeps corners sharp; -0.1 shrinks it.
+	var offset_polygons = Geometry2D.offset_polygon(points, -0.5, Geometry2D.JOIN_MITER)
+
+	if offset_polygons.size() > 0:
+		return offset_polygons[0] # Returns the newly shrunk polygon
+	return points
 
 func generate_navigation_region_name(hashed_name:String):
 	return hashed_name + str(RandomNumberGenerator.new().randi())
