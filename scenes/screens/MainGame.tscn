@@ -53,6 +53,7 @@ script = ExtResource("3_c3qoo")
 [node name="SeaNavigation" type="NavigationRegion2D" parent="WorldNavigation"]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_y1hhk")
+travel_cost = 2.0
 
 [node name="Regions" type="Node2D" parent="."]
 

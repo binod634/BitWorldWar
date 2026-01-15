@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhghdwp8hnl5o"]
+[gd_scene load_steps=5 format=3 uid="uid://bhghdwp8hnl5o"]
 
 [ext_resource type="Script" uid="uid://cbilmb8n1hsbv" path="res://scripts/infantry.gd" id="1_e0jsg"]
 [ext_resource type="Texture2D" uid="uid://cpfmpekiof003" path="res://assets/images/infantry/backup.png" id="3_1hxvu"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kn48e"]
 radius = 5.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_e0jsg"]
-radius = 1.0
 
 [node name="Infantry" type="CharacterBody2D"]
 z_index = 1
@@ -29,9 +26,6 @@ stream = ExtResource("3_oncve")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_kn48e")
-
-[node name="MinimumCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_e0jsg")
 
 [node name="Character" type="Node2D" parent="."]
 

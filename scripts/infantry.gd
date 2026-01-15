@@ -10,12 +10,17 @@ var has_path:bool = false:
 	set(value):
 		has_path = value
 		set_physics_process(value)
-var next_path:Vector2 = Vector2.ZERO
+var next_path:Vector2 = Vector2.ZERO:
+	set(value):
+		next_path = value
+		character.rotation = global_position.direction_to(value).angle()
 const  SPEED:float = 100
 var target_position:Vector2 = Vector2.ZERO:
 	set(value):
 		target_position = value
-		navAgent.target_position = value
+		if value != Vector2.ZERO:
+			navAgent.target_position = value
+			navAgent.get_next_path_position()
 
 var is_character_glowing:bool = false:
 	set(value):
@@ -28,17 +33,17 @@ var is_character_selected:bool = false:
 		change_character_glow(value)
 		update_player_global(value)
 
+
+
 func _ready() -> void:
 	name = "infantry_" + str(randi())
-	set_physics_process(has_path)
 	navAgent.navigation_finished.connect(_navigation_completed)
 	navAgent.path_changed.connect(_check_and_update_if_reachable)
 	visible = RelationManager.is_country_owned(country_id)
 
 func _physics_process(delta: float) -> void:
-	if not has_path:
-		assert(false,"this shouldn't have happened")
-		return
+	if not has_path:return
+	if next_path == Vector2.ZERO: return
 	var got_path:Vector2 = global_position.direction_to(next_path) * SPEED
 	velocity = got_path if check_overshoot(delta) else Vector2.ZERO
 	move_and_slide()
@@ -62,13 +67,11 @@ func _navigation_completed():
 	has_path = false
 
 
+
 func _check_and_update_if_reachable():
-	print("got navigatino upate")
 	if navAgent.is_target_reachable() &&  not navAgent.is_target_reached():
 		has_path = true
-		set_physics_process(true)
 		next_path = navAgent.get_next_path_position()
-		character.rotation = global_position.direction_to(next_path).angle()
 
 func update_player_global(value:bool):
 	if value:
