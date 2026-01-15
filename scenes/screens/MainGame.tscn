@@ -54,6 +54,7 @@ script = ExtResource("3_c3qoo")
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_y1hhk")
 travel_cost = 2.0
+metadata/_edit_lock_ = true
 
 [node name="Regions" type="Node2D" parent="."]
 
