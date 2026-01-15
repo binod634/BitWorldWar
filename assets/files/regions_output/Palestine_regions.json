@@ -1,11 +1,11 @@
 {
   "country": "Palestine",
   "playable": false,
-  "id": "4ae1f57c73fc41bc9046f67ab823dd7b",
+  "id": "7d2f7875eb2a49fcb89d40f1c57954bc",
   "regions": [
     {
       "type": "Polygon",
-      "id": "9556ebdb3d564c86b3599c54718f2382",
+      "id": "ea6379133e6e4d4680619bc677ba44ce",
       "coordinates": [
         [
           [
@@ -45,6 +45,10 @@
             31.353435370401414
           ]
         ]
+      ],
+      "center": [
+        35.296894326526065,
+        32.0496512720969
       ]
     }
   ]

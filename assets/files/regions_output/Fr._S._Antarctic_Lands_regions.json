@@ -1,11 +1,11 @@
 {
   "country": "Fr. S. Antarctic Lands",
   "playable": false,
-  "id": "c7fc007176c54e1390fecbb94464668a",
+  "id": "a3ab7ae92e18476cb93c58c2f6090a6d",
   "regions": [
     {
       "type": "Polygon",
-      "id": "b182e9c350d04e7980aa38d73d4dcfd0",
+      "id": "60ffafae93dc45ea9c424fcaba9de1ab",
       "coordinates": [
         [
           [
@@ -45,6 +45,10 @@
             -48.94
           ]
         ]
+      ],
+      "center": [
+        69.5315804704237,
+        -49.30645491167198
       ]
     }
   ]

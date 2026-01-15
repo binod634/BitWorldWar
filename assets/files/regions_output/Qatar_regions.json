@@ -1,11 +1,11 @@
 {
   "country": "Qatar",
   "playable": false,
-  "id": "85a9fc3d91284d6888c4dd315a6601b3",
+  "id": "0fb279defed14904b4265a19ca76b03f",
   "regions": [
     {
       "type": "Polygon",
-      "id": "d8966407881047c6bdbed3fd09d5cbdc",
+      "id": "47c0b385ec0e4e2f94c14e37971d70d6",
       "coordinates": [
         [
           [
@@ -45,6 +45,10 @@
             25.482424221289396
           ]
         ]
+      ],
+      "center": [
+        51.18350257891327,
+        25.321850974206683
       ]
     }
   ]

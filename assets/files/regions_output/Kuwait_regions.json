@@ -1,11 +1,11 @@
 {
   "country": "Kuwait",
   "playable": false,
-  "id": "f1261124e63849ff9ace7a2f145b04bc",
+  "id": "8cdd7aa84ed8410e870f55d326978878",
   "regions": [
     {
       "type": "Polygon",
-      "id": "f24645dc7090442cbcd516ce1a01e332",
+      "id": "d79bcd69ebad49c392c58f4546439aba",
       "coordinates": [
         [
           [
@@ -45,6 +45,10 @@
             29.534476630159762
           ]
         ]
+      ],
+      "center": [
+        47.6082127263232,
+        29.48048269880419
       ]
     }
   ]

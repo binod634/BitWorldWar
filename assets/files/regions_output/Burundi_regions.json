@@ -1,11 +1,11 @@
 {
   "country": "Burundi",
   "playable": false,
-  "id": "c2a9e00d9dd3470cb473e6c36c0715cc",
+  "id": "f4b06798c7634b3dbe964bfbe6e1c207",
   "regions": [
     {
       "type": "Polygon",
-      "id": "e40b5341931d44088a9e7d5e29a696dc",
+      "id": "e260dbe5a3904986be16c977f06f2c74",
       "coordinates": [
         [
           [
@@ -61,6 +61,10 @@
             -2.80762
           ]
         ]
+      ],
+      "center": [
+        29.913892295425715,
+        -3.3773910753554675
       ]
     }
   ]

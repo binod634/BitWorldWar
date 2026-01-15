@@ -1,11 +1,11 @@
 {
   "country": "Djibouti",
   "playable": false,
-  "id": "db155684e8d741209887dbc726923f3d",
+  "id": "fb31ba0936e54a6eb11aeb23601ebb51",
   "regions": [
     {
       "type": "Polygon",
-      "id": "87c113fe28874659a2c6609760b62beb",
+      "id": "c75a0469385d4e55b4cbe15dd625797a",
       "coordinates": [
         [
           [
@@ -69,6 +69,10 @@
             12.455415757695675
           ]
         ]
+      ],
+      "center": [
+        42.141585489127046,
+        11.551565427520988
       ]
     }
   ]

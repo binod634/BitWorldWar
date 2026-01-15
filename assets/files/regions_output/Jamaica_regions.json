@@ -1,11 +1,11 @@
 {
   "country": "Jamaica",
   "playable": false,
-  "id": "c0a5ed09cfc8449bac508b1864312728",
+  "id": "58727ace99d9420cbd9610e35232fea9",
   "regions": [
     {
       "type": "Polygon",
-      "id": "5fcea64f988446db84d695bb49728e77",
+      "id": "6b95179d2e674b9a9670ade94dc0d61f",
       "coordinates": [
         [
           [
@@ -53,6 +53,10 @@
             18.400866807524082
           ]
         ]
+      ],
+      "center": [
+        -77.32425480164892,
+        18.137636127868436
       ]
     }
   ]

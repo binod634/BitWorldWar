@@ -1,11 +1,11 @@
 {
   "country": "Eq. Guinea",
   "playable": false,
-  "id": "baecd42667ef4896bfdaca85b0d1ea2d",
+  "id": "8262c975fafa4c6bb96106a9bf8a17d1",
   "regions": [
     {
       "type": "Polygon",
-      "id": "5aada60167dd4452ba6216ce8616710f",
+      "id": "8bde0925befb4637b2490c6cf795713a",
       "coordinates": [
         [
           [
@@ -37,6 +37,10 @@
             2.261050930180872
           ]
         ]
+      ],
+      "center": [
+        10.366031325064027,
+        1.6458643199600755
       ]
     }
   ]

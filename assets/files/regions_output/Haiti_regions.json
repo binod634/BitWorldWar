@@ -1,11 +1,11 @@
 {
   "country": "Haiti",
   "playable": false,
-  "id": "5e5aa972023a429a9b2436c87d4c253a",
+  "id": "e9feae8451a04ff1b5139b2e7267eaf4",
   "regions": [
     {
       "type": "Polygon",
-      "id": "1f5b73c95fe84c87a4dce35744091fc7",
+      "id": "a4dbe5485053436aabf76f8e1de22a0e",
       "coordinates": [
         [
           [
@@ -93,6 +93,10 @@
             19.169837958243306
           ]
         ]
+      ],
+      "center": [
+        -72.14002098385075,
+        19.221316019714447
       ]
     }
   ]

@@ -1,11 +1,11 @@
 {
   "country": "Timor-Leste",
   "playable": false,
-  "id": "6c10c13c23334041a28d2f67bdceb324",
+  "id": "ba3e8ed1644a46fcab798a3e0bca1f59",
   "regions": [
     {
       "type": "Polygon",
-      "id": "05bac40fa83041b3a6d465748c27c43e",
+      "id": "1517d67b11b746588ba190d914fd3ed1",
       "coordinates": [
         [
           [
@@ -53,6 +53,10 @@
             -8.65688730228468
           ]
         ]
+      ],
+      "center": [
+        125.96630027368398,
+        -8.767760362467001
       ]
     }
   ]

@@ -1,11 +1,11 @@
 {
   "country": "eSwatini",
   "playable": false,
-  "id": "c4114cc9afd44cdb808e1dba18f26224",
+  "id": "e35fe0d7c00d4330a333e52e8b38b28b",
   "regions": [
     {
       "type": "Polygon",
-      "id": "08a0e647a30c4b3a8255bb60c69fd051",
+      "id": "b3bea7c7bb1249218d8df6c80da332d7",
       "coordinates": [
         [
           [
@@ -53,6 +53,10 @@
             -27.177927341421277
           ]
         ]
+      ],
+      "center": [
+        31.39525590206533,
+        -26.48985528852001
       ]
     }
   ]

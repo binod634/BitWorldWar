@@ -1,11 +1,11 @@
 {
   "country": "Montenegro",
   "playable": false,
-  "id": "20830955dff84e758fc1bec53b1880e9",
+  "id": "e3784c301ce94f9d8218b88aa93ed263",
   "regions": [
     {
       "type": "Polygon",
-      "id": "f76e7d18bafa461b8ef681361fafd4b4",
+      "id": "ee95b00446194d72950e6c9134927309",
       "coordinates": [
         [
           [
@@ -81,6 +81,10 @@
             42.50009349219084
           ]
         ]
+      ],
+      "center": [
+        19.195973208013378,
+        42.81692716171025
       ]
     }
   ]

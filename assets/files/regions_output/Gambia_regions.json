@@ -1,11 +1,11 @@
 {
   "country": "Gambia",
   "playable": false,
-  "id": "238397ccd45b41ac9941541f31ad6979",
+  "id": "64f1a95fcc4b4e38b8b94dfa451740b6",
   "regions": [
     {
       "type": "Polygon",
-      "id": "166cd0c8d5cc43bfbe61d20eab2d2d9d",
+      "id": "01821f5f5759461db77ffea05ec6f438",
       "coordinates": [
         [
           [
@@ -73,6 +73,10 @@
             13.62358734786956
           ]
         ]
+      ],
+      "center": [
+        -16.239956891987763,
+        13.425412930918577
       ]
     }
   ]

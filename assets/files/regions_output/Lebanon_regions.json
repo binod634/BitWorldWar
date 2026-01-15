@@ -1,11 +1,11 @@
 {
   "country": "Lebanon",
   "playable": false,
-  "id": "12522e7b7977443f88c8a022fd0e6288",
+  "id": "bc26e69edd8942df8b1162c7c0f19af8",
   "regions": [
     {
       "type": "Polygon",
-      "id": "0a24f89b1726490c80d0e5339c5487b1",
+      "id": "5971141b8449411bba5dd4bf882ebda0",
       "coordinates": [
         [
           [
@@ -53,6 +53,10 @@
             33.26427480725802
           ]
         ]
+      ],
+      "center": [
+        35.87098632001643,
+        33.91182720781994
       ]
     }
   ]

@@ -1,11 +1,11 @@
 {
   "country": "Luxembourg",
   "playable": false,
-  "id": "a14d3c35d7694e44ad8df5a621514853",
+  "id": "71fd7f779bda4f69a89e8de80d5b01b4",
   "regions": [
     {
       "type": "Polygon",
-      "id": "138b8741371e466db8f7000a8f8b79a1",
+      "id": "44cd8660ba574218a86a8822c9d7334a",
       "coordinates": [
         [
           [
@@ -37,6 +37,10 @@
             49.90222565367873
           ]
         ]
+      ],
+      "center": [
+        5.965223432343998,
+        49.76570507415102
       ]
     }
   ]

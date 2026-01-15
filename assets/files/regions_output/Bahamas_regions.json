@@ -1,11 +1,11 @@
 {
   "country": "Bahamas",
   "playable": false,
-  "id": "aa0ec9669b484b5086734b76fdbc3696",
+  "id": "772d8a8c2676441e80f6599249cbe0ee",
   "regions": [
     {
       "type": "Polygon",
-      "id": "9b37a65691fb4034943dabd0b0b45902",
+      "id": "07fd2313440a49cba51c15370502e537",
       "coordinates": [
         [
           [
@@ -41,11 +41,15 @@
             24.34
           ]
         ]
+      ],
+      "center": [
+        -77.91580479355535,
+        24.50639967271505
       ]
     },
     {
       "type": "Polygon",
-      "id": "6aff84acf3324ef88f1fdc3ba5c941fc",
+      "id": "bd5352415ae6496aa9b662273a0b4042",
       "coordinates": [
         [
           [
@@ -77,11 +81,15 @@
             26.00735
           ]
         ]
+      ],
+      "center": [
+        -77.1863287857143,
+        26.489992428571433
       ]
     },
     {
       "type": "Polygon",
-      "id": "9534a7d36394451baa352e6ededb355c",
+      "id": "a57efb267c7847f1b848b6d9937eea2c",
       "coordinates": [
         [
           [
@@ -109,6 +117,10 @@
             26.58
           ]
         ]
+      ],
+      "center": [
+        -78.42504012703317,
+        26.670279387150767
       ]
     }
   ]

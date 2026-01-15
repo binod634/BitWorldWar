@@ -1,11 +1,11 @@
 {
   "country": "El Salvador",
   "playable": false,
-  "id": "f00286662d524775992dae1d803b0072",
+  "id": "f01931a0853e4cb4a28d6d589136fe36",
   "regions": [
     {
       "type": "Polygon",
-      "id": "00b81de40abd41308a5c0d2be4829430",
+      "id": "6608166d123f4b7d9f1fcf478c9c35e3",
       "coordinates": [
         [
           [
@@ -89,6 +89,10 @@
             14.340029405164087
           ]
         ]
+      ],
+      "center": [
+        -88.87290317032377,
+        13.726091625794197
       ]
     }
   ]

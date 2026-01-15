@@ -1,11 +1,11 @@
 {
   "country": "Vanuatu",
   "playable": false,
-  "id": "bb28295c810242528ce3571200286586",
+  "id": "01f0cf37c9c44392bb59eb06944afde3",
   "regions": [
     {
       "type": "Polygon",
-      "id": "a1ac9994fe3b4b0da7f425ff25778be2",
+      "id": "337bf1a7038b4159932d601accee05af",
       "coordinates": [
         [
           [
@@ -29,11 +29,15 @@
             -16.59784962327999
           ]
         ]
+      ],
+      "center": [
+        167.46347846549415,
+        -16.290044761846236
       ]
     },
     {
       "type": "Polygon",
-      "id": "7e73ce8f8a3245c5954d7fc7bd2956d7",
+      "id": "7ef1a59fcfa9453fa73872cc6c486a15",
       "coordinates": [
         [
           [
@@ -65,6 +69,10 @@
             -14.626497084209605
           ]
         ]
+      ],
+      "center": [
+        166.90722944828872,
+        -15.223343351428964
       ]
     }
   ]

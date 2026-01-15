@@ -1,11 +1,11 @@
 {
   "country": "Falkland Is.",
   "playable": false,
-  "id": "296e7477981d43c19d51145cc9c0653c",
+  "id": "d8d11a7693e94bfd82d9101bce1ebd66",
   "regions": [
     {
       "type": "Polygon",
-      "id": "58758e15fa8b430a82a6950d59d03a90",
+      "id": "10aeb9242b704eaa9e69d9f1a4b94b4d",
       "coordinates": [
         [
           [
@@ -49,6 +49,10 @@
             -51.25
           ]
         ]
+      ],
+      "center": [
+        -58.6711129032258,
+        -51.66735483870968
       ]
     }
   ]

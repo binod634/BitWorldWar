@@ -1,11 +1,11 @@
 {
   "country": "Lesotho",
   "playable": false,
-  "id": "6e53fcb39f2d4a979daf87b174a2e838",
+  "id": "37c5fd837a264d17b660cab6331c74aa",
   "regions": [
     {
       "type": "Polygon",
-      "id": "05f0f92d29ce4586a653b86c4a4f632d",
+      "id": "8c562ceb319546a5a8ffd3afa0591708",
       "coordinates": [
         [
           [
@@ -57,6 +57,10 @@
             -29.257386976846256
           ]
         ]
+      ],
+      "center": [
+        28.1701052951705,
+        -29.625290493692013
       ]
     }
   ]

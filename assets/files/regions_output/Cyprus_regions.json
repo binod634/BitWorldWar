@@ -1,11 +1,11 @@
 {
   "country": "Cyprus",
   "playable": false,
-  "id": "6c628f45e70345f1a3711f7c261852a3",
+  "id": "8788ac8fbc3f46b7942e65f277e81af5",
   "regions": [
     {
       "type": "Polygon",
-      "id": "ae1f8e5ad8e84cfeba0e1dd843ca2672",
+      "id": "3be71ac7a6a04bfca3cbd376b12db6f3",
       "coordinates": [
         [
           [
@@ -69,6 +69,10 @@
             35.08783274997364
           ]
         ]
+      ],
+      "center": [
+        33.03955380295407,
+        34.907060850943445
       ]
     }
   ]

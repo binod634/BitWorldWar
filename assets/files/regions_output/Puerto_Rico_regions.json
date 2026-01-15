@@ -1,11 +1,11 @@
 {
   "country": "Puerto Rico",
   "playable": false,
-  "id": "c94e2529ac7c437aadf38c0daa5e54fc",
+  "id": "5e6eaaefd654476199901c804372f88f",
   "regions": [
     {
       "type": "Polygon",
-      "id": "765ab89137fb4ccdac59aea09dd74680",
+      "id": "7636e198f3ae42f283ed80e29e6b3668",
       "coordinates": [
         [
           [
@@ -45,6 +45,10 @@
             18.426679185453878
           ]
         ]
+      ],
+      "center": [
+        -66.47922227695507,
+        18.237224570971897
       ]
     }
   ]

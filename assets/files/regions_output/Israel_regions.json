@@ -1,11 +1,11 @@
 {
   "country": "Israel",
   "playable": false,
-  "id": "e82cfe6c5bf348ebaa1a8ce98a78b36d",
+  "id": "908c298e7e574231988544be1450bdb5",
   "regions": [
     {
       "type": "Polygon",
-      "id": "15e897c5ed514f87a9783df2e3cfe9a4",
+      "id": "3f71c0e9eef743b6b5c3d92824828e7e",
       "coordinates": [
         [
           [
@@ -105,6 +105,10 @@
             32.393992011030576
           ]
         ]
+      ],
+      "center": [
+        34.7946830879893,
+        30.769017000560904
       ]
     }
   ]

@@ -1,11 +1,11 @@
 {
   "country": "Slovenia",
   "playable": false,
-  "id": "8eab11ae9891486eaeeaaa6781560e10",
+  "id": "23ccfc8148c94954935e76d7c4749cc8",
   "regions": [
     {
       "type": "Polygon",
-      "id": "45d40ed02a50498890dd313ad1abdc56",
+      "id": "4e36530c685949c7a30ffcfc4c059632",
       "coordinates": [
         [
           [
@@ -81,6 +81,10 @@
             46.43181732846955
           ]
         ]
+      ],
+      "center": [
+        14.938152320795723,
+        46.125422059010376
       ]
     }
   ]

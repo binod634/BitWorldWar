@@ -1,11 +1,11 @@
 {
   "country": "Trinidad and Tobago",
   "playable": false,
-  "id": "fc2269675b7940918e5e397d0c9e2960",
+  "id": "1e7f62f84ed449528d67f0764ea54ce5",
   "regions": [
     {
       "type": "Polygon",
-      "id": "8ee69863ab7346cf981a6a93741537f8",
+      "id": "dfdcbd80fd49447ba740edc392dc3fa9",
       "coordinates": [
         [
           [
@@ -41,6 +41,10 @@
             10.89
           ]
         ]
+      ],
+      "center": [
+        -61.33036691444967,
+        10.428237089201877
       ]
     }
   ]

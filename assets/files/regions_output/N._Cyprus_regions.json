@@ -1,11 +1,11 @@
 {
   "country": "N. Cyprus",
   "playable": false,
-  "id": "376ce1a98c444f03ad2e8591d1595445",
+  "id": "dfe69ad5d6db4fe4abc8800b7d55d787",
   "regions": [
     {
       "type": "Polygon",
-      "id": "dae6b4e9f2dc4e478380a34b2f1b5f64",
+      "id": "935437d636984e86b3b95fd094aba4b7",
       "coordinates": [
         [
           [
@@ -73,6 +73,10 @@
             35.14550364841138
           ]
         ]
+      ],
+      "center": [
+        33.660672715119205,
+        35.23123906704726
       ]
     }
   ]

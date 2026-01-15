@@ -1,11 +1,11 @@
 {
   "country": "Brunei",
   "playable": false,
-  "id": "457fd504c7f549e99862feaa3e4a3afa",
+  "id": "fcf2d931edaf4f8688f69af812c9ddfe",
   "regions": [
     {
       "type": "Polygon",
-      "id": "19c3242684ad4e348b5f13a062125ff2",
+      "id": "c9a47bea0d4740e58c8882499a7c3d18",
       "coordinates": [
         [
           [
@@ -41,6 +41,10 @@
             4.955227565933839
           ]
         ]
+      ],
+      "center": [
+        114.9151087739395,
+        4.690250542520635
       ]
     }
   ]

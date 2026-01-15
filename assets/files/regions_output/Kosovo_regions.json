@@ -1,11 +1,11 @@
 {
   "country": "Kosovo",
   "playable": false,
-  "id": "a2569f65fabf424681cfe2a06c140e84",
+  "id": "1cc7d9a348cb4fbda1bcbc228fe0e53a",
   "regions": [
     {
       "type": "Polygon",
-      "id": "5168cb7af9e148cb9dab8cae85004df8",
+      "id": "8e374f7b0f88403b862293b9ec800184",
       "coordinates": [
         [
           [
@@ -93,6 +93,10 @@
             42.21787
           ]
         ]
+      ],
+      "center": [
+        20.8953557213422,
+        42.579367131816944
       ]
     }
   ]
