@@ -80,7 +80,7 @@ func build_territory():
 		var territory:TerritoryData = territory_data_list[territory_id]
 		build_polygon_centers(territory)
 		build_polygon_node(territory.coordinates,territory_id,GameColors.OwnedNationColor if PlayerData.is_country_mine(country_id) else neutral_offset_color)
-		build_collision_node(territory.coordinates,name)
+		build_collision_node(territory.coordinates,territory_id)
 
 
 func build_polygon_centers(territory:TerritoryData):
@@ -103,10 +103,16 @@ func build_polygon_node(polygon:PackedVector2Array,node_name:String,node_color:C
 
 func build_collision_node(polygon:PackedVector2Array,node_name:String):
 	var collisionNode:CollisionPolygon2D = CollisionPolygon2D.new()
+	#await get_tree().create_timer(randf() * 10).timeout
+	#push_error(node_name)
+	#if node_name == "372cb2b53f7e4715ae6605643469d2e8" or node_name == "fb0e6a636d844165a22f57adc96b330d" :
+		#print("This is it")
+		#collisionNode.polygon = polygon
+		#collisionNode.name = node_name
+	#else:
 	collisionNode.polygon = polygon
 	collisionNode.name = node_name
 	collision_nodes.append(collisionNode)
-
 	CollisionArea.add_child(collisionNode)
 
 
