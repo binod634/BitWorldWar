@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://lnjjkdpf1p0j"]
+[gd_scene load_steps=7 format=3 uid="uid://lnjjkdpf1p0j"]
 
-[ext_resource type="Script" uid="uid://d2ausf5p6k12q" path="res://scenes/objects/scripts/sub.gd" id="2_cmak5"]
+[ext_resource type="Script" uid="uid://dqla6s7h3ufu1" path="res://scenes/objects/scripts/submarine.gd" id="1_cmak5"]
+[ext_resource type="AudioStream" uid="uid://dbdkomyul0apu" path="res://assets/sound/sonar.mp3" id="2_8cqvx"]
+[ext_resource type="Script" uid="uid://d2ausf5p6k12q" path="res://scenes/objects/scripts/sub_texture.gd" id="2_cmak5"]
 [ext_resource type="Texture2D" uid="uid://cm0e3214fxkw7" path="res://assets/images/submarine/000.png" id="2_mknan"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kn48e"]
@@ -9,13 +11,26 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_x2d0j"]
 radius = 1.0
 
-[node name="submarine" type="CharacterBody2D"]
+[node name="submarine" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent", "hover_sound", "character_texture", "selection_area")]
 z_index = 1
+script = ExtResource("1_cmak5")
+nav_agent = NodePath("NavigationAgent2D")
+hover_sound = NodePath("SonarSound")
+character_texture = NodePath("sub/sub")
+selection_area = NodePath("Area2D")
+country_id = "debug"
+unit_type = "Submarine"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 3.0
 target_desired_distance = 2.0
 debug_path_custom_point_size = 1.0
+
+[node name="SonarSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8cqvx")
+attenuation = 0.4352754
+
+[node name="SubReporting" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
 
