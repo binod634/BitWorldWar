@@ -2,7 +2,7 @@ extends Node
 
 signal show_army_command(status:bool)
 
-var selected_army:Array = []
+var selected_army:Array[BaseUnit] = []
 
 func add_army_to_selection(node:CharacterBody2D):
 	selected_army.append(node)
@@ -22,11 +22,9 @@ func clear_army_selection():
 	show_army_action(false)
 
 func got_location_point(point_position:Vector2):
-	print("setting target posiion len:%s"%[len(selected_army)])
 	for unit in selected_army:
 		#if unit.has_method("move_to"):
-		print("moving on some")
-		unit.move_to(point_position)
+		unit.target_pos =  point_position
 
 
 func show_army_action(status:bool):
