@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @onready var character:Node2D = $Character
-@onready var default_scale_value:Vector2 =  $Character.scale
+@onready var default_scale_value:Vector2 =  scale
 @onready var navAgent:NavigationAgent2D = $NavigationAgent2D
 @onready var infantry_sound:AudioStreamPlayer2D = $InfantrySound
 @export var country_id:String
@@ -80,7 +80,7 @@ func update_player_global(value:bool):
 		ArmyManager.remove_army_from_selection(self)
 
 func operate_character_scale(polarity:bool):
-	character.scale = default_scale_value if not polarity else default_scale_value * 1.5
+	scale = default_scale_value if not polarity else default_scale_value * 1.5
 	if polarity: play_infantry_sound()
 
 func change_character_glow(polarity:bool):

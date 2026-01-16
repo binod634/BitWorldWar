@@ -40,6 +40,7 @@ func put_polygons():
 		polygon.color = Color.DARK_SLATE_GRAY
 		polygon.add_to_group("navigation_avoid")
 		CountriesParent.add_child(polygon)
+		#polygon.owner = get_tree().edited_scene_root
 
 
 func _draw() -> void:

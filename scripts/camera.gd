@@ -1,8 +1,6 @@
 extends Camera2D
 
 @export var pan_speed :=1
-const max_zoom:float = 5.0
-const min_zoom:float = 1.5
 var dragging := false
 var last_pos := Vector2.ZERO
 var interpolation_disabled:bool = false
@@ -10,8 +8,8 @@ var interpolation_disabled:bool = false
 func _unhandled_input(event):
 	if event is InputEventMagnifyGesture:
 		var to_zoom = event.factor * zoom
-		if to_zoom.x < min_zoom: return
-		if to_zoom.x > max_zoom:return
+		if to_zoom.x < Game.min_zoom: return
+		if to_zoom.x > Game.max_zoom:return
 		zoom = to_zoom
 
 	if event is InputEventMouseButton:
@@ -21,10 +19,10 @@ func _unhandled_input(event):
 				ArmyManager.got_location_point(get_global_mouse_position())
 			last_pos = event.position
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			if zoom.x/1.05 < min_zoom: return
+			if zoom.x/1.05 < Game.min_zoom: return
 			zoom /=1.05
 		elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			if zoom.x*1.05 > max_zoom: return
+			if zoom.x*1.05 > Game.max_zoom: return
 			zoom *=1.05
 
 
