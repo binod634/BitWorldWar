@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxe830rg0fwq3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x2d0j"]
+radius = 1.0
+
+[node name="MinimumCollision" type="CollisionShape2D"]
+shape = SubResource("CircleShape2D_x2d0j")

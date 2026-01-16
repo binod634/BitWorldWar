@@ -1,14 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhghdwp8hnl5o"]
+[gd_scene load_steps=7 format=3 uid="uid://bhghdwp8hnl5o"]
 
 [ext_resource type="Script" uid="uid://cbilmb8n1hsbv" path="res://scripts/infantry.gd" id="1_e0jsg"]
 [ext_resource type="Texture2D" uid="uid://cpfmpekiof003" path="res://assets/images/infantry/backup.png" id="3_1hxvu"]
 [ext_resource type="AudioStream" uid="uid://btfxk8ovrhvtc" path="res://assets/sound/infantry.mp3" id="3_oncve"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kn48e"]
-radius = 5.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1hxvu"]
-radius = 1.0
+[ext_resource type="PackedScene" uid="uid://cdbrmb62cj46m" path="res://scenes/components/nav_agent.tscn" id="4_oncve"]
+[ext_resource type="PackedScene" uid="uid://dg3mhvaqeoaiv" path="res://scenes/components/selection_area2d.tscn" id="5_dcdm1"]
+[ext_resource type="PackedScene" uid="uid://bxe830rg0fwq3" path="res://scenes/components/minimum_collision.tscn" id="6_k1red"]
 
 [node name="Infantry" type="CharacterBody2D" node_paths=PackedStringArray("infantry_sound", "nav_agent", "character_texture", "hover_sound", "selection_area")]
 z_index = 1
@@ -17,32 +14,20 @@ infantry_sound = NodePath("InfantrySound")
 nav_agent = NodePath("NavigationAgent2D")
 character_texture = NodePath("Character/InfantryPic")
 hover_sound = NodePath("InfantrySound")
-selection_area = NodePath("Area2D")
+selection_area = NodePath("selection_area2d")
 unit_type = "Infantry"
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 3.0
-target_desired_distance = 2.0
-navigation_layers = 3
-debug_path_custom_point_size = 1.0
+[node name="selection_area2d" parent="." instance=ExtResource("5_dcdm1")]
+
+[node name="NavigationAgent2D" parent="." instance=ExtResource("4_oncve")]
+
+[node name="MinimumCollision" parent="." instance=ExtResource("6_k1red")]
 
 [node name="InfantrySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_oncve")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_kn48e")
 
 [node name="Character" type="Node2D" parent="."]
 
 [node name="InfantryPic" type="Sprite2D" parent="Character"]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_1hxvu")
-
-[node name="MinimumCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_1hxvu")
-
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="mouse_shape_entered" from="Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
-[connection signal="mouse_shape_exited" from="Area2D" to="." method="_on_area_2d_mouse_shape_exited"]

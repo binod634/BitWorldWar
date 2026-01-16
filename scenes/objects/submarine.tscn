@@ -1,44 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://lnjjkdpf1p0j"]
+[gd_scene load_steps=8 format=3 uid="uid://lnjjkdpf1p0j"]
 
 [ext_resource type="Script" uid="uid://dqla6s7h3ufu1" path="res://scenes/objects/scripts/submarine.gd" id="1_cmak5"]
 [ext_resource type="AudioStream" uid="uid://dbdkomyul0apu" path="res://assets/sound/sonar.mp3" id="2_8cqvx"]
+[ext_resource type="PackedScene" uid="uid://cdbrmb62cj46m" path="res://scenes/components/nav_agent.tscn" id="2_88ofh"]
 [ext_resource type="Script" uid="uid://d2ausf5p6k12q" path="res://scenes/objects/scripts/sub_texture.gd" id="2_cmak5"]
 [ext_resource type="Texture2D" uid="uid://cm0e3214fxkw7" path="res://assets/images/submarine/000.png" id="2_mknan"]
+[ext_resource type="PackedScene" uid="uid://dg3mhvaqeoaiv" path="res://scenes/components/selection_area2d.tscn" id="4_ws4hs"]
+[ext_resource type="PackedScene" uid="uid://bxe830rg0fwq3" path="res://scenes/components/minimum_collision.tscn" id="7_4h6ph"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kn48e"]
-radius = 5.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_x2d0j"]
-radius = 1.0
-
-[node name="submarine" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent", "hover_sound", "character_texture", "selection_area")]
+[node name="submarine" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent", "character_texture", "hover_sound", "selection_sound", "selection_area")]
 z_index = 1
+motion_mode = 1
 script = ExtResource("1_cmak5")
 nav_agent = NodePath("NavigationAgent2D")
-hover_sound = NodePath("SonarSound")
 character_texture = NodePath("sub/sub")
-selection_area = NodePath("Area2D")
+hover_sound = NodePath("SonarSound")
+selection_sound = NodePath("SonarSound")
+selection_area = NodePath("selection_area2d")
 country_id = "debug"
 unit_type = "Submarine"
+speed = 50.0
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 3.0
-target_desired_distance = 2.0
-debug_path_custom_point_size = 1.0
+[node name="selection_area2d" parent="." instance=ExtResource("4_ws4hs")]
+
+[node name="NavigationAgent2D" parent="." instance=ExtResource("2_88ofh")]
 
 [node name="SonarSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_8cqvx")
 attenuation = 0.4352754
 
 [node name="SubReporting" type="AudioStreamPlayer2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_kn48e")
-
-[node name="MinimumCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_x2d0j")
 
 [node name="sub" type="Node2D" parent="."]
 scale = Vector2(0.2, 0.2)
@@ -49,6 +40,4 @@ scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_mknan")
 script = ExtResource("2_cmak5")
 
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="mouse_shape_entered" from="Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
-[connection signal="mouse_shape_exited" from="Area2D" to="." method="_on_area_2d_mouse_shape_exited"]
+[node name="MinimumCollision" parent="." instance=ExtResource("7_4h6ph")]
