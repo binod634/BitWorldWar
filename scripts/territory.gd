@@ -147,3 +147,7 @@ func center_point_in_polygon(polygon:PackedVector2Array) -> Vector2:
 func _on_collision_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_MASK_LEFT && event.is_pressed()):
 		RelationManager.territory_clicked(country_id)
+
+func _body_entered(body: Node2D):
+	if body.has_method("show_em_up"):
+		body.show_em_up()

@@ -6,6 +6,12 @@ extends LandUnit
 func _ready() -> void:
 	super._ready()
 
+
+func show_em_up():
+	return
+	print("i am entering territory. %s"%[self])
+
+
 #
 #@onready var character:Node2D = $Character
 #@onready var default_scale_value:Vector2 =  scale
@@ -107,8 +113,3 @@ func _ready() -> void:
 #func reset_selection():
 	#is_character_selected = false
 	#is_character_glowing = false
-
-
-func play_infantry_sound():
-	infantry_sound.pitch_scale = 1 + randf_range(-1,1) * 0.1
-	infantry_sound.play()
