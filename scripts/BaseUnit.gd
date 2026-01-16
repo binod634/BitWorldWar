@@ -11,7 +11,12 @@ class_name BaseUnit
 @export var country_id: String
 @export var unit_type: String
 @export_group("Stats")
-@export var speed: float = 150.0
+"""
+i think speed value need to be adjusted in future but i want to point out
+some best ratio to use in future i think.
+sub: 1x, transport:1.5x, plane: 3x, land = 1x. should be good i think.
+"""
+@export var speed: float = 50
 @export var max_health: float = 100.0
 @onready var current_health: float = max_health
 var target_pos: Vector2 = Vector2.ZERO:
@@ -102,8 +107,9 @@ func die():
 	queue_free()
 
 func set_visiblity():
-	if country_id != "debug":
-		visible = PlayerData.is_country_mine(country_id)
+	assert(country_id != "debug" || Game.allow_debug,"unit country id ???")
+	if country_id == "debug" && Game.allow_debug:return
+	visible = PlayerData.is_country_mine(country_id)
 
 func register_mouse_inputs():
 	selection_area.input_event.connect(clicked_baby)
