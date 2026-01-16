@@ -2,13 +2,11 @@ extends Node
 
 signal show_army_command(status:bool)
 
-var selected_army:Array[CharacterBody2D] = []
-
+var selected_army:Array = []
 
 func add_army_to_selection(node:CharacterBody2D):
 	selected_army.append(node)
 	show_army_action(not selected_army.is_empty())
-
 
 func remove_army_from_selection(node:CharacterBody2D):
 	if OS.is_debug_build():
@@ -24,9 +22,11 @@ func clear_army_selection():
 	show_army_action(false)
 
 func got_location_point(point_position:Vector2):
-	print("setting target posiion")
+	print("setting target posiion len:%s"%[len(selected_army)])
 	for unit in selected_army:
-		if unit.has_method("move_to"): unit.move_to(point_position)
+		#if unit.has_method("move_to"):
+		print("moving on some")
+		unit.move_to(point_position)
 
 
 func show_army_action(status:bool):

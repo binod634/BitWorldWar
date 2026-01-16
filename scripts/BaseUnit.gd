@@ -19,6 +19,8 @@ var is_selected: bool = false:
 	set(val):
 		is_selected = val
 		_update_visuals()
+		#if is_inside_tree():
+		_register_selection(val)
 		if val: play_selection_sound()
 
 
@@ -33,7 +35,7 @@ func _ready() -> void:
 	register_mouse_inputs()
 
 func _update_visuals():
-	character_texture.scale = character_default_scale * 1.5 if is_selected else character_default_scale
+	character_texture.scale = character_default_scale * 1.2 if is_selected else character_default_scale
 	character_texture.self_modulate = Color.WHITE * 1.5 if is_selected else Color.WHITE
 
 func take_damage(amount: float):
@@ -66,6 +68,9 @@ func play_selection_sound():
 	pass
 
 
+func _register_selection(selected:bool):
+	if selected: ArmyManager.add_army_to_selection(self)
+	else: ArmyManager.remove_army_from_selection(self)
 
 func clicked_baby(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
