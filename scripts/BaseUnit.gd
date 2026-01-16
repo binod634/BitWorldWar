@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name BaseUnit
 
 @export var character_texture: Sprite2D
+@export var hover_sound:AudioStreamPlayer2D
+@export var selection_sound:AudioStreamPlayer2D
 @onready var character_default_scale:Vector2 = character_texture.scale
 @export var selection_area:Area2D
 
@@ -17,6 +19,7 @@ var is_selected: bool = false:
 	set(val):
 		is_selected = val
 		_update_visuals()
+		if val: play_selection_sound()
 
 
 func _ready() -> void:
@@ -24,8 +27,10 @@ func _ready() -> void:
 	assert(not unit_type.is_empty(),"no name ?")
 	assert(country_id,"no country id ?")
 	assert(selection_area,"No area2d for selection specified!")
+	#assert(selection_sound,"No unit clicked sound")
+	assert(hover_sound,"No unit hover sound")
 	set_visiblity()
-	register_selection()
+	register_mouse_inputs()
 
 func _update_visuals():
 	character_texture.scale = character_default_scale * 1.5 if is_selected else character_default_scale
@@ -43,8 +48,23 @@ func set_visiblity():
 	if country_id != "debug":
 		visible = PlayerData.is_country_mine(country_id)
 
-func register_selection():
+func register_mouse_inputs():
 	selection_area.input_event.connect(clicked_baby)
+	selection_area.mouse_entered.connect(_mouse_entered)
+	selection_area.mouse_exited.connect(_mouse_exitted)
+
+
+
+func _mouse_entered():
+	hover_sound.pitch_scale = get_random_pitch_scale()
+	hover_sound.play()
+
+func _mouse_exitted():
+	pass
+
+func play_selection_sound():
+	pass
+
 
 
 func clicked_baby(_viewport: Node, event: InputEvent, _shape_idx: int):

@@ -5,17 +5,6 @@ extends LandUnit
 
 func _ready() -> void:
 	super._ready()
-	selection_area.mouse_entered.connect(_mouse_entered)
-	selection_area.mouse_exited.connect(_mouse_exitted)
-
-
-
-func _mouse_entered():
-	play_infantry_sound()
-
-
-func _mouse_exitted():
-	pass
 
 #
 #@onready var character:Node2D = $Character
