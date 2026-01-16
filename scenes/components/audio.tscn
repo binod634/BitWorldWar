@@ -2,8 +2,8 @@
 
 [ext_resource type="AudioStream" uid="uid://dq52kjbi3rjtr" path="res://assets/music/gmae.mp3" id="1_y10yk"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+[node name="BackGroundMusic" type="AudioStreamPlayer"]
 stream = ExtResource("1_y10yk")
-volume_db = -10.0
+volume_db = -30.0
 autoplay = true
 parameters/looping = true
