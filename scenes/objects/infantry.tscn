@@ -16,10 +16,12 @@ character_texture = NodePath("Character/InfantryPic")
 hover_sound = NodePath("InfantrySound")
 selection_area = NodePath("selection_area2d")
 unit_type = "Infantry"
+speed = 15.0
 
 [node name="selection_area2d" parent="." instance=ExtResource("5_dcdm1")]
 
 [node name="NavigationAgent2D" parent="." instance=ExtResource("4_oncve")]
+navigation_layers = 3
 
 [node name="MinimumCollision" parent="." instance=ExtResource("6_k1red")]
 

@@ -18,12 +18,13 @@ hover_sound = NodePath("SonarSound")
 selection_sound = NodePath("SonarSound")
 selection_area = NodePath("selection_area2d")
 country_id = "debug"
-unit_type = "Submarine"
-speed = 50.0
+unit_type = "submarine"
+speed = 10.0
 
 [node name="selection_area2d" parent="." instance=ExtResource("4_ws4hs")]
 
 [node name="NavigationAgent2D" parent="." instance=ExtResource("2_88ofh")]
+navigation_layers = 1
 
 [node name="SonarSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_8cqvx")

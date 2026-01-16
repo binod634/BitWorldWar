@@ -5,3 +5,4 @@ radius = 1.0
 
 [node name="MinimumCollision" type="CollisionShape2D"]
 shape = SubResource("CircleShape2D_x2d0j")
+disabled = true
