@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://c8ftn0ms7flci" path="res://assets/images/background/container.png" id="3_wu3nv"]
 [ext_resource type="Texture2D" uid="uid://cg0v6ruqxde1g" path="res://assets/images/handshake.png" id="4_bs1oh"]
 [ext_resource type="Texture2D" uid="uid://x42eqxs835yf" path="res://assets/images/war.png" id="5_d0j11"]
-[ext_resource type="Texture2D" uid="uid://d2k0rbm2ftk5n" path="res://assets/images/flags/china.png" id="7_pbgl4"]
-[ext_resource type="Texture2D" uid="uid://dq8m21rwx4ij7" path="res://assets/images/flags/india.png" id="8_n4ywu"]
-[ext_resource type="Texture2D" uid="uid://tpsgbnsf1xyt" path="res://assets/images/flags/nepal.png" id="9_qin25"]
-[ext_resource type="Texture2D" uid="uid://c73yu1dlyjtdr" path="res://assets/images/flags/pakistan.png" id="10_wu3nv"]
+[ext_resource type="Texture2D" uid="uid://du865fa341dym" path="res://assets/images/flags/cn.png" id="7_wu3nv"]
+[ext_resource type="Texture2D" uid="uid://brydef4nwgf85" path="res://assets/images/flags/in.png" id="8_7mscb"]
+[ext_resource type="Texture2D" uid="uid://d26mnbxql4ex" path="res://assets/images/flags/np.png" id="9_fpjir"]
+[ext_resource type="Texture2D" uid="uid://kuqd8ucgqv23" path="res://assets/images/flags/pk.png" id="10_q7xly"]
 [ext_resource type="Texture2D" uid="uid://ck18gavdacl3a" path="res://assets/images/buttons/blue_btn.png" id="11_wu3nv"]
 [ext_resource type="Texture2D" uid="uid://w1d7xuygb5a8" path="res://assets/images/buttons/red_btn_back.png" id="12_7mscb"]
 
@@ -40,6 +40,7 @@ theme = ExtResource("1_4ayhn")
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/Background"]
+modulate = Color(1, 1, 1, 0.804)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,7 +176,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("7_pbgl4")
+texture = ExtResource("7_wu3nv")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -188,7 +189,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("8_n4ywu")
+texture = ExtResource("8_7mscb")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
@@ -201,7 +202,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-texture = ExtResource("9_qin25")
+texture = ExtResource("9_fpjir")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
@@ -214,7 +215,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
-texture = ExtResource("10_wu3nv")
+texture = ExtResource("10_q7xly")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
@@ -227,7 +228,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
-texture = ExtResource("7_pbgl4")
+texture = ExtResource("7_wu3nv")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer5"]
@@ -240,7 +241,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
 layout_mode = 2
-texture = ExtResource("8_n4ywu")
+texture = ExtResource("8_7mscb")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer6"]
@@ -253,7 +254,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer7"]
 layout_mode = 2
-texture = ExtResource("9_qin25")
+texture = ExtResource("9_fpjir")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer7"]
@@ -266,7 +267,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer8"]
 layout_mode = 2
-texture = ExtResource("10_wu3nv")
+texture = ExtResource("10_q7xly")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer8"]
@@ -279,7 +280,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer9"]
 layout_mode = 2
-texture = ExtResource("7_pbgl4")
+texture = ExtResource("7_wu3nv")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer9"]
@@ -292,7 +293,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer10"]
 layout_mode = 2
-texture = ExtResource("8_n4ywu")
+texture = ExtResource("8_7mscb")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer10"]
@@ -305,7 +306,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer11"]
 layout_mode = 2
-texture = ExtResource("9_qin25")
+texture = ExtResource("9_fpjir")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer11"]
@@ -318,7 +319,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer12"]
 layout_mode = 2
-texture = ExtResource("10_wu3nv")
+texture = ExtResource("10_q7xly")
 expand_mode = 3
 
 [node name="Label" type="Label" parent="SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ListCountries/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer12"]

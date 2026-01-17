@@ -25,11 +25,11 @@ config/icon="uid://bak72y7p38k17"
 
 [autoload]
 
-Game="*res://scripts/Game.gd"
-ArmyManager="*res://scripts/ArmyManager.gd"
-PlayerData="*res://scripts/PlayerData.gd"
-RelationManager="*res://scripts/RelationManager.gd"
-InputManager="*res://scripts/InputManager.gd"
+Game="*res://scripts/game.gd"
+ArmyManager="*res://scripts/army_manager.gd"
+PlayerData="*res://scripts/player_data.gd"
+RelationManager="*res://scripts/relation_manager.gd"
+InputManager="*res://scripts/input_manager.gd"
 
 [debug]
 

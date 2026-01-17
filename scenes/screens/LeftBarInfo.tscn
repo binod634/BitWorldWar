@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://6mh6cakxqcgq" path="res://scripts/left_bar_info.gd" id="1_ulmx0"]
 [ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/panel_header_info.tres" id="2_lcsnk"]
 [ext_resource type="Texture2D" uid="uid://c8ftn0ms7flci" path="res://assets/images/background/container.png" id="3_lcsnk"]
-[ext_resource type="Texture2D" uid="uid://dq8m21rwx4ij7" path="res://assets/images/flags/india.png" id="4_d8bky"]
+[ext_resource type="Texture2D" uid="uid://brydef4nwgf85" path="res://assets/images/flags/in.png" id="4_d8bky"]
 [ext_resource type="Texture2D" uid="uid://l76wmpuo1yoo" path="res://assets/images/raw_original/right-arrow.png" id="5_pof0m"]
 [ext_resource type="Texture2D" uid="uid://ck18gavdacl3a" path="res://assets/images/buttons/blue_btn.png" id="6_lcsnk"]
 [ext_resource type="PackedScene" uid="uid://1i1ap815y3nj" path="res://scenes/components/production_unit.tscn" id="8_l5u0t"]

@@ -1,15 +1,23 @@
 extends CharacterBody2D
 class_name BaseUnit
 
+enum UnitType {
+	Unspecified,
+	Water,
+	Ground,
+	Air
+}
+
+
 @export var nav_agent: NavigationAgent2D
 @export var character_texture: Sprite2D
-@export var hover_sound:AudioStreamPlayer2D
-@export var selection_sound:AudioStreamPlayer2D
+@export var unit_sound:AudioStreamPlayer2D
 @onready var character_default_scale:Vector2 = character_texture.scale
 @export var selection_area:Area2D
 @export_group("Identity")
 @export var country_id: String
-@export var unit_type: String
+@export var unit_type:UnitType = UnitType.Unspecified
+@export var auto_sound:bool = false
 @export_group("Stats")
 """
 i think speed value need to be adjusted in future but i want to point out
@@ -19,11 +27,11 @@ sub: 1x, transport:1.5x, plane: 3x, land = 1x. should be good i think.
 @export var speed: float = 50
 @export var max_health: float = 100.0
 @onready var current_health: float = max_health
+var timer:Timer
 var target_pos: Vector2 = Vector2.ZERO:
 	set(value):
 		target_pos = value
 		if value != Vector2.ZERO:
-			#print("updating paths...")
 			nav_agent.target_position = value
 			nav_agent.get_next_path_position()
 		else:
@@ -33,28 +41,25 @@ var next_path:Vector2 = Vector2.ZERO:
 		next_path = value
 		if value != Vector2.ZERO:
 			character_texture.rotation = global_position.direction_to(value).angle()
-
 var has_path:bool = false:
 	set(value):
 		has_path = value
-var timer:Timer
 var is_selected: bool = false:
 	set(val):
 		is_selected = val
 		_update_visuals()
-		#if is_inside_tree():
 		_register_selection(val)
 		setup_perioudic_sound()
-		if val: play_selection_sound()
+		if val: play_sound()
 
 
 func _ready() -> void:
 	assert(character_texture,"No character texture set!!!")
-	assert(not unit_type.is_empty(),"no name ?")
+	assert(unit_type != UnitType.Unspecified,"no type ?")
 	assert(country_id,"no country id ?")
 	assert(selection_area,"No area2d for selection specified!")
 	#assert(selection_sound,"No unit clicked sound")
-	assert(hover_sound,"No unit hover sound")
+	assert(unit_sound,"No unit hover sound")
 	assert(nav_agent,"Really ? no navagent")
 	set_visiblity()
 	register_mouse_inputs()
@@ -113,25 +118,23 @@ func set_visiblity():
 
 func register_mouse_inputs():
 	selection_area.input_event.connect(clicked_baby)
-	selection_area.mouse_entered.connect(_mouse_entered)
+	selection_area.mouse_entered.connect(hovering_action)
 	selection_area.mouse_exited.connect(_mouse_exitted)
 
 
-func _mouse_entered():
-	play_hovering_sound()
+func hovering_action():
+	pass
 
-func play_hovering_sound():
-	hover_sound.pitch_scale = get_random_pitch_scale()
-	hover_sound.play()
+func play_sound():
+	unit_sound.pitch_scale = get_random_pitch_scale()
+	unit_sound.play()
 
 func _mouse_exitted():
 	pass
 
-func play_selection_sound():
-	play_hovering_sound()
 
 func setup_perioudic_sound():
-	if not  timer:
+	if not  timer && auto_sound:
 		timer = Timer.new()
 		timer.wait_time = 10
 		timer.autostart = true
@@ -141,7 +144,7 @@ func setup_perioudic_sound():
 func _play_perioudic_sound():
 	if is_selected:
 		timer.wait_time = 10 + randf() * 10
-		play_selection_sound()
+		play_sound()
 
 func _register_selection(selected:bool):
 	if selected: ArmyManager.add_army_to_selection(self)

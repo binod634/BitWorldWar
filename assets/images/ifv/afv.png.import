@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvfyf8145da5s"
-path="res://.godot/imported/armored.png-a2a5b7751d3ccf6f22a84692bd97b71a.ctex"
+uid="uid://cqr7j885il8bl"
+path="res://.godot/imported/afv.png-e52773edaa9adfdeff372350736d1cbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/raw_original/armored.png"
-dest_files=["res://.godot/imported/armored.png-a2a5b7751d3ccf6f22a84692bd97b71a.ctex"]
+source_file="res://assets/images/ifv/afv.png"
+dest_files=["res://.godot/imported/afv.png-e52773edaa9adfdeff372350736d1cbb.ctex"]
 
 [params]
 

@@ -1,4 +1,5 @@
 extends Camera2D
+signal camer_zoom_level_changed(level:)
 
 @export var pan_speed :=1
 var half_view:Vector2 = Vector2.ZERO

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhghdwp8hnl5o"]
+[gd_scene load_steps=8 format=3 uid="uid://bhghdwp8hnl5o"]
 
 [ext_resource type="Script" uid="uid://cbilmb8n1hsbv" path="res://scripts/infantry.gd" id="1_e0jsg"]
 [ext_resource type="Texture2D" uid="uid://cpfmpekiof003" path="res://assets/images/infantry/backup.png" id="3_1hxvu"]
@@ -6,16 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://cdbrmb62cj46m" path="res://scenes/components/nav_agent.tscn" id="4_oncve"]
 [ext_resource type="PackedScene" uid="uid://dg3mhvaqeoaiv" path="res://scenes/components/selection_area2d.tscn" id="5_dcdm1"]
 [ext_resource type="PackedScene" uid="uid://bxe830rg0fwq3" path="res://scenes/components/minimum_collision.tscn" id="6_k1red"]
+[ext_resource type="Texture2D" uid="uid://cqr7j885il8bl" path="res://assets/images/ifv/afv.png" id="7_ihbo1"]
 
-[node name="Infantry" type="CharacterBody2D" node_paths=PackedStringArray("infantry_sound", "nav_agent", "character_texture", "hover_sound", "selection_area")]
+[node name="Infantry" type="CharacterBody2D" node_paths=PackedStringArray("infantry_sound", "nav_agent", "character_texture", "unit_sound", "selection_area")]
 z_index = 1
 script = ExtResource("1_e0jsg")
 infantry_sound = NodePath("InfantrySound")
 nav_agent = NodePath("NavigationAgent2D")
 character_texture = NodePath("Character/InfantryPic")
-hover_sound = NodePath("InfantrySound")
+unit_sound = NodePath("InfantrySound")
 selection_area = NodePath("selection_area2d")
-unit_type = "Infantry"
+unit_type = 2
 speed = 15.0
 
 [node name="selection_area2d" parent="." instance=ExtResource("5_dcdm1")]
@@ -27,9 +28,15 @@ navigation_layers = 3
 
 [node name="InfantrySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_oncve")
+volume_db = -10.0
 
 [node name="Character" type="Node2D" parent="."]
 
 [node name="InfantryPic" type="Sprite2D" parent="Character"]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_1hxvu")
+
+[node name="IFV" type="Sprite2D" parent="Character"]
+visible = false
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("7_ihbo1")

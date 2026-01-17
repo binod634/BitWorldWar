@@ -52,7 +52,8 @@ func check_relation(id:String,relation:DiplomacyData.relation) -> void:
 		change_nodes_color(GameColors.EnemyNationColor if relation == DiplomacyData.relation.war else neutral_offset_color)
 
 func change_nodes_color(color:Color) -> void:
-	pass
+	for node in visual_nodes:
+		node.color = color
 
 func deploy_effects():
 	if not RelationManager.is_country_owned(country_id): return
