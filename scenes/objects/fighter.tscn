@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dogic0d7ccysa"]
+
+[ext_resource type="Script" uid="uid://ba0wx4hldgvic" path="res://scenes/objects/scripts/f16.gd" id="1_mjgk8"]
+[ext_resource type="PackedScene" uid="uid://dg3mhvaqeoaiv" path="res://scenes/components/selection_area2d.tscn" id="2_tnl45"]
+[ext_resource type="PackedScene" uid="uid://cdbrmb62cj46m" path="res://scenes/components/nav_agent.tscn" id="3_ibs6q"]
+[ext_resource type="AudioStream" uid="uid://dudiyuky8b51h" path="res://assets/sound/f16_hover.mp3" id="4_pm485"]
+[ext_resource type="Texture2D" uid="uid://bh0f0ovsggmfu" path="res://assets/images/f16/f16.png" id="5_mjgk8"]
+[ext_resource type="PackedScene" uid="uid://bxe830rg0fwq3" path="res://scenes/components/minimum_collision.tscn" id="6_py5te"]
+
+[node name="f16" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent", "character_texture", "unit_sound", "selection_area")]
+z_index = 2
+motion_mode = 1
+script = ExtResource("1_mjgk8")
+nav_agent = NodePath("NavigationAgent2D")
+character_texture = NodePath("f16/f16")
+unit_sound = NodePath("FighterSound")
+selection_area = NodePath("selection_area2d")
+country_id = "debug"
+unit_type = 3
+speed = 100.0
+
+[node name="selection_area2d" parent="." instance=ExtResource("2_tnl45")]
+
+[node name="NavigationAgent2D" parent="." instance=ExtResource("3_ibs6q")]
+navigation_layers = 4
+
+[node name="FighterSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pm485")
+attenuation = 0.4352754
+
+[node name="f16" type="Node2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="f16" type="Sprite2D" parent="f16"]
+texture_filter = 1
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_mjgk8")
+
+[node name="MinimumCollision" parent="." instance=ExtResource("6_py5te")]
