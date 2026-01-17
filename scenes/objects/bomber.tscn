@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cg0rtt72hl4fq"]
+
+[ext_resource type="Script" uid="uid://dxd730l651m4j" path="res://scenes/objects/scripts/bomber.gd" id="1_pll2b"]
+[ext_resource type="PackedScene" uid="uid://dg3mhvaqeoaiv" path="res://scenes/components/selection_area2d.tscn" id="2_0mort"]
+[ext_resource type="PackedScene" uid="uid://cdbrmb62cj46m" path="res://scenes/components/nav_agent.tscn" id="3_hgu5p"]
+[ext_resource type="AudioStream" uid="uid://dudiyuky8b51h" path="res://assets/sound/f16_hover.mp3" id="4_pll2b"]
+[ext_resource type="Texture2D" uid="uid://b0ql6nrnq6bo3" path="res://assets/images/bomber/bomber.png" id="5_pll2b"]
+[ext_resource type="PackedScene" uid="uid://bxe830rg0fwq3" path="res://scenes/components/minimum_collision.tscn" id="6_8cj35"]
+
+[node name="bomber" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent", "character_texture", "unit_sound", "selection_area")]
+z_index = 2
+motion_mode = 1
+script = ExtResource("1_pll2b")
+nav_agent = NodePath("NavigationAgent2D")
+character_texture = NodePath("bomber/bomber")
+unit_sound = NodePath("BomberSound")
+selection_area = NodePath("selection_area2d")
+country_id = "debug"
+unit_type = 3
+
+[node name="selection_area2d" parent="." instance=ExtResource("2_0mort")]
+
+[node name="NavigationAgent2D" parent="." instance=ExtResource("3_hgu5p")]
+navigation_layers = 4
+
+[node name="BomberSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pll2b")
+attenuation = 0.4352754
+
+[node name="bomber" type="Node2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="bomber" type="Sprite2D" parent="bomber"]
+texture_filter = 1
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_pll2b")
+
+[node name="MinimumCollision" parent="." instance=ExtResource("6_8cj35")]
