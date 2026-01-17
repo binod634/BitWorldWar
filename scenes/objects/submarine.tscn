@@ -1,24 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://lnjjkdpf1p0j"]
+[gd_scene load_steps=7 format=3 uid="uid://lnjjkdpf1p0j"]
 
 [ext_resource type="Script" uid="uid://dqla6s7h3ufu1" path="res://scenes/objects/scripts/submarine.gd" id="1_cmak5"]
 [ext_resource type="AudioStream" uid="uid://dbdkomyul0apu" path="res://assets/sound/sonar.mp3" id="2_8cqvx"]
 [ext_resource type="PackedScene" uid="uid://cdbrmb62cj46m" path="res://scenes/components/nav_agent.tscn" id="2_88ofh"]
-[ext_resource type="Script" uid="uid://d2ausf5p6k12q" path="res://scenes/objects/scripts/sub_texture.gd" id="2_cmak5"]
-[ext_resource type="Texture2D" uid="uid://cm0e3214fxkw7" path="res://assets/images/submarine/000.png" id="2_mknan"]
 [ext_resource type="PackedScene" uid="uid://dg3mhvaqeoaiv" path="res://scenes/components/selection_area2d.tscn" id="4_ws4hs"]
+[ext_resource type="Texture2D" uid="uid://bn6s2i8gdoww2" path="res://assets/images/submarine/single/submarine.png" id="5_ws4hs"]
 [ext_resource type="PackedScene" uid="uid://bxe830rg0fwq3" path="res://scenes/components/minimum_collision.tscn" id="7_4h6ph"]
 
-[node name="submarine" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent", "character_texture", "hover_sound", "selection_sound", "selection_area")]
+[node name="submarine" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent", "character_texture", "unit_sound", "selection_area")]
 z_index = 1
 motion_mode = 1
 script = ExtResource("1_cmak5")
 nav_agent = NodePath("NavigationAgent2D")
 character_texture = NodePath("sub/sub")
-hover_sound = NodePath("SonarSound")
-selection_sound = NodePath("SonarSound")
+unit_sound = NodePath("SubmarineSound")
 selection_area = NodePath("selection_area2d")
 country_id = "debug"
-unit_type = "submarine"
+unit_type = 1
 speed = 10.0
 
 [node name="selection_area2d" parent="." instance=ExtResource("4_ws4hs")]
@@ -26,19 +24,16 @@ speed = 10.0
 [node name="NavigationAgent2D" parent="." instance=ExtResource("2_88ofh")]
 navigation_layers = 1
 
-[node name="SonarSound" type="AudioStreamPlayer2D" parent="."]
+[node name="SubmarineSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_8cqvx")
 attenuation = 0.4352754
-
-[node name="SubReporting" type="AudioStreamPlayer2D" parent="."]
 
 [node name="sub" type="Node2D" parent="."]
 scale = Vector2(0.2, 0.2)
 
 [node name="sub" type="Sprite2D" parent="sub"]
 texture_filter = 1
-scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("2_mknan")
-script = ExtResource("2_cmak5")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_ws4hs")
 
 [node name="MinimumCollision" parent="." instance=ExtResource("7_4h6ph")]
