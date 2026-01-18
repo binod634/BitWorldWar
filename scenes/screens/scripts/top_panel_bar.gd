@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends CanvasLayerHUD
 
 # properties
 enum PanelMode {
@@ -15,7 +15,7 @@ var currentPanelMode:PanelMode = PanelMode.NormalInformation:
 @onready var NodePanelNormalInformation:MarginContainer = $SizeTheme/NormalInformation
 
 func _ready() -> void:
-	pass
+	super._ready()
 
 func update_panel(panelMode:PanelMode):
 	match panelMode:

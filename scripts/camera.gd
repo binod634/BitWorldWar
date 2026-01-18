@@ -1,5 +1,6 @@
 extends Camera2D
-signal camer_zoom_level_changed(level:)
+#signal camera_zoom_level_changed(level:CameraData)
+#signal camera_dragging(status:bool)
 
 @export var pan_speed :=1
 var half_view:Vector2 = Vector2.ZERO
@@ -10,6 +11,7 @@ var view_size:Vector2 = Vector2.ZERO:
 var dragging := false
 var last_pos := Vector2.ZERO
 var interpolation_disabled:bool = false
+var dragging_condition:bool = false
 
 func _ready() -> void:
 	view_size =  get_viewport_rect().size * (1.0 / zoom.x)
@@ -31,6 +33,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			dragging = event.pressed
+			if dragging_condition: InputManager.signal_camera_dragging(false);dragging_condition = false
 			if not dragging && event.position == last_pos:
 				ArmyManager.got_location_point(get_global_mouse_position())
 			last_pos = event.position
@@ -46,6 +49,7 @@ func _unhandled_input(event):
 
 
 	elif event is InputEventMouseMotion and dragging:
+		if not dragging_condition: InputManager.signal_camera_dragging(true);dragging_condition = true
 		var diff_position:Vector2 = event.position - last_pos
 		global_position -= diff_position * pan_speed/zoom
 		last_pos = event.position

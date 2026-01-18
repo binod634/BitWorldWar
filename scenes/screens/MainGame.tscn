@@ -87,6 +87,7 @@ visible = false
 [node name="RightBarInfo" parent="VisiblityLayer" instance=ExtResource("7_ci4w4")]
 
 [node name="LeftBarInfo" parent="VisiblityLayer" instance=ExtResource("8_6pk0q")]
+visible = false
 AutoHide = false
 
 [node name="TestUnits" type="Node2D" parent="."]

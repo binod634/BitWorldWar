@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends CanvasLayerHUD
 
 @onready var country_label_node:Label = $SizeTheme/HBoxContainer/Control/MarginContainer/VBoxContainer/HBoxContainer/Country
 var country_id:String = ""
@@ -7,6 +7,9 @@ var country_name:String = "":
 		country_name = value
 		if country_label_node:
 			country_label_node.text = value
+
+func _ready() -> void:
+	super._ready()
 
 
 func set_country_data(data:CountryData):
