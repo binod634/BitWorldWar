@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkai00fmv5u6b"]
+[gd_scene load_steps=16 format=3 uid="uid://bkai00fmv5u6b"]
 
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_d8bky"]
 [ext_resource type="Script" uid="uid://6mh6cakxqcgq" path="res://scripts/left_bar_info.gd" id="1_ulmx0"]
@@ -8,7 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://l76wmpuo1yoo" path="res://assets/images/raw_original/right-arrow.png" id="5_pof0m"]
 [ext_resource type="Texture2D" uid="uid://ck18gavdacl3a" path="res://assets/images/buttons/blue_btn.png" id="6_lcsnk"]
 [ext_resource type="PackedScene" uid="uid://1i1ap815y3nj" path="res://scenes/components/production_unit.tscn" id="8_l5u0t"]
-[ext_resource type="PackedScene" uid="uid://c8q0a1veaf7ta" path="res://scenes/components/construct_building.tscn" id="9_exi2d"]
+[ext_resource type="Texture2D" uid="uid://b6o8dhvlweh8b" path="res://assets/images/tmp/building/air_base.png" id="9_sfanm"]
+[ext_resource type="Texture2D" uid="uid://myyiboj6wd2h" path="res://assets/images/tmp/building/army_base.png" id="10_mvcsw"]
+[ext_resource type="Texture2D" uid="uid://0hcb0y6p1512" path="res://assets/images/tmp/building/naval_base.png" id="11_v2ge0"]
+[ext_resource type="Texture2D" uid="uid://bm1qvssurkfsa" path="res://assets/images/tmp/building/tank_base.png" id="12_cyxmu"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_4ayhn"]
 content_margin_right = 997.0
@@ -430,26 +433,153 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="ConstTab" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer"]
 layout_mode = 2
 
-[node name="ConstTab2" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("9_sfanm")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="ConstTab3" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("6_lcsnk")
+
+[node name="Construct" type="Button" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Construct Building"
+
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer2"]
 layout_mode = 2
 
-[node name="ConstTab4" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("10_mvcsw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 
-[node name="ConstTab5" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer2/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("6_lcsnk")
+
+[node name="Construct" type="Button" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer2/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Construct Building"
+
+[node name="MarginContainer3" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer3"]
 layout_mode = 2
 
-[node name="ConstTab6" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer3/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("11_v2ge0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer3/HBoxContainer"]
 layout_mode = 2
 
-[node name="ConstTab7" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler" instance=ExtResource("9_exi2d")]
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer3/HBoxContainer/MarginContainer2"]
 layout_mode = 2
+texture = ExtResource("6_lcsnk")
+
+[node name="Construct" type="Button" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer3/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Construct Building"
+
+[node name="MarginContainer4" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer4"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer4/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("12_cyxmu")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer4/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("6_lcsnk")
+
+[node name="Construct" type="Button" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer4/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Construct Building"
 
 [node name="CollapseExpand" type="Control" parent="SizeTheme/MainMenu"]
 visible = false
