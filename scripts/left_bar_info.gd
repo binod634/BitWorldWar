@@ -17,3 +17,18 @@ func _hide_self():
 
 func add_prod_tab():
 	pass
+
+
+func construct_army_base():
+	print("[*] Requesting Army base construction...")
+
+func construct_air_base():
+	print("[*] Requesting Air base construction...")
+
+
+func construct_naval_base():
+	print("[*] Requesting Naval base construction...")
+
+
+func construct_tank_base():
+	print("[*] Requesting Tank base construction...")

@@ -324,6 +324,7 @@ theme_override_font_sizes/font_size = 16
 text = "Research Units"
 
 [node name="Production" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -394,7 +395,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Building" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -611,3 +611,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ayhn")
+
+[connection signal="pressed" from="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer/HBoxContainer/MarginContainer2/Construct" to="." method="construct_air_base"]
+[connection signal="pressed" from="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer2/HBoxContainer/MarginContainer2/Construct" to="." method="construct_army_base"]
+[connection signal="pressed" from="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer3/HBoxContainer/MarginContainer2/Construct" to="." method="construct_naval_base"]
+[connection signal="pressed" from="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer4/HBoxContainer/MarginContainer2/Construct" to="." method="construct_tank_base"]

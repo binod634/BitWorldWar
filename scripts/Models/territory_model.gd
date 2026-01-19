@@ -10,14 +10,14 @@ func _init(tmpcenter:Array,tmpcoordinates:Array) -> void:
 	self.coordinates = GeoHelper.decode_vertices_from_dict(tmpcoordinates)
 
 
+func add_building(data:BuildingModel):
+	buildings.append(data)
+
+func remove_building(data:BuildingModel):
+	buildings.erase(data)
+
 func is_building_addable():
 	if len(buildings) >= Game.max_buildings:
 		assert(len(buildings) <= Game.max_buildings,"more buildings then expected!")
 		return false
 	return true
-
-func remove_building():
-	pass
-
-func add_building():
-	pass

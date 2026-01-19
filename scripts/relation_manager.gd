@@ -18,6 +18,7 @@ var countries:Dictionary[String,CountryModel] = {}
 var my_country_vertices:Array  = []
 var navigatable_territories:Array = []
 var isMySelfNavigatable:bool = false
+var selectedTerritory:TerritoryModel
 const file_path:String  = "res://assets/files/simple_countries.json"
 
 
@@ -99,9 +100,7 @@ func make_country_navigatable(country_id:String):
 			add_navigatable_region(territories[territory_id].coordinates,territory_id,isOwned)
 			navigatable_territories.append(territory_id)
 		else:
-			assert(false, "Problem here diagnosis...")
-
-
+			assert(false)
 
 func make_friendly_country(hashed_name:String):
 	assert(hashed_name not in enemy_nations,"Can't be friendly with enemy nations...")
@@ -112,18 +111,15 @@ func make_friendly_country(hashed_name:String):
 	highlight_country(hashed_name,false)
 	friendly_countries.append(hashed_name)
 
-
 func _is_country_navigatable(hashed_name:String) -> bool:
 	var nav_regions:Array = get_tree().get_nodes_in_group("nav_" + hashed_name)
 	return nav_regions.size() > 0
-
 
 func highlight_country(hashed_name:String,positive:bool):
 	var nodes:Array = 	get_tree().get_nodes_in_group("visual_node_" + hashed_name)
 	for a in nodes:
 		a.modulate = Color(1,0,0) if positive else Color(1,1,1)
 		a.queue_redraw()
-
 
 
 func is_country_enemy(hashed_name:String) -> bool:
@@ -142,10 +138,8 @@ func decode_vertices(x:float,y:float) -> Vector2:
 func create_circle_polygon(radius: float,segments: int = 8,offset_position:Vector2 = Vector2.ZERO,color: Color = Color.RED) -> Polygon2D:
 	return GeoHelper.create_circle_polygon(radius,segments,offset_position,color)
 
-
 func generate_circle_points(radius:float, segments:int,offset_position:Vector2 = Vector2.ZERO) -> PackedVector2Array:
 	return GeoHelper.generate_circle_points(radius,segments,offset_position)
-
 
 func calculate_polygon_area(points: PackedVector2Array) -> float:
 	return GeoHelper.calculate_polygon_area(points)
@@ -154,10 +148,13 @@ func calculate_polygon_area(points: PackedVector2Array) -> float:
 func decode_all_vertices(vertices_data:Dictionary) -> Array[PackedVector2Array]:
 	return GeoHelper.decode_all_vertices(vertices_data)
 
-func territory_clicked(country_id:String):
+func territory_clicked(country_id:String,territory_id:String):
 	if PlayerData.is_country_mine(country_id):
-		assert(countries.has(country_id),"Country id not found in countries list")
+		assert(countries.has(country_id))
+		selectedTerritory = territories[territory_id]
+		assert(territories.has(territory_id))
 		show_country_action_menu.emit()
+		print("[*] data got of mine. country_id: %s and territory_id: %s."%[country_id,territory_id])
 	else:
 		show_diplomacy_information_menu.emit(countries[country_id])
 
@@ -169,3 +166,6 @@ func get_territories_from_country_id(id:String) -> Dictionary[String,TerritoryMo
 	for a in territories_list:
 		tmpList[a] = territories[a]
 	return tmpList
+#
+#func construct_army_base():
+	#territories[selectedTerritory]

@@ -96,11 +96,11 @@ func build_polygon_centers(territory:TerritoryModel):
 	else:
 		centers_of_polygons.append(territory.center)
 
-func build_polygon_node(polygon:PackedVector2Array,node_name:String,node_color:Color):
+func build_polygon_node(polygon:PackedVector2Array,territory_id:String,node_color:Color):
 	var polygonNode:Polygon2D = Polygon2D.new()
 	polygonNode.add_to_group("navigation_avoid",true)
 	polygonNode.polygon = polygon
-	polygonNode.name = node_name
+	polygonNode.name = territory_id
 	polygonNode.color = node_color
 	visual_nodes.append(polygonNode)
 	Visuals.add_child(polygonNode)
@@ -108,7 +108,7 @@ func build_polygon_node(polygon:PackedVector2Array,node_name:String,node_color:C
 
 
 
-func build_collision_node(polygon:PackedVector2Array,node_name:String):
+func build_collision_node(polygon:PackedVector2Array,territory_id:String):
 	var collisionNode:CollisionPolygon2D = CollisionPolygon2D.new()
 	#await get_tree().create_timer(randf() * 10).timeout
 	#push_error(node_name)
@@ -118,7 +118,7 @@ func build_collision_node(polygon:PackedVector2Array,node_name:String):
 		#collisionNode.name = node_name
 	#else:
 	collisionNode.polygon = polygon
-	collisionNode.name = node_name
+	collisionNode.name = territory_id
 	collision_nodes.append(collisionNode)
 	CollisionArea.add_child(collisionNode)
 
@@ -153,7 +153,13 @@ func center_point_in_polygon(polygon:PackedVector2Array) -> Vector2:
 
 func _on_collision_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_MASK_LEFT && event.is_pressed()):
-		RelationManager.territory_clicked(country_id)
+		RelationManager.territory_clicked(country_id,get_territory_id_from_shape_idx(_shape_idx))
+
+func get_territory_id_from_shape_idx(id:int):
+	var shape_owner_id: int = CollisionArea.shape_find_owner(id)
+	assert(CollisionArea.shape_owner_get_owner(shape_owner_id) is CollisionPolygon2D)
+	var shape_owner: CollisionPolygon2D = CollisionArea.shape_owner_get_owner(shape_owner_id)
+	return shape_owner.name
 
 func _body_entered(body: Node2D):
 	if body.has_method("show_em_up"):
