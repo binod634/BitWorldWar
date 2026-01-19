@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhghdwp8hnl5o"]
+[gd_scene load_steps=11 format=3 uid="uid://bhghdwp8hnl5o"]
 
 [ext_resource type="Script" uid="uid://cbilmb8n1hsbv" path="res://scripts/infantry.gd" id="1_e0jsg"]
 [ext_resource type="Texture2D" uid="uid://cpfmpekiof003" path="res://assets/images/infantry/backup.png" id="3_1hxvu"]
@@ -7,6 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://dg3mhvaqeoaiv" path="res://scenes/components/selection_area2d.tscn" id="5_dcdm1"]
 [ext_resource type="PackedScene" uid="uid://bxe830rg0fwq3" path="res://scenes/components/minimum_collision.tscn" id="6_k1red"]
 [ext_resource type="Texture2D" uid="uid://cqr7j885il8bl" path="res://assets/images/ifv/afv.png" id="7_ihbo1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihbo1"]
+radius = 20.0
+
+[sub_resource type="Gradient" id="Gradient_ihbo1"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.397351, 0.70198673)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k83t5"]
+gradient = SubResource("Gradient_ihbo1")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Infantry" type="CharacterBody2D" node_paths=PackedStringArray("infantry_sound", "nav_agent", "character_texture", "unit_sound", "selection_area")]
 z_index = 1
@@ -17,7 +32,6 @@ character_texture = NodePath("Character/InfantryPic")
 unit_sound = NodePath("InfantrySound")
 selection_area = NodePath("selection_area2d")
 unit_type = 2
-speed = 15.0
 
 [node name="selection_area2d" parent="." instance=ExtResource("5_dcdm1")]
 
@@ -40,3 +54,19 @@ texture = ExtResource("3_1hxvu")
 visible = false
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("7_ihbo1")
+
+[node name="VisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea"]
+modulate = Color(0.2385827, 0.4342442, 0.6733414, 1)
+shape = SubResource("CircleShape2D_ihbo1")
+
+[node name="Polygon2D" type="Polygon2D" parent="VisionArea"]
+visible = false
+color = Color(1, 1, 1, 0.50980395)
+polygon = PackedVector2Array(-14, -13, -14, 13, 16, 13, 16, -13)
+uv = PackedVector2Array(-81.5, -74.5, -80.5, 70.5, 121.5, 61.5, 157.5, -64.5)
+
+[node name="PointLight2D" type="PointLight2D" parent="VisionArea"]
+color = Color(0.2231029, 0.2231029, 0.22310287, 1)
+texture = SubResource("GradientTexture2D_k83t5")

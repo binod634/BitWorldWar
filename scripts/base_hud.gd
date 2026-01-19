@@ -1,8 +1,11 @@
 extends  CanvasLayer
 class_name CanvasLayerHUD
 
+const audo_hud_enabled:bool = false
+
+
 func _ready() -> void:
-	register_signals()
+	if audo_hud_enabled: register_signals()
 
 
 func register_signals():

@@ -4,8 +4,8 @@ extends Node2D
 # Territory scene to instantiate for each country
 var territory:PackedScene = preload("res://scenes/screens/Territory.tscn")
 const REGIONS_FOLDER:String = "res://assets/files/regions_output/"
-var territories:Dictionary[String,TerritoryData]
-var countries:Dictionary[String,CountryData]
+var territories:Dictionary[String,TerritoryModel]
+var countries:Dictionary[String,CountryModel]
 @export_tool_button("Generate Map")var generate_maps:Callable =  build_map
 @export_tool_button("Generate Polygon")var generate_polygon:Callable =  build_polygons
 @onready var rebuild_needed:bool = $Regions.get_child_count() == 0
@@ -76,11 +76,11 @@ func decode_all_polygons():
 		var country_id:String = tmpCountries.get("id", "")
 		var playable:bool = tmpCountries.get('playable',false)
 		var regions:Array = tmpCountries.get("regions", [])
-		countries[country_id] = CountryData.new(country_name,country_id,PackedStringArray())
+		countries[country_id] = CountryModel.new(country_name,country_id,PackedStringArray())
 		for region in regions:
 			if not region.has("id"):printerr("Region without ID in country %s"%(country_name));continue
 			var polygon_id = region["id"]
-			territories[polygon_id] = TerritoryData.new(region.get("center",[]),region.get("coordinates", [])[0])
+			territories[polygon_id] = TerritoryModel.new(region.get("center",[]),region.get("coordinates", [])[0])
 			countries[country_id].owned_vertices.append(polygon_id)
 
 		# make country node
@@ -117,7 +117,7 @@ func register_signals():
 	RelationManager.show_country_action_menu.connect(_show_country_action_menu)
 	RelationManager.show_diplomacy_information_menu.connect(_show_diplomacy_information)
 
-func _show_diplomacy_information(data:CountryData):
+func _show_diplomacy_information(data:CountryModel):
 	DiplomacyDataMenu.set_country_data(data)
 
 func _show_country_action_menu():

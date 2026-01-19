@@ -1,5 +1,5 @@
 extends RefCounted
-class_name CountryData
+class_name CountryModel
 
 var country_name:String
 var country_id:String

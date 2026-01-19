@@ -34,6 +34,7 @@ var target_pos: Vector2 = Vector2.ZERO:
 		if value != Vector2.ZERO:
 			nav_agent.target_position = value
 			nav_agent.get_next_path_position()
+			#is_selected = false
 		else:
 			assert(false)
 var next_path:Vector2 = Vector2.ZERO:
@@ -44,6 +45,8 @@ var next_path:Vector2 = Vector2.ZERO:
 var has_path:bool = false:
 	set(value):
 		has_path = value
+		set_physics_process(value)
+		#set_process(value)
 var is_selected: bool = false:
 	set(val):
 		is_selected = val
@@ -61,9 +64,14 @@ func _ready() -> void:
 	#assert(selection_sound,"No unit clicked sound")
 	assert(unit_sound,"No unit hover sound")
 	assert(nav_agent,"Really ? no navagent")
-	set_visiblity()
+	set_initial_visiblity()
 	register_mouse_inputs()
 	register_path_update()
+	set_random_orientation()
+	set_physics_process(false)
+
+func set_random_orientation():
+	character_texture.rotation = randf() * TAU
 
 func register_path_update():
 	nav_agent.path_changed.connect(_check_path)
@@ -111,7 +119,7 @@ func take_damage(amount: float):
 func die():
 	queue_free()
 
-func set_visiblity():
+func set_initial_visiblity():
 	assert(country_id != "debug" || Game.allow_debug,"unit country id ???")
 	if country_id == "debug" && Game.allow_debug:return
 	visible = PlayerData.is_country_mine(country_id)
@@ -154,6 +162,11 @@ func clicked_baby(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT):
 		if event.is_pressed():
 			is_selected = !is_selected
+			get_tree().root.set_input_as_handled()
 
 func get_random_pitch_scale() -> float:
 	return 1 + randf_range(-1,1) * 0.1
+
+
+func seen_by(status:bool):
+	visible = status

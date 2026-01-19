@@ -65,6 +65,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,6 +73,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_lcsnk")
+
+[node name="Panel" type="Panel" parent="SizeTheme/MainMenu/Content/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ActionContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
 visible = false
@@ -315,7 +324,6 @@ theme_override_font_sizes/font_size = 16
 text = "Research Units"
 
 [node name="Production" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -386,6 +394,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Building" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

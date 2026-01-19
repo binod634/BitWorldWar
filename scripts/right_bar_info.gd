@@ -12,7 +12,7 @@ func _ready() -> void:
 	super._ready()
 
 
-func set_country_data(data:CountryData):
+func set_country_data(data:CountryModel):
 	country_name =  data.country_name
 	country_id = data.country_id
 

@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4rkdw3qkdjuj"]
+
+[ext_resource type="Script" uid="uid://d023mia2s586a" path="res://scenes/screens/scripts/units_action_bar.gd" id="1_7g64u"]
+[ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="2_06tf0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2nls1"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.76970994, 0.23504183, 0.5998486, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="UnitsAction" type="CanvasLayer"]
+script = ExtResource("1_7g64u")
+
+[node name="SizeTheme" type="Control" parent="."]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -50.0
+offset_right = 500.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme = ExtResource("2_06tf0")
+
+[node name="Backgrounds" type="Control" parent="SizeTheme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="SizeTheme/Backgrounds"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="SizeTheme"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -66.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="attack" type="Button" parent="SizeTheme/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2nls1")
+toggle_mode = true
+text = "Attack"
+
+[node name="move" type="Button" parent="SizeTheme/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2nls1")
+toggle_mode = true
+text = "Move"
+
+[connection signal="toggled" from="SizeTheme/Control/HBoxContainer/attack" to="." method="_on_attack_toggled"]
+[connection signal="pressed" from="SizeTheme/Control/HBoxContainer/move" to="." method="_on_move_pressed"]
+[connection signal="toggled" from="SizeTheme/Control/HBoxContainer/move" to="." method="_on_move_toggled"]

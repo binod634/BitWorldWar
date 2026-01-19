@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuildingData" load_steps=3 format=3 uid="uid://usfq4kiwew25"]
+
+[ext_resource type="Texture2D" uid="uid://0hcb0y6p1512" path="res://assets/images/tmp/building/naval_base.png" id="1_vpeye"]
+[ext_resource type="Script" uid="uid://beassr6tpbqjk" path="res://scripts/Models/building_data.gd" id="2_hsfk3"]
+
+[resource]
+script = ExtResource("2_hsfk3")
+name = "Naval Base"
+max_level = 3
+image = ExtResource("1_vpeye")
+metadata/_custom_type_script = "uid://beassr6tpbqjk"

@@ -3,16 +3,18 @@ extends Node
 # signals
 signal build_ready
 signal show_country_action_menu
-signal show_diplomacy_information_menu(countryData:CountryData)
+signal show_diplomacy_information_menu(countryData:CountryModel)
 signal relation_changed(id:String,relation:DiplomacyData.relation)
 
 const raw_vector_scale_value:Vector2 = GeoHelper.raw_vector_scale_value
 const raw_vector_offset_value:Vector2 = GeoHelper.raw_vector_offset_value
 
+
+
 var enemy_nations:Array = []
 var friendly_countries:Array = []
-var territories:Dictionary[String,TerritoryData]  = {}
-var countries:Dictionary[String,CountryData] = {}
+var territories:Dictionary[String,TerritoryModel]  = {}
+var countries:Dictionary[String,CountryModel] = {}
 var my_country_vertices:Array  = []
 var navigatable_territories:Array = []
 var isMySelfNavigatable:bool = false
@@ -159,11 +161,11 @@ func territory_clicked(country_id:String):
 	else:
 		show_diplomacy_information_menu.emit(countries[country_id])
 
-func get_territories_from_country_id(id:String) -> Dictionary[String,TerritoryData]:
+func get_territories_from_country_id(id:String) -> Dictionary[String,TerritoryModel]:
 	assert(countries.has(id),"No country with given hash id")
 	var territories_list:PackedStringArray = countries[id].owned_vertices
 	assert(territories.has_all(territories_list),"Country doesn't currently hold all data. missmatch data")
-	var tmpList:Dictionary[String,TerritoryData] = {}
+	var tmpList:Dictionary[String,TerritoryModel] = {}
 	for a in territories_list:
 		tmpList[a] = territories[a]
 	return tmpList

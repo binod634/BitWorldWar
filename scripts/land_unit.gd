@@ -1,5 +1,9 @@
 extends BaseUnit
 class_name LandUnit
+
+@export_group("Capture Capablity")
+@export var can_capture:bool = false
+
 #
 #@export var nav_agent: NavigationAgent2D
 #@export var speed: float = 150.0

@@ -52,11 +52,10 @@ func _unhandled_input(event):
 		if not dragging_condition: InputManager.signal_camera_dragging(true);dragging_condition = true
 		var diff_position:Vector2 = event.position - last_pos
 		global_position -= diff_position * pan_speed/zoom
+		update_camera_view()
 		last_pos = event.position
 
-
-
-func _physics_process(_delta: float)  -> void:
+func update_camera_view():
 	if interpolation_disabled:
 		physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_INHERIT
 		interpolation_disabled = false

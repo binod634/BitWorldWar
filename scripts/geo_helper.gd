@@ -4,11 +4,6 @@ const scale_value:float = 2.0
 const raw_vector_scale_value:Vector2 = Vector2(3.559,-4.0) * scale_value
 const raw_vector_offset_value:Vector2 = Vector2(640.0,360.0) * scale_value
 
-enum  TerritoryData {
-	coordinates,
-	center,
-}
-
 static func decode_vertices_from_dict(tmp:Array) -> PackedVector2Array:
 	var vertices_array:PackedVector2Array = []
 	for i in tmp:

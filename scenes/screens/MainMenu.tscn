@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cu8tm14f2sw0d"]
+[gd_scene load_steps=10 format=3 uid="uid://cu8tm14f2sw0d"]
 
 [ext_resource type="Texture2D" uid="uid://bgn31y4i303c5" path="res://assets/images/background/map_background.png" id="1_d0hcd"]
 [ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="1_rb3jj"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dhxibvgtb5lry" path="res://assets/images/buttons/orange_button.png" id="3_7rinn"]
 [ext_resource type="Texture2D" uid="uid://blubw4nwuecm2" path="res://assets/images/buttons/blue_button.png" id="5_wk6b2"]
 [ext_resource type="PackedScene" uid="uid://j46bn6gnhv4q" path="res://scenes/components/audio.tscn" id="8_upfyg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upfyg"]
+bg_color = Color(0.19215687, 0.5254902, 0.64705884, 0)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -149,6 +152,9 @@ offset_right = 270.0
 offset_bottom = 71.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_upfyg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_upfyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_upfyg")
 text = "NEW GAME"
 
 [node name="Continue" type="Control" parent="FullSize/Centered/ItemsLayout/Menus"]
@@ -168,6 +174,9 @@ offset_right = 270.0
 offset_bottom = 71.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_upfyg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_upfyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_upfyg")
 text = "CONTINUE"
 
 [node name="Multiplayer" type="Control" parent="FullSize/Centered/ItemsLayout/Menus"]
@@ -187,6 +196,9 @@ offset_right = 270.0
 offset_bottom = 71.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_upfyg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_upfyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_upfyg")
 text = "MULTIPLAYER"
 
 [node name="Settings" type="Control" parent="FullSize/Centered/ItemsLayout/Menus"]
@@ -206,6 +218,9 @@ offset_right = 270.0
 offset_bottom = 71.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_upfyg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_upfyg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_upfyg")
 text = "SETTINGS"
 
 [connection signal="pressed" from="FullSize/Centered/ItemsLayout/Menus/Start/Button" to="." method="_start_button_pressed"]

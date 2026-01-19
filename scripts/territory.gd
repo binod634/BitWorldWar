@@ -6,12 +6,13 @@ extends  Node2D
 var visual_nodes:Array[Polygon2D] = []
 var collision_nodes:Array[CollisionPolygon2D] = []
 var centers_of_polygons:PackedVector2Array = PackedVector2Array()
-var territory_data_list:Dictionary[String,TerritoryData] = {}
+var territory_data_list:Dictionary[String,TerritoryModel] = {}
 #onready
 @onready var CollisionArea:Area2D = $CollisionArea
 @onready var Visuals:Node2D = $Visuals
 @onready var Armys:Node2D = $Army
 var neutral_offset_color:Color = GameColors.FriendlyNationColor * 0.5 + Color(randf(),randf(),randf()) * 0.2
+var is_owned_nation:bool
 
 # scenes
 var playerAgent:PackedScene = preload("res://scenes/objects/infantry.tscn")
@@ -26,14 +27,19 @@ func _ready() -> void:
 
 
 func build_nodes():
+	check_if_owned_nation()
 	get_territory_data()
 	build_territory()
 	deploy_army()
 	deploy_effects()
 	build_owned_signals()
 
+func check_if_owned_nation():
+	is_owned_nation = PlayerData.is_country_mine(country_id)
+
+
 func build_owned_signals():
-	if not  PlayerData.is_country_mine(country_id): return
+	if not  is_owned_nation: return
 	InputManager.prompt_building_placement.connect(_prompt_building_placement)
 
 
@@ -78,13 +84,13 @@ func _draw() -> void:
 
 func build_territory():
 	for territory_id in territory_data_list:
-		var territory:TerritoryData = territory_data_list[territory_id]
+		var territory:TerritoryModel = territory_data_list[territory_id]
 		build_polygon_centers(territory)
-		build_polygon_node(territory.coordinates,territory_id,GameColors.OwnedNationColor if PlayerData.is_country_mine(country_id) else neutral_offset_color)
+		build_polygon_node(territory.coordinates,territory_id,GameColors.OwnedNationColor if is_owned_nation else neutral_offset_color)
 		build_collision_node(territory.coordinates,territory_id)
 
 
-func build_polygon_centers(territory:TerritoryData):
+func build_polygon_centers(territory:TerritoryModel):
 	if territory.center == Vector2.ZERO:
 		centers_of_polygons.append(center_point_in_polygon(territory.coordinates))
 	else:

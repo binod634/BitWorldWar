@@ -12,6 +12,8 @@ func show_em_up():
 	print("i am entering territory. %s"%[self])
 
 
+
+
 #
 #@onready var character:Node2D = $Character
 #@onready var default_scale_value:Vector2 =  scale
