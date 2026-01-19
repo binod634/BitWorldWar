@@ -69,7 +69,6 @@ func add_navigatable_region(vertices:PackedVector2Array,hashed_name:String,isOwn
 	var new_navigation_mesh:NavigationPolygon = NavigationPolygon.new()
 	new_navigation_mesh.agent_radius = 0.5
 	new_navigation_mesh.cell_size = 10
-	var shrinked_vertices:PackedVector2Array = simplify_and_shrink(vertices)
 	new_navigation_mesh.add_outline(vertices)
 	NavigationServer2D.bake_from_source_geometry_data(new_navigation_mesh, NavigationMeshSourceGeometryData2D.new());
 	nav_region.navigation_polygon = new_navigation_mesh
@@ -166,6 +165,3 @@ func get_territories_from_country_id(id:String) -> Dictionary[String,TerritoryMo
 	for a in territories_list:
 		tmpList[a] = territories[a]
 	return tmpList
-#
-#func construct_army_base():
-	#territories[selectedTerritory]

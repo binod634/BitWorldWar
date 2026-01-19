@@ -9,7 +9,6 @@ func _ready() -> void:
 
 func show_em_up():
 	return
-	print("i am entering territory. %s"%[self])
 
 
 #
