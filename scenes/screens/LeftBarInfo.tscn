@@ -324,7 +324,6 @@ theme_override_font_sizes/font_size = 16
 text = "Research Units"
 
 [node name="Production" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -345,10 +344,12 @@ theme_override_constants/separation = 8
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/HBoxContainer"]
+[node name="TextureRect2" type="TextureButton" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("5_pof0m")
-expand_mode = 3
+texture_normal = ExtResource("5_pof0m")
+ignore_texture_size = true
+stretch_mode = 0
 flip_h = true
 
 [node name="Country" type="Label" parent="SizeTheme/MainMenu/Content/Production/VBoxContainer/HBoxContainer"]
@@ -395,6 +396,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Building" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -420,10 +422,12 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="TextureRect" type="TextureRect" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureButton" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("5_pof0m")
-expand_mode = 3
+texture_normal = ExtResource("5_pof0m")
+ignore_texture_size = true
+stretch_mode = 0
 flip_h = true
 
 [node name="Country" type="Label" parent="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer/HBoxContainer"]
@@ -612,6 +616,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4ayhn")
 
+[connection signal="pressed" from="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/Actions/VBoxContainer/Produce Units/Button" to="." method="button_clicked_production"]
+[connection signal="pressed" from="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/Actions/VBoxContainer/Produce Units2/Button" to="." method="button_clicked_construction"]
+[connection signal="pressed" from="SizeTheme/MainMenu/Content/ActionContainer/VBoxContainer/Actions/VBoxContainer/Produce Units3/Button" to="." method="button_clicked_research"]
+[connection signal="pressed" from="SizeTheme/MainMenu/Content/Production/VBoxContainer/HBoxContainer/TextureRect2" to="." method="button_clicked_Info"]
+[connection signal="pressed" from="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer/HBoxContainer/TextureRect" to="." method="button_clicked_Info"]
 [connection signal="pressed" from="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer/HBoxContainer/MarginContainer2/Construct" to="." method="construct_air_base"]
 [connection signal="pressed" from="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer2/HBoxContainer/MarginContainer2/Construct" to="." method="construct_army_base"]
 [connection signal="pressed" from="SizeTheme/MainMenu/Content/Building/VBoxContainer/MarginContainer2/ConstHandler/MarginContainer3/HBoxContainer/MarginContainer2/Construct" to="." method="construct_naval_base"]

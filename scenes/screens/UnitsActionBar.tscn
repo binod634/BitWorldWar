@@ -82,6 +82,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_2nls1")
 toggle_mode = true
 text = "Move"
 
+[node name="Capture" type="Button" parent="SizeTheme/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2nls1")
+toggle_mode = true
+text = "Capture"
+
 [connection signal="toggled" from="SizeTheme/Control/HBoxContainer/attack" to="." method="_on_attack_toggled"]
-[connection signal="pressed" from="SizeTheme/Control/HBoxContainer/move" to="." method="_on_move_pressed"]
 [connection signal="toggled" from="SizeTheme/Control/HBoxContainer/move" to="." method="_on_move_toggled"]
+[connection signal="toggled" from="SizeTheme/Control/HBoxContainer/Capture" to="." method="_on_move_toggled"]

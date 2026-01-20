@@ -18,7 +18,7 @@ var countries:Dictionary[String,CountryModel] = {}
 var my_country_vertices:Array  = []
 var navigatable_territories:Array = []
 var isMySelfNavigatable:bool = false
-var selectedTerritory:TerritoryModel
+var selectedTerritory:String
 const file_path:String  = "res://assets/files/simple_countries.json"
 
 
@@ -150,7 +150,7 @@ func decode_all_vertices(vertices_data:Dictionary) -> Array[PackedVector2Array]:
 func territory_clicked(country_id:String,territory_id:String):
 	if PlayerData.is_country_mine(country_id):
 		assert(countries.has(country_id))
-		selectedTerritory = territories[territory_id]
+		selectedTerritory = territory_id
 		assert(territories.has(territory_id))
 		show_country_action_menu.emit()
 		print("[*] data got of mine. country_id: %s and territory_id: %s."%[country_id,territory_id])
@@ -165,3 +165,9 @@ func get_territories_from_country_id(id:String) -> Dictionary[String,TerritoryMo
 	for a in territories_list:
 		tmpList[a] = territories[a]
 	return tmpList
+
+func construct_building(type:Game.BuildingType):
+	assert(not selectedTerritory.is_empty())
+	if not territories[selectedTerritory].is_building_addable(): return
+	var building:BuildingModel = BuildingModel.new(type)
+	territories[selectedTerritory].add_building(building)

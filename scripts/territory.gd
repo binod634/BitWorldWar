@@ -162,5 +162,6 @@ func get_territory_id_from_shape_idx(id:int):
 	return shape_owner.name
 
 func _body_entered(body: Node2D):
+
 	if body.has_method("show_em_up"):
 		body.show_em_up()

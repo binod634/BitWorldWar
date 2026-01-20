@@ -1,10 +1,11 @@
 class_name BuildingModel extends RefCounted
 
+
 var building_type:BuildingData
 var current_level:int
 
-func _init(type:BuildingData,level:int = 1) -> void:
-	building_type = type
+func _init(type:Game.BuildingType,level:int = 1) -> void:
+	building_type = Game.buildings[type]
 	current_level = level
 
 func increase_building_level():

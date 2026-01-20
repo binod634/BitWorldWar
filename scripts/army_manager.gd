@@ -4,12 +4,13 @@ signal show_army_command(status:bool)
 var selected_army:Array[BaseUnit] = []
 
 enum UnitMode {
-	None,
-	Move,
-	Attack
+	NONE,
+	MOVE,
+	ATTACK,
+	CAPTURE,
 }
 
-var currentMode:UnitMode = UnitMode.None
+var currentMode:UnitMode = UnitMode.NONE
 
 
 func add_army_to_selection(node:CharacterBody2D):
@@ -32,7 +33,7 @@ func clear_army_selection():
 func got_location_point(point_position:Vector2):
 	for unit in selected_army:
 		#if unit.has_method("move_to"):
-		if currentMode != UnitMode.None:
+		if currentMode != UnitMode.NONE:
 			unit.target_pos =  point_position
 
 
@@ -41,8 +42,8 @@ func show_army_action(status:bool):
 	show_army_command.emit(status)
 
 func change_to_attack_mode(status:bool):
-	currentMode = UnitMode.Attack if status else UnitMode.None
+	currentMode = UnitMode.ATTACK if status else UnitMode.NONE
 
 
 func change_to_move_mode(status:bool):
-	currentMode = UnitMode.Move if status else UnitMode.None
+	currentMode = UnitMode.MOVE if status else UnitMode.NONE

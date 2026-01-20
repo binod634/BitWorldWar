@@ -1,7 +1,7 @@
 extends  CanvasLayer
 class_name CanvasLayerHUD
 
-const audo_hud_enabled:bool = false
+const audo_hud_enabled:bool = true
 
 
 func _ready() -> void:

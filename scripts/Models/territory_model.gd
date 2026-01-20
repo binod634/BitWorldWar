@@ -11,9 +11,13 @@ func _init(tmpcenter:Array,tmpcoordinates:Array) -> void:
 
 
 func add_building(data:BuildingModel):
+	assert(len(buildings) < Game.max_buildings)
+	print("[*] Added Building: %s"%[data])
 	buildings.append(data)
 
 func remove_building(data:BuildingModel):
+	assert(len(buildings) > 0)
+	print("[*] Removed Building: %s"%[data])
 	buildings.erase(data)
 
 func is_building_addable():
