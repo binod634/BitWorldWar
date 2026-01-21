@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://1i1ap815y3nj"]
 
-[ext_resource type="Texture2D" uid="uid://bak72y7p38k17" path="res://assets/images/military.png" id="1_o1w3c"]
-[ext_resource type="Script" uid="uid://b5de3e8eqe0ye" path="res://scenes/components/scripts/production_unit.gd" id="1_q7mny"]
+[ext_resource type="Script" uid="uid://ctmbps2dhdrjy" path="res://scenes/components/scripts/production_tab_unit.gd" id="1_q7mny"]
+[ext_resource type="Texture2D" uid="uid://2t3gcrkyqyeu" path="res://assets/images/infantry/darkblue1.png" id="2_8oosw"]
 [ext_resource type="Texture2D" uid="uid://cp4x25nic731w" path="res://assets/images/raw_original/arrow-right.png" id="2_q7mny"]
 [ext_resource type="Texture2D" uid="uid://d2sacuffxe475" path="res://assets/images/raw_original/infinity.png" id="3_8oosw"]
 [ext_resource type="Texture2D" uid="uid://hqh64dagqwsr" path="res://assets/images/raw_original/close_black.png" id="4_lm0md"]
@@ -69,7 +69,7 @@ theme_override_constants/margin_right = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_o1w3c")
+texture = ExtResource("2_8oosw")
 expand_mode = 3
 stretch_mode = 5
 
@@ -104,9 +104,13 @@ stretch_mode = 5
 flip_h = true
 
 [node name="Count" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
-text = "020"
+text = "0"
 label_settings = SubResource("LabelSettings_3nlwf")
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 1
 
 [node name="Increase" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -134,7 +138,6 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Infinity" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4

@@ -7,6 +7,8 @@ const min_zoom_for_territory:float = 2
 const min_zoom:float = 1.5
 const allow_debug:bool  = true
 const max_buildings:int = 1
+const time_interval:float = 0.1
+const time_scale:int = 1 # speed scale
 
 enum BuildingType {
 	ARMY_BASE,

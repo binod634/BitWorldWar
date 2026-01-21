@@ -37,12 +37,16 @@ func got_location_point(point_position:Vector2):
 			unit.target_pos =  point_position
 
 
+
+
+
 func show_army_action(status:bool):
 	print("got action signal %s"%[status])
 	show_army_command.emit(status)
 
 func change_to_attack_mode(status:bool):
 	currentMode = UnitMode.ATTACK if status else UnitMode.NONE
+
 
 
 func change_to_move_mode(status:bool):

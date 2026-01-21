@@ -17,8 +17,8 @@ func set_country_data(data:CountryModel):
 	country_id = data.country_id
 
 func declare_war_clicked():
-	RelationManager.declare_war_on(country_id)
+	WorldManager.declare_war_on(country_id)
 
 
 func alliance_button_clicked() -> void:
-	RelationManager.make_friendly_country(country_id)
+	WorldManager.make_friendly_country(country_id)

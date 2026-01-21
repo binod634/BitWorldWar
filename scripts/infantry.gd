@@ -1,7 +1,7 @@
 extends LandUnit
 
 @export var infantry_sound:AudioStreamPlayer2D
-
+var target_country:String
 
 func _ready() -> void:
 	super._ready()
@@ -10,6 +10,8 @@ func _ready() -> void:
 func show_em_up():
 	return
 
+func attack_country(id:String):
+	target_country = id
 
 #
 #@onready var character:Node2D = $Character

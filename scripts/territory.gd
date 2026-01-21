@@ -7,6 +7,7 @@ var visual_nodes:Array[Polygon2D] = []
 var collision_nodes:Array[CollisionPolygon2D] = []
 var centers_of_polygons:PackedVector2Array = PackedVector2Array()
 var territory_data_list:Dictionary[String,TerritoryModel] = {}
+
 #onready
 @onready var CollisionArea:Area2D = $CollisionArea
 @onready var Visuals:Node2D = $Visuals
@@ -22,8 +23,8 @@ var building:PackedScene = preload('res://scenes/tmp/building.tscn')
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		queue_redraw()
-		RelationManager.build_ready.connect(build_nodes)
-		RelationManager.relation_changed.connect(check_relation)
+		WorldManager.build_ready.connect(build_nodes)
+		WorldManager.relation_changed.connect(check_relation)
 
 
 func build_nodes():
@@ -50,7 +51,7 @@ func _prompt_building_placement():
 	print("[*] Building Placed...")
 
 func get_territory_data():
-	territory_data_list = RelationManager.get_territories_from_country_id(country_id)
+	territory_data_list = WorldManager.get_territories_from_country_id(country_id)
 
 
 func check_relation(id:String,relation:DiplomacyData.relation) -> void:
@@ -62,7 +63,7 @@ func change_nodes_color(color:Color) -> void:
 		node.color = color
 
 func deploy_effects():
-	if not RelationManager.is_country_owned(country_id): return
+	if not WorldManager.is_country_owned(country_id): return
 	make_particles_effects()
 
 func make_particles_effects():
@@ -110,13 +111,6 @@ func build_polygon_node(polygon:PackedVector2Array,territory_id:String,node_colo
 
 func build_collision_node(polygon:PackedVector2Array,territory_id:String):
 	var collisionNode:CollisionPolygon2D = CollisionPolygon2D.new()
-	#await get_tree().create_timer(randf() * 10).timeout
-	#push_error(node_name)
-	#if node_name == "372cb2b53f7e4715ae6605643469d2e8" or node_name == "fb0e6a636d844165a22f57adc96b330d" :
-		#print("This is it")
-		#collisionNode.polygon = polygon
-		#collisionNode.name = node_name
-	#else:
 	collisionNode.polygon = polygon
 	collisionNode.name = territory_id
 	collision_nodes.append(collisionNode)
@@ -153,7 +147,7 @@ func center_point_in_polygon(polygon:PackedVector2Array) -> Vector2:
 
 func _on_collision_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_MASK_LEFT && event.is_pressed()):
-		RelationManager.territory_clicked(country_id,get_territory_id_from_shape_idx(_shape_idx))
+		WorldManager.territory_clicked(country_id,get_territory_id_from_shape_idx(_shape_idx))
 
 func get_territory_id_from_shape_idx(id:int):
 	var shape_owner_id: int = CollisionArea.shape_find_owner(id)

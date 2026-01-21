@@ -79,7 +79,7 @@ func simplify_and_shrink(points: PackedVector2Array) -> PackedVector2Array:
 	# 1. Offset (shrink) the polygon inward by 0.1 units
 	# JOIN_MITER (0) keeps corners sharp; -0.1 shrinks it.
 	var offset_polygons = Geometry2D.offset_polygon(points, -0.5, Geometry2D.JOIN_MITER)
-
+ 
 	if offset_polygons.size() > 0:
 		return offset_polygons[0] # Returns the newly shrunk polygon
 	return points
@@ -88,6 +88,7 @@ func generate_navigation_region_name(hashed_name:String):
 	return hashed_name + str(RandomNumberGenerator.new().randi())
 
 func get_navigation_parent_node():
+
 	return get_tree().get_first_node_in_group("NavigatableLandRegion")
 
 
@@ -171,3 +172,54 @@ func construct_building(type:Game.BuildingType):
 	if not territories[selectedTerritory].is_building_addable(): return
 	var building:BuildingModel = BuildingModel.new(type)
 	territories[selectedTerritory].add_building(building)
+
+
+func check_building_count(type:Game.BuildingType) -> int:
+	assert(Game.buildings.has(type),"No such building type")
+	var count:int = 0
+	for  a in my_country_vertices:
+		for b in territories[a].buildings:
+			if b.building_type == Game.buildings[type]:
+				count += 1
+	return count
+
+func spawn_unit():
+	pass
+
+
+func check_production_for_active_building():
+	var time_passed:float = Game.time_interval * Game.time_scale
+	for key in territories:
+		var buildings:Array[BuildingModel] = territories[key].buildings
+		
+		# so the building is active and in production queue
+		for building in buildings:
+			if not building.is_active: continue
+			if building.remaining_time > time_passed:
+				building.remaining_time -= time_passed
+			else:
+				if building.current_production_queue > 0:
+					building.current_production_queue -= 1
+					building.remaining_time = building.production_time - time_passed
+					spawn_unit()
+				else:
+					building.is_active = false
+					building.remaining_time = 0
+					spawn_unit()
+
+
+
+func ask_shortest_territory_for_nation_from_point(point:Vector2,country_id:String) -> Vector2:
+	assert(countries.has(country_id),"No such country data")
+	assert(enemy_nations.has(country_id),"No territories data loaded...")
+	assert(territories.size() > 0,"No territories data loaded...")
+	assert(countries[country_id].owned_vertices.size() > 0,"countries has no territories...")
+	var shortest_distance:float = INF
+	var current_territory:TerritoryModel = null
+	for terrritory_id in countries[country_id].owned_vertices:
+		assert(territories.has(terrritory_id),"Territory id not found in territories data...")
+		var territory:TerritoryModel = territories[terrritory_id]
+		if ( point.distance_to(territory.center) < shortest_distance):
+			shortest_distance = point.distance_to(territory.center)
+			current_territory = territory
+	return current_territory.center

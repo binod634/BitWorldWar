@@ -84,6 +84,7 @@ metadata/_edit_lock_ = true
 [node name="VisiblityLayer" type="Node2D" parent="."]
 
 [node name="TopPanelBar" parent="VisiblityLayer" instance=ExtResource("3_ao4ig")]
+visible = false
 
 [node name="RightBarInfo" parent="VisiblityLayer" instance=ExtResource("7_ci4w4")]
 
@@ -91,6 +92,7 @@ metadata/_edit_lock_ = true
 AutoHide = false
 
 [node name="UnitsAction" parent="VisiblityLayer" instance=ExtResource("10_a44un")]
+visible = false
 
 [node name="TestUnits" type="Node2D" parent="."]
 

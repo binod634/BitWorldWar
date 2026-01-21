@@ -50,10 +50,10 @@ func _draw() -> void:
 		draw_polyline(territories[territory_id].coordinates,Color.WHITE)
 
 func provide_countries_data():
-	RelationManager.set_territories(territories)
-	RelationManager.set_country_territories_map(countries)
-	#RelationManager.pick_nation("75a95d714dc74a54a1c749e10449cd8e")
-	RelationManager.pick_nation(find_nation_from_name("Russia"))
+	WorldManager.set_territories(territories)
+	WorldManager.set_country_territories_map(countries)
+	#WorldManager.pick_nation("75a95d714dc74a54a1c749e10449cd8e")
+	WorldManager.pick_nation(find_nation_from_name("Russia"))
 
 func find_nation_from_name(nation_name:String) -> String:
 	for a in countries:
@@ -114,8 +114,8 @@ func load_region_file(file_path:String) -> Dictionary:
 
 
 func register_signals():
-	RelationManager.show_country_action_menu.connect(_show_country_action_menu)
-	RelationManager.show_diplomacy_information_menu.connect(_show_diplomacy_information)
+	WorldManager.show_country_action_menu.connect(_show_country_action_menu)
+	WorldManager.show_diplomacy_information_menu.connect(_show_diplomacy_information)
 
 func _show_diplomacy_information(data:CountryModel):
 	DiplomacyDataMenu.set_country_data(data)

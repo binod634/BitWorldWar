@@ -30,8 +30,8 @@ config/icon="uid://bak72y7p38k17"
 Game="*res://scripts/game.gd"
 ArmyManager="*res://scripts/army_manager.gd"
 PlayerData="*res://scripts/player_data.gd"
-RelationManager="*res://scripts/relation_manager.gd"
 InputManager="*res://scripts/input_manager.gd"
+WorldManager="*res://scripts/world_manager.gd"
 
 [debug]
 
