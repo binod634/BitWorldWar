@@ -107,6 +107,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ActionContainer" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1042,7 +1043,6 @@ stretch_mode = 5
 flip_h = true
 
 [node name="Building" type="MarginContainer" parent="SizeTheme/MainMenu/Content"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

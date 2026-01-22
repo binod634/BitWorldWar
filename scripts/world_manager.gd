@@ -1,15 +1,20 @@
 extends Node
 
+enum ActionType {
+	NONE,
+	BUILD,
+}
+
+
 # signals
 signal build_ready
 signal show_country_action_menu
 signal show_diplomacy_information_menu(countryData:CountryModel)
 signal relation_changed(id:String,relation:DiplomacyData.relation)
+signal highlight_territory_for_construction_mode(territory_id:String)
 
 const raw_vector_scale_value:Vector2 = GeoHelper.raw_vector_scale_value
 const raw_vector_offset_value:Vector2 = GeoHelper.raw_vector_offset_value
-
-
 
 var enemy_nations:Array = []
 var friendly_countries:Array = []
@@ -17,9 +22,11 @@ var territories:Dictionary[String,TerritoryModel]  = {}
 var countries:Dictionary[String,CountryModel] = {}
 var my_country_vertices:Array  = []
 var navigatable_territories:Array = []
-var isMySelfNavigatable:bool = false
-var selectedTerritory:String
-const file_path:String  = "res://assets/files/simple_countries.json"
+var is_owned_nation_navigatable:bool = false
+var selected_territory:String
+var is_in_construction_mode:bool = false
+var current_action_type:ActionType = ActionType.NONE
+#const file_path:String  = "res://assets/files/simple_countries.json"
 
 
 func set_country_territories_map(data:Dictionary):
@@ -42,20 +49,14 @@ func is_country_owned(hash_id:String):
 
 
 func pick_nation(country_id:String):
-	assert(not isMySelfNavigatable,"Already navitable for owned country. why double. ?")
+	assert(not is_owned_nation_navigatable,"Already navitable for owned country. why double. ?")
 	assert(countries.has(country_id),"country id not in countries data...")
-	if isMySelfNavigatable || not countries.has(country_id): return
+	if is_owned_nation_navigatable || not countries.has(country_id): return
 	PlayerData.select_nation(country_id)
 	make_country_navigatable(country_id)
-	isMySelfNavigatable = true
+	is_owned_nation_navigatable = true
 	build_ready.emit()
 
-func load_regions_file():
-	var file:FileAccess = FileAccess.open(file_path,FileAccess.READ)
-	if file == null:
-		print("errored")
-		return
-	return JSON.parse_string(file.get_as_text())
 
 
 
@@ -79,7 +80,7 @@ func simplify_and_shrink(points: PackedVector2Array) -> PackedVector2Array:
 	# 1. Offset (shrink) the polygon inward by 0.1 units
 	# JOIN_MITER (0) keeps corners sharp; -0.1 shrinks it.
 	var offset_polygons = Geometry2D.offset_polygon(points, -0.5, Geometry2D.JOIN_MITER)
- 
+
 	if offset_polygons.size() > 0:
 		return offset_polygons[0] # Returns the newly shrunk polygon
 	return points
@@ -95,7 +96,7 @@ func get_navigation_parent_node():
 func make_country_navigatable(country_id:String):
 	assert(countries.has(country_id),"Can't find country ????")
 	var isOwned:bool = PlayerData.is_country_mine(country_id)
-	for territory_id in countries[country_id].owned_vertices:
+	for territory_id in countries[country_id].territories_id:
 		if not navigatable_territories.has(territory_id):
 			add_navigatable_region(territories[territory_id].coordinates,territory_id,isOwned)
 			navigatable_territories.append(territory_id)
@@ -149,29 +150,24 @@ func decode_all_vertices(vertices_data:Dictionary) -> Array[PackedVector2Array]:
 	return GeoHelper.decode_all_vertices(vertices_data)
 
 func territory_clicked(country_id:String,territory_id:String):
+	assert(countries.has(country_id))
 	if PlayerData.is_country_mine(country_id):
-		assert(countries.has(country_id))
-		selectedTerritory = territory_id
+		selected_territory = territory_id
 		assert(territories.has(territory_id))
-		show_country_action_menu.emit()
 		print("[*] data got of mine. country_id: %s and territory_id: %s."%[country_id,territory_id])
+		if current_action_type == ActionType.NONE:
+			show_country_action_menu.emit()
+		else:
+			highlight_territory_for_construction_mode.emit(territory_id)
+
 	else:
 		show_diplomacy_information_menu.emit(countries[country_id])
 
-func get_territories_from_country_id(id:String) -> Dictionary[String,TerritoryModel]:
-	assert(countries.has(id),"No country with given hash id")
-	var territories_list:PackedStringArray = countries[id].owned_vertices
-	assert(territories.has_all(territories_list),"Country doesn't currently hold all data. missmatch data")
-	var tmpList:Dictionary[String,TerritoryModel] = {}
-	for a in territories_list:
-		tmpList[a] = territories[a]
-	return tmpList
-
 func construct_building(type:Game.BuildingType):
-	assert(not selectedTerritory.is_empty())
-	if not territories[selectedTerritory].is_building_addable(): return
+	assert(not selected_territory.is_empty())
+	if not territories[selected_territory].is_building_addable(): return
 	var building:BuildingModel = BuildingModel.new(type)
-	territories[selectedTerritory].add_building(building)
+	territories[selected_territory].add_building(building)
 
 
 func check_building_count(type:Game.BuildingType) -> int:
@@ -191,7 +187,7 @@ func check_production_for_active_building():
 	var time_passed:float = Game.time_interval * Game.time_scale
 	for key in territories:
 		var buildings:Array[BuildingModel] = territories[key].buildings
-		
+
 		# so the building is active and in production queue
 		for building in buildings:
 			if not building.is_active: continue
@@ -213,13 +209,17 @@ func ask_shortest_territory_for_nation_from_point(point:Vector2,country_id:Strin
 	assert(countries.has(country_id),"No such country data")
 	assert(enemy_nations.has(country_id),"No territories data loaded...")
 	assert(territories.size() > 0,"No territories data loaded...")
-	assert(countries[country_id].owned_vertices.size() > 0,"countries has no territories...")
+	assert(countries[country_id].territories_id.size() > 0,"countries has no territories...")
 	var shortest_distance:float = INF
 	var current_territory:TerritoryModel = null
-	for terrritory_id in countries[country_id].owned_vertices:
+	for terrritory_id in countries[country_id].territories_id:
 		assert(territories.has(terrritory_id),"Territory id not found in territories data...")
 		var territory:TerritoryModel = territories[terrritory_id]
 		if ( point.distance_to(territory.center) < shortest_distance):
 			shortest_distance = point.distance_to(territory.center)
 			current_territory = territory
 	return current_territory.center
+
+func get_territory_for_id(id:String) -> TerritoryModel:
+	assert(territories.has(id),"No such territory data...")
+	return territories[id]

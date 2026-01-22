@@ -1,19 +1,19 @@
 extends  Node2D
 
 
-@export var country_id:String
-@export var is_playable_country:bool = false
+var country_data:CountryModel
 var visual_nodes:Array[Polygon2D] = []
 var collision_nodes:Array[CollisionPolygon2D] = []
 var centers_of_polygons:PackedVector2Array = PackedVector2Array()
 var territory_data_list:Dictionary[String,TerritoryModel] = {}
-
 #onready
 @onready var CollisionArea:Area2D = $CollisionArea
 @onready var Visuals:Node2D = $Visuals
 @onready var Armys:Node2D = $Army
-var neutral_offset_color:Color = GameColors.FriendlyNationColor * 0.5 + Color(randf(),randf(),randf()) * 0.2
+var neutral_offset_color:Color = GameColors.NationNeutral * 0.6 + Color(randf(),randf(),randf()) * 0.2
 var is_owned_nation:bool
+var territory_color:Color
+var current_hover_idx:int = -1 # invalid idx for now
 
 # scenes
 var playerAgent:PackedScene = preload("res://scenes/objects/infantry.tscn")
@@ -25,18 +25,17 @@ func _ready() -> void:
 		queue_redraw()
 		WorldManager.build_ready.connect(build_nodes)
 		WorldManager.relation_changed.connect(check_relation)
+		WorldManager.highlight_territory_for_construction_mode.connect(_highlight_territory_for_construction)
 
+func _highlight_territory_for_construction(territory_id:String):
+	if country_data.territories_id.has(territory_id):
+		find_node_in_territory_and_highlight(territory_id)
 
 func build_nodes():
-	check_if_owned_nation()
-	get_territory_data()
 	build_territory()
 	deploy_army()
-	deploy_effects()
 	build_owned_signals()
 
-func check_if_owned_nation():
-	is_owned_nation = PlayerData.is_country_mine(country_id)
 
 
 func build_owned_signals():
@@ -50,30 +49,21 @@ func _prompt_building_placement():
 	add_child(tmpBuilding)
 	print("[*] Building Placed...")
 
-func get_territory_data():
-	territory_data_list = WorldManager.get_territories_from_country_id(country_id)
 
 
 func check_relation(id:String,relation:DiplomacyData.relation) -> void:
-	if id == country_id:
+	if id == country_data.country_id:
 		change_nodes_color(GameColors.EnemyNationColor if relation == DiplomacyData.relation.war else neutral_offset_color)
 
 func change_nodes_color(color:Color) -> void:
 	for node in visual_nodes:
 		node.color = color
 
-func deploy_effects():
-	if not WorldManager.is_country_owned(country_id): return
-	make_particles_effects()
-
-func make_particles_effects():
-	pass
-
 func deploy_army():
 	for i in centers_of_polygons:
 		var tmp:CharacterBody2D = playerAgent.instantiate()
 		tmp.global_position = i
-		tmp.country_id = country_id
+		tmp.country_id = country_data.country_id
 		Armys.add_child(tmp)
 
 
@@ -147,7 +137,7 @@ func center_point_in_polygon(polygon:PackedVector2Array) -> Vector2:
 
 func _on_collision_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_MASK_LEFT && event.is_pressed()):
-		WorldManager.territory_clicked(country_id,get_territory_id_from_shape_idx(_shape_idx))
+		WorldManager.territory_clicked(country_data.country_id,get_territory_id_from_shape_idx(_shape_idx))
 
 func get_territory_id_from_shape_idx(id:int):
 	var shape_owner_id: int = CollisionArea.shape_find_owner(id)
@@ -156,6 +146,11 @@ func get_territory_id_from_shape_idx(id:int):
 	return shape_owner.name
 
 func _body_entered(body: Node2D):
-
 	if body.has_method("show_em_up"):
 		body.show_em_up()
+
+func find_node_in_territory_and_highlight(territory_id:String):
+	for i in visual_nodes:
+		if i.name == territory_id:
+			i.color = Color(0,1,0)
+			i.queue_redraw()

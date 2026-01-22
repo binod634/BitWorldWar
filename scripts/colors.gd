@@ -13,7 +13,6 @@ const FriendlyNationColor := LightBlue
 const OwnedNationColor := Color.PALE_GREEN
 const NeutralNationColor := Color.DARK_SLATE_GRAY
 
-
 # new design
 const PaperPrimary:Color		=	Color("EFE6D3")
 const PaperSecondary:Color	=	Color("E2D6BF")

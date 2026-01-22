@@ -23,7 +23,7 @@ var ActionShown:bool = true:
 
 func _ready() -> void:
 	super._ready()
-	assert(info_node.visible,"fix it")
+	#assert(info_node.visible,"fix it")
 	if AutoHide:
 		get_tree().create_timer(5).timeout.connect(_hide_self)
 

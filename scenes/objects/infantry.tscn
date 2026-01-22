@@ -68,5 +68,5 @@ polygon = PackedVector2Array(-14, -13, -14, 13, 16, 13, 16, -13)
 uv = PackedVector2Array(-81.5, -74.5, -80.5, 70.5, 121.5, 61.5, 157.5, -64.5)
 
 [node name="PointLight2D" type="PointLight2D" parent="VisionArea"]
-color = Color(0.2231029, 0.2231029, 0.22310287, 1)
+enabled = false
 texture = SubResource("GradientTexture2D_k83t5")

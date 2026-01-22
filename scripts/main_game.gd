@@ -76,18 +76,21 @@ func decode_all_polygons():
 		var country_id:String = tmpCountries.get("id", "")
 		var playable:bool = tmpCountries.get('playable',false)
 		var regions:Array = tmpCountries.get("regions", [])
-		countries[country_id] = CountryModel.new(country_name,country_id,PackedStringArray())
+		countries[country_id] = CountryModel.new(country_name,country_id,PackedStringArray(),playable)
 		for region in regions:
 			if not region.has("id"):printerr("Region without ID in country %s"%(country_name));continue
 			var polygon_id = region["id"]
 			territories[polygon_id] = TerritoryModel.new(region.get("center",[]),region.get("coordinates", [])[0])
-			countries[country_id].owned_vertices.append(polygon_id)
+			countries[country_id].territories_id.append(polygon_id)
 
-		# make country node
+func place_territory():
+	for country_id in countries:
+		var country:CountryModel = countries[country_id]
+		country.set_territory_color(calculate_territory_color(country_id))
+		if PlayerData.is_country_mine(country_id):
+			country.is_owned_nation = true
 		var tmpRegion:Node2D = territory.instantiate()
-		tmpRegion.name = country_id
-		tmpRegion.country_id = country_id
-		tmpRegion.is_playable_country = playable
+		tmpRegion.country_data = country
 		CountriesParent.add_child(tmpRegion)
 
 
@@ -122,3 +125,9 @@ func _show_diplomacy_information(data:CountryModel):
 
 func _show_country_action_menu():
 	pass
+
+func calculate_territory_color(country_id:String) -> Color:
+	var base_color:Color = GameColors.NationNeutral * 0.6 + Color(randf(),randf(),randf()) * 0.2
+	if PlayerData.is_country_mine(country_id):
+		base_color = GameColors.OwnedNationColor
+	return base_color
