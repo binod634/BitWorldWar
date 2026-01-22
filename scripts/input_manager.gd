@@ -1,7 +1,6 @@
 extends Node
 
 # signals
-signal prompt_building_placement
 signal camera_dragging(status:bool)
 signal camera_level_changed(level:CameraData)
 
@@ -11,11 +10,11 @@ func signal_camera_dragging(status:bool): camera_dragging.emit(status)
 
 
 
-enum InputModes {None,Placement,}
-var currentMode:InputModes = InputModes.None
-
-
-
-func signal_placement():
-	currentMode = InputModes.Placement
-	prompt_building_placement.emit()
+#enum InputModes {None,Placement,}
+#var currentMode:InputModes = InputModes.None
+#
+#
+#
+#func signal_placement():
+#	currentMode = InputModes.Placement
+#	prompt_building_placement.emit()

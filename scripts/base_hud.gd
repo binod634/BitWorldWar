@@ -9,7 +9,8 @@ func _ready() -> void:
 
 
 func register_signals():
-	InputManager.camera_dragging.connect(change_visiblity)
+	#InputManager.camera_dragging.connect(change_visiblity)
+	pass
 
-func change_visiblity(camera_dragging:bool):
-	visible = not camera_dragging
+func change_visiblity(status:bool):
+	visible = status

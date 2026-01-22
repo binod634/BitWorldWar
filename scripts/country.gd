@@ -23,13 +23,13 @@ var building:PackedScene = preload('res://scenes/tmp/building.tscn')
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		queue_redraw()
-		WorldManager.build_ready.connect(build_nodes)
+		WorldManager.setup_completed.connect(build_nodes)
 		WorldManager.relation_changed.connect(check_relation)
 		WorldManager.highlight_territory_for_construction_mode.connect(_highlight_territory_for_construction)
 
-func _highlight_territory_for_construction(territory_id:String):
+func _highlight_territory_for_construction(territory_id:String,old_id:String):
 	if country_data.territories_id.has(territory_id):
-		find_node_in_territory_and_highlight(territory_id)
+		find_node_in_territory_and_highlight(territory_id,old_id)
 
 func build_nodes():
 	build_territory()
@@ -149,8 +149,11 @@ func _body_entered(body: Node2D):
 	if body.has_method("show_em_up"):
 		body.show_em_up()
 
-func find_node_in_territory_and_highlight(territory_id:String):
+func find_node_in_territory_and_highlight(territory_id:String,old_id:String):
 	for i in visual_nodes:
 		if i.name == territory_id:
-			i.color = Color(0,1,0)
+			i.color = country_data.territory_color.lightened(0.3)
+			i.queue_redraw()
+		elif (i.name == old_id):
+			i.color = country_data.territory_color
 			i.queue_redraw()

@@ -23,6 +23,7 @@ var ActionShown:bool = true:
 
 func _ready() -> void:
 	super._ready()
+	WorldManager.overlay_visiblity_changed.connect(change_visiblity)
 	#assert(info_node.visible,"fix it")
 	if AutoHide:
 		get_tree().create_timer(5).timeout.connect(_hide_self)
@@ -51,21 +52,21 @@ func change_layer(value:Layers):
 
 func construct_army_base():
 	print("[*] Requesting Army base construction...")
-	WorldManager.construct_building(Game.BuildingType.ARMY_BASE)
+	WorldManager.construct_building(Game.buildings[Game.BuildingType.ARMY_BASE])
 
 func construct_air_base():
 	print("[*] Requesting Air base construction...")
-	WorldManager.construct_building(Game.BuildingType.AIR_BASE)
+	WorldManager.construct_building(Game.buildings[Game.BuildingType.AIR_BASE])
 
 
 func construct_naval_base():
 	print("[*] Requesting Naval base construction...")
-	WorldManager.construct_building(Game.BuildingType.NAVAL_BASE)
+	WorldManager.construct_building(Game.buildings[Game.BuildingType.NAVAL_BASE])
 
 
 func construct_tank_base():
 	print("[*] Requesting Tank base construction...")
-	WorldManager.construct_building(Game.BuildingType.TANK_BASE)
+	WorldManager.construct_building(Game.buildings[Game.BuildingType.TANK_BASE])
 
 func button_clicked_production():
 	curent_layer = Layers.PRODUCTION_UNIT

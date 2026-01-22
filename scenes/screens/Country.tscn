@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://2psi8lnahwt5"]
 
-[ext_resource type="Script" uid="uid://f2aa3wq54l3i" path="res://scripts/territory.gd" id="1_grpuo"]
+[ext_resource type="Script" uid="uid://w52fkmsc7wto" path="res://scripts/country.gd" id="1_iyi0q"]
 
-[node name="territory" type="Node2D"]
-script = ExtResource("1_grpuo")
+[node name="Country" type="Node2D"]
+script = ExtResource("1_iyi0q")
 
 [node name="CollisionArea" type="Area2D" parent="."]
 z_index = -1

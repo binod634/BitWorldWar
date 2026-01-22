@@ -1,14 +1,14 @@
 extends Node
 
+# enums
 enum ActionType {
 	NONE,
 	BUILD,
 }
 
-
 # signals
-signal build_ready
-signal show_country_action_menu
+signal setup_completed
+signal overlay_visiblity_changed(visible:bool)
 signal show_diplomacy_information_menu(countryData:CountryModel)
 signal relation_changed(id:String,relation:DiplomacyData.relation)
 signal highlight_territory_for_construction_mode(territory_id:String)
@@ -20,12 +20,10 @@ var enemy_nations:Array = []
 var friendly_countries:Array = []
 var territories:Dictionary[String,TerritoryModel]  = {}
 var countries:Dictionary[String,CountryModel] = {}
-var my_country_vertices:Array  = []
-var navigatable_territories:Array = []
-var is_owned_nation_navigatable:bool = false
+var navigatable_territories:PackedStringArray = []
 var selected_territory:String
-var is_in_construction_mode:bool = false
-var current_action_type:ActionType = ActionType.NONE
+var current_action_mode:ActionType = ActionType.NONE
+var current_action_building:BuildingData
 #const file_path:String  = "res://assets/files/simple_countries.json"
 
 
@@ -49,21 +47,20 @@ func is_country_owned(hash_id:String):
 
 
 func pick_nation(country_id:String):
-	assert(not is_owned_nation_navigatable,"Already navitable for owned country. why double. ?")
 	assert(countries.has(country_id),"country id not in countries data...")
-	if is_owned_nation_navigatable || not countries.has(country_id): return
+	if not countries.has(country_id): return
 	PlayerData.select_nation(country_id)
 	make_country_navigatable(country_id)
-	is_owned_nation_navigatable = true
-	build_ready.emit()
+	setup_completed.emit()
 
 
 
 
-func add_navigatable_region(vertices:PackedVector2Array,hashed_name:String,isOwnedTerritory:bool = false):
+func add_navigatable_region(vertices:PackedVector2Array,territory_id:String,isOwnedTerritory:bool = false):
 	var nav_region = NavigationRegion2D.new()
-	nav_region.add_to_group("nav_" + hashed_name)
-	nav_region.name = generate_navigation_region_name(hashed_name)
+	#nav_region.add_to_group("nav_" + territory_id)
+	nav_region.name = territory_id
+	#nav_region.name = generate_navigation_region_name(territory_id)
 	nav_region.enter_cost = 100 if not isOwnedTerritory else 50
 	nav_region.travel_cost = 5 if not isOwnedTerritory else 1
 	nav_region.navigation_layers = 2
@@ -76,20 +73,17 @@ func add_navigatable_region(vertices:PackedVector2Array,hashed_name:String,isOwn
 	get_navigation_parent_node().add_child(nav_region)
 	#print("add navigation success: %s"%[hashed_name])
 
-func simplify_and_shrink(points: PackedVector2Array) -> PackedVector2Array:
-	# 1. Offset (shrink) the polygon inward by 0.1 units
-	# JOIN_MITER (0) keeps corners sharp; -0.1 shrinks it.
-	var offset_polygons = Geometry2D.offset_polygon(points, -0.5, Geometry2D.JOIN_MITER)
+#func simplify_and_shrink(points: PackedVector2Array) -> PackedVector2Array:
+#	# 1. Offset (shrink) the polygon inward by 0.1 units
+#	# JOIN_MITER (0) keeps corners sharp; -0.1 shrinks it.
+#	var offset_polygons = Geometry2D.offset_polygon(points, -0.5, Geometry2D.JOIN_MITER)
+#
+#	if offset_polygons.size() > 0:
+#		return offset_polygons[0] # Returns the newly shrunk polygon
+#	return points
 
-	if offset_polygons.size() > 0:
-		return offset_polygons[0] # Returns the newly shrunk polygon
-	return points
-
-func generate_navigation_region_name(hashed_name:String):
-	return hashed_name + str(RandomNumberGenerator.new().randi())
 
 func get_navigation_parent_node():
-
 	return get_tree().get_first_node_in_group("NavigatableLandRegion")
 
 
@@ -152,36 +146,28 @@ func decode_all_vertices(vertices_data:Dictionary) -> Array[PackedVector2Array]:
 func territory_clicked(country_id:String,territory_id:String):
 	assert(countries.has(country_id))
 	if PlayerData.is_country_mine(country_id):
-		selected_territory = territory_id
 		assert(territories.has(territory_id))
 		print("[*] data got of mine. country_id: %s and territory_id: %s."%[country_id,territory_id])
-		if current_action_type == ActionType.NONE:
-			show_country_action_menu.emit()
-		else:
-			highlight_territory_for_construction_mode.emit(territory_id)
+		highlight_territory_for_construction_mode.emit(territory_id,selected_territory)
+		selected_territory = territory_id
 
-	else:
+	elif (current_action_mode == ActionType.NONE):
 		show_diplomacy_information_menu.emit(countries[country_id])
 
-func construct_building(type:Game.BuildingType):
-	assert(not selected_territory.is_empty())
-	if not territories[selected_territory].is_building_addable(): return
-	var building:BuildingModel = BuildingModel.new(type)
-	territories[selected_territory].add_building(building)
+func construct_building(type:BuildingData):
+	current_action_mode = ActionType.BUILD
+	overlay_visiblity_changed.emit(false)
+	current_action_building = type
 
 
 func check_building_count(type:Game.BuildingType) -> int:
 	assert(Game.buildings.has(type),"No such building type")
 	var count:int = 0
-	for  a in my_country_vertices:
+	for  a in countries[PlayerData.selected_nation_id].territories_id:
 		for b in territories[a].buildings:
 			if b.building_type == Game.buildings[type]:
 				count += 1
 	return count
-
-func spawn_unit():
-	pass
-
 
 func check_production_for_active_building():
 	var time_passed:float = Game.time_interval * Game.time_scale
@@ -197,11 +183,9 @@ func check_production_for_active_building():
 				if building.current_production_queue > 0:
 					building.current_production_queue -= 1
 					building.remaining_time = building.production_time - time_passed
-					spawn_unit()
 				else:
 					building.is_active = false
 					building.remaining_time = 0
-					spawn_unit()
 
 
 

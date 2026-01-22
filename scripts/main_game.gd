@@ -2,7 +2,7 @@
 extends Node2D
 
 # Territory scene to instantiate for each country
-var territory:PackedScene = preload("res://scenes/screens/Territory.tscn")
+var country_scene:PackedScene = preload("res://scenes/screens/Country.tscn")
 const REGIONS_FOLDER:String = "res://assets/files/regions_output/"
 var territories:Dictionary[String,TerritoryModel]
 var countries:Dictionary[String,CountryModel]
@@ -19,6 +19,7 @@ func _ready() -> void:
 	if	not Engine.is_editor_hint():
 		decode_all_polygons()
 		provide_countries_data()
+		put_countries()
 		register_signals()
 		queue_redraw()
 
@@ -31,9 +32,9 @@ func build_map():
 func build_polygons():
 	if territories.is_empty():
 		decode_all_polygons()
-	put_polygons()
+	put_countries()
 
-func put_polygons():
+func put_countries():
 	for territory_id in territories:
 		var polygon:Polygon2D = Polygon2D.new()
 		polygon.polygon = territories[territory_id].coordinates
@@ -89,9 +90,9 @@ func place_territory():
 		country.set_territory_color(calculate_territory_color(country_id))
 		if PlayerData.is_country_mine(country_id):
 			country.is_owned_nation = true
-		var tmpRegion:Node2D = territory.instantiate()
-		tmpRegion.country_data = country
-		CountriesParent.add_child(tmpRegion)
+		var country_node:Node2D = country_scene.instantiate()
+		country_node.country_data = country
+		CountriesParent.add_child(country_node)
 
 
 func get_region_files() -> Array:
@@ -117,7 +118,6 @@ func load_region_file(file_path:String) -> Dictionary:
 
 
 func register_signals():
-	WorldManager.show_country_action_menu.connect(_show_country_action_menu)
 	WorldManager.show_diplomacy_information_menu.connect(_show_diplomacy_information)
 
 func _show_diplomacy_information(data:CountryModel):
