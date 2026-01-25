@@ -143,12 +143,14 @@ func calculate_polygon_area(points: PackedVector2Array) -> float:
 func decode_all_vertices(vertices_data:Dictionary) -> Array[PackedVector2Array]:
 	return GeoHelper.decode_all_vertices(vertices_data)
 
+
 func territory_clicked(country_id:String,territory_id:String):
 	assert(countries.has(country_id))
 	if PlayerData.is_country_mine(country_id):
 		assert(territories.has(territory_id))
 		print("[*] data got of mine. country_id: %s and territory_id: %s."%[country_id,territory_id])
-		highlight_territory_for_construction_mode.emit(territory_id,selected_territory)
+		if current_action_mode == ActionType.BUILD:
+			highlight_territory_for_construction_mode.emit(territory_id,selected_territory)
 		selected_territory = territory_id
 
 	elif (current_action_mode == ActionType.NONE):

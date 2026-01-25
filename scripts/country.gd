@@ -10,9 +10,6 @@ var territory_data_list:Dictionary[String,TerritoryModel] = {}
 @onready var CollisionArea:Area2D = $CollisionArea
 @onready var Visuals:Node2D = $Visuals
 @onready var Armys:Node2D = $Army
-var neutral_offset_color:Color = GameColors.NationNeutral * 0.6 + Color(randf(),randf(),randf()) * 0.2
-var is_owned_nation:bool
-var territory_color:Color
 var current_hover_idx:int = -1 # invalid idx for now
 
 # scenes
@@ -21,27 +18,27 @@ var building:PackedScene = preload('res://scenes/tmp/building.tscn')
 
 
 func _ready() -> void:
-	if not Engine.is_editor_hint():
-		queue_redraw()
-		WorldManager.setup_completed.connect(build_nodes)
-		WorldManager.relation_changed.connect(check_relation)
-		WorldManager.highlight_territory_for_construction_mode.connect(_highlight_territory_for_construction)
+	build_nodes()
+	WorldManager.setup_completed.connect(build_nodes)
+	WorldManager.relation_changed.connect(check_relation)
+	WorldManager.highlight_territory_for_construction_mode.connect(_highlight_territory_for_construction)
 
 func _highlight_territory_for_construction(territory_id:String,old_id:String):
 	if country_data.territories_id.has(territory_id):
 		find_node_in_territory_and_highlight(territory_id,old_id)
 
 func build_nodes():
+	print("building...")
 	build_territory()
 	deploy_army()
-	build_owned_signals()
+	#build_owned_signals()
 
 
-
-func build_owned_signals():
-	if not  is_owned_nation: return
-	InputManager.prompt_building_placement.connect(_prompt_building_placement)
-
+#
+#func build_owned_signals():
+#	if not  is_owned_nation: return
+#	InputManager.prompt_building_placement.connect(_prompt_building_placement)
+#
 
 func _prompt_building_placement():
 	var tmpBuilding:StaticBody2D = building.instantiate()
@@ -53,7 +50,7 @@ func _prompt_building_placement():
 
 func check_relation(id:String,relation:DiplomacyData.relation) -> void:
 	if id == country_data.country_id:
-		change_nodes_color(GameColors.EnemyNationColor if relation == DiplomacyData.relation.war else neutral_offset_color)
+		change_nodes_color(GameColors.EnemyNationColor if relation == DiplomacyData.relation.war else country_data.territory_color)
 
 func change_nodes_color(color:Color) -> void:
 	for node in visual_nodes:
@@ -74,10 +71,10 @@ func _draw() -> void:
 
 
 func build_territory():
-	for territory_id in territory_data_list:
-		var territory:TerritoryModel = territory_data_list[territory_id]
+	for territory_id in country_data.territories_id:
+		var territory:TerritoryModel = WorldManager.get_territory_for_id(territory_id)
 		build_polygon_centers(territory)
-		build_polygon_node(territory.coordinates,territory_id,GameColors.OwnedNationColor if is_owned_nation else neutral_offset_color)
+		build_polygon_node(territory.coordinates,territory_id,country_data.territory_color)
 		build_collision_node(territory.coordinates,territory_id)
 
 
@@ -152,8 +149,10 @@ func _body_entered(body: Node2D):
 func find_node_in_territory_and_highlight(territory_id:String,old_id:String):
 	for i in visual_nodes:
 		if i.name == territory_id:
-			i.color = country_data.territory_color.lightened(0.3)
+			#i.color = country_data.territory_color.lightened(0.8)
+			i.self_modulate = country_data.territory_color * 1.1
 			i.queue_redraw()
 		elif (i.name == old_id):
+			i.self_modulate = Color.WHITE
 			i.color = country_data.territory_color
 			i.queue_redraw()

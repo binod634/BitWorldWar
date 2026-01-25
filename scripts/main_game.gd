@@ -19,7 +19,7 @@ func _ready() -> void:
 	if	not Engine.is_editor_hint():
 		decode_all_polygons()
 		provide_countries_data()
-		put_countries()
+		add_countries_nodes()
 		register_signals()
 		queue_redraw()
 
@@ -84,13 +84,14 @@ func decode_all_polygons():
 			territories[polygon_id] = TerritoryModel.new(region.get("center",[]),region.get("coordinates", [])[0])
 			countries[country_id].territories_id.append(polygon_id)
 
-func place_territory():
+func add_countries_nodes():
 	for country_id in countries:
 		var country:CountryModel = countries[country_id]
 		country.set_territory_color(calculate_territory_color(country_id))
 		if PlayerData.is_country_mine(country_id):
-			country.is_owned_nation = true
+			country.is_owned = true
 		var country_node:Node2D = country_scene.instantiate()
+		country_node.name = country_id
 		country_node.country_data = country
 		CountriesParent.add_child(country_node)
 
