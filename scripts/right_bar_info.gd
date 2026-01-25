@@ -10,6 +10,7 @@ var country_name:String = "":
 
 func _ready() -> void:
 	super._ready()
+	WorldManager.overlay_visiblity_changed.connect(change_visiblity)
 
 
 func set_country_data(data:CountryModel):

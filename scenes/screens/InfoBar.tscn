@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccf3ax2ti73he"]
+
+[ext_resource type="Script" uid="uid://t0sfvwnbthwd" path="res://scenes/screens/scripts/info_bar.gd" id="1_s54u7"]
+[ext_resource type="Theme" uid="uid://bo3dobgyi6d3r" path="res://settings/theme/theme.tres" id="2_3ghnh"]
+[ext_resource type="LabelSettings" uid="uid://2kcv3edumldm" path="res://settings/label/panel_header_info.tres" id="8_sjyho"]
+
+[node name="InfoBar" type="CanvasLayer"]
+script = ExtResource("1_s54u7")
+
+[node name="SizeTheme2" type="Control" parent="."]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 75.0
+offset_right = 500.0
+offset_bottom = 125.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_3ghnh")
+
+[node name="Backgrounds" type="Control" parent="SizeTheme2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="SizeTheme2/Backgrounds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NormalInformation" type="MarginContainer" parent="SizeTheme2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme2/NormalInformation"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="Spacing" type="HBoxContainer" parent="SizeTheme2/NormalInformation/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuildingPlacementInfo" type="MarginContainer" parent="SizeTheme2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SizeTheme2/BuildingPlacementInfo"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="SizeTheme2/BuildingPlacementInfo/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Click on a territory to place the building."
+label_settings = ExtResource("8_sjyho")
+horizontal_alignment = 1

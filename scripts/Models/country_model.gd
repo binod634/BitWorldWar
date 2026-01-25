@@ -16,4 +16,3 @@ func _init(name:String,id:String,territory_id_array:PackedStringArray,playable:b
 
 func set_territory_color(color:Color) -> void:
 	territory_color = color
-

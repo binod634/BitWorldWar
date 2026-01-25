@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://6k5vuafsfg2t"]
+[gd_scene load_steps=15 format=3 uid="uid://6k5vuafsfg2t"]
 
 [ext_resource type="Script" uid="uid://bl21gx7k7gtcw" path="res://scripts/main_game.gd" id="1_du05j"]
 [ext_resource type="PackedScene" uid="uid://d4gy0rd3mo67s" path="res://scenes/screens/TopPanelBar.tscn" id="3_ao4ig"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bkai00fmv5u6b" path="res://scenes/screens/LeftBarInfo.tscn" id="8_6pk0q"]
 [ext_resource type="PackedScene" uid="uid://cg0rtt72hl4fq" path="res://scenes/objects/bomber.tscn" id="9_s4ij8"]
 [ext_resource type="PackedScene" uid="uid://c4rkdw3qkdjuj" path="res://scenes/screens/UnitsActionBar.tscn" id="10_a44un"]
+[ext_resource type="PackedScene" uid="uid://ccf3ax2ti73he" path="res://scenes/screens/InfoBar.tscn" id="11_rw0wm"]
 
 [sub_resource type="Environment" id="Environment_a44un"]
 background_mode = 3
@@ -108,6 +109,8 @@ AutoHide = false
 
 [node name="UnitsAction" parent="VisiblityLayer" instance=ExtResource("10_a44un")]
 visible = false
+
+[node name="InfoBar" parent="VisiblityLayer" instance=ExtResource("11_rw0wm")]
 
 [node name="TestUnits" type="Node2D" parent="."]
 

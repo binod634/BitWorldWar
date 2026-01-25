@@ -20,4 +20,3 @@ func increase_building_level():
 
 func is_max_leveled():
 	return current_level == building_type.max_level
-

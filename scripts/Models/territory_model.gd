@@ -1,4 +1,5 @@
 class_name TerritoryModel extends RefCounted
+
 var center:Vector2
 var coordinates:PackedVector2Array
 var buildings:Array[BuildingModel]

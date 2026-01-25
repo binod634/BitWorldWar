@@ -12,6 +12,7 @@ signal overlay_visiblity_changed(visible:bool)
 signal show_diplomacy_information_menu(countryData:CountryModel)
 signal relation_changed(id:String,relation:DiplomacyData.relation)
 signal highlight_territory_for_construction_mode(territory_id:String)
+signal info_bar_visiblity_changed(status:bool)
 
 const raw_vector_scale_value:Vector2 = GeoHelper.raw_vector_scale_value
 const raw_vector_offset_value:Vector2 = GeoHelper.raw_vector_offset_value
